@@ -63,7 +63,7 @@ the variable $K$, which we will treat as a given parameter):
 \end{align}
 From now on, let $K$ always denote a rate of convergence of the sequence $\delta_{(\cdot)}$ 
 (i.e. a function satisfying~\eqref{two}) and $B$ the upper bound of $X_{(\cdot)}$ (such a bound
-can be defined primitive recursively in $K(0)$ and some elements of $X_{(\cdot)}$, see Theorem~\ref{t:fin}).\\
+can be defined primitive recursively in $K(0)$ and some elements of $X_{(\cdot)}$, see Proposition~\ref{p:fin}).\\
 It is easy to show that the sequence $(||X_n||)_n$ is a Cauchy sequence 
 (see proof of Lemma~\ref{l:N0} below). Such an arithmetical formulation
 of the convergence of $(||X_n||)_n$ is sufficient
@@ -76,7 +76,7 @@ the fact that such an $n$ exists for any given precision $l$. %We denote such an
 From~\ref{n_epsilon} we infer that
 \[\forall l\exists n_l \forall m,n\geq n_l\ \forall k\geq K(l)\quad
  \big(\ \langle X_{n+k}, X_{m+k} \rangle \leq \langle X_{n}, X_{m} \rangle + 2^{-l}\ \big),\tag{W1}\label{w:1}\]
-the same way as Wittmann in~\cite{Wittmann90}, see also the end of the proof of Lemma~\ref{l:scpb} in Section~\ref{s:Lemmas}.
+the same way as Wittmann in~\cite{Wittmann90}, see also the end of the proof of Lemma~\ref{l:scpb}.
 From now on, by $n_l$ we always denote an $n_l$ which satisfies~\eqref{w:1}.\\
 Since the norm of any convex combination of the elements of the sequence is bounded from below by $0$, the
 set of all such convex combinations has an infimum. To give an arithmetic
@@ -115,7 +115,7 @@ and together with~\eqref{w:3} and the parallelogram identity we can conclude tha
 \[
 \forall l,i,j\ \Big(\big\|Z(l,n_l,p_l,i)-Z(l,n_l,p_l,j)\big\|^2 \leq  2^{-l+4}\Big).
 \]\\
-Secondly, it follows from the definition of $Z$ (yet again see~\cite{Wittmann90} or Section~\ref{s:Lemmas}, 
+Secondly, it follows from the definition of $Z$ (yet again see~\cite{Wittmann90} or  
 proof of Lemma~\ref{l:ZA}) that 
 %\begin{align*} \forall &l,m\geq p_l\quad\\ &\Big( \|Z(l,n_l,p_l,m)-A_{m+1}\|\leq \frac{
 % 2p_l\sup_{n\in\NN}\|X_n\|+2(n_l+K(l))\sup_{n\in\NN}\|X_n\|}{m+1} \Big),\end{align*}

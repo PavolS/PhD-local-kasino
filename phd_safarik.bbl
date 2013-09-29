@@ -4,11 +4,12 @@
 Y.~Akama, S.~Berardi, S.~Hayashi, and U.~Kohlenbach.
 \newblock An arithmetical hierarchy of the law of excluded middle and related
   principles.
-\newblock In {\em Proc. of the 19th Annual IEEE Symposium on Logic in Computer
-  Science (LICS'04)}, pages 192--201. IEEE PressIEEE Press, 2004.
+\newblock In {\em Proc. of the 19\textsuperscript{th} Annual IEEE Symposium on
+  Logic in Computer Science (LICS'04)}, pages 192--201. IEEE PressIEEE Press,
+  2004.
 
 \bibitem{aksoykhamsi90}
-A.G. Aksoy and M.A. Khamsi.
+A.~Aksoy and M.~Khamsi.
 \newblock {\em Nonstandard methods in fixed point theory}.
 \newblock Universitext. Springer-Verlag, New York, 1990.
 
@@ -18,16 +19,16 @@ F.~Aschieri.
   games: Soundness and completeness}.
 \newblock To appear in Ann. Pure Appl. Logic.
 
+\bibitem{Aschieri1}
+F.~Aschieri.
+\newblock A constructive analysis of learning in peano arithmetic.
+\newblock {\em Ann. Pure Appl. Logic}, 163(11):1448--1470, 2012.
+
 \bibitem{Aschieri/Berardi}
 F.~Aschieri and S.~Berardi.
 \newblock A new use of friedman's translation: interactive realizability.
-\newblock In Berger et~als, editor, {\em Logic, Construction, Computation}.
+\newblock In B.~et~als, editor, {\em Logic, Construction, Computation}.
   Ontos-Verlag Series in Mathematical Logic, 2012.
-
-\bibitem{Aschieri1}
-Federico Aschieri.
-\newblock A constructive analysis of learning in peano arithmetic.
-\newblock {\em Ann. Pure Appl. Logic}, 163(11):1448--1470, 2012.
 
 \bibitem{avigad09}
 J.~Avigad.
@@ -36,7 +37,7 @@ J.~Avigad.
 
 \bibitem{AF98}
 J.~Avigad and S.~Feferman.
-\newblock {G}\"odels's functional ("{D}ialectica") interpretation {\em in} {S}.
+\newblock {G}\"odels's functional ("{D}ialectica") interpretation {\em in s}.
   {R}. {B}uss ({E}ditor): {H}andbook of proof theory.
 \newblock {\em Studies in Logic and the foundations of mathematics},
   137:337--405, 1998.
@@ -55,7 +56,7 @@ J.~Avigad and J.~Helzner.
 J.~{Avigad} and J.~{Rute}.
 \newblock {Oscillation and the mean ergodic theorem for uniformly convex Banach
   spaces}.
-\newblock {\em ArXiv e-prints}, March 2012.
+\newblock {\em ArXiv e-prints}, Mar. 2012.
 
 \bibitem{Baillon1975}
 J.~B. Baillon.
@@ -72,25 +73,25 @@ J.~B. Baillon.
   1976.
 
 \bibitem{Berardi/Coquand/Hayashi}
-S.~Berardi, T~Coquand, and S.~Hayashi.
+S.~Berardi, T.~Coquand, and S.~Hayashi.
 \newblock Games with 1-backtracking.
 \newblock {\em Ann. Pure Appl. Logic}, 161:1254--1264, 2010.
 
 \bibitem{Bezem85}
 M.~Bezem.
-\newblock {S}trongly {M}ajorizable {F}unctionals of {F}inite {T}ype: {A}
-  {M}odel for {B}ar {R}ecursion {C}ontaining {D}isonctinuous {F}unctionals.
+\newblock {S}trongly {M}ajorizable {F}unctionals of {F}inite {T}ype: {A M}odel
+  for {B}ar {R}ecursion {C}ontaining {D}isonctinuous {F}unctionals.
 \newblock {\em The Journal of Symbolic Logic}, 50:652--660, 1985.
 
 \bibitem{BG11}
-Vasco Brattka and Guido Gherardi.
+V.~Brattka and G.~Gherardi.
 \newblock {Weihrauch degrees, omniscience principles and weak computability.}
 \newblock {\em J. Symb. Log.}, 76(1):143--176, 2011.
 
 \bibitem{BGM12}
-Vasco Brattka, Guido Gherardi, and Alberto Marcone.
-\newblock The {B}olzano-{W}eierstrass theorem is the jump of weak {K}{\H
-  o}nig's lemma.
+V.~Brattka, G.~Gherardi, and A.~Marcone.
+\newblock The {B}olzano-{W}eierstrass theorem is the jump of weak {K\H o}nig's
+  lemma.
 \newblock {\em Ann. Pure Appl. Logic}, 163(6):623--655, 2012.
 
 \bibitem{Brezis1976}
@@ -136,7 +137,7 @@ P.~Engr\'acia.
 \bibitem{Feferman77}
 S.~Feferman.
 \newblock {\em {T}heories of finite type related to mathematical practice {\em
-  in} {J}. {B}arwise ({E}ditor): {H}andbook of {M}athematical {L}ogic}.
+  in J}. {B}arwise ({E}ditor): {H}andbook of {M}athematical {L}ogic}.
 \newblock North Holland, Amsterdam, 1977.
 
 \bibitem{ferreira09}
@@ -152,7 +153,7 @@ F.~Ferreira and P.~Oliva.
 \bibitem{Friedman(78)}
 H.~Friedman.
 \newblock Classical and intuitionistically provably recursive functions.
-\newblock In Scott~D.S. M\"uller, G.H., editor, {\em Higher Set Theory}, pages
+\newblock In S.~D. M\"uller, G.H., editor, {\em Higher Set Theory}, pages
   21--27. Springer LNM 669, 1978.
 
 \bibitem{gaspar09}
@@ -162,7 +163,7 @@ J.~Gaspar.
 \newblock {\em Notre Dame J. Form. Log.}, 50(1):53--60, 2009.
 
 \bibitem{GasparKohlenbach}
-Jaime Gaspar and Ulrich Kohlenbach.
+J.~Gaspar and U.~Kohlenbach.
 \newblock On {T}ao's ``finitary'' infinite pigeonhole principle.
 \newblock {\em J. Symbolic Logic}, 75(1):355--371, 2010.
 
@@ -229,8 +230,8 @@ B.~Halpern.
 \bibitem{Hayashi02}
 S.~Hayashi.
 \newblock Mathematics based on learning.
-\newblock In {\em Proc. 13th Internat. Conf. ALT 2002 Vol. 272}, pages 7--21.
-  Springer Lecture Notes in Artificial Intelligence, 2002.
+\newblock In {\em Proc. 13\textsuperscript{th} Internat. Conf. ALT 2002 Vol.
+  272}, pages 7--21. Springer Lecture Notes in Artificial Intelligence, 2002.
 
 \bibitem{Hayashi06}
 S.~Hayashi.
@@ -242,11 +243,11 @@ S.~Hayashi.
 \bibitem{Hayashi/Nakata}
 S.~Hayashi and M.~Nakata.
 \newblock Towards limit computable mathematics.
-\newblock In P.~Callaghan et~al., editor, {\em TYPES 2000}, pages 125--144.
-  Springer LNCS {\bf 2277}, 2002.
+\newblock In P.~C. et~al., editor, {\em TYPES 2000}, pages 125--144. Springer
+  LNCS {\bf 2277}, 2002.
 
 \bibitem{hensonkeisler86}
-C.W. Henson and H.J. Keisler.
+C.~Henson and H.~Keisler.
 \newblock On the strength of nonstandard analysis.
 \newblock {\em J. Symbolic Logic}, 51(2):377--386, 1986.
 
@@ -257,7 +258,7 @@ K.~Higuchi and T.~Kihara.
 \newblock Preprint, 2012.
 
 \bibitem{HP11}
-Kojiro Higuchi and Arno Pauly.
+K.~Higuchi and A.~Pauly.
 \newblock The degree structure of weihrauch-reducibility.
 \newblock {\em Logical Methods in Computer Science}, 9(2), 2011.
 
@@ -305,7 +306,7 @@ T.~Kamae.
 \newblock {\em Israel J. Math.}, 42(4):284--290, 1982.
 
 \bibitem{keisler07}
-H.J. Keisler.
+H.~Keisler.
 \newblock The strength of nonstandard analysis.
 \newblock In {\em The strength of nonstandard analysis}, pages 3--26.
   SpringerWienNewYork, Vienna, 2007.
@@ -347,7 +348,7 @@ U.~Kohlenbach.
 
 \bibitem{Kohlenbach98}
 U.~Kohlenbach.
-\newblock {A}rithmetizing proofs in analysis {\em in} {L}arrazabal, {J.M.},
+\newblock {A}rithmetizing proofs in analysis {\em in l}arrazabal, {J.M.},
   {L}ascar, {D}., {M}ints, {G}. ({E}ditors): {L}ogic {C}olloquium '96.
 \newblock {\em Springer Lecture Notes in Logic}, 12:115--158, 1998.
 
@@ -390,6 +391,13 @@ U.~Kohlenbach.
   mathematics}.
 \newblock Springer Monographs in Mathematics. Springer-Verlag, Berlin, 2008.
 
+\bibitem{KohlenbachMints}
+U.~Kohlenbach.
+\newblock On the logical analysis of proofs based on nonseparable {H}ilbert
+  space theory.
+\newblock In {\em Proofs, categories and computations}, volume~13 of {\em
+  Tributes}, pages 131--143. Coll. Publ., London, 2010.
+
 \bibitem{Kohlenbach2011}
 U.~Kohlenbach.
 \newblock {O}n quantitative versions of theorems due to {F}.{E}. {B}rowder and
@@ -399,12 +407,18 @@ U.~Kohlenbach.
 \bibitem{Kohlenbach2011odd}
 U.~Kohlenbach.
 \newblock On the asymptotic behavior of odd operators.
-\newblock {\em Journal of Mathematical Analysis and Applications}, 382(2):615
-  -- 620, 2011.
+\newblock {\em Journal of Mathematical Analysis and Applications},
+  382(2):615--620, 2011.
+
+\bibitem{Kohlenbach(Baillon)}
+U.~Kohlenbach.
+\newblock A uniform quantitative form of sequential weak compactness and
+  {B}aillon's nonlinear ergodic theorem.
+\newblock {\em Commun. Contemp. Math.}, 14(1):1250006, 20, 2012.
 
 \bibitem{Kohlenbach/Leustean6}
 U.~Kohlenbach and L.~Leu\c{s}tean.
-\newblock Effective metastability of halpern iterates in cat(0) spaces.
+\newblock Effective metastability of {H}alpern iterates in cat(0) spaces.
 \newblock {\em Adv. Math.}, 231:2526--2556, 2012.
 
 \bibitem{Kohlenbach/Leustean7}
@@ -443,22 +457,9 @@ U.~Kohlenbach and P.~Safarik.
 \newblock Fluctuations, effective learnability and metastability in analysis.
 \newblock to appear in Ann. Pure and Applied Logic.
 
-\bibitem{KohlenbachMints}
-Ulrich Kohlenbach.
-\newblock On the logical analysis of proofs based on nonseparable {H}ilbert
-  space theory.
-\newblock In {\em Proofs, categories and computations}, volume~13 of {\em
-  Tributes}, pages 131--143. Coll. Publ., London, 2010.
-
-\bibitem{Kohlenbach(Baillon)}
-Ulrich Kohlenbach.
-\newblock A uniform quantitative form of sequential weak compactness and
-  {B}aillon's nonlinear ergodic theorem.
-\newblock {\em Commun. Contemp. Math.}, 14(1):1250006, 20, 2012.
-
 \bibitem{Koernlein}
 D.~K\"ornlein.
-\newblock Analysis of a proof due to xu.
+\newblock Analysis of a proof due to {X}u.
 \newblock Preprint, 2012.
 
 \bibitem{Kreisel51}
@@ -539,13 +540,13 @@ P.~G. Odifreddi.
   B.V., 1989.
 
 \bibitem{OP12}
-Paulo Oliva and Thomas Powell.
+P.~Oliva and T.~Powell.
 \newblock A game-theoretic computational interpretation of proofs in classical
   analysis.
 \newblock {\em CoRR}, abs/1204.5244, 2012.
 
 \bibitem{OP12br}
-Paulo Oliva and Thomas Powell.
+P.~Oliva and T.~Powell.
 \newblock On spector's bar recursion.
 \newblock {\em Mathematical Logic Quarterly}, 58(4-5):356--265, 2012.
 
@@ -573,17 +574,17 @@ B.~D. Rouhani.
 
 \bibitem{Safarik08}
 P.~Safarik.
-\newblock {\em {O}n the {I}nterpretation of the {B}olzano-{W}eierstra{\ss}
-  {P}rinciple {U}sing {B}ar {R}ecursion}.
-\newblock 2008.
+\newblock {O}n the {I}nterpretation of the {B}olzano-{W}eierstra{\ss}
+  {P}rinciple {U}sing {B}ar {R}ecursion.
+\newblock Diplomarbeit, {TU D}armstadt, 2008.
 
 \bibitem{Safarik(11)}
 P.~Safarik.
-\newblock A quantitative nonlinear strong ergodic theorem for hilbert spaces.
+\newblock A quantitative nonlinear strong ergodic theorem for {Hilbert} spaces.
 \newblock {\em J. Math. Anal. Appl.}, 391:26--37, 2012.
 
 \bibitem{KS10}
-Pavol Safarik and Ulrich Kohlenbach.
+P.~Safarik and U.~Kohlenbach.
 \newblock On the computational content of the {B}olzano-{W}eierstra\ss\
   principle.
 \newblock {\em MLQ Math. Log. Q.}, 56(5):508--532, 2010.
@@ -604,17 +605,17 @@ H.~Schwichtenberg.
 \newblock {O}n {B}ar {R}ecursion of {T}ypes $0$ and $1$.
 \newblock {\em The Journal of Symbolic Logic}, 44:325--329, 1979.
 
-\bibitem{Shoenfield67}
-Joseph~R. Shoenfield.
-\newblock {\em Mathematical logic}.
-\newblock Addison-Wesley Publishing Co., Reading, Mass.-London-Don Mills, Ont.,
-  1967.
-
 \bibitem{shoenfield01}
-J.R. Shoenfield.
+J.~Shoenfield.
 \newblock {\em Mathematical logic}.
 \newblock Association for Symbolic Logic, Urbana, IL, 2001.
 \newblock Reprint of the 1973 second printing.
+
+\bibitem{Shoenfield67}
+J.~R. Shoenfield.
+\newblock {\em Mathematical logic}.
+\newblock Addison-Wesley Publishing Co., Reading, Mass.-London-Don Mills, Ont.,
+  1967.
 
 \bibitem{Sieg}
 W.~Sieg.
@@ -628,7 +629,7 @@ S.~G. Simpson, editor.
   Heidelberg $\cdot$ New York, 1999.
 
 \bibitem{Simpson1999}
-Stephen~G. Simpson.
+S.~G. Simpson.
 \newblock {\em {S}ubsystems of second order arithmetic}.
 \newblock Perspectives in Mathematical Logic. Springer-Verlag, Berlin, 1999.
 
@@ -658,6 +659,12 @@ W.~W. Tait.
   van Rootselaar and J. F. Staal (ed.)), North-Holland, Amsterdam}, pages
   185--199, 1976.
 
+\bibitem{tao-2007}
+T.~Tao.
+\newblock Norm convergence of multiple ergodic averages for commuting
+  transformations.
+\newblock {\em Ergodic Theory and Dynamical Systems}, 28:657--688, Apr. 2008.
+
 \bibitem{Tao07}
 T.~Tao.
 \newblock {\em {S}oft analysis, hard analysis, and the finite convergence
@@ -665,12 +672,6 @@ T.~Tao.
 \newblock Available at:
   http://terrytao.wordpress.com/2007/05/23/soft-analysis-hard-analysis-and-the-finite-convergence-principle,
   Essay posted May 23, 2007.
-
-\bibitem{tao-2007}
-Terence Tao.
-\newblock Norm convergence of multiple ergodic averages for commuting
-  transformations.
-\newblock {\em Ergodic Theory and Dynamical Systems}, 28:657--688, 4 2008.
 
 \bibitem{Toftdal}
 M.~Toftdal.
@@ -698,7 +699,7 @@ A.~S. Troelstra and D.~van Dalen.
 \newblock An introduction.
 
 \bibitem{BBS12}
-Benno van~den Berg, Eyvind~Martol Briseid, and Pavol Safarik.
+B.~van~den Berg, E.~M. Briseid, and P.~Safarik.
 \newblock A functional interpretation for nonstandard arithmetic.
 \newblock {\em Ann. Pure Appl. Logic}, 163(12):1962--1994, 2012.
 

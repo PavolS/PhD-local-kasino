@@ -161,6 +161,16 @@ even necessary, to simplify (in the sense of proof-theoretic strength) the analy
 in Section~\ref{s:ArProof}. As one can see, in fact the proof uses only arithmetical versions of
 the non-trivial principles (which can be proved by $\SiLm\IA$) and therefore we 
 know that the use of $\BR_{0,1}$ can be eliminated as well. 
+In fact, for these arithmetic versions the bounds for the witnesses for the metastable
+formulations are already known and rather simple.
+\begin{prop}[Kohlenbach~\cite{Kohlenbach08}]\label{p:Ulrich}
+Let $(a_n)$ be a nonincreasing sequence in $[0,C]$ for some constant $C\in\NN$, then
+\[ \forall k\in\NN,g\in\NN^\NN\exists n\leq F(g,k,C)\forall i,j\in[n;n+g(n)]\ \big(|a_i-a_j|<2^{-k}\big), \]
+where $F(g,k,C):={\tilde g}^{C\cdot 2^k}(0)$ with $\tilde g(n):=n+g(n)$.
+\end{prop}
+\begin{proof}
+See Propositions 2.27 and Remark 2.29 in~\cite{Kohlenbach08}.\\
+\end{proof}\\
 Hence, we can infer that there is actually {\em an ordinary primitive recursive bound} (a bound in $\T_0$)
 which we give explicitly in Section~\ref{s:Main}, Corollary~\ref{c:fin21}.\\
 We should point out that the original Corollary in~\cite{GK08} can be used
@@ -215,8 +225,9 @@ by Theorem~\ref{t:GKmeta2} that
 	      &\exists m\leq_\NN M(l,g,b_{(\cdot)},K)\ ( \|A_mx-A_{m+g(m)}x\|\leq 2^{-l}) \ \big).
 \end{align*}
 Similarly as before, $\TAN'$ implies $\forall i\in\NN\ ( X_i\leq b_i)$ for a suitable $b_{(\cdot)}$.
-We give such a bound explicitly in Section~\ref{s:Main}, Theorem~\ref{t:fin}. To be precise,
-in Theorem~\ref{t:fin} we give a bound $M(l,g, b_0, b_1, \ldots, b_{K(0)},K)$ for 
+We give such a bound explicitly in Section~\ref{s:Main}. To be precise,
+%in Theorem~\ref{t:fin}
+we give a bound $M(l,g, b_0, b_1, \ldots, b_{K(0)},K)$ for 
 an arbitrary sequence $\delta_{(\cdot)}\in\RR^\NN$ converging to zero with the rate $K$. In the simplified case for 
 the unit interval, it is straightforward to see that the bound also
 simplifies to an even more uniform bound $M(l,g,b_0,K)$.\\

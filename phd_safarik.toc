@@ -37,7 +37,7 @@
 \contentsline {subsection}{\numberline {3.2}Obtaining a bound}{79}
 \contentsline {subsection}{\numberline {3.3}A general bound existence theorem}{80}
 \contentsline {subsection}{\numberline {3.4}Uniform bounds for Wittmann's ergodic theorems}{84}
-\contentsline {subsection}{\numberline {3.5}Proof of Proposition\nobreakspace {}3.8\hbox {}}{87}
+\contentsline {subsection}{\numberline {3.5}Proof of Proposition\nobreakspace {}3.9\hbox {}}{87}
 \contentsline {section}{\numberline {4}Interpreting Bolzano-Weierstra{\ss }}{94}
 \contentsline {subsection}{\numberline {4.1}Interpreting Bolzano-Weierstra{\ss }}{96}
 \contentsline {subsection}{\numberline {4.2}Analysis of the Complexity of the Realizers}{109}

@@ -32,11 +32,14 @@ also highly uniform) bound on the number of fluctuations (for the case of Hilber
 was already obtained with an even better bound in \cite{Jones}).\\
 This leads us to a very natural question: What kind of effective bounds (explicit information) is extractable
 under which general logical conditions on convergence proofs.  \\
-In this thesis we discuss four natural kinds of such finitary information and analyse the corresponding
+In this thesis we discuss four natural kinds of such finitary information and analyze the corresponding
 conditions.\\
-Once we established this basis for computational content extraction, we also investigate, so to say, the oposite approach. 
+While the results we obtain in the process explain a very common form of realizers for strong ergodic theorems
+in seemingly unrelated logical circumstances, there is a notable exception to this pattern published in~\cite{Safarik(11)}. We will see how the nested realizer from~\cite{Safarik(11)} relates to 
+a separating example for two of our kinds of finitary information mentioned above.\\
+Once we established this basis for computational content extraction, we also investigate, so to say, the opposite approach. 
 Namely, given the fact that one is interested in such extraction, the question arises in which systems is this still possible and how.
-We answer this question for a very prominent case. In the last chapter, we introduce an intrinsic formalisation
+We answer this question for a very prominent case in the last chapter, where we introduce an intrinsic formalisation
 of non-standard analysis and discuss the extractability of effective bounds from proofs in that system.
 
 %As follows from the soundness of the N(M)D-interpretation (see theorems \ref{t:sFI} and \ref{t:mfi})
@@ -75,7 +78,7 @@ developed into a new field of Mathematical Logic providing many new
 results in Algebra, Number Theory, and Numerical and Functional Analysis. 
 To describe better the character and aim of this field, D. Scott suggested to call
 this discipline \defkey{Proof Mining} and the new name was quickly adopted.\\
-In this thesis, we make mainly use of the above mentioned functional interpretation (in variouos forms, 
+In this thesis, we make mainly use of the above mentioned functional interpretation (in various forms, 
 we will even give a new variant suitable for our formalization of non-standard analysis in the last chapter).
 G\"odel's functional interpretation requires an \em{intuitionistic} proof, 
 (also called a \em{constructive} proof), which is -- roughly speaking -- a proof which doesn't make any use
@@ -83,7 +86,7 @@ of the law of excluded middle:
 \[ \usftext{LEM}\quad:\quad \phi \vee \neg \phi\text{.} \]
 Of course, one often works with semi-intuitionistic (semi-constructive) systems, 
 where $\usftext{LEM}$ is only partially added, e.g. only for negated formulas (i.e. formulas in the form $\neg\phi$) -- denoted by $\usftext{LEM}_\neg$ -- or for formulas with only one, existential quantifier (i.e. formulas in the form $\exists\phi_\QF$) -- denoted by $\LEM$.
-An intuitionistic can be obtained from a classical one by applying the negative translation
+An intuitionistic system can be obtained from a classical one by applying the negative translation
 as a pre-processing step. The negative translation also goes back to 
 G\"odel who defined a transformation of 
 classically provable arithmetical formulas into classically equivalent and 
@@ -153,7 +156,7 @@ complexity is rather low.\\
 In general, the proof mining experience shows that very often proofs of well known and impactful theorems
 do not need this kind of strong principles, i.e. principles like $\CA^0$ requiring more than normal recursion 
 (though in most cases the proofs themselves are formulated in ways, which would suggest otherwise).\\
-In \cite{AGT10}, J. Avigad, P. Gerhardy and H. Towsner analyzed the mean ergodic theorem:
+In \cite{AGT10}, J. Avigad, P. Gerhardy and H. Towsner analyzed the mean ergodic theorem,
 implicitly showing that it can be proved with strictly arithmetical
 principles\footnote{more precisely, with arithmetic principles and arithmetic versions of analytical and higher principles},
 i.e. statements about numbers without the need of a specific true higher type object like an actual 
@@ -171,14 +174,14 @@ as in the case of metastability -- was answered in~\cite{KS13} and led to a new 
 definition of (effective) learnability. As expected, the kind of computational information we get, strongly depends on the ``amount of classicallity'' we use. Or in other words, how much of $\usftext{LEM}$ was truly needed to prove a given theorem.  \\
 Interestingly, to some extent, we get a bit of ``classicallity''
 in constructive formalization(s) of non-standard analysis as well (see e.g.~\cite{avigadhelzner02}).
-Of course, this makes logical formalization of non-standard analysis and possible related conservation results interesting on its own account. Moreover, it would be hugely benificial, to have an extraction procedure
+Of course, this makes logical formalization of non-standard analysis and possible related conservation results interesting on its own account. Moreover, it would be hugely beneficial, to have an extraction procedure
 and some meta-theorems to guarantee specific uniform bounds in the non-standard context as well.
 Inspired by the work of Nelson~\cite{nelson77, nelson88}, Berg et al. give a formalization
 of non-standard analysis together with an adapted form of Shoenfield interpretation (while the similarity between Shienfield's interpretation and Nelson's translation procedure between classical and non-standard proofs were actually the main starter), which are both intended for extraction of computation content from proofs based on non-standard methods, in~\cite{BBS12}. A major
 step towards that goal would be solving the interpretation of the saturation principles, which can be used to formalize the concept of Loeb measures -- one of the most prominent non-standard techniques.  
 For certain systems, it has turned out that extending them with saturation principles has resulted in an increase in proof-theoretic strength (see \cite{hensonkeisler86, keisler07}). So far, it seems that in the
 context of~\cite{BBS12} it is also the case and we need to add a version of bar recursion
-which correspond precisely to Spector's, but adopted to our special form of sequence application as defined in~\cite{BBS12}.
+which corresponds precisely to Spector's, but adopted to our special form of sequence application as defined in~\cite{BBS12}.
 
 
 
@@ -205,10 +208,12 @@ which correspond precisely to Spector's, but adopted to our special form of sequ
 \mySubsection{Goals and Organization of the Material}
 While in the context description above, we follow more or less the chronological order of
 development, this thesis is structured according to the underlying proof-theoretic strength
-or, correspondingly, the complexity of the computational content in question.
+or, correspondingly, the complexity of the computational content in question. We start
+with low complexity realizers for simple convergence and work towards bar-recursive solutions
+in the last two chapters.
 Large parts of this thesis are based on previous publications. We precede
 each section with a short quote of some of the journal's referee comments on the corresponding
-paper. These quotes are intended to offer a short abstract on the topic at hand from a slightly different perspective.
+article. These quotes are intended to offer a short abstract on the topic at hand from a more detached perspective.
 In the following
 we give an overview of the contents of the chapters, their relation and which
 publications are they based on.\\
@@ -230,8 +235,8 @@ with computational content strictly in between. Namely a (computable) bound on f
 We take this, so to say, a step further in the {\em third chapter}, where we dive into a
 case study on a proof of strong non-linear ergodic theorem due to R. Wittmann. 
 The situation here, closely reminds on our rather abstract separating example for a convergence statement which is non-learnable but has an effective rate of metastability from second chapter. This is due to a specific nested structure of the extracted realizer, which is unprecedented by similar results in proof mining so far.
-It is a rare example, where a proof of strong convergence doesn't lead to a realizer having the
-form, which is typically guaranteed for effectively learnable statements. This chapter is based on~\cite{Safarik(11)} extended by an in depth analysis of an arithmetized version of Wittmann's proof.\\
+It is a rare example, where a proof of strong convergence doesn't lead to a realizer of the specific
+form which is typically guaranteed for effectively learnable statements. This chapter is based on~\cite{Safarik(11)} extended by an in depth analysis of an arithmetized version of Wittmann's proof.\\
 In the {\em fourth chapter} we go even further and investigate how a specific compactness principle, the theorem of Bolzano-Weierstrass, contributes to the complexity of realizers when used
 as the main principle in a proof of a logical statements in a particular, but rather general, logical form.
 To achieve this, we need to use advanced techniques like bar-recursion, but we demonstrate that even in systems formalizing large parts of full classical analysis, powerful principles like $\BW$
