@@ -1,0 +1,2277 @@
+% This file was created with JabRef 2.9.2.
+% Encoding: Cp1252
+
+@INPROCEEDINGS{Akama,
+  author = {Akama, Y. and Berardi, S. and Hayashi, S. and Kohlenbach, U.},
+  title = {An arithmetical hierarchy of the law of excluded middle and related
+	principles},
+  booktitle = {Proc. of the 19th Annual IEEE Symposium on Logic in Computer Science
+	(LICS'04)},
+  year = {2004},
+  pages = {192-201},
+  publisher = {IEEE PressIEEE Press},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@BOOK{aksoykhamsi90,
+  title = {Nonstandard methods in fixed point theory},
+  publisher = {Springer-Verlag},
+  year = {1990},
+  author = {Aksoy, A.G. and Khamsi, M.A.},
+  pages = {x+139},
+  series = {Universitext},
+  address = {New York},
+  isbn = {0-387-97364-8},
+  mrclass = {47H10 (03H05 46Bxx 47-02 47H09)},
+  mrnumber = {1066202 (91i:47073)},
+  mrreviewer = {Simeon Reich},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{Artemov,
+  author = {Artemov, S.},
+  title = {Explicit provability and constructive semantics},
+  journal = {Bull. Symbolic Logic},
+  year = {2001},
+  volume = {7},
+  pages = {1-36},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@TECHREPORT{Artemov11,
+  author = {Artemov, S. and Yavorskaya, First-order logic of proofs},
+  title = {Technical Report TR-2011005},
+  institution = {Cuny PhD Program in Computer Science},
+  year = {2011},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{Aschieri1,
+  author = {Aschieri, F.},
+  title = {A contructive analysis of learning in Peano Arithmetic},
+  owner = {safo},
+  timestamp = {2013.07.23},
+  unidentified = {To appear in: Ann. Pure Appl. Logic}
+}
+
+@BOOK{Aschieri2,
+  title = {Learning based on realizability for HA+EM1 and 1-Backtracking games:
+	Soundness and completeness},
+  publisher = {To appear in Ann. Pure Appl. Logic},
+  author = {Aschieri, F.},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@INCOLLECTION{Aschieri/Berardi,
+  author = {Aschieri, F. and Berardi, S.},
+  title = {A new use of Friedman's translation: interactive realizability.},
+  booktitle = {Logic, Construction, Computation},
+  publisher = {Ontos-Verlag Series in Mathematical Logic},
+  year = {2012},
+  editor = {Berger et als},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{avigad09,
+  author = {Avigad, J.},
+  title = {The metamathematics of ergodic theory},
+  journal = {Ann. Pure Appl. Logic},
+  year = {2009},
+  volume = {157},
+  pages = {64--76},
+  number = {2-3},
+  coden = {APALD7},
+  doi = {10.1016/j.apal.2008.09.001},
+  fjournal = {Annals of Pure and Applied Logic},
+  issn = {0168-0072},
+  mrclass = {03F03 (03F60 26E40 37A30)},
+  mrnumber = {2499698 (2010d:03101)},
+  mrreviewer = {Hajime Ishihara},
+  owner = {safo},
+  timestamp = {2013.07.23},
+  url = {http://dx.doi.org/10.1016/j.apal.2008.09.001}
+}
+
+@INCOLLECTION{avigad05,
+  author = {Avigad, J.},
+  title = {Weak theories of nonstandard arithmetic and analysis},
+  booktitle = {Reverse mathematics 2001},
+  publisher = {Assoc. Symbol. Logic},
+  year = {2005},
+  volume = {21},
+  series = {Lect. Notes Log.},
+  pages = {19--46},
+  address = {La Jolla, CA},
+  mrclass = {03F35 (03B30 03F60 26E35)},
+  mrnumber = {2185426 (2006g:03098)},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{AF98,
+  author = {J. Avigad and S. Feferman},
+  title = {{G}\"odels's functional ("{D}ialectica") interpretation {\em in}
+	{S}. {R}. {B}uss ({E}ditor): {H}andbook of proof theory},
+  journal = {Studies in Logic and the foundations of mathematics},
+  year = {1998},
+  volume = {137},
+  pages = {337--405},
+  owner = {safo},
+  publisher = {Elsevier Science B.V.},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{AGT10,
+  author = {Avigad, J. and Gerhardy, P. and Towsner, H.},
+  title = {Local stability of ergodic averages},
+  journal = {Trans. Amer. Math. Soc.},
+  year = {2010},
+  volume = {362},
+  pages = {261--288},
+  number = {1},
+  coden = {TAMTAM},
+  doi = {10.1090/S0002-9947-09-04814-4},
+  fjournal = {Transactions of the American Mathematical Society},
+  issn = {0002-9947},
+  mrclass = {03F60 (28D05)},
+  mrnumber = {2550151 (2011e:03082)},
+  mrreviewer = {Josef Berger},
+  owner = {safo},
+  timestamp = {2013.07.23},
+  url = {http://dx.doi.org/10.1090/S0002-9947-09-04814-4}
+}
+
+@ARTICLE{avigadhelzner02,
+  author = {Avigad, J. and Helzner, J.},
+  title = {Transfer principles in nonstandard intuitionistic arithmetic},
+  journal = {Arch. Math. Logic},
+  year = {2002},
+  volume = {41},
+  pages = {581--602},
+  number = {6},
+  coden = {AMLOEH},
+  doi = {10.1007/s001530100109},
+  fjournal = {Archive for Mathematical Logic},
+  issn = {0933-5846},
+  mrclass = {03G30 (03F50 11U10 18F10)},
+  mrnumber = {1923197 (2003g:03108)},
+  mrreviewer = {Peter Johnstone},
+  owner = {safo},
+  timestamp = {2013.07.23},
+  url = {http://dx.doi.org/10.1007/s001530100109}
+}
+
+@UNPUBLISHED{Avigad/Rute,
+  author = {Avigad, J. and Rute, J.},
+  title = {Oscillation and the mean ergodic theorem},
+  note = {Preprint},
+  year = {2012},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{Baillon1976,
+  author = {Baillon, J. B.},
+  title = {{Q}uelques propri\'et\'es de convergence asymptotique pour les contractions
+	impaires},
+  journal = {C. R. Acad. Sci. Paris S\'er. A-B},
+  year = {1976},
+  volume = {283},
+  pages = {Aii, A587--A590},
+  number = {8},
+  mrclass = {47H10},
+  mrnumber = {0428124 (55 \#1153)},
+  mrreviewer = {Simeon Reich},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{Baillon1976a,
+  author = {Baillon, J. B.},
+  title = {{Q}uelques propri\'et\'es de convergence asymptotique pour les semi-groupes
+	de contractions impaires},
+  journal = {C. R. Acad. Sci. Paris S\'er. A-B},
+  year = {1976},
+  volume = {283},
+  pages = {Ai, A75--A78},
+  number = {3},
+  mrclass = {47H99},
+  mrnumber = {0425702 (54 \#13655)},
+  mrreviewer = {Wilhelm Schappacher},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{Baillon1975,
+  author = {Baillon, J. B.},
+  title = {{U}n th\'eor\`eme de type ergodique pour les contractions non lin\'eaires
+	dans un espace de {H}ilbert},
+  journal = {C. R. Acad. Sci. Paris S\'er. A-B},
+  year = {1975},
+  volume = {280},
+  pages = {Aii, A1511--A1514},
+  number = {22},
+  mrclass = {47H10},
+  mrnumber = {0375009 (51 \#11205)},
+  mrreviewer = {Simeon Reich},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{Baillon1976b,
+  author = {Baillon, J. B. and Brezis, H.},
+  title = {{U}ne remarque sur le comportement asymptotique des semigroupes non
+	lin\'eaires},
+  journal = {Houston J. Math.},
+  year = {1976},
+  volume = {2},
+  pages = {5--7},
+  number = {1},
+  fjournal = {Houston Journal of Mathematics},
+  issn = {0362-1588},
+  mrclass = {47H10},
+  mrnumber = {0394328 (52 \#15131)},
+  mrreviewer = {Bruce Calvert},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{Berardi/Coquand/Hayashi,
+  author = {Berardi, S. and Coquand, T and Hayashi, S.},
+  title = {Games with 1-Backtracking},
+  journal = {Ann. Pure Appl. Logic},
+  year = {2010},
+  volume = {161},
+  pages = {1254-1264},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{BBS12,
+  author = {van den Berg, Benno and Briseid, Eyvind Martol and Safarik, Pavol},
+  title = {A functional interpretation for nonstandard arithmetic.},
+  journal = {Ann. Pure Appl. Logic},
+  year = {2012},
+  volume = {163},
+  pages = {1962-1994},
+  number = {12},
+  added-at = {2012-09-18T00:00:00.000+0200},
+  biburl = {http://www.bibsonomy.org/bibtex/2c47fd4474e4760fd7c1ffd5663eb3d07/dblp},
+  ee = {http://dx.doi.org/10.1016/j.apal.2012.07.003},
+  interhash = {f5fb600ed25b8ff74b7d9c514375aa6b},
+  intrahash = {c47fd4474e4760fd7c1ffd5663eb3d07},
+  keywords = {dblp},
+  timestamp = {2012-09-18T00:00:00.000+0200},
+  url = {http://dblp.uni-trier.de/db/journals/apal/apal163.html#BergBS12}
+}
+
+@UNPUBLISHED{berg12,
+  author = {Berg, B. van den},
+  title = {The {H}erbrand topos},
+  note = {arXiv:1112.3837},
+  year = {2011},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{berger05,
+  author = {Berger, U.},
+  title = {Uniform {H}eyting arithmetic},
+  journal = {Ann. Pure Appl. Logic},
+  year = {2005},
+  volume = {133},
+  pages = {125--148},
+  number = {1-3},
+  coden = {APALD7},
+  doi = {10.1016/j.apal.2004.10.006},
+  fjournal = {Annals of Pure and Applied Logic},
+  issn = {0168-0072},
+  mrclass = {03F30 (03F55)},
+  mrnumber = {2126156 (2006g:03096)},
+  owner = {safo},
+  timestamp = {2013.07.23},
+  url = {http://dx.doi.org/10.1016/j.apal.2004.10.006}
+}
+
+@ARTICLE{Bezem85,
+  author = {M. Bezem},
+  title = {{S}trongly {M}ajorizable {F}unctionals of {F}inite {T}ype: {A} {M}odel
+	for {B}ar {R}ecursion {C}ontaining {D}isonctinuous {F}unctionals},
+  journal = {The Journal of Symbolic Logic},
+  year = {1985},
+  volume = {50},
+  pages = {652--660},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{Bir39,
+  author = {Birkhoff, G.},
+  title = {The mean ergodic theorem},
+  journal = {Duke Math. J.},
+  year = {1939},
+  volume = {5},
+  pages = {19-20},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{Brezis1976,
+  author = {Br{\'e}zis, H. and Browder, F. E.},
+  title = {{N}onlinear ergodic theorems},
+  journal = {Bull. Amer. Math. Soc.},
+  year = {1976},
+  volume = {82},
+  pages = {959--961},
+  number = {6},
+  fjournal = {Bulletin of the American Mathematical Society},
+  issn = {0002-9904},
+  mrclass = {47H10},
+  mrnumber = {0420348 (54 \#8362)},
+  mrreviewer = {J. Danes},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{BG11,
+  author = {Brattka, Vasco and Gherardi, Guido},
+  title = {{Weihrauch degrees, omniscience principles and weak computability.}},
+  journal = {J. Symb. Log. },
+  year = {2011},
+  volume = {76},
+  pages = {143-176},
+  number = {1},
+  abstract = {{This paper is a sequel to [{\it G. Gherardi} and {\it A. Marcone},
+	Notre Dame J. Formal Logic 50, No. 4, 393--425 (2009; Zbl 1223.03052)].
+	The abstract that the authors give is very adequate: ``In this paper
+	we study a reducibility that has been introduced by Klaus Weihrauch
+	or, more precisely, a natural extension for multi-valued functions
+	on represented spaces. We call the corresponding equivalence classes
+	Weihrauch degrees and we show that the corresponding partial order
+	induces a lower semilattice. It turns out that parallelization is
+	a closure operator for this semilattice and that the parallelized
+	Weihrauch degrees even form a lattice into which the Medvedev lattice
+	and the Turing degrees can be embedded. The importance of Weihrauch
+	degrees is based on the fact that multi-valued functions on represented
+	spaces can be considered as realizers of mathematical theorems in
+	a very natural way and studying the Weihrauch reductions between
+	theorems in this sense means to ask which theorems can be transformed
+	continuously or computably into each other. As crucial corner points
+	of this classification scheme the limited principle of omniscience,
+	LPO, the lesser limited principle of omniscience, LLPO, and their
+	parallelizations are studied. It is proved that parallelized LLPO
+	is equivalent to Weak K\"onig's Lemma and hence to the Hahn-Banach
+	Theorem in this new and very strong sense. We call a multi-valued
+	function weakly computable if it is reducible to the Weihrauch degree
+	of parallelized LLPO and we present a new proof, based on a computational
+	version of Kleene's ternary logic, that the class of weakly computable
+	operations is closed under composition. Moreover, weakly computable
+	operations on computable metric spaces are characterized as operations
+	that admit upper semi-computable compact-valued selectors and it
+	is proved that any single-valued weakly computable operation is already
+	computable in the ordinary sense.''}},
+  classmath = {{*03F60 (Constructive and recursive analysis) 03B30 (Foundations of
+	classical theories) 03D30 (Degrees, other than r.e.) 03D45 (Effectively
+	presented structures, etc.) 03E15 (Descriptive set theory (logic))
+	}},
+  comment = {from german db},
+  doi = {10.2178/jsl/1294170993},
+  keywords = {{computable analysis; constructive analysis; reverse mathematics;
+	effective descriptive set theory}},
+  language = {English},
+  owner = {safarik},
+  reviewer = {{Iris Loeb (Christchurch)}},
+  timestamp = {Jul 23, 2013}
+}
+
+@ARTICLE{BGM12,
+  author = {Brattka, Vasco and Gherardi, Guido and Marcone, Alberto},
+  title = {The {B}olzano-{W}eierstrass theorem is the jump of weak {K}{\H o}nig's
+	lemma},
+  journal = {Ann. Pure Appl. Logic},
+  year = {2012},
+  volume = {163},
+  pages = {623--655},
+  number = {6},
+  coden = {APALD7},
+  doi = {10.1016/j.apal.2011.10.006},
+  fjournal = {Annals of Pure and Applied Logic},
+  issn = {0168-0072},
+  mrclass = {03F60 (03B30 03D30 03E15)},
+  mrnumber = {2889550},
+  mrreviewer = {Carl Mummert},
+  url = {http://dx.doi.org/10.1016/j.apal.2011.10.006}
+}
+
+@ARTICLE{briseid09,
+  author = {Briseid, E. M.},
+  title = {Logical aspects of rates of convergence in metric spaces},
+  journal = {J. Symbolic Logic},
+  year = {2009},
+  volume = {74},
+  pages = {1401--1428},
+  number = {4},
+  coden = {JSYLA6},
+  fjournal = {Journal of Symbolic Logic},
+  issn = {0022-4812},
+  mrclass = {03F10 (03F35 47H10 47J25 54E35)},
+  mrnumber = {2583826 (2010m:03104)},
+  mrreviewer = {Paulo Oliva},
+  owner = {safo},
+  timestamp = {2013.07.23},
+  url = {http://projecteuclid.org/getRecord?id=euclid.jsl/1254748697}
+}
+
+@ARTICLE{Briseid07,
+  author = {E. M. Briseid},
+  title = {{S}ome results on {K}irk's asymptotic contractions},
+  journal = {Fixed Point Theory},
+  year = {2007},
+  volume = {8},
+  pages = {17--27},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{Briseid07b,
+  author = {E. M. Briseid},
+  title = {{A}ddendum to paper: {S}ome results on {K}irk's asymptotic contractions},
+  journal = {Fixed Point Theory},
+  year = {2007},
+  volume = {8},
+  pages = {321--322},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{Briseid05,
+  author = {E. M. Briseid},
+  title = {{P}roof {M}ining {A}pplied to {F}ixed {P}oint {T}heorems for {M}appings
+	of {C}ontractive {T}ype},
+  journal = {Master Thesis at Department of Mathematics at the University of Oslo},
+  year = {2005},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{Bruck1979,
+  author = {Bruck, R. E.},
+  title = {{A} simple proof of the mean ergodic theorem for nonlinear contractions
+	in {B}anach spaces},
+  journal = {Israel J. Math.},
+  year = {1979},
+  volume = {32},
+  pages = {107--116},
+  number = {2-3},
+  coden = {ISJMAP},
+  doi = {10.1007/BF02764907},
+  fjournal = {Israel Journal of Mathematics},
+  issn = {0021-2172},
+  mrclass = {47H10},
+  mrnumber = {531254 (80j:47066)},
+  mrreviewer = {Heinrich Steinlein},
+  owner = {safo},
+  timestamp = {2013.07.23},
+  url = {http://dx.doi.org/10.1007/BF02764907}
+}
+
+@ARTICLE{Coquand,
+  author = {Coquand, T.},
+  title = {A semantics of evidence for classical arithmetic},
+  journal = {J. Symbolic Logic},
+  year = {1995},
+  volume = {60},
+  pages = {325-337},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{dillernahm74,
+  author = {Diller, J. and Nahm, W.},
+  title = {Eine {V}ariante zur {D}ialectica-{I}nterpretation der {H}eyting-{A}rithmetik
+	endlicher {T}ypen},
+  journal = {Arch. Math. Logik Grundlagenforsch.},
+  year = {1974},
+  volume = {16},
+  pages = {49--66},
+  fjournal = {Archiv f\"ur Mathematische Logik und Grundlagenforschung},
+  issn = {0003-9268},
+  mrclass = {02C15 (02D99)},
+  mrnumber = {0366626 (51 \#2873)},
+  mrreviewer = {B. van Rootselaar},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@BOOK{Feferman77,
+  title = {{T}heories of finite type related to mathematical practice {\em in}
+	{J}. {B}arwise ({E}ditor): {H}andbook of {M}athematical {L}ogic},
+  publisher = {North Holland, Amsterdam},
+  year = {1977},
+  author = {S. Feferman},
+  pages = {913--972},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{ferreira09,
+  author = {Ferreira, F.},
+  title = {Injecting uniformities into {P}eano arithmetic},
+  journal = {Ann. Pure Appl. Logic},
+  year = {2009},
+  volume = {157},
+  pages = {122--129},
+  number = {2-3},
+  coden = {APALD7},
+  doi = {10.1016/j.apal.2008.09.004},
+  fjournal = {Annals of Pure and Applied Logic},
+  issn = {0168-0072},
+  mrclass = {03F10 (03F25 03F35)},
+  mrnumber = {2499703 (2010a:03067)},
+  mrreviewer = {Paulo Oliva},
+  owner = {safo},
+  timestamp = {2013.07.23},
+  url = {http://dx.doi.org/10.1016/j.apal.2008.09.004}
+}
+
+@ARTICLE{ferreiranunes06,
+  author = {Ferreira, F. and Nunes, A.},
+  title = {Bounded modified realizability},
+  journal = {J. Symbolic Logic},
+  year = {2006},
+  volume = {71},
+  pages = {329--346},
+  number = {1},
+  coden = {JSYLA6},
+  doi = {10.2178/jsl/1140641178},
+  fjournal = {The Journal of Symbolic Logic},
+  issn = {0022-4812},
+  mrclass = {03F35 (03F10 03F25 03F50)},
+  mrnumber = {2210071 (2007b:03099)},
+  mrreviewer = {Ulrich Kohlenbach},
+  owner = {safo},
+  timestamp = {2013.07.23},
+  url = {http://dx.doi.org/10.2178/jsl/1140641178}
+}
+
+@ARTICLE{ferreiraoliva05,
+  author = {Ferreira, F. and Oliva, P.},
+  title = {Bounded functional interpretation},
+  journal = {Ann. Pure Appl. Logic},
+  year = {2005},
+  volume = {135},
+  pages = {73--112},
+  number = {1-3},
+  coden = {APALD7},
+  doi = {10.1016/j.apal.2004.11.001},
+  fjournal = {Annals of Pure and Applied Logic},
+  issn = {0168-0072},
+  mrclass = {03F10 (03F03 03F25 03F30 03F35)},
+  mrnumber = {2156133 (2006e:03087)},
+  mrreviewer = {G. E. Mints},
+  owner = {safo},
+  timestamp = {2013.07.23},
+  url = {http://dx.doi.org/10.1016/j.apal.2004.11.001}
+}
+
+@INCOLLECTION{Friedman(78),
+  author = {Friedman, H.},
+  title = {Classical and intuitionistically provably recursive functions},
+  booktitle = {Higher Set Theory},
+  publisher = {Springer LNM 669},
+  year = {1978},
+  editor = {M\"uller,G.H., Scott, D.S.},
+  pages = {21-27},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{Goedel58,
+  author = {K. G\"odel},
+  title = {\"{U}ber eine bisher noch nicht ben\"utzte {E}rweiterung des finiten
+	{S}tandpunktes},
+  journal = {Dialectica},
+  year = {1958},
+  volume = {12},
+  pages = {280--287},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{Goedel33,
+  author = {K. G\"odel},
+  title = {{Z}ur intuitionistischen {A}rithmetik und {Z}ahlentheorie},
+  journal = {Ergebnisse eines Mathematischen Kolloquiums},
+  year = {1933},
+  volume = {4},
+  pages = {34--38},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{gaspar09,
+  author = {Gaspar, J.},
+  title = {Factorization of the {S}hoenfield-like bounded functional interpretation},
+  journal = {Notre Dame J. Form. Log.},
+  year = {2009},
+  volume = {50},
+  pages = {53--60},
+  number = {1},
+  doi = {10.1215/00294527-2008-027},
+  fjournal = {Notre Dame Journal of Formal Logic},
+  issn = {0029-4527},
+  mrclass = {03F10 (03F03)},
+  mrnumber = {2536700 (2010j:03067)},
+  mrreviewer = {Christian Bennet},
+  owner = {safo},
+  timestamp = {2013.07.23},
+  url = {http://dx.doi.org/10.1215/00294527-2008-027}
+}
+
+@ARTICLE{GasparKohlenbach,
+  author = {J. Gaspar and U. Kohlenbach},
+  title = {{O}n {T}ao's `finitary' infinite pigeonhole principle.},
+  journal = {Submitted.},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{Genel1975,
+  author = {Genel, A. and Lindenstrauss, J.},
+  title = {{A}n example concerning fixed points},
+  journal = {Israel J. Math.},
+  year = {1975},
+  volume = {22},
+  pages = {81--86},
+  number = {1},
+  fjournal = {Israel Journal of Mathematics},
+  issn = {0021-2172},
+  mrclass = {47H10},
+  mrnumber = {0390847 (52 \#11670)},
+  mrreviewer = {R. Kannan},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@INCOLLECTION{Gerhardy2010,
+  author = {Gerhardy, P.},
+  title = {{P}roof mining in practice},
+  booktitle = {Logic {C}olloquium 2007},
+  publisher = {Assoc. Symbol. Logic},
+  year = {2010},
+  volume = {35},
+  series = {Lect. Notes Log.},
+  pages = {82--91},
+  address = {La Jolla, CA},
+  mrclass = {03F10 (28D99 37A30 47A35)},
+  mrnumber = {2668228},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{gerhardy08,
+  author = {Gerhardy, P.},
+  title = {Proof mining in topological dynamics},
+  journal = {Notre Dame J. Form. Log.},
+  year = {2008},
+  volume = {49},
+  pages = {431--446},
+  number = {4},
+  doi = {10.1215/00294527-2008-022},
+  fjournal = {Notre Dame Journal of Formal Logic},
+  issn = {0029-4527},
+  mrclass = {03F10 (37B05 37B10 54H20)},
+  mrnumber = {2456658 (2010g:03090)},
+  owner = {safo},
+  timestamp = {2013.07.23},
+  url = {http://dx.doi.org/10.1215/00294527-2008-022}
+}
+
+@ARTICLE{Gerhardy06,
+  author = {P. Gerhardy},
+  title = {{A} quantitative version of {K}irk's fixed point theorem for asymptotic
+	contractions.},
+  journal = {J. Math. Anal. Appl.},
+  year = {2006},
+  volume = {316},
+  pages = {339--345},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@BOOK{GerhardyX,
+  title = {{F}unctional interpretation and modified realizability interpretation
+	of the double-negation shift},
+  publisher = {BRICS, Department of Computer Science, University of Aarhus, Denmark},
+  year = {2006},
+  author = {P. Gerhardy},
+  series = {{P}reprint},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{GK08,
+  author = {P. Gerhardy and U. Kohlenbach},
+  title = {{G}eneral logical metatheorems for functional analysis},
+  journal = {Trans. Amer. Math. Soc.},
+  year = {2008},
+  volume = {360},
+  pages = {2615--2660},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{GerKoh06,
+  author = {Gerhardy, P. and Kohlenbach, U.},
+  title = {Strongly uniform bounds from semi-constructive proofs},
+  journal = {Ann. Pure Appl. Logic},
+  year = {2006},
+  volume = {141},
+  pages = {89-107},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{Gold(67),
+  author = {Gold, E. M.},
+  title = {Language identification in the limit.},
+  journal = {Information and Control},
+  year = {1967},
+  volume = {10},
+  pages = {447-474},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{Halpern1967,
+  author = {Halpern, B.},
+  title = {{F}ixed points of nonexpanding maps},
+  journal = {Bull. Amer. Math. Soc.},
+  year = {1967},
+  volume = {73},
+  pages = {957--961},
+  fjournal = {Bulletin of the American Mathematical Society},
+  issn = {0002-9904},
+  mrclass = {47.85 (46.00)},
+  mrnumber = {0218938 (36 \#2022)},
+  mrreviewer = {M. Edelstein},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{Hayashi06,
+  author = {Hayashi, S.},
+  title = {Mathematics based on incremental learning -- Excluded middle and
+	inductive inference Original Research Article},
+  journal = {Theoretical Computer Science -- Journal version of \cite{Hayashi02}},
+  year = {2006},
+  volume = {350},
+  pages = {125-139},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@INPROCEEDINGS{Hayashi02,
+  author = {Hayashi, S.},
+  title = {Mathematics based on learning},
+  booktitle = {Proc. 13th Internat. Conf. ALT 2002 Vol. 272},
+  year = {2002},
+  pages = {7-21},
+  publisher = {Springer Lecture Notes in Artificial Intelligence},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@INCOLLECTION{Hayashi/Nakata,
+  author = {Hayashi, S. and Nakata, M.},
+  title = {Towards limit computable mathematics},
+  booktitle = {TYPES 2000},
+  year = {2002},
+  editor = {P. Callaghan et al.},
+  pages = {125-144},
+  address = {Springer LNCS {\bf 2277}},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{hensonkeisler86,
+  author = {Henson, C.W. and Keisler, H.J.},
+  title = {On the strength of nonstandard analysis},
+  journal = {J. Symbolic Logic},
+  year = {1986},
+  volume = {51},
+  pages = {377--386},
+  number = {2},
+  coden = {JSYLA6},
+  doi = {10.2307/2274061},
+  fjournal = {The Journal of Symbolic Logic},
+  issn = {0022-4812},
+  mrclass = {03H15 (03F35 03H05)},
+  mrnumber = {840415 (87k:03085)},
+  mrreviewer = {G. Asser},
+  owner = {safo},
+  timestamp = {2013.07.23},
+  url = {http://dx.doi.org/10.2307/2274061}
+}
+
+@INCOLLECTION{hernest05,
+  author = {Hernest, M.-D.},
+  title = {Light functional interpretation: an optimization of {G}\"odel's technique
+	towards the extraction of (more) efficient programs from (classical)
+	proofs},
+  booktitle = {Computer science logic},
+  publisher = {Springer},
+  year = {2005},
+  volume = {3634},
+  series = {Lecture Notes in Comput. Sci.},
+  pages = {477--492},
+  address = {Berlin},
+  doi = {10.1007/11538363_33},
+  mrclass = {03F10 (03B70 03F07)},
+  mrnumber = {2200579 (2006i:03084)},
+  owner = {safo},
+  timestamp = {2013.07.23},
+  url = {http://dx.doi.org/10.1007/11538363_33}
+}
+
+@UNPUBLISHED{Higuchi/Kihara,
+  author = {Higuchi, K. and Kihara, T.},
+  title = {Inside the Muchnik degrees: discontinuity, learnability, and constructivism},
+  note = {Preprint},
+  year = {2012},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{HP11,
+  author = {Kojiro Higuchi and Arno Pauly},
+  title = {The degree structure of Weihrauch-reducibility},
+  journal = {Logical Methods in Computer Science},
+  year = {2011},
+  volume = {9},
+  number = {2},
+  bibsource = {DBLP, http://dblp.uni-trier.de},
+  ee = {http://dx.doi.org/10.2168/LMCS-9(2:2)2013}
+}
+
+@ARTICLE{Hirano1982,
+  author = {Hirano, N.},
+  title = {{N}onlinear ergodic theorems and weak convergence theorems},
+  journal = {J. Math. Soc. Japan},
+  year = {1982},
+  volume = {34},
+  pages = {35--46},
+  number = {1},
+  coden = {NISUBC},
+  doi = {10.2969/jmsj/03410035},
+  fjournal = {Journal of the Mathematical Society of Japan},
+  issn = {0025-5645},
+  mrclass = {47H09 (47H20)},
+  mrnumber = {639803 (83d:47059)},
+  mrreviewer = {Simeon Reich},
+  owner = {safo},
+  timestamp = {2013.07.23},
+  url = {http://dx.doi.org/10.2969/jmsj/03410035}
+}
+
+@ARTICLE{Hirano1979,
+  author = {Hirano, N. and Takahashi, W.},
+  title = {{N}onlinear ergodic theorems for nonexpansive mappings in {H}ilbert
+	spaces},
+  journal = {Kodai Math. J.},
+  year = {1979},
+  volume = {2},
+  pages = {11--25},
+  number = {1},
+  fjournal = {Kodai Mathematical Journal},
+  issn = {0386-5991},
+  mrclass = {47H09 (47H10 47H20)},
+  mrnumber = {531784 (80j:47064)},
+  mrreviewer = {Heinrich Steinlein},
+  owner = {safo},
+  timestamp = {2013.07.23},
+  url = {http://projecteuclid.org/getRecord?id=euclid.kmj/1138035962}
+}
+
+@ARTICLE{Howard81,
+  author = {W. A. Howard},
+  title = {{O}rdinal analysis of simple cases of bar recursion},
+  journal = {The Journal of Symbolic Logic},
+  year = {1981},
+  volume = {46},
+  pages = {17--31},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{Howard80,
+  author = {W. A. Howard},
+  title = {{O}rdinal analysis of terms of finite type},
+  journal = {The Journal of Symbolic Logic},
+  year = {1980},
+  volume = {45},
+  pages = {493--504},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@INPROCEEDINGS{Howard73,
+  author = {W. A. Howard},
+  title = {{H}ereditarily majorizable functionals of finite type},
+  booktitle = {A.S. Troelstra (Editor): Mathematical Investigation of Intuitionistic
+	Arithmetic and Analysis},
+  year = {1973},
+  pages = {454--461},
+  publisher = {Springer-Varlag, Berlin $\cdot$ Heidelberg $\cdot$ New York},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{Howard68,
+  author = {W. A. Howard},
+  title = {{F}unctional interpretation of bar induction by bar recursion},
+  journal = {Compositio Mathematica},
+  year = {1968},
+  volume = {20},
+  pages = {107--124},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{Jones,
+  author = {Jones, R. L. and Ostrovskii, I. V. and Rosenblatt, J. M.},
+  title = {Square functions in ergodic theory},
+  journal = {Ergodic Theory and Dynamical Systems},
+  year = {1996},
+  volume = {16},
+  pages = {267-305},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@UNPUBLISHED{Koernlein,
+  author = {K\"ornlein, D.},
+  title = {Analysis of a proof due to Xu},
+  note = {Preprint},
+  year = {2012},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{kamae82,
+  author = {Kamae, T.},
+  title = {A simple proof of the ergodic theorem using nonstandard analysis},
+  journal = {Israel J. Math.},
+  year = {1982},
+  volume = {42},
+  pages = {284--290},
+  number = {4},
+  coden = {ISJMAP},
+  doi = {10.1007/BF02761408},
+  fjournal = {Israel Journal of Mathematics},
+  issn = {0021-2172},
+  mrclass = {28D05 (03H05)},
+  mrnumber = {682311 (84i:28019)},
+  mrreviewer = {Robert M. Anderson},
+  owner = {safo},
+  timestamp = {2013.07.23},
+  url = {http://dx.doi.org/10.1007/BF02761408}
+}
+
+@INCOLLECTION{keisler07,
+  author = {Keisler, H.J.},
+  title = {The strength of nonstandard analysis},
+  booktitle = {The strength of nonstandard analysis},
+  publisher = {SpringerWienNewYork, Vienna},
+  year = {2007},
+  pages = {3--26},
+  doi = {10.1007/978-3-211-49905-4_1},
+  mrclass = {03H15 (03F35 03H05)},
+  mrnumber = {2341411 (2008g:03114)},
+  mrreviewer = {Roman Kossak},
+  owner = {safo},
+  timestamp = {2013.07.23},
+  url = {http://dx.doi.org/10.1007/978-3-211-49905-4_1}
+}
+
+@ARTICLE{kirk03,
+  author = {Kirk, W. A.},
+  title = {Fixed points of asymptotic contractions},
+  journal = {J. Math. Anal. Appl.},
+  year = {2003},
+  volume = {277},
+  pages = {645--650},
+  number = {2},
+  coden = {JMANAK},
+  doi = {10.1016/S0022-247X(02)00612-1},
+  fjournal = {Journal of Mathematical Analysis and Applications},
+  issn = {0022-247X},
+  mrclass = {47H10},
+  mrnumber = {1961251 (2003k:47093)},
+  mrreviewer = {B. E. Rhoades},
+  owner = {safo},
+  timestamp = {2013.07.23},
+  url = {http://dx.doi.org/10.1016/S0022-247X(02)00612-1}
+}
+
+@ARTICLE{Kleene59,
+  author = {S. C. Kleene},
+  title = {{R}ecursive functionals and quantfiers of finite types},
+  journal = {I. Trans. Amer. Math. Soc.},
+  year = {1959},
+  volume = {91},
+  pages = {1--52},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@BOOK{Kleene52,
+  title = {{I}ntroduction to mathematics.},
+  publisher = {North-Holland Publ. Co. (Amsterdam), P. Noordhoff (Gronigen), D.
+	van Nostrand (New York, Toronto)},
+  year = {1952},
+  author = {S. C. Kleene},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{Kohlenbach_ComContemporaryMath,
+  author = {U. Kohlenbach},
+  title = {{A} uniform quantitative form of sequential weak compactness and
+	{B}aillon's nonlinear ergodic theorem.},
+  journal = {(To appear in) Communications in Contemporary Mathematics.},
+  owner = {safarik},
+  timestamp = {2011.02.16}
+}
+
+@ARTICLE{KohlenbachMints,
+  author = {U. Kohlenbach},
+  title = {{O}n the logical analysis of proofs based on nonseparable {H}ilbert
+	space theory.},
+  journal = {Submitted.},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{Kohlenbach2011,
+  author = {Kohlenbach, U.},
+  title = {{O}n quantitative versions of theorems due to {F}.{E}. {B}rowder
+	and {R}. {W}ittmann},
+  journal = {Advances in Mathematics},
+  year = {2011},
+  volume = {226},
+  pages = {2764--2795},
+  number = {3},
+  issn = {0001-8708},
+  keywords = {Nonexpansive mappings, Metastability, Functional interpretation, Proof
+	mining},
+  owner = {safarik},
+  timestamp = {2011.02.16},
+  url = {http://www.sciencedirect.com/science/article/B6W9F-5178VTC-2/2/1b5af1e45940c48c5ba9ace5fcd62323}
+}
+
+@ARTICLE{Kohlenbach2011odd,
+  author = {U. Kohlenbach},
+  title = {On the asymptotic behavior of odd operators},
+  journal = {Journal of Mathematical Analysis and Applications},
+  year = {2011},
+  volume = {382},
+  pages = {615 - 620},
+  number = {2},
+  doi = {10.1016/j.jmaa.2011.04.065},
+  issn = {0022-247X},
+  keywords = {Nonexpansive mappings},
+  owner = {safo},
+  timestamp = {2013.07.23},
+  url = {http://www.sciencedirect.com/science/article/pii/S0022247X11004069}
+}
+
+@BOOK{Kohlenbach08,
+  title = {Applied proof theory: proof interpretations and their use in mathematics},
+  publisher = {Springer-Verlag},
+  year = {2008},
+  author = {Kohlenbach, U.},
+  pages = {xx+532},
+  series = {Springer Monographs in Mathematics},
+  address = {Berlin},
+  isbn = {978-3-540-77532-4},
+  mrclass = {03-02 (03Fxx 41A50 46Bxx 47Hxx 54E35)},
+  mrnumber = {2445721 (2009k:03003)},
+  mrreviewer = {H. Schwichtenberg},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{kohlenbach08b,
+  author = {Kohlenbach, U.},
+  title = {G\"odel's functional interpretation and its use in current mathematics},
+  journal = {Dialectica},
+  year = {2008},
+  volume = {62},
+  pages = {223--267},
+  number = {2},
+  doi = {10.1111/j.1746-8361.2008.01141.x},
+  fjournal = {Dialectica},
+  issn = {0012-2017},
+  mrclass = {03-02 (03F10 03F25 03F35)},
+  mrnumber = {2491336 (2010i:03002)},
+  mrreviewer = {Anton Setzer},
+  owner = {safo},
+  timestamp = {2013.07.23},
+  url = {http://dx.doi.org/10.1111/j.1746-8361.2008.01141.x}
+}
+
+@ARTICLE{kohlenbach05b--del,
+  author = {Kohlenbach, U.},
+  title = {Some logical metatheorems with applications in functional analysis},
+  journal = {Trans. Amer. Math. Soc.},
+  year = {2005},
+  volume = {357},
+  pages = {89--128 (electronic)},
+  number = {1},
+  coden = {TAMTAM},
+  doi = {10.1090/S0002-9947-04-03515-9},
+  fjournal = {Transactions of the American Mathematical Society},
+  issn = {0002-9947},
+  mrclass = {03F35 (03F10 47H10)},
+  mrnumber = {2098088 (2005h:03110)},
+  mrreviewer = {M. Yasuhara},
+  owner = {safo},
+  timestamp = {2013.07.23},
+  url = {http://dx.doi.org/10.1090/S0002-9947-04-03515-9}
+}
+
+@ARTICLE{kohlenbach05--del,
+  author = {Kohlenbach, U.},
+  title = {Some computational aspects of metric fixed-point theory},
+  journal = {Nonlinear Anal.},
+  year = {2005},
+  volume = {61},
+  pages = {823--837},
+  number = {5},
+  coden = {NOANDD},
+  doi = {10.1016/j.na.2005.01.075},
+  fjournal = {Nonlinear Analysis. Theory, Methods \& Applications. An International
+	Multidisciplinary Journal. Series A: Theory and Methods},
+  issn = {0362-546X},
+  mrclass = {47H10 (03F10)},
+  mrnumber = {2130066 (2005k:47119)},
+  mrreviewer = {Giuseppe Marino},
+  owner = {safo},
+  timestamp = {2013.07.23},
+  url = {http://dx.doi.org/10.1016/j.na.2005.01.075}
+}
+
+@ARTICLE{Kohlenbach05fpt,
+  author = {U. Kohlenbach},
+  title = {{S}ome computational aspects of metric fixed-point theory.},
+  journal = {Nonlinear Analysis},
+  year = {2005},
+  volume = {61},
+  pages = {823--837},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{Kohlenbach05meta,
+  author = {U. Kohlenbach},
+  title = {{S}ome logical metatheorems with application in functional},
+  journal = {Trans. Am. Math. Soc.},
+  year = {2005},
+  volume = {357},
+  pages = {89--128},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{Kohlenbach03,
+  author = {U. Kohlenbach},
+  title = {{U}niform asymptotic regularity for {M}ann iterates.},
+  journal = {J. Math. Anal. Appl.},
+  year = {2003},
+  volume = {279},
+  pages = {531--544},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{Kohlenbach00,
+  author = {U. Kohlenbach},
+  title = {{T}hings that can and things that cannot be done in {PRA}.},
+  journal = {Ann. Pure Applied Logic},
+  year = {2000},
+  volume = {102},
+  pages = {223--245},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{Kohlenbach99,
+  author = {U. Kohlenbach},
+  title = {{O}n the {N}o-{C}ounterexample {I}nterpretation},
+  journal = {The Journal of Symbolic Logic},
+  year = {1999},
+  volume = {64},
+  pages = {1491--1511},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{Kohlenbach_gp,
+  author = {U. Kohlenbach},
+  title = {{O}n the arithmetical content of restricted forms of comprehension,
+	choice and general uniform boundedness.},
+  journal = {Ann. Pure and Applied Logic},
+  year = {1998},
+  volume = {95},
+  pages = {257--285},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{Kohlenbach(relative),
+  author = {Kohlenbach, U.},
+  title = {Relative constructivity},
+  journal = {J. Symbolic Logic},
+  year = {1998},
+  volume = {63},
+  pages = {1218-1238},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{Kohlenbach1998,
+  author = {Kohlenbach, U.},
+  title = {{E}limination of {S}kolem functions for monotone formulas in analysis},
+  journal = {Arch. Math. Logic},
+  year = {1998},
+  volume = {37},
+  pages = {363--390},
+  number = {5-6},
+  note = {Logic Colloquium '95 (Haifa)},
+  coden = {AMLOEH},
+  doi = {10.1007/s001530050104},
+  fjournal = {Archive for Mathematical Logic},
+  issn = {0933-5846},
+  mrclass = {03F35 (03B30)},
+  mrnumber = {1634279 (99m:03119)},
+  mrreviewer = {Xiaokang Yu},
+  owner = {safo},
+  timestamp = {2013.07.23},
+  url = {http://dx.doi.org/10.1007/s001530050104}
+}
+
+@ARTICLE{Kohlenbach98,
+  author = {U. Kohlenbach},
+  title = {{A}rithmetizing proofs in analysis {\em in} {L}arrazabal, {J.M.},
+	{L}ascar, {D}., {M}ints, {G}. ({E}ditors): {L}ogic {C}olloquium '96},
+  journal = {Springer Lecture Notes in Logic},
+  year = {1998},
+  volume = {12},
+  pages = {115--158},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{Kohlenbach(lowrate),
+  author = {Kohlenbach, U.},
+  title = {Mathematically strong subsystems of analysis with low rate of growth
+	of provably recursive functionals},
+  journal = {Arch. Math. Logic},
+  year = {1996},
+  volume = {36},
+  pages = {31-71},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@INPROCEEDINGS{Kohlenbach96mfi,
+  author = {U. Kohlenbach},
+  title = {{A}nalyzing proofs in analysis.},
+  booktitle = {W. Hodges, M. Hyland, C. Steinhorn, J. Truss, Editors, Logic: from
+	Foundations to Applications {\em at} European Logic Colloquium (Keele,
+	1993) },
+  year = {1996},
+  pages = {225--260},
+  publisher = {Oxford University Press},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{Kohlenbach93,
+  author = {U. Kohlenbach},
+  title = {{N}ew effective moduli of uniqueness and uniform a-priori estimates
+	for constants of strong unicity by logical analysis of known proofs
+	in best approximation theory.},
+  journal = {Numer. Funct. Anal. and Optimiz.},
+  year = {1993},
+  volume = {14},
+  pages = {581--606},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{Kohlenbach92,
+  author = {U. Kohlenbach},
+  title = {{E}ffective bounds from ineffective proofs in analysis: an application
+	of functional interpretation and majorization},
+  journal = {The Journal of Symbolic Logic},
+  year = {1992},
+  volume = {57},
+  pages = {1239--1273},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{KPH92,
+  author = {U. Kohlenbach},
+  title = {{P}ointwise hereditary majorization and some applications},
+  journal = {Archive for Mathematical Logic},
+  year = {1992},
+  volume = {31},
+  pages = {227--241},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{kohlenbachleustean10,
+  author = {Kohlenbach, U. and Leu{\c{s}}tean, L.},
+  title = {Asymptotically nonexpansive mappings in uniformly convex hyperbolic
+	spaces},
+  journal = {J. Eur. Math. Soc. (JEMS)},
+  year = {2010},
+  volume = {12},
+  pages = {71--92},
+  number = {1},
+  doi = {10.4171/JEMS/190},
+  fjournal = {Journal of the European Mathematical Society (JEMS)},
+  issn = {1435-9855},
+  mrclass = {47H09 (03F10 47H10 47J25)},
+  mrnumber = {2578604 (2011d:47112)},
+  mrreviewer = {Simeon Reich},
+  owner = {safo},
+  timestamp = {2013.07.23},
+  url = {http://dx.doi.org/10.4171/JEMS/190}
+}
+
+@ARTICLE{kohlenbachleustean09,
+  author = {Kohlenbach, U. and Leu{\c{s}}tean, L.},
+  title = {A quantitative mean ergodic theorem for uniformly convex {B}anach
+	spaces},
+  journal = {Ergodic Theory Dynam. Systems},
+  year = {2009},
+  volume = {29},
+  pages = {1907--1915},
+  number = {6},
+  doi = {10.1017/S0143385708001004},
+  fjournal = {Ergodic Theory and Dynamical Systems},
+  issn = {0143-3857},
+  mrclass = {37A30 (47A35)},
+  mrnumber = {2563097 (2011c:37011)},
+  mrreviewer = {Randall McCutcheon},
+  owner = {safo},
+  timestamp = {2013.07.23},
+  url = {http://dx.doi.org/10.1017/S0143385708001004}
+}
+
+@ARTICLE{kohlenbachleustean03,
+  author = {Kohlenbach, U. and Leu{\c{s}}tean, L.},
+  title = {Mann iterates of directionally nonexpansive mappings in hyperbolic
+	spaces},
+  journal = {Abstr. Appl. Anal.},
+  year = {2003},
+  pages = {449--477},
+  number = {8},
+  doi = {10.1155/S1085337503212021},
+  fjournal = {Abstract and Applied Analysis},
+  issn = {1085-3375},
+  mrclass = {47H10 (03F10 03F60 47J25 54H25)},
+  mrnumber = {1983075 (2004e:47092)},
+  mrreviewer = {Alexander J. Zaslavski},
+  owner = {safo},
+  timestamp = {2013.07.23},
+  url = {http://dx.doi.org/10.1155/S1085337503212021}
+}
+
+@ARTICLE{Kohlenbach/Leustean6,
+  author = {Kohlenbach, U. and Leu\c{s}tean, L.},
+  title = {Effective metastability of Halpern iterates in CAT(0) spaces},
+  journal = {Adv. Math.},
+  year = {2012},
+  volume = {231},
+  pages = {2526-2556},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{Kohlenbach/Leustean7,
+  author = {Kohlenbach, U. and Leu\c{s}tean, L.},
+  title = {On the computational content of convergence proofs via Banach limits},
+  journal = {Philosophical Transactions of the Royal Society},
+  year = {2012},
+  volume = {370},
+  pages = {3449-3463},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{KL07,
+  author = {Kohlenbach,U. and Leustean,L.},
+  title = {{T}he approximate fixed point property in product spaces},
+  journal = {Nonlinear Analysis},
+  year = {2007},
+  volume = {66},
+  pages = {806--818},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@INPROCEEDINGS{KO02,
+  author = {Kohlenbach,U. and Oliva,P.},
+  title = {{P}roof {M}ining: {A} systematic way of analyzing proofs in mathematics.},
+  booktitle = {Proceedings of the Steklov Institute of Mathematics, Vol. 242},
+  year = {2003},
+  pages = {136--164},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{KO03,
+  author = {Kohlenbach,U. and Oliva,P.},
+  title = {{P}roof mining in ${L}_1$\nbd appro\-xim\-ation.},
+  journal = {Ann. Pure Appl. Logic},
+  year = {2003},
+  volume = {121},
+  pages = {1--38},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@UNPUBLISHED{KS13,
+  author = {U. Kohlenbach and P. Safarik},
+  title = {Fluctuations, effective learnability and metastability in analysis},
+  note = {to appear in Ann. Pure and Applied Logic},
+  owner = {safo},
+  timestamp = {2013.07.25}
+}
+
+@INCOLLECTION{kreisel67,
+  author = {Kreisel, G.},
+  title = {Informal rigour and completeness proofs},
+  booktitle = {Problems in the Philosophy of Mathmematics},
+  publisher = {North-Holland, Amsterdam},
+  year = {1967},
+  editor = {Lakatos, I.},
+  pages = {138--186},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@INCOLLECTION{kreisel69,
+  author = {Kreisel, G.},
+  title = {Axiomatizations of nonstandard analysis that are conservative extensions
+	of formal systems for classical standard analysis},
+  booktitle = {Applications of {M}odel {T}heory to {A}lgebra, {A}nalysis, and {P}robability
+	({I}nternat. {S}ympos., {P}asadena, {C}alif., 1967)},
+  publisher = {Holt},
+  year = {1969},
+  pages = {93--106},
+  address = {Rinehart and Winston, New York},
+  mrclass = {02.57},
+  mrnumber = {0238686 (39 \#50)},
+  mrreviewer = {J. Mycielski},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@INCOLLECTION{Kreisel1959,
+  author = {Kreisel, G.},
+  title = {{I}nterpretation of analysis by means of constructive functionals
+	of finite types},
+  booktitle = {Constructivity in mathematics: {P}roceedings of the colloquium held
+	at {A}msterdam, 1957 (edited by {A}. {H}eyting)},
+  publisher = {North-Holland Publishing Co.},
+  year = {1959},
+  series = {Studies in Logic and the Foundations of Mathematics},
+  pages = {101--128},
+  address = {Amsterdam},
+  mrclass = {02.00},
+  mrnumber = {0106838 (21 \#5568)},
+  mrreviewer = {A. Heyting},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{Kreisel52,
+  author = {G. Kreisel},
+  title = {On the interpretation of non-finitist proofs, part {II}},
+  journal = {The Journal of Symbolic Logic},
+  year = {1952},
+  volume = {17},
+  pages = {43--58}
+}
+
+@ARTICLE{Kreisel51,
+  author = {G. Kreisel},
+  title = {On the interpretation of non-finitist proofs, part {I}},
+  journal = {The Journal of Symbolic Logic},
+  year = {1951},
+  volume = {16},
+  pages = {241--267}
+}
+
+@BOOK{Krengel1985,
+  title = {{E}rgodic theorems},
+  publisher = {Walter de Gruyter \& Co.},
+  year = {1985},
+  author = {Krengel, U.},
+  volume = {6},
+  pages = {viii+357},
+  series = {de Gruyter Studies in Mathematics},
+  address = {Berlin},
+  note = {With a supplement by Antoine Brunel},
+  isbn = {3-11-008478-3},
+  mrclass = {28-02 (28Dxx 47A35)},
+  mrnumber = {797411 (87i:28001)},
+  mrreviewer = {E. Flytzanis},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{krivine90,
+  author = {Krivine, J.-L.},
+  title = {Op\'erateurs de mise en m\'emoire et traduction de {G}\"odel},
+  journal = {Arch. Math. Logic},
+  year = {1990},
+  volume = {30},
+  pages = {241--267},
+  number = {4},
+  coden = {AMLOEH},
+  doi = {10.1007/BF01792986},
+  fjournal = {Archive for Mathematical Logic},
+  issn = {0933-5846},
+  mrclass = {03B40 (03B70 68Q65)},
+  mrnumber = {1080590 (91j:03011)},
+  mrreviewer = {Edmund Robinson},
+  owner = {safo},
+  timestamp = {2013.07.23},
+  url = {http://dx.doi.org/10.1007/BF01792986}
+}
+
+@BOOK{Kuratowski52,
+  title = {{T}opologie {V}ol. {I}},
+  publisher = {Warsawa},
+  year = {1952},
+  author = {C. Kuratowski},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{Kuroda51,
+  author = {Kuroda, S.},
+  title = {Intuitionistische {U}ntersuchungen der formalistischen {L}ogik},
+  journal = {Nagoya Math. J.},
+  year = {1951},
+  volume = {2},
+  pages = {35--47},
+  fjournal = {Nagoya Mathematical Journal},
+  issn = {0027-7630},
+  mrclass = {02.0X},
+  mrnumber = {0041801 (13,4b)},
+  mrreviewer = {A. Heyting},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{leustean07,
+  author = {Leustean, L.},
+  title = {A quadratic rate of asymptotic regularity for {CAT}(0)-spaces},
+  journal = {J. Math. Anal. Appl.},
+  year = {2007},
+  volume = {325},
+  pages = {386--399},
+  number = {1},
+  coden = {JMANAK},
+  doi = {10.1016/j.jmaa.2006.01.081},
+  fjournal = {Journal of Mathematical Analysis and Applications},
+  issn = {0022-247X},
+  mrclass = {54H25 (47H10)},
+  mrnumber = {2273533 (2008a:54048)},
+  mrreviewer = {Xiangdong Xie},
+  owner = {safo},
+  timestamp = {2013.07.23},
+  url = {http://dx.doi.org/10.1016/j.jmaa.2006.01.081}
+}
+
+@INCOLLECTION{lifschitz85,
+  author = {Lifschitz, V.},
+  title = {Calculable natural numbers},
+  booktitle = {Intensional mathematics},
+  publisher = {North-Holland},
+  year = {1985},
+  volume = {113},
+  series = {Stud. Logic Found. Math.},
+  pages = {173--190},
+  address = {Amsterdam},
+  doi = {10.1016/S0049-237X(08)70143-5},
+  mrclass = {03F65 (03F50)},
+  mrnumber = {783648 (86m:03093)},
+  mrreviewer = {Horst Luckhardt},
+  owner = {safo},
+  timestamp = {2013.07.23},
+  url = {http://dx.doi.org/10.1016/S0049-237X(08)70143-5}
+}
+
+@ARTICLE{Luckhardt(89),
+  author = {Luckhardt, H.},
+  title = {Herbrand-Analysen zweier Beweise des Satzes von Roth: Polynomiale
+	Anzahlschranken},
+  journal = {J. Symbolic Logic},
+  year = {1989},
+  volume = {54},
+  pages = {234-263},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{Luckhardt73,
+  author = {H. Luckhardt},
+  title = {{E}xtensional {G}\"odel functional interpretation.},
+  journal = {Springer Lecture Notes in Mathematics},
+  year = {1973},
+  volume = {vol. 306},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{Miyadera1999,
+  author = {Miyadera, I.},
+  title = {{N}onlinear mean ergodic theorems. {II}},
+  journal = {Taiwanese J. Math.},
+  year = {1999},
+  volume = {3},
+  pages = {107--114},
+  number = {1},
+  fjournal = {Taiwanese Journal of Mathematics},
+  issn = {1027-5487},
+  mrclass = {47H09 (47H10)},
+  mrnumber = {1676026 (2000a:47113)},
+  mrreviewer = {Behzad Djafari-Rouhani},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{Miyadera1997,
+  author = {Miyadera, I.},
+  title = {{N}onlinear mean ergodic theorems},
+  journal = {Taiwanese J. Math.},
+  year = {1997},
+  volume = {1},
+  pages = {433--449},
+  number = {4},
+  fjournal = {Taiwanese Journal of Mathematics},
+  issn = {1027-5487},
+  mrclass = {47H09 (47H10)},
+  mrnumber = {1486564 (98k:47106)},
+  mrreviewer = {Behzad Djafari-Rouhani},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{moerdijk95,
+  author = {Moerdijk, I.},
+  title = {A model for intuitionistic non-standard arithmetic},
+  journal = {Ann. Pure Appl. Logic},
+  year = {1995},
+  volume = {73},
+  pages = {37--51},
+  number = {1},
+  coden = {APALD7},
+  doi = {10.1016/0168-0072(93)E0071-U},
+  fjournal = {Annals of Pure and Applied Logic},
+  issn = {0168-0072},
+  mrclass = {03G30 (03C90 03F55)},
+  mrnumber = {1332549 (96k:03145)},
+  mrreviewer = {Wim Ruitenburg},
+  owner = {safo},
+  timestamp = {2013.07.23},
+  url = {http://dx.doi.org/10.1016/0168-0072(93)E0071-U}
+}
+
+@ARTICLE{moerdijkpalmgren97,
+  author = {Moerdijk, I. and Palmgren, E.},
+  title = {Minimal models of {H}eyting arithmetic},
+  journal = {J. Symbolic Logic},
+  year = {1997},
+  volume = {62},
+  pages = {1448--1460},
+  number = {4},
+  coden = {JSYLA6},
+  doi = {10.2307/2275651},
+  fjournal = {The Journal of Symbolic Logic},
+  issn = {0022-4812},
+  mrclass = {03F30 (03C62 03F55)},
+  mrnumber = {1617996 (99i:03074)},
+  mrreviewer = {Roman Murawski},
+  owner = {safo},
+  timestamp = {2013.07.23},
+  url = {http://dx.doi.org/10.2307/2275651}
+}
+
+@ARTICLE{nelson88,
+  author = {Nelson, E.},
+  title = {The syntax of nonstandard analysis},
+  journal = {Ann. Pure Appl. Logic},
+  year = {1988},
+  volume = {38},
+  pages = {123--134},
+  number = {2},
+  coden = {APALD7},
+  doi = {10.1016/0168-0072(88)90050-4},
+  fjournal = {Annals of Pure and Applied Logic},
+  issn = {0168-0072},
+  mrclass = {03H05 (03E70)},
+  mrnumber = {938372 (89i:03121)},
+  mrreviewer = {A. Sochor},
+  owner = {safo},
+  timestamp = {2013.07.23},
+  url = {http://dx.doi.org/10.1016/0168-0072(88)90050-4}
+}
+
+@ARTICLE{nelson77,
+  author = {Nelson, E.},
+  title = {Internal set theory: a new approach to nonstandard analysis},
+  journal = {Bull. Amer. Math. Soc.},
+  year = {1977},
+  volume = {83},
+  pages = {1165--1198},
+  number = {6},
+  fjournal = {Bulletin of the American Mathematical Society},
+  issn = {0002-9904},
+  mrclass = {02K10 (26A98)},
+  mrnumber = {0469763 (57 \#9544)},
+  mrreviewer = {Albert E. Hurd},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@INPROCEEDINGS{Neumann1932,
+  author = {J. von Neumann},
+  title = {{P}roof of the quasi-ergodic hypothesis},
+  booktitle = {Proc. Nat. Acad. Sci. USA},
+  year = {1932},
+  owner = {safarik},
+  timestamp = {2011.02.15}
+}
+
+@BOOK{Odifreddi89,
+  title = {{C}lassical {R}ecursion {T}heory},
+  publisher = {Elsevier Science B.V.},
+  year = {1989},
+  author = {P. G. Odifreddi},
+  series = {Studies in Logic and the Foundations of Mathematics},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@INPROCEEDINGS{Oliva06,
+  author = {P. Oliva},
+  title = {{U}nderstanding and using {S}pector's bar recursive interpretation
+	of classical analysis},
+  booktitle = {Proceedings of CiE'2006},
+  year = {2006},
+  series = {Lecture Notes in Computer Science},
+  pages = {423--434},
+  publisher = {Springer 3988},
+  documenturl = {http://www.dcs.qmul.ac.uk/~pbo/papers/paper011.pdf},
+  ean = {9783540354666},
+  isbn = {3-540-35466-2},
+  owner = {safo},
+  timestamp = {2013.07.23},
+  type = {2}
+}
+
+@ARTICLE{OP12,
+  author = {{Oliva}, P. and {Powell}, T.},
+  title = {{A Game-Theoretic Computational Interpretation of Proofs in Classical
+	Analysis}},
+  journal = {ArXiv e-prints},
+  year = {2012},
+  month = apr,
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System},
+  adsurl = {http://adsabs.harvard.edu/abs/2012arXiv1204.5244O},
+  archiveprefix = {arXiv},
+  eprint = {1204.5244},
+  keywords = {Mathematics - Logic, Computer Science - Computer Science and Game
+	Theory, Computer Science - Logic in Computer Science},
+  primaryclass = {math.LO}
+}
+
+@ARTICLE{OP12br,
+  author = {Oliva, Paulo and Powell, Thomas},
+  title = {On Spector's bar recursion},
+  journal = {Mathematical Logic Quarterly},
+  year = {2012},
+  volume = {58},
+  pages = {356--265},
+  number = {4-5},
+  doi = {10.1002/malq.201100106},
+  issn = {1521-3870},
+  keywords = {Spector's bar recursion, selection functions, T-definability, msc
+	(2010), 03F07, 03F10, 03F25},
+  publisher = {WILEY-VCH Verlag},
+  url = {http://dx.doi.org/10.1002/malq.201100106}
+}
+
+@ARTICLE{palmgren00,
+  author = {Palmgren, E.},
+  title = {An effective conservation result for nonstandard arithmetic},
+  journal = {MLQ Math. Log. Q.},
+  year = {2000},
+  volume = {46},
+  pages = {17--23},
+  number = {1},
+  doi = {10.1002/(SICI)1521-3870(200001)46:1<17::AID-MALQ17>3.0.CO;2-8},
+  fjournal = {MLQ. Mathematical Logic Quarterly},
+  issn = {0942-5616},
+  mrclass = {03H15 (03F30)},
+  mrnumber = {1736646 (2001a:03130)},
+  mrreviewer = {Roman Murawski},
+  owner = {safo},
+  timestamp = {2013.07.23},
+  url = {http://dx.doi.org/10.1002/(SICI)1521-3870(200001)46:1<17::AID-MALQ17>3.0.CO;2-8}
+}
+
+@ARTICLE{palmgren98,
+  author = {Palmgren, E.},
+  title = {Developments in constructive nonstandard analysis},
+  journal = {Bull. Symbolic Logic},
+  year = {1998},
+  volume = {4},
+  pages = {233--272},
+  number = {3},
+  doi = {10.2307/421031},
+  fjournal = {The Bulletin of Symbolic Logic},
+  issn = {1079-8986},
+  mrclass = {03F60 (03C90 03F50 03H05 18B25 18F10)},
+  mrnumber = {1650475 (2000b:03218)},
+  mrreviewer = {R. Gylys},
+  owner = {safo},
+  timestamp = {2013.07.23},
+  url = {http://dx.doi.org/10.2307/421031}
+}
+
+@BOOK{PH77,
+  title = {{A} {M}athematical {I}ncompleteness in {P}eano {A}rithmetic. {\em
+	In} {J}.~{B}arwise ({E}ditor): {H}andbook of {M}athematical {L}ogic},
+  publisher = {North Holland, Amsterdam},
+  year = {1977},
+  author = {Paris, J. and Harrington, L.},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{Parsons72,
+  author = {C. Parsons},
+  title = {{O}n n-quantifier induction.},
+  journal = {The Journal of Symbolic Logic},
+  year = {1972},
+  volume = {37},
+  pages = {466--482},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{Parsons71,
+  author = {C. Parsons},
+  title = {{P}roof-theoretic analysis of restricted induction schemata (abstract)},
+  journal = {The Journal of Symbolic Logic},
+  year = {1971},
+  volume = {36},
+  pages = {361},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@BOOK{robinson96,
+  title = {Non-standard analysis},
+  publisher = {Princeton University Press},
+  year = {1996},
+  author = {Robinson, A.},
+  pages = {xx+293},
+  series = {Princeton Landmarks in Mathematics},
+  address = {Princeton, NJ},
+  note = {Reprint of the second (1974) edition, With a foreword by Wilhelmus
+	A. J. Luxemburg},
+  isbn = {0-691-04490-2},
+  mrclass = {03H05 (00A05 01A75)},
+  mrnumber = {1373196 (96j:03090)},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{robinson73,
+  author = {Robinson, A.},
+  title = {Metamathematical problems},
+  journal = {J. Symbolic Logic},
+  year = {1973},
+  volume = {38},
+  pages = {500--516},
+  fjournal = {The Journal of Symbolic Logic},
+  issn = {0022-4812},
+  mrclass = {02-02},
+  mrnumber = {0337471 (49 \#2240)},
+  mrreviewer = {A. B. Manaster},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{Rouhani2001,
+  author = {Rouhani, B. D.},
+  title = {{E}rgodic theorems for nonexpansive curves defined on general semigroups
+	in a {H}ilbert space},
+  journal = {Nonlinear Anal.},
+  year = {2001},
+  volume = {44},
+  pages = {627--643},
+  number = {5, Ser. A: Theory Methods},
+  coden = {NOANDD},
+  doi = {10.1016/S0362-546X(99)00296-5},
+  fjournal = {Nonlinear Analysis. Theory, Methods \& Applications. An International
+	Multidisciplinary Journal. Series A: Theory and Methods},
+  issn = {0362-546X},
+  mrclass = {47H09 (43A07 47H10 47H20)},
+  mrnumber = {1822234 (2002g:47112)},
+  mrreviewer = {A. T.-M. Lau},
+  owner = {safo},
+  timestamp = {2013.07.23},
+  url = {http://dx.doi.org/10.1016/S0362-546X(99)00296-5}
+}
+
+@ARTICLE{Saejung,
+  author = {Saejung, S.},
+  title = {Halpern's iteration in CAT(0) spaces},
+  journal = {Fixed Point Theory and Applications},
+  year = {2010},
+  volume = {2010},
+  owner = {safo},
+  timestamp = {2013.07.23},
+  unidentified = {2010}
+}
+
+@ARTICLE{Safarik(11),
+  author = {Safarik, P.},
+  title = {A quantitative nonlinear strong ergodic theorem for Hilbert spaces},
+  journal = {J. Math. Anal. Appl.},
+  year = {2012},
+  volume = {391},
+  pages = {26-37},
+  owner = {safo},
+  timestamp = {2013.07.23},
+  unidentified = {Anal. Appl}
+}
+
+@BOOK{Safarik08,
+  title = {{O}n the {I}nterpretation of the {B}olzano-{W}eierstra{\ss} {P}rinciple
+	{U}sing {B}ar {R}ecursion},
+  year = {2008},
+  author = {P. Safarik},
+  owner = {safo},
+  timestamp = {2013.07.23},
+  url = {http://www.mathematik.tu-darmstadt.de/~safarik/doc/dip.pdf}
+}
+
+@ARTICLE{KS10,
+  author = {Safarik, Pavol and Kohlenbach, Ulrich},
+  title = {On the computational content of the {B}olzano-{W}eierstra\ss\ principle},
+  journal = {MLQ Math. Log. Q.},
+  year = {2010},
+  volume = {56},
+  pages = {508--532},
+  number = {5},
+  doi = {10.1002/malq.200910106},
+  fjournal = {MLQ. Mathematical Logic Quarterly},
+  issn = {0942-5616},
+  mrclass = {03F10 (03D65 03F50 03F60)},
+  mrnumber = {2742886 (2012b:03156)},
+  mrreviewer = {Christian Bennet},
+  url = {http://dx.doi.org/10.1002/malq.200910106}
+}
+
+@ARTICLE{Scarpellini71,
+  author = {B. Scarpellini},
+  title = {{A} model of bar recursion of higher types.},
+  journal = {Compositio Mathematica},
+  year = {1971},
+  volume = {23},
+  pages = {123--153},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{Schuette60,
+  author = {K. Sch{\"u}tte},
+  title = {{B}eweistheorie},
+  journal = {Die Grundlehren der Mathematischen Wissenschaften in Einzeldarstellungen},
+  year = {1960},
+  volume = {103},
+  pages = {1--355},
+  owner = {safo},
+  publisher = {Springer Verlag},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{Schwichtenberg07,
+  author = {H. Schwichtenberg},
+  title = {{D}ialectica {I}nterpretation of {W}ell-{F}ounded {I}nduction.},
+  journal = {To appear: Mathematical Logic Quarterly},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{Schwichtenberg79,
+  author = {H. Schwichtenberg},
+  title = {{O}n {B}ar {R}ecursion of {T}ypes $0$ and $1$},
+  journal = {The Journal of Symbolic Logic},
+  year = {1979},
+  volume = {44},
+  pages = {325--329},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@BOOK{shoenfield01,
+  title = {Mathematical logic},
+  publisher = {Association for Symbolic Logic},
+  year = {2001},
+  author = {Shoenfield, J.R.},
+  pages = {viii+344},
+  address = {Urbana, IL},
+  note = {Reprint of the 1973 second printing},
+  isbn = {1-56881-135-7},
+  mrclass = {03-01},
+  mrnumber = {1809685 (2001h:03003)},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{Sieg,
+  author = {Sieg, W.},
+  title = {Fragments of arithmetic},
+  journal = {Ann. Pure Appl. Logic},
+  year = {1985},
+  volume = {28},
+  pages = {33-71},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@BOOK{Simpson1999,
+  title = {{S}ubsystems of second order arithmetic},
+  publisher = {Springer-Verlag},
+  year = {1999},
+  author = {Simpson, Stephen G.},
+  pages = {xiv+445},
+  series = {Perspectives in Mathematical Logic},
+  address = {Berlin},
+  isbn = {3-540-64882-8},
+  mrclass = {03F35 (03-02 03B30)},
+  mrnumber = {1723993 (2001i:03126)},
+  mrreviewer = {Michael M{\"o}llerfeld},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@INPROCEEDINGS{Spector62,
+  author = {C. Spector},
+  title = {{P}rovably recursive functionals of analysis: a consistency proof
+	of an analysis by extension of principles formulated in current intuitionistic
+	mathematics.},
+  booktitle = {Recursive function Theory, Proceedings of Symposia in Pure Mathematics,
+	vol. 5 (J.C.E. Dekker (ed.)), AMS, Providence, R.I.},
+  year = {1962},
+  pages = {1--27},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{streicherkohlenbach07,
+  author = {Streicher, T. and Kohlenbach, U.},
+  title = {{S}hoenfield is {G}\"odel after {K}rivine},
+  journal = {Mathematical Logic Quarterly},
+  year = {2007},
+  volume = {53},
+  pages = {176--179},
+  number = {2},
+  issn = {1521-3870},
+  keywords = {Functional interpretation, negative translation},
+  owner = {safarik},
+  publisher = {WILEY-VCH Verlag},
+  timestamp = {2011.02.03},
+  url = {http://dx.doi.org/10.1002/malq.200610038}
+}
+
+@ARTICLE{streicherreus98,
+  author = {Streicher, T. and Reus, B.},
+  title = {Classical logic, continuation semantics and abstract machines},
+  journal = {Journal of Functional Programming},
+  year = {1998},
+  volume = {8},
+  pages = {543--572},
+  number = {06},
+  owner = {safarik},
+  timestamp = {2011.02.03}
+}
+
+@INPROCEEDINGS{Tait76,
+  author = {W. W. Tait},
+  title = {{C}onstructive reasoning},
+  booktitle = {Logic, methodology and the philosophy of science. {III}, (B. van
+	Rootselaar and J. F. Staal (ed.)), North-Holland, Amsterdam},
+  year = {1976},
+  pages = {185--199},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@BOOK{Tao07,
+  title = {{S}oft analysis, hard analysis, and the finite convergence principle},
+  publisher = {Available at: http://terrytao.wordpress.com/2007/05/23/soft-analysis-hard-analysis-and-the-finite-convergence-principle},
+  year = { Essay posted May 23, 2007},
+  author = {T. Tao},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@BOOK{tao-2007,
+  title = {{N}orm convergence of multiple ergodic averages for commuting transformations},
+  year = {2007},
+  author = {T. Tao},
+  owner = {safo},
+  timestamp = {2013.07.23},
+  url = {http://www.citebase.org/abstract?id=oai:arXiv.org:0707.1117}
+}
+
+@MASTERSTHESIS{Toftdal,
+  author = {Toftdal, M.},
+  title = {Calibration of Ineffective Theorems of Analysis in a Constructive
+	Context},
+  school = {Aarhus Universitet},
+  year = {2004},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{Troelstra74,
+  author = {A. S. Troelstra},
+  title = {{N}ote on the {F}an {T}heorem},
+  journal = {The Journal of Symbolic Logic},
+  year = {1974},
+  volume = {39},
+  pages = {584--596},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@BOOK{Troelstra88,
+  title = {{C}onstructivism in {M}athematics - an introduction vol.~{I},~{II}},
+  publisher = {Elsevier Science B.V.},
+  year = {1988},
+  author = {A. S. Troelstra and D. van Dalen},
+  series = {Studies in Logic and the Foundations of Mathematics},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@BOOK{troelstravandalen88b,
+  title = {Constructivism in mathematics. {V}ol. {II}},
+  publisher = {North-Holland Publishing Co.},
+  year = {1988},
+  author = {Troelstra, A. S. and van Dalen, D.},
+  volume = {123},
+  pages = {i--xviii and 345--880 and I--LII},
+  series = {Studies in Logic and the Foundations of Mathematics},
+  address = {Amsterdam},
+  note = {An introduction},
+  isbn = {0-444-70358-6},
+  mrclass = {03-01 (03B15 03Fxx 03G30)},
+  mrnumber = {970277 (90e:03002b)},
+  mrreviewer = {G. E. Mints},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{Wittmann92,
+  author = {Wittmann, R.},
+  title = {Approximation of fixed points of nonexpansive mappings},
+  journal = {Arch. Math.},
+  year = {1992},
+  volume = {58},
+  pages = {486-491},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{Wittmann90,
+  author = {Wittmann, R.},
+  title = {Mean ergodic theorems for nonlinear operators},
+  journal = {Proc. Amer. Math. Soc.},
+  year = {1990},
+  volume = {108},
+  pages = {781-788},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{Xu,
+  author = {Xu, H.-K.},
+  title = {Iterative algorithms for nonlinear operators},
+  journal = {J. London Math. Soc.},
+  year = {2002},
+  volume = {66},
+  pages = {240-256},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@ARTICLE{Ziegler(07),
+  author = {Ziegler, M.},
+  title = {Real hypercomputation and continuity},
+  journal = {Theory of Computing Systems},
+  year = {2007},
+  volume = {41},
+  pages = {177-206},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@BOOK{Simpson99,
+  title = {{S}ubsystems of {S}econd {O}rder {A}rithmetic},
+  publisher = {Springer-Varlag, Berlin $\cdot$ Heidelberg $\cdot$ New York},
+  year = {1999},
+  editor = {S. G. Simpson},
+  series = {Perspectives in Mathematical Logic},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+
+@BOOK{Troelstra73,
+  title = {Metamathematical investigation of intuitionistic arithmetic and analysis},
+  publisher = {Springer-Verlag},
+  year = {1973},
+  editor = {Troelstra, A. S.},
+  pages = {xvii+485},
+  series = {Lecture Notes in Mathematics, Vol. 344},
+  address = {Berlin},
+  mrclass = {02CXX (02DXX 02HXX)},
+  mrnumber = {0325352 (48 \#3699)},
+  owner = {safo},
+  timestamp = {2013.07.23}
+}
+

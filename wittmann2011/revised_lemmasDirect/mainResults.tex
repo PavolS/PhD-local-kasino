@@ -1,0 +1,203 @@
+\subsection{Uniform bounds for Wittmann's ergodic theorems}\label{s:main}
+%\section{The witness is correct}\label{s:Main}
+
+We give a bound for a finitary version of Wittmann's convergence result for
+a general series in a Hilbert space satisfying a suitable formulation
+of the condition~\eqref{e:W-assym} first 
+(see Proposition~\ref{p:fin} and Theorem~\ref{t:finInt}) to derive the bounds
+for the finitary versions of the actual ergodic theorems later
+(see Corollary~\ref{c:fin22} and Corollary~\ref{c:fin21}).\\
+The proof of Proposition~\ref{p:fin} is rather involved and we give it in a dedicated section. We denote the set of natural numbers $\{x\in\NN : a\leq x\wedge x\leq b\}$ by $[a;b]$.
+\begin{rmk}
+In the following proposition, we omit the term dependencies whenever the arguments are trivial. In particular
+we omit the dependency on the parameters $K$ and $B$ in the definition of $M'$. E.g. we write $F(p):=\big(F(l,g,n)\big)(p):=p+n+K\powM(l)+M_0+g(M_0)$
+to define a functional $F$, which given the natural numbers $l$, $n$ and $B$ and the
+functions $g:\NN\to\NN$ and $K:\NN\to\NN$ returns a function $F(l,g,n,K,B):\NN\to\NN$ which maps any natural number $p$ to the natural number
+ $p+n+K\powM(l)+M_0(l,n,p,K,B)+g(M_0(l,n,p,K,B))$. 
+% (see Section~\ref{s:proof}).
+\end{rmk}
+\begin{prop}[Finitary version of Theorem 2.3 in~\cite{Wittmann90}] \label{p:fin}
+
+Let $K:\NN\to\NN$ be a function and $X_{(\cdot)}$ a sequence in a Hilbert space s.t. for all $m,n,k\in\NN$
+\[
+\|X_{n+k} + X_{m+k}\|^2 \leq \|X_{n} + X_{m}\|^2+\delta_k,\label{one}\tag{A1}
+\]
+with
+\[
+\forall l\in\NN\forall n\geq K(l)\ \big( |\delta_{n}|<2^{-l}\big),\label{two}\tag{A2}
+\]
+in other words let $K$ be a rate of convergence of $(\delta_k)$ towards 0.
+Furthermore let $B$ be a natural number s.t. $B\geq \|X_i\|+1$ for all $i\leq K(0)$.\\
+Then the sequence $A_{(\cdot)}$, defined by
+$
+A_n:=\frac{1}{n}\sum^n_{i=1}X_i,
+$
+is a Cauchy sequence and we have that
+\[
+\forall l\in\NN,g:\NN\to\NN\ \exists m\leq M'(l,g\powM,K,B)\ \ \big( \|A_{m}-A_{m+g(m)}\|\leq 2^{-l} \big),
+\]
+with $g\powM(n):=\max_{i\leq n} g(n)$, $K\powM(n):=\max_{i\leq n} K(n)$, and $M'(l,g,K,B)$ defined as follows:
+%
+\begin{align*}
+M'&:=M'(l,g):=M(2l+6, g')+1,\ g':\NN\to\NN,\ g'(n):=g(n+1),\\ %M'&:=M(2l+6, \lambda n\ .\ g(n+1))+1, g'(n):=g(n+),\\
+M&:=M(l,g):=M_0( P, N, l),\\
+P&:=P(l,g):=P_0(l,F(l,g,N)),\\
+F(p)&:=\big(F(l,g,n)\big)(p):=p+n+K\powM(l)+M_0+g(M_0),\ F:\NN\to\NN,\\
+N&:=N(l,g):=N_0(l+1,H), \\
+H(n)&:=\big(H(l,g)\big)(n):= H_0(l,g,n,P_0(l,F)),\ H:\NN\to\NN,
+%M'(l,g)&:=M(2l+6, \lambda n\ .\ g(n+1))+1,\\
+%M(l,g)&:=M_0( P(l,g), N(l,g), l),\\
+%P(l,g)&:=P_0(l,F(l,g,N(l,g))),\\
+%F(l,g,n) &:=_1 \lambda p\ .\ p+n+K\powM(l)+M_0(l,n,p)+g(M_0(l,n,p)),\\
+%N(l,g)&:=N_0(l+1,H(l,g)), \\
+%H(l,g)&:=_1 \lambda n\ .\  H_0(l,g,n,P_0(l,F(l,g,n))),
+\end{align*}
+where
+\begin{align*}
+ H_0&:=H_0(l,g,n,p):= p + M_0+g(M_0)+K\powM(l),\\
+ M_0&:=M_0(l,n,p):=(2n + 2p + 2K\powM(l))B2^{l},\\
+ P_0&:=P_0(l,f):=\tilde f^{B^22^l}(0),\quad \tilde f(n):=n + f(n),\\
+ N_0&:=N_0(l,h):=P_0(l+1,U)+K\powM(l+1), \\
+% R&:=\tilde u^{B^22^l}(0),\\
+ U(n)&:=\big(U(l,h)\big)(n):=(n + K\powM(l+1))+h\powM(n + K\powM(l+1)),\ U:\NN\to\NN.\\
+%%% B&:=\max_{i \leq K\powM(0)} B_i+1.\\
+% H_0(l,g,n,p)&:= p + M_0(l,n, p )+g(M_0(l,n, p ))+K\powM(l),\\
+% M_0(l,n,p)&:=(2n + 2p + 2K\powM(l))B2^{l},\\
+% P_0(l,f,B)&:=\tilde f^{B^22^l}(0),\quad \tilde f(n):=n + f(n),\\
+% N_0(l,h)&:=R(l+1,U(l,h))+K\powM(l+1), \\
+% R(l,u)&:=\tilde u^{\lceil \|X_0\| \rceil^22^l}(0),\\
+% U(l,h)&:=_1\lambda n\ .\ (n + K\powM(l+1))+h\powM(n + K\powM(l+1)),\\
+% B&:=\max_{1\leq i \leq K\powM(0)} \lceil \|X_i\| \rceil+1.\\
+\end{align*}
+\end{prop}
+%
+\begin{rmk}
+From now on we will make use of the following observations regarding this proposition.
+\begin{enumerate}
+\item Due to the condition~\eqref{one} we have that $\forall i\in\NN\ B\geq\|X_i\|$.
+\item The condition~\eqref{two} holds for $K\powM$ as well. Therefore it is safe to assume that $K$ is already monotone and hence that $K\powM=K$. 
+\end{enumerate}
+\end{rmk}
+
+Sometimes it is useful to work with the following version of the previous theorem, though
+both these formulations are equivalent (even in very weak systems).
+
+\begin{thm}[Finitary version of Theorem 2.3 in~\cite{Wittmann90} for intervals] \label{t:finInt}
+Given the assumptions in Proposition~\ref{p:fin} the sequence $A_{(\cdot)}$ defined by
+\[
+A_n:=\frac{1}{n}\sum^n_{i=1}X_i,
+\]
+is a Cauchy sequence and we have that
+\[
+\forall l\in\NN,g:\NN\to\NN\ \exists m\leq M'(l+1,g\powM,K,B)\ \forall i,j\in[m;m+g(m)]\ \ \big( \|A_{i}-A_{j}\|\leq 2^{-l} \big),
+\]
+with $M'(l,g,K, B)$ defined as in Proposition~\ref{p:fin}.
+\end{thm}
+\begin{proof}
+Given any $l$ and $g$, apply Proposition~\ref{p:fin} to the number $l+1$ and to the function
+\begin{align*}
+h(n):=\min\Big\{\ &i\in [0;g(n)] \text{ s.t. }\\
+ &\forall j\in[0;g(n)]\quad \Big(\big| \|A_{n+i}\| - \|A_n\| \big| \geq \big| \|A_{n+j}\|- \|A_n\|\big|\Big) \Big\}.
+\end{align*}
+It follows that (here again, we omit obvious dependencies on trivial arguments)
+\[
+\exists m\leq M'(l+1,h\powM)\ \big( \|A_{m}-A_{m+h(m)}\|\leq 2^{-l-1} \big).
+\]
+We fix such an $m$ and conclude (by the triangle inequality) that
+\[
+\forall i,j\in[m;m+g(m)]\ \big( \|A_{i}-A_{j}\|\leq 2^{-l} \big).
+\]
+Moreover, since $\forall n\in\NN\ (h\powM(n)\leq g\powM(n))$ we have that \[m\leq M'(l+1,g\powM)\] due to Lemma~\ref{l:M}.
+\end{proof}
+
+Now, we obtain the bound for the metastable version of Theorem 2.2 in Wittmann's paper~\cite{Wittmann90} as a simple conclusion:
+
+\begin{cor}[Finitary version of Theorem 2.2 in~\cite{Wittmann90}] \label{c:fin22}
+Let $S$ be a subset of a Hilbert space and $T:S\to S$
+be a mapping satisfying
+\begin{align}
+&\forall n\in\NN\forall x,y\in S\ \big(\| T^nx + T^ny \| \leq \alpha_n\|x + y\|\big), \label{e:22.a1}  \\  
+&\forall l\in\NN\forall n\geq K'(l)\ \big( |1-\alpha_{n}|<2^{-l}\big).  \label{e:22.a2}
+\end{align}
+Then for any $x\in S$ and any natural number $B'$ s.t. $B'\geq \|T^i x\|$ for all $i\leq K'(0)$ the sequence of the Ces{\`a}ro means
+\[
+A_nx:=\frac{1}{n+1}\sum^{n}_{i=0} T^i x
+\]
+is norm convergent and the following holds:
+\[
+\forall l\in\NN,g:\NN\to\NN\ \exists m\leq M'(l+1,g\powM,K, B)\forall i,j\in[m;m+g(m)]\ \big( \|A_{i}x-A_{j}x\|\leq 2^{-l}\big ),
+\]
+with $K(l):=K'(l+2\lceil\log_2 B \rceil+4)$, $B:=2B'+1$ and $M'$ defined as in Proposition~\ref{p:fin}.
+\end{cor}
+\begin{proof}
+Fix an arbitrary $x\in S$ and set $X_i:=T^ix$, $\delta_n:=4B^2(\alpha_n^2-1)$.
+Next we show that the assumptions of Theorem~\ref{t:finInt} hold for
+$(X_i)$, $(\delta_n)$, $K(l)$ and $B$. Obviously we have that $B\geq \|X_i\|+1$ for all $i\leq K(0)$, since $2B'\geq \|T^i x\|$ for all $i\in\NN$.
+Now, given any $k$,$n$ and $m$, from $\| T^kx + T^ky \| \leq \alpha_k\|x + y\|$ for suitable $x$ and $y$, we can infer that
+\[
+\|X_{n+k}\! + X_{m+k}\|^2 \leq \|X_{n}\! + X_{m}\|^2+(\alpha_k^2\!-\!1)\|X_{n}\! + X_{m}\|^2\leq \|X_{n}\! + X_{m}\|^2+(\alpha_k^2\!-\!1)4B^2\!.
+\]
+Moreover, we have that (we can safely assume that $\alpha_n\geq1$)
+\begin{align*}
+|\delta_n|=|4B^2(\alpha_n^2-1)|=4B^2(\alpha_n-1)(\alpha_n-1+2)=4B^2\big((\alpha_n-1)^2+2(\alpha_n-1)\big),
+\end{align*}
+so using \eqref{e:22.a2} we have that
+\begin{align*}
+|\delta_n|\leq 4B^2\big(2^{-2(l+2\lceil\log_2 B \rceil+4)}+2^{-(l+2\lceil\log_2 B \rceil+3)}\big)\leq 4B^22^{-(l+2\lceil\log_2 B \rceil+2)}\leq2^{-l}.
+\end{align*}
+Hence we obtain by Theorem~\ref{t:finInt} that
+\[
+\forall l,g \exists m\leq M'(l+1,g\powM,K, B)\forall i,j\in[m;m+g(m)]\ \big( \|A_{i}-A_{j}\|\leq 2^{-l} \big),
+\]
+with
+\[
+A_n:=\frac{1}{n}\sum^n_{i=1}X_i.
+\]
+Finally, the claim follows from $X_i=T^ix$.
+\end{proof}
+%
+\begin{rmk}
+
+Since the operator $T$ is bounded by $\alpha_1$ (it follows from~\eqref{e:22.a1} that $\forall x\in S\ \|Tx\|\leq\alpha_1\|x\|$), we can easily compute a $B'$ from two natural numbers $a$ and $b$ satisfying $a\geq \alpha_1$ and $b\geq\|x\|$. Therefore we can actually compute an $M''(l,g,K,a,b)$ s.t.
+\[
+\forall l\in\NN,g:\NN\to\NN\ \exists m\leq M''(l,g,K,a,b)\forall i,j\in[m;m+g(m)]\ \big( \|A_{i}x-A_{j}x\|\leq 2^{-l}\big ).
+\]
+\end{rmk}
+
+
+The following corollary follows immediately from Corollary~\ref{c:fin22}.
+%\newpage
+\begin{cor}[Finitary version of Theorem 2.1 in~\cite{Wittmann90}] \label{c:fin21}
+Let $S$ be a subset of a Hilbert space and $T:S\to S$
+be a mapping satisfying
+\[
+\forall x,y\in S\ \big(\| Tx + Ty \| \leq \|x + y\|\big).
+\]
+Then for any $x\in S$ and any natural number $b\geq \|x\|$ the sequence of the Ces{\`a}ro means
+$
+A_nx:=\frac{1}{n+1}\sum^{n}_{i=0} T^i x
+$
+is norm convergent and the following holds:
+\[
+\forall l\in\NN,g:\NN\to\NN\ \exists m\leq M(l,g\powM,b)\ \forall i,j\in[m;m+g(m)]\ \ \big( \|A_{i}x-A_{j}x\|\leq 2^{-l}\big ),
+\]
+%and there is a witness
+%\[
+%%m \leq 1+M(2l+6,(\breve g)\powM),\quad \breve g(n+1):=g(n), \breve g(0):=0
+%m \leq 1+M(2l+6,(\breve g)\powM),\quad \breve g(n+1):=g(n), \breve g(0):=0
+%\]
+with $M$ defined as follows:
+\begin{align*}
+%M(l,g)&:=(N( 2l+6, g) + P( 2l+6, g)){\lceil \|x\| \rceil}2^{2l+7}+1,\\
+M(l,g,b)&:=(N( 2l+7, g,b) + P( 2l+7, g,b)){b}2^{2l+8}+1,\\
+P(l,g,b)&:=P_0(l,F(l,g,N(l,g,b),b),b),\\
+F(l,g,n,b)(p) &:= p+n+\tilde g((n + p){b}2^{l+1}),\ F(l,g,n,b):\NN\to\NN,\\
+H(l,g,b)(n) &:= n+P_0(l,F(l,g,n,b))+\tilde g((n + P_0(l,F(l,g,n,b),b)){b}2^{l+1}),\ H(l,g,b):\NN\to\NN,\\
+%N(l,g,b)&:=\big({\lambda n\ .\ n+P_0(l,F(l,g,n,b))+\tilde g((n + P_0(l,F(l,g,n,b),b)){b}2^{l+1}) } \big)^{{b}^22^{l+2}}(0),
+\end{align*}
+where $P_0(l,f,b):=\tilde f^{ b^2 2^l}(0)$, $\tilde f(n):=n+f(n)$ and, in this corollary, $f\powM(n):=\max_{i\leq n+1} f(i)$.\\
+
+Note that (due to Lemma~\ref{l:M}) the bound for $m$ depends only on $b$, a bound for the norm of the
+parameter $x$, and not directly on the starting point itself.
+\end{cor}
+

@@ -1,0 +1,101 @@
+\documentclass[a4paper,10pt,twoside]{article}
+
+
+
+\usepackage{textcase}
+\usepackage{ifthen}
+  %\usepackage{geometry}
+\usepackage[latin1]{inputenc}
+\usepackage{graphicx, color}
+\usepackage{amsmath,amsthm,amssymb,amscd}
+%% font
+\usepackage[T1]{fontenc}
+\usepackage{mathpazo,helvet,courier}
+  %\usepackage{helvet}
+  %\usepackage{avant}
+%% fancy titles
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{soul}
+%% refs
+
+\usepackage{latexsym} 
+\usepackage{url} 
+%& smaller command
+\usepackage{relsize} 
+%% proof trees
+\usepackage{parsetree}
+%% index
+\usepackage{makeidx}
+%% headers
+\usepackage{fancyhdr}
+\usepackage{chngpage}
+\usepackage{calc}
+  %\usepackage[automark]{scrpage2}
+
+%\usepackage{diagrams}
+
+\hyphenation{in-ter-pre-ta-tion}
+\hyphenation{in-tui-tion-istic-ally}
+
+\input{phd.sty}
+\input{mind2013/fmc.sty}
+\input{wittmann2011/wittmann.sty}
+\input{dst/dst.sty}
+\input{dst/proof.sty}
+
+\makeindex
+
+\begin{document}
+
+\include{title}
+
+\newpage
+\thispagestyle{empty}     % No page number for TO page
+\section*{$ $}
+
+\tableofcontents
+
+\thispagestyle{empty}     % No page number for TOC pages
+\newpage
+
+\setcounter{page}{1}      % Ok start to count pages from roman 1
+\pagenumbering{roman}
+
+\include{intro}
+
+\pagenumbering{arabic}    % Ok start to count pages from arabic 1
+
+\include{preliminaries}
+%\include{wkl} % actually should go into prelim before BR
+
+%here comes the real stuff
+
+% The Mind Change paper
+
+\include{mind2013/mind_ps}
+
+% The Wittmann paper
+\include{wittmann2011/intro_wittmann}
+\input{wittmann2011/WittmannReallyArithmetical}
+\input{wittmann2011/terms}
+\input{wittmann2011/aLogicalMetatheorem}
+\input{wittmann2011/revised_lemmasDirect/mainResults}
+\input{wittmann2011/revised_lemmasDirect/proof}
+
+% Dipl
+
+\include{dipl/bw} % This is the master thesis version (WRONG) !!
+
+
+% NSA
+
+\include{dst/CSAT}
+
+%and the not so imp stuff
+%\include{conclusion}
+
+\include{refs}
+
+
+\end{document}

@@ -1,0 +1,224 @@
+% Schuette60
+% complexity
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Complexity classes and bar recursion}\label{s:compPM}
+
+The interesting question, apart from the concrete form of the realizers,
+ is how the specific bar recursors and
+rules for bar recursion affect their complexity. Considerable
+research was done in the general field of investigating
+the effect of bar recursion on the complexity of the provably total functions
+of the underlying system by 
+%J. Diller, 
+W. A. Howard, 
+G.~Kreisel, 
+H. Luckhardt,
+H. Schwichtenberg
+%, W. W. Tait 
+and others. 
+We will mainly use the results of
+Howard (see \cite{Howard68}, \cite{Howard81}), who gave an 
+ordinal analysis of bar recursion of type 
+$0$ for the cases in which the bar recursion operator has type level $3$ or $4$ (here 
+we mean the final type level of the operator, not the type level of its arguments) 
+and studied the effect of recursors of specific types
+on the complexity in general.
+%
+
+There are several different notions of \defkey{primitive recursive}
+functionals. In connection with the D-interpretation G\"odel considered the
+following class of functionals:
+
+\begin{dfn}[G\"odel's $\T$, G\"odel 1958]\label{d:GT}
+The set theoretic functionals denoted by the closed terms of $\eha/\weha$
+are called \defkey{G\"odel primitive recursive functionals of finite type}.
+The quantifier-free term calculus corresponding to $\weha$ is also called 
+G\"odel's $\T$.
+\end{dfn}
+
+In addition we define the \defkey{$\alpha$-recursive} functionals:
+\begin{dfn}[(unnested) Ordinal Recursion]\label{d:ordRec}
+Let the well-ordering of natural numbers $\prec$ be as in~\cite{Schuette60}. By
+$\prec_\alpha$ we mean the restriction of $\prec$ to numbers
+$n\prec\alpha$, i.e. $a\prec_\alpha b :\equiv a\prec b\prec \alpha$. 
+A function defined by means of a sequence of explicit definitions
+and the (unnested) \defkey{ordinal recursion} 
+on $\prec_\alpha$ (where $y'$ is the successor of $y$):
+\setcounter{equation}{0}
+\begin{align}
+f\tp 1(\tup x, 0)  &= G\tp1(\tup x)\\
+f\tp 1(\tup x, y') &= H\tp1\Big(\tup x,y',f\big(\tup x,\theta(\tup x, y')\big)\Big)\text{,}
+\end{align}
+where $\forall \tup x,y\ (\theta(\tup x, y')\prec_\alpha y'\wedge\theta(\tup x, 0)=0)$,
+%is called an \defkey{$\alpha$-recursive} function. By \defkey{$<\alpha$-recursive}, we
+is called an \defkey{$\alpha$-recursive} function. By \lOrdm{\alpha}re\-cur\-sive, we
+mean a $\beta$-recursive function with $\beta<\alpha$.
+\end{dfn}
+Note that in this section $\alpha$ is used to denote an ordinal as well as to denote a variable,
+depending on the context.\\
+The class of  primitive recursive functionals in the sense 
+of Kleene (see S1-S8 in \cite{Kleene59}) is strictly
+smaller than the class of G\"odel primitive recursive functionals. In fact,
+the primitive recursive functionals in the sense of Kleene are 
+the functionals of pure type defined by the closed terms of $\hrrweha/\hrreha$ 
+as discussed by Feferman in~\cite{Feferman77}.\\
+For type $1$, the Kleene primitive recursive functionals are just the 
+ordinary primitive recursive functions whereas the G\"odel primitive recursive
+functionals of type $1$ are the provably total recursive functions of $\PA$, that is
+%$<\epsilon_0$\nbd recursive functions.\\
+\lOrdm{\epsilon_0}recursive functions.\\
+To enable a more subtle description for the complexity of terms we introduce
+the restricted classes of G\"odel's $\T$.
+%
+\begin{dfn}[$\T_n$]\label{d:GTn}
+By $\T_n$ we denote the fragment of $\T$ with $R_\rho$ (see definition~\ref{d:weha})
+restricted to $\rho$ of type level $\leq n$.
+\end{dfn}
+%
+The first interesting question is, how does the Bar Recursion affect the 
+primitive recursive functionals in $\T$. In other words, how does
+the addition of $\B$ (and its defining axioms) to the systems
+in definition~\ref{d:GT} above change the class of such functionals.\\
+This was studied in different ways by several researchers. One of the first
+to publish a partial answer was H. Schwichtenberg:
+\begin{prop}[Schwichtenberg \cite{Schwichtenberg79}]\label{p:Schwichtenberg}
+For functionals $y,z,u$ in $\T$ of proper types, also
+the functionals $\B_{0,\rho}yzu$ and $\B_{1,\rho}yzu$ are in $\T$ for arbitrary $\rho\in\Tp$.
+\end{prop}
+In other words, the terms of $\T$ are closed under the rule of
+bar recursion $\B_{1,\rho}$. 
+%
+This result was used by Kohlenbach in \cite{Kohlenbach99} to obtain:
+\begin{prop}[Kohlenbach \cite{Kohlenbach99}]\label{p:KohBR0r}
+Let $t^2[\tup x^{\tup 0}, \tup h^{\tup 1}]$ be a term of $\T$ 
+containing at most the free variables $\tup x$ of type $0$
+and variables $\tup h$ of type level $1$. Let $z$, $u$, $n$, and $y$
+be the respective arguments of $\B_{0,\tau}$ of appropriate type for arbitrary
+$\tau\in\Tp$. Then the functional
+\[
+\lambda \tup x,\tup h,z,u,n,y.\B_{0,\tau}(t[\tup x, \tup h],z,u,n,y)
+\]
+is definable in $\T$ such that $\weha$ proves its 
+characterizing equations. 
+\end{prop}
+%
+Using this result and a normalization argument Kohlenbach proves 
+in \cite{Kohlenbach99} also another related result (Proposition 4.1, page 1504)
+of which we state the following corollary (note that the corollary itself
+can be concluded also from Howard's results in~\cite{Howard81}):
+\begin{cor}\label{c:TBT}
+Up to type level $2$, the terms (containing only variables of type level $\leq\!1$)
+definable in $\T_1\ +\ \B_{0,1}$ are definable in 
+$\T$ and vice versa.
+\end{cor}
+%
+We should mention that the proof of~\ref{p:Schwichtenberg} was based on ordinal analysis using Tait's result
+given in~\cite{Tait76}:
+\begin{prop}[Tait \cite{Tait76}, p. 189--191]\label{p:Tait}
+Given an ordinal $\alpha\!<\!\epsilon_0$, the $\alpha$-recursion can be reduced
+to primitive recursion at higher type.
+\end{prop}
+%
+For the purpose of this thesis an earlier published result 
+of Parsons is even more interesting:
+\begin{dfn}
+Let $\omega_{k}(\omega)$ denote 
+$\omega^{^{
+  \left.
+  \begin{minipage}{4.7ex} 
+    $\omega^{\Ddots^\omega} $
+  \end{minipage}
+  \right\rbrace k
+}}$.
+\end{dfn}
+\begin{prop}[Parsons \cite{Parsons71}, p.~361]\label{p:Parsons}
+%The same functions are $<\omega_{k+1}(\omega)$-recursive 
+The same functions are \lOrdm{\omega_{k+1}(\omega)}recursive
+as are functions defined by the closed terms of $\T_k$.
+\end{prop}
+%This means there is a precise connection between $\T_n$ and the 
+%$\alpha$-recursive functionals for specific ordinal $\alpha$.
+The search for a finer analysis of bar recursion of type $0$
+suitable to examine cases where only simple forms of bar recursion
+are added to $\T_n$ only, rather than to full $\T$, was brought forward
+by Howard in \cite{Howard81}.\\
+For a term $t^0$, Howard defines its \defkey{computation size} as 
+the length of its computation tree allowing nondeterministic contractions 
+as defined in~\cite{Howard80} and~\cite{Howard81}. The corresponding deterministic 
+contraction for Howard's bar recursor, $\B_H$, is defined as follows
+(see~\cite{Howard81}): 
+\[
+\B_H AFGc\H\quad\text{contr}\quad R_0  \big(\lambda a,b.Gc\H\big)  \big(Fc( \lambda u^0.\B_H AFG(c*u) )\H\big)   
+                                                               \big( \lh(c) \dot- A[c]\big)
+\tag{+}
+\text{,}
+\]
+where $c$ is the encoding of a finite sequence of natural numbers $c_0, c_1, \ldots, c_k$ for some $k$
+and $\H$ stands for $H_1\cdots H_n$ for $H_i$, $i\in\{1, \ldots, n\}$, of appropriate type. % for some $n$.
+This corresponds to our definition of the bar recursor $\B_{0,\tau}$, (definition~\ref{d:BR}), where
+$A$, $F$, $G$, and $c$ correspond to $y$, $u$, $z$, and $\overline{x,n}$ respectively. \\
+For a term $t\tp1$ or $t\tp2$, there are variables $a_1, a_2, \ldots, a_n$ s.t. $ta_1\ldots a_n$ has type
+$0$. Howard then defines the computational size of $t$ as the computational size for $ta_1\ldots a_n$. 
+Only terms with type level at most $2$ with free variables of type level at most $1$ are considered.\\
+Howard extends $\T+\B_H$ by the terms \defkeyn{$\{\alpha, c, t\}$} of the same type as $\B_H A$, where
+the forming of $\{\alpha, c, t\}$ binds all occurrences of $\alpha$ in $t$ and the proper subterms of
+$\{\alpha, c, t\}$ consist of all subterms of $t$. For computation the contraction (+) is replaced by the
+following four contractions (a subterm $\alpha m$ of $\{\alpha, c, t\}$ can be contracted only when
+$m\!<\nolinebreak[4]\!\lh(c)$ and only to $c_m$):
+\begin{enumerate}
+\item
+\[ \B_H AFGc\H\quad \text{contr}\quad \{\alpha, c, A\alpha\}FGc\H  
+\text{,}
+\]
+where $\alpha$ is chosen so as not to be free in $A$.
+\item If $t$ is a numeral $<\lh(c)$ then
+\[
+ \{\alpha, c, t\}FGc\H\quad \text{contr}\quad  Gc\H \text{.}
+\]
+\item For every $t$ of type $0$
+\[
+ \{\alpha, c, t\}FGc\H\quad \text{contr}\quad  
+         R_0  \big(\lambda a,b.Gc\H\big)  \big(Fc( \lambda u^0.\{\alpha, c, t\}FG(c*u) )\H\big)   \big( \lh(c) \dot- t_c\big)
+\text{,}
+\]
+where $t_c$ denotes the result of substituting $[c]$ for $\alpha$ in $t$.
+\item
+\[
+ \{\alpha, d, t\}FG(d*n)\H\quad \text{contr}\quad \{\alpha, d*n, t\}FG(d*n)\H \text{.}
+\]
+\end{enumerate}
+
+From section $4$, ``Constructive treatment'', of \cite{Howard81} it follows that 
+the function corresponding to a term of computational size $\alpha$ is an $\alpha$-recursive 
+function and vice-versa.\\
+We will use mainly the following result of Howard:
+\begin{prop}[Howard \cite{Howard81}, p.~23]\label{p:Howard}
+Let $F$, $G$ and $t$ have computation sizes $f$,$g$ and $size(t)$, respectively,
+and suppose $\{\alpha, c, t\}$ has type level $\leq 3$. Then $\{\alpha, c, t\}FGc$
+has computation size $\omega^{g+f2h}$, where $h=\omega size(t)+\omega$.
+\end{prop}
+
+In other words proposition~\ref{p:Howard} states that: 
+\theQuote{Any recursor, having
+(as functional) type level $\leq 3$ (this includes $\B_{0,1}$), applied 
+to ordinal recursive functionals on standard orderings up to $<\!\!\omega_{k}(\omega)$
+results in an ordinal recursive functional on standard ordering $<$~$\!\!\omega_{k+1}$~$\!(\omega)$.}
+The interested reader is encouraged to study the original paper. Here, for brevity,
+we restrict ourselves just to the simplified reformulation above, using the notation of 
+proposition~\ref{p:Parsons}, rather than introduce the complete set
+of definitions and notation used by Howard.
+
+%Looking closely at the the proof of proposition~\ref{p:KohBR0r} we can extract
+%a less general but very useful result:
+%\begin{prop}[Kohlenbach \cite{Kohlenbach99}]\label{p:PavolUlrich}
+%Let $t^2[\tup x^{\tup 0}, \tup h^{\tup 1}]$ be a term of $\T_n$ 
+%containing at most the free variables $\tup x$ of type $0$
+%and variables $\tup h$ of type level $1$. Then the functional
+%\[
+%\lambda \tup x,\tup h,z,u,n,y.\B_{0,1}(t[\tup x, \tup h],z,u,n,y)
+%\]
+%is definable in $\T_{n+1}$ for functionals $y,z,u$ in $\T_n$ of proper types
+% such that $\weha$ proves its 
+%characterizing equations.
+%\end{prop}
+

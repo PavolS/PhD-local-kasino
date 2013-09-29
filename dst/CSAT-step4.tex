@@ -1,0 +1,26 @@
+\subsubsection*{Interpreting DNS for standard arguments}
+
+We discussed already that solving the negative interpretation of $\DNS$ and thereby that
+of choice and comprehension was of major interest of proof mining in the introduction and implicitly at several occasions in the first chapter.\\
+Therefore it seems to have closer look at the $\Sh$-interpretation of the $\DNS{\st}$ principle. Recall:
+\[
+\DNS{\st}\quad :\quad \forallst n^0 \, \exists y^\tau \, \Phi(n, y) \to \exists f^{0 \to \tau} \, \forallst n^0 \, \Phi(n, f(n)).
+\]
+
+With the help of an automated interpreter it is straight forward to obtain 
+its $\Sh$-interpretation, which reads as follows:
+
+\begin{small}
+\begin{align*}
+ &\existsst \hat U,\hat Y,\tilde N\forallst \hat V,N,\hat X( \\ 
+ &\quad \forall \hat n\leq |\hat Y[\hat X,\hat V,N]|, 
+                \hat p\leq |\tilde N[\hat X,\hat V,N]| \\
+ &\quad \neg\forall \hat b\leq |\hat X[{\tilde N[\hat X,\hat V,N]}_{\hat p}][{\hat Y[\hat X,\hat V,N]}_{\hat n}]| \\
+ &\quad \neg\forall \hat a\leq |{\hat Y[\hat X,\hat V,N]}_{\hat n}[{\hat X[{\tilde N[\hat X,\hat V,N]}_{\hat p}][{\hat Y[\hat X,\hat V,N]}_{\hat n}]}_{\hat b}]| \\ 
+ &\quad\quad 
+    \phi({\tilde N[\hat X,\hat V,N]}_{\hat p},{\hat X[{\tilde N[\hat X,\hat V,N]}_{\hat p}][{\hat Y[\hat X,\hat V,N]}_{\hat n}]}_{\hat b},{{\hat Y[\hat X,\hat V,N]}_{\hat n}[{\hat X[{\tilde N[\hat X,\hat V,N]}_{\hat p}][{\hat Y[\hat X,\hat V,N]}_{\hat n}]}_{\hat b}]}_{\hat a})\ \rightarrow\\
+ &\quad \neg\forall \hat m\leq |\hat U[\hat X][\hat V,N]|\\
+ &\quad \neg\forall \hat k\leq |\hat V[{\hat U[\hat X][\hat V,N]}_{\hat m}]|,\hat l\leq |N[{\hat U[\hat X][\hat V,N]}_{\hat m}]| \\ 
+ &\quad\quad \phi({N[{\hat U[\hat X][\hat V,N]}_{\hat m}]}_{\hat l},{\hat U[\hat X][\hat V,N]}_{\hat m}[{N[{\hat U[\hat X][\hat V,N]}_{\hat m}]}_{\hat l}],{\hat V[{\hat U[\hat X][\hat V,N]}_{\hat m}]}_{\hat k}))
+\end{align*}
+\end{small}

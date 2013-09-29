@@ -1,0 +1,88 @@
+
+
+We recall:
+
+\begin{align*}
+\I\ &:\quad \forallst x^\sigma \exists y^\tau \forall i \leq |x| \, \varphi((x)_i, y) \to \exists y^\tau \forallst x^\sigma \, \varphi(x, y),\\
+\HAC_\intern\ &:\quad  \forallst x \existsst y \, \phi(x,y) \to \existsst F \forallst x \exists i\leq |F(x)|\,  \phi (x,F(x)_i), \quad F(x)_i:\equiv(F(x))_i, \\
+\AC_0^{\st}\ &:\quad \forallst n^0 \existsst x \Phi(n,x)\ \rightarrow \existsst f \forallst n^0 \Phi(n,f(n)),\\
+\CSAT\ &:\quad \forallst n^0 \, \exists y^\tau \, \Phi(n, y) \to \exists f^{0 \to \tau} \, \forallst n^0 \, \Phi(n, f(n))
+\end{align*}
+
+\begin{thm}[Main claim]
+%More precisely:
+\[
+\epast+\I+\HAC_\intern+\AC_0^{\st}\ \vdash\ \CSAT.
+\]
+\end{thm}
+
+\begin{proof}
+Assuming \[\epast+\I+\HAC_\intern\ \vdash\  \Phi(x,y) \leftrightarrow \forallst u\existsst v\ \phi(u,v,x,y),\]
+(which follows from Proposition 8.5 in Berg et al.) it suffices to show that
+\begin{align}
+\forallst x^0\exists y\forallst u\existsst v\ \phi(u,v,x,y) \label{e:s5p1}
+\end{align}
+implies
+\begin{align}
+\exists \tilde y^1\forallst x^0,u\existsst v\ \phi(u,v,x,\tilde y(x)) \label{e:s5p2}.
+\end{align}
+By $\HAC_\intern$ we get that \eqref{e:s5p1} implies
+\[
+\forallst x^0\exists y\existsst V\forallst u\exists i\leq |V(u)|\ \phi(u,V(u)_i,x,y),
+\]
+which is by $\IL$ equivalent to
+\[
+\forallst x^0\existsst V\exists y\forallst u\exists i\leq |V(u)|\ \phi(u,V(u)_i,x,y),
+\]
+and by $\AC_0^{\st}$ this implies that
+\begin{align*}
+\existsst V\forallst x^0\exists y\forallst u\exists i\leq |V(x,u)|\ \phi(u,V(x,u)_i,x,y). \tag{\ref{e:s5p1}'}\label{e:s5f1}
+\end{align*}
+We can strengthen \eqref{e:s5p2} to an under $\HAC_\intern$ (on $u$) and $\AC_0^{\st}$ (on $x$) equivalent statement
+\[
+\exists \tilde y\existsst V \forallst x^0,u\exists i\leq |V(x,u)|\ \phi(u,V(x,u)_i,x,\tilde y(x)),
+\]
+which is by $\IL$ equivalent to
+\[
+\existsst V \exists \tilde y\forallst x^0,u\exists i\leq |V(x,u)|\ \phi(u,V(x,u)_i,x,\tilde y(x)). 
+\]
+By $\I$, this follows from
+\[
+\existsst V \forallst x^0,u\exists \tilde y\ \forall j\leq |x|,k\leq |u|\ \exists i\leq |V(x_j,u_k)|\quad \phi(u_k,V(x_j,u_k)_i,x_j,\tilde y(x_j)).
+%\existsst V \forallst x^0,u\exists \tilde y\ \forall j\leq |x|\ \forall k\leq |x|\ \exists i\leq |V(x_j,u)|\quad \phi(u,V(x_j,u)_i,x_j,\tilde y(x_j)).
+ \tag{\ref{e:s5p2}'}\label{e:s5f2}
+\]
+Hence it suffices to show that \eqref{e:s5f1} implies \eqref{e:s5f2}.\\
+Now to do so, let some standard $V$ satisfy \eqref{e:s5f1}, i.e. we have 
+\begin{align}
+\forallst x^0\exists y\forallst u\exists i\leq |V(x,u)|\ \phi(u,V(x,u)_i,x,y), \label{e:allX}
+\end{align}
+and fix an arbitrary but standard $x$ of type $0$. Then we have for some finite (standard) natural number $n$ that
+\[
+x = \langle x_1,\ldots,x_n \rangle,
+\]
+with $x_i^0$ standard. So by \eqref{e:allX} we have for each $x_j\in\{x_1,\ldots,x_n\}$ an $y_j$ s.t.
+\[
+\forallst u\exists i\leq |V(x_j,u)|\ \phi(u,V(x_j,u)_i,x_j,y_j), 
+\]
+in other words we obtain (simply consider $y=\langle y_1,\ldots,y_n \rangle$)
+\[
+\exists y \forallst u \forall j\leq |x| \exists i\leq |V(x_j,u)|\ \phi(u,V(x_j,u)_i,x_j,y_j).
+\]
+Finally, let $\tilde y$ be the function $x_j\mapsto y_j$, (for $1\leq j\leq n$), and constant $0$ otherwise.
+%about finite choice
+\footnote{Note that such a $\tilde y$ is primitive recursively definable in $x$ and $y$, in Particular it is a term in $\T_0$ with parameters $x$ and $y$. However, it is not necessarily standard, as the parameter $y$ -- though its size is finite -- does not need to code only standard elements and, therefore, does not need to be standard itself.}
+Then we have that
+\[
+\forallst u \forall j\leq |x| \exists i\leq |V(x_j,u)|\ \phi(u,V(x_j,u)_i,x_j,\tilde y(x_j)),
+\]
+so in particular also
+\[
+\exists \tilde y\forallst u \forall j\leq |x| \exists i\leq |V(x_j,u)|\ \phi(u,V(x_j,u)_i,x_j,\tilde y(x_j)),
+\]
+and hence
+\[
+\forallst u\exists \tilde y\ \forall j\leq |x|,k\leq |u|\  \exists i\leq |V(x_j,u)|\ \phi(u,V(x_j,u)_i,x_j,\tilde y(x_j)),
+\]
+and therefore also \eqref{e:s5f2}.
+\end{proof}

@@ -1,0 +1,690 @@
+%
+% WKL WKL WKL WKL
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection {Weak K\"onig's Lemma}\label{s:wkl}
+The K\"onig's lemma as such is mostly known in the following form:
+\theQuote{Every infinite, though finitary branching, tree has an infinite path.}
+However, this version is fairly strong and it can be shown 
+that it is equivalent to $\CA^0$ if we allow arbitrary formulas for the
+decision of belonging to the tree (see e.g. \cite{Troelstra74}).\\
+If the labels for branches are bounded
+by a function $\alpha$ depending only on the current node {\em and}
+the tree is defined by a quantifier-free (or purely universal) formula 
+we get a significantly
+weaker tool, which is intuitionistically equivalent to $\WKL$, where 
+we restrict the lemma to binary trees only (i.e. $\alpha(\cdot)\leq\nolinebreak 1$).
+Even so, namely for quantifier-free binary trees, the lemma becomes
+equivalent to $\CA^0_{ar}$ if we ask for the left-most or some other concrete
+infinite path instead of just some infinite path. This means we need
+all three weakenings:
+\begin{itemize}
+\item The decision criteria, $\phi(x^0)$, for an initial segment
+of a sequence of natural numbers, $x$,
+ to belong to the tree defined by the characteristic function $f$ must be
+a $\PiL$ formula (we can allow one for-all\nbd quantifier since it has no 
+essential influence on the structure of the lemma - see definition
+\ref{l:WKL-Feferman} and proposition \ref{p:eqWKLs}). If we allow 
+arbitrary formulas, we get even full %??? $\AC$. 
+$\CA^0$ (regardless of any bounds on the number of branches greater than $1$).
+\item For each node, the labels of its branches must be bounded by a well defined type one
+function depending only on the height of the node. Otherwise, we get $\PiLm\CA$ and
+by iteration $\CA^0_{ar}$ even for quantifier-free decision criteria.
+\item There can't be any additional (infinite) demands on the infinite path except for its
+existence. 
+\end{itemize}
+  We consider the following definition:
+% Definition \ref{l:WKL-Feferman} follows 
+%\cite{AF98} and definition \ref{l:WKL-Kohlenbach} is according to \cite{Kohlenbach08}:
+%
+% blab la-WKL definition
+%
+\begin{dfn}[\defkeyn{$\WKL(\phi)$}] \label{l:WKL-Feferman}
+For a given $\phi$ we define the following theorem. 
+Every infinite binary tree given by the decision criteria $\phi$
+ has an infinite path,
+\[
+\WKL(\phi)\quad:\quad  \BTree(\phi) \wedge \forall k \UnBounded(\phi,k) 
+     \rightarrow \exists b\Big(\BFunc(b)\wedge\forall k\ \phi\big(\bar{b}(k)\big)\Big)\text{,}
+\]where
+\begin{align*}
+\BFunc(b)&:\equiv\quad \forall n^0\big(b(n)=_00 \vee b(n)=_01\big)\text{,}\\
+\BTree(\phi)&:\equiv\quad \forall s \big(\ 
+   \phi(s) 
+      \rightarrow
+ \ s\in\{0,1\}^{<\omega}
+   \wedge 
+   \forall t\subseteq s\ \phi(t)\ \big)\text{,}\\
+%\Bounded(\phi,k^0)&:\equiv\quad 
+%  \forall s\in\{0,1\}^{k}\ \neg\phi(s)\text{,}
+\UnBounded(\phi,k^0)&:\equiv\quad 
+  \exists s\in\{0,1\}^{k}\ \phi(s)\text{.}
+\end{align*}
+Furthermore, we define the schema $\Pi_n^0\m\WKL$, as the union of $\WKL(\phi)$, where
+$\phi$ is a $\Pi_n^0$ formula. Also, we write $\Pi_n^0\m\WKL(\phi)$ to indicate
+that we mean the concrete instance $\WKL(\phi)$ and that $\phi$ is a $\Pi_n^0$ formula.  \\
+\end{dfn}
+%
+%
+Note that, for every fixed $n \in \NN$, we can always reformulate
+the schema $\Pi^0_n\m\WKL$ as a single $2^{nd}$-order axiom. 
+We will use this fact implicitly.
+However, in the special case for quantifier-free $\phi$ 
+we define explicitly:
+\begin{dfn}[\defkey{$\WKL\equiv\forall f\WKL(f)$} see also~\cite{Troelstra74}] 
+%\label{l:WKL-Kohlenbach}
+\label{l:WKLdelta}
+Every infinite binary tree, given by the characteristic function $f$,
+ has an infinite path:
+\begin{align*}
+\WKL(f)\quad:\quad\BTree_K(f) \wedge \forall k\exists x \big(\lh(x)=_0k \wedge f(x)=_0&0\big) 
+     \rightarrow\\
+ \exists b&\leq_1\one^1\ \Big(\forall k\ f\big(\bar{b}(k)\big)=_00\Big)\text{,}
+\end{align*}
+where
+\begin{align*}
+\BTree_K(f^1)&:\equiv 
+  \forall x,y \big(f(x*y)=_00\rightarrow fx=_00\big)\ \wedge\ 
+  \forall x,n\big(f(x*\langle n\rangle)=_00\rightarrow n\leq_0 1\big)\text{.}
+\end{align*}
+\end{dfn}
+We mentioned earlier that the schema $\PiLm\WKL$ is essentially equivalent
+to $\WKL$. this is proved by the proposition~\ref{p:eqWKLs} below, using the fact 
+that in all systems used in this thesis there is
+a suitable $f\tp 1$ for any quantifier-free $\phi_{\QF}(\tup n)$ with only the type $0$ parameters $\tup n$ free 
+s.t. $f(\tup n)=_00\Leftrightarrow\phi_{\QF}(\tup n)$ (and vice-versa).
+\begin{prop}\label{p:eqWKLs}
+\[\weha\proves\PiLm\WKL\leftrightarrow\WKL\]
+\end{prop}
+%
+% proof
+%
+\begin{proof}[ (see also~\cite{Simpson99})]
+\begin{itemize}
+\item $\PiLm\WKL\rightarrow\WKL$:\\
+If we have  $\WKL(\phi)$ for $\PiL$ formulas $\phi$, it surely holds for quantifier-free formulas
+especially for $\phi:\equiv f(n^0)=_00$.
+\item $\PiLm\WKL\leftarrow\WKL$:\\
+Since $\phi\in\PiL$, $\phi(s)$ can be written as $\forall n^0\phi_0(s,f,n)$. 
+Next we involve two tricks in definition of a quantifier-free version of $\phi$:
+\[
+\tilde\phi(s,f):\equiv 
+  \forall n^0<_0 \lh(s),t\subseteq s(\phi_0(f,t,n)\wedge s(n)\leq_01)
+\text{.}
+\]
+\begin{enumerate}
+\item Since we get $\forall n^0<_0 \lh(s) \phi_0(f,t,n)$ for-all $s$ 
+in the conclusion of $\WKL$, the number $n$ is in fact unbounded.
+\item We guarantee $\BTree(\tilde\phi)$ as a free property for any $\tilde\phi$. 
+The tree property by forcing 
+\[\forall t\subseteq s\ \phi_0(f,t,n)\]
+and the binary property by 
+\[\forall n_0<_0 \lh(s),t\subseteq\nolinebreak s\  s(n)\leq_0\nolinebreak 1\text{.} \]
+\end{enumerate}
+Now, suppose
+\[ \BTree(\phi) \wedge \forall k \UnBounded(\phi,k) \] 
+i.e. we have (by $\forall k \UnBounded(\phi,k)$):
+\[
+  \forall k\ \exists s\in\{0,1\}^{k}\ \forall n\ \ \phi_0(f,n,s)\text{.}\tag{+}
+\]
+By $\BTree(\phi)$ and (+) we get:
+\[
+  \forall k \exists s\in\{0,1\}^{k} 
+     (\forall n^0<_0 \lh(s),t\subseteq s(\phi_0(f,t,n)\wedge s(n)\leq_01))\text{,}
+\]
+i.e. we have
+\[
+  \forall k \exists s\in\{0,1\}^{k} \tilde\phi(f,s)\text{,}
+\]
+and classically also
+\[
+  \forall k \UnBounded(\tilde\phi,k)\text{.}
+\]
+By the steps above we showed so far (using trick (2) to get $\BTree(\tilde\phi)$):
+\[ 
+\BTree(\phi) \wedge \forall k \UnBounded(\phi,k) 
+  \quad\rightarrow\quad \BTree(\tilde\phi) \wedge \forall k \UnBounded(\tilde\phi,k) 
+\text{.}
+\]
+We can define in $\weha$ the primitive recursive term for the 
+following type one function $g^1$:
+\[
+g(s):=_0\begin{cases}0^0&\Tif \tilde\phi(f,s)\\1^0&\Telse \end{cases}\text{.}
+\]
+To get equivalently:
+\[ 
+\BTree(f) \wedge \forall k \UnBounded(f,k) 
+  \quad\rightarrow\quad \BTree_K(g) \wedge \forall k \UnBounded(g,k) 
+\text{.}
+\]
+Applying $\WKL(g)$ to the conclusion we get:
+\[
+\exists b\leq_1\one^1\forall k\ g(\bar{b}(k))=_00
+\]
+what is, by definition of $g$, the same as
+\[
+\exists b\leq_1\one^1\forall k\ \tilde\phi(\bar{b}(k),f)
+\text{,}
+\]
+what is, by definition of $\tilde\phi$, the same as
+\[
+\exists b^1\leq_1\one^1\forall k^0\ 
+\forall n^0<_0 k\forall t\subseteq \bar{b}(k)\ \ \phi_0(f,t,n)
+\text{.}
+\]
+This implies (using trick (1) from the definition of $\tilde\phi$):
+\[
+\exists b^1\leq_1\one^1\forall k^0\forall n^0\forall t\subseteq \bar{b}(k)
+ \phi_0(f,t,n)
+\text{.}
+\]
+Observing that $\forall k\forall t\!\subseteq\!\bar{b}(k)\ \psi(t)$ is equivalent to
+$\forall k\psi(\bar{b}(k))$ for arbitrary formulas $\psi$ we finally obtain:
+\[
+\exists b^1\leq_1\one^1\forall k^0\ (\forall n^0\ \phi_0(f,\bar{b}(k),n))
+\quad\equiv\quad \exists b^1\leq_1\one^1\forall k^0\ \phi(f,\bar{b}(k))
+\text{.}
+\]
+\end{itemize}
+\end{proof}
+\begin{rmk}
+Where the necessity of trick (1) in the definition of $\tilde\phi$
+is easy to see, one might think that the trick (2) is not needed. This
+is not true. The following example shows that in general
+we even {\em do not} have $\BTree(\forall n\phi_0(f,s,n))\rightarrow
+\BTree(\forall n^0<_0 \lh(s)(\phi_0(f,s,n)\wedge s(n)\leq_01)$.
+For some given constant number $c^0\in\NN$, define
+\[
+\phi_0(f,s,n):\equiv\quad 
+  s\in\{0,1\}^{\lh(s)}\ \wedge\ (s(0)=_00\ \vee\ s(0)>c+1+n-2*\lh(s))\text{.}
+\]
+While $\forall n\phi_0(f,s,n)$ defines the tree consisting exactly of
+all binary sequences starting with $0$, the
+formula $\forall n^0<_0 \lh(s)\phi_0(f,s,n)$ is true for all such sequences
+but also for all binary sequences of length greater than $c$. In other words,
+any sequence of length e.g. $c+1$ starting with $1$ is a counterexample
+for $\BTree(\forall n^0<_0 \lh(s)(\phi_0(f,s,n)\wedge s(n)\leq_01)$.\\
+\end{rmk}
+
+%\subsection{Complexity}
+Kohlenbach showed in his work (see \cite{Kohlenbach92}, \cite{Kohlenbach08}), 
+that $\WKL$ is intuitionistically equivalent to a sentence in $\Delta$
+as defined in theorem \ref{t:mfi}. We sketch this result in \ref{ss:delta}.
+This equivalence actually suggests that the lemma will not have any significant
+effect on the final complexity of the realizers of sentences whose proofs 
+are based on $\WKL$ in common systems.\\
+There are several ways to prove this fact. Howard gives a technical
+argument using restricted Bar Recursion in \cite{Howard81} which we
+follow in \ref{ss:HFI}. 
+%Using Kohlenbach's MD-interpretation one quickly obtains
+%recursive bounds on the realizers in $\weha$ without Bar Recursion involved. 
+%We connect to this approach by majorizing the realizers obtained in \ref{ss:HFI}
+%in section \ref{ss:majFI}.
+
+%\todo{Describe how can MD-interpretation simplify the proof that $\WKL$
+%does not add anything to $\T_n$.}
+%
+% is a Delta
+%%%%%%%%%%%%%%
+
+\subsubsection*{Kohlenbach's $\WKL'$ as a Sentence $\Delta$}\label{ss:delta}
+First, observe that $\WKL$ is equivalent (in $\hrrweha$) to:
+\begin{align*}
+\WKL_{K1}\quad:\quad
+  \forall f,g\ \Big( \BTree_K(f)\wedge\forall k\big(\lh(\bar gk)=_0k\wedge f(\bar gk)=_00\big)
+    &\rightarrow \\
+  \exists b\leq_1 \one^1\forall &k^0\big(f(\bar bk)=_00\big)\Big)\text{.}
+\end{align*}
+Next, we define for any type $1$ function $f^1$ the constructions $\hat f$ and $f_g$:
+\begin{dfn}\label{d:hatAndG}
+\begin{align*}
+\hat fn&:=\begin{cases}
+  fn &\Tif fn\neq0\ \vee\ 
+       \big(\forall k,l(k*l=n\rightarrow fk=0)\wedge \forall i<\lh(n)\ (n_i\leq 1)\big)\\
+  1^0 &\Telse \end{cases}\\
+f_gn&:=\begin{cases}
+  fn &\Tif\ f\big(g(\lh(n))\big)=0\wedge \lh\big(g(\lh(n))\big)=\lh(n)\\
+  0^0 &\Telse \end{cases}
+\text{.}
+\end{align*}
+\end{dfn}
+\begin{rmk}
+We defined already a construction $\hat o$ for a type $1$ object in~\ref{d:hatReal}. It
+should be obvious which meaning should be assigned from the context. From now on,
+we will use it mostly in the sense of~\ref{d:hatAndG}.
+\end{rmk}
+Now, we are able to define
+\begin{dfn}
+\[
+\WKL'\quad:\quad \forall f^1,g^1\exists b\leq_1\one^1\forall k^0
+  \left(\widehat{(\hat f)_g} (\bar bk)=_00\right)\text{.}
+\]
+\end{dfn}
+To obtain:
+\begin{prop}\label{p:wkls1}
+The sentence $\WKL'$ is in $\Delta$ as defined in theorem \ref{t:mfi} and:
+\[ \weha\proves\WKL\leftrightarrow\WKL' 
+\text{.}
+\]
+\end{prop}
+The complete proof of an even stronger result, namely of the equivalence under $\hrrweha$, can
+be found in \cite{Kohlenbach08}. In that book, Kohlenbach also proves the following
+lemma:
+\begin{lemma} \label{l:hatg}
+  \setcounter{equation}{0}
+  \begin{align}
+    \hrrweha\quad&\proves\quad \forall f\ \BTree_K(\hat{f})\\
+    \hrrweha\quad&\proves\quad \forall f\ \big(\BTree_K(f)\rightarrow f=_1\hat f\big)\\
+    \hrrweha\quad&\proves\quad \forall f,g\forall n\exists x\ \big(\lh(x)=n\wedge f_g(x)=0\big)\\
+    \hrrweha\quad&\proves\quad \forall f,g\ 
+          \Big(\forall n\big(\lh(gn)=n\wedge f(gn)=0\big)\rightarrow f_g=_1 f\Big)
+  \end{align}
+\end{lemma}
+For the purpose of this thesis mainly 
+$\WKL\leftarrow\WKL'$ is interesting:\\
+\begin{proof}
+Assume $\BTree_K(f)$ and $\forall k \exists n (\lh(n)=k \wedge fn=0))$. Then
+\[
+\forall k \exists n\leq\overline{\one^1}k (\lh(n)=k \wedge fn=0))\text{.}
+\]
+Define primitive recursive in $f$:
+\[
+gk:=\begin{cases}
+\min n\leq\overline{\one^1}k\ (\lh(n)=k \wedge fn=0)&\text{if such an $n$ exists}\\
+0^0&\Telse
+\end{cases} \text{,}
+\]
+to obtain $\forall k(\lh(gk)=k\wedge f(gk)=0)$.\\
+Using lemma \ref{l:hatg} and other Kohlenbach's results 
+from \cite{Kohlenbach08} we get $f_g=_1f$ and $f=_1\hat f$.
+This proves $\widehat{(\hat f)_g}=_1 f$.\\
+Finally $\WKL'$ yields $\exists b\leq_1 \one^1\forall k^0(f(\bar bk)=0)$.\\
+\end{proof}\\
+Using the fixed construction for $g$ from the proof above, we can define a fixed
+term $s$ of $\weha$, and formulate yet another version of $\WKL$:
+\begin{dfn}{\defkeyn{$\WKL_s$}$\equiv\forall f\WKL_s(f)$}, where
+\[
+\WKL_s(f)\quad:\equiv\quad \exists b\leq_1\one^1\forall k^0
+  \left(\widehat{(\hat f)_{s}} (\bar bk)=_00\right)\text{.}
+\]
+\end{dfn}
+By the proof of proposition \ref{p:wkls1}, we still have:
+\begin{prop}\label{p:wkls2}
+ \[ \weha\proves\WKL_s\rightarrow\WKL
+\text{.}
+\]
+\end{prop}
+
+%
+% FI WKL -- Howard
+%
+%%%%%%%%%%%%%%%%%%
+\subsubsection*{Howard's D-interpretation of $\WKL$} \label{ss:HFI}
+We cannot D-interpret the lemma directly. We could apply
+the negative translation to the lemma and then go for the D-interpretation, but
+it turns out that the proof is simpler when we go for the ND-interpretation
+of a classically equivalent formula, the so called $\FAN$ principle.
+In this section, let $f^1$ be a 
+characteristic function of a tree, 
+$x^0$ and $y^0$ encodings of finite $\{0,1\}$-sequences, and
+$b^1$ a $\{0,1\}$-sequence (i.e. $b\in\{0,1\}^\omega$). 
+%We call $x$ \defkey{secured} iff $x\not\in f:\equiv f(x)\neq0$ and write \defkeyn{$\Sec(x)$}. 
+We define the \defkeyn{$\FAN$} principle as follows (note that the hat construction does not
+affect the general meaning - see proposition~\ref{p:wkls1} - however, it does significantly simplify
+the terms as it eliminates some quantifiers):
+\begin{dfn}[$\FAN\equiv\forall f \FAN(f)$] We define the $\FAN$ principle for a
+given function $f$ as
+\[
+\FAN(f)\quad:\equiv\quad\forall b \exists j\ \Sec(\bar b j) \ \rightarrow \ 
+  \exists k \forall x\ \big(\lh(x)\geq k \rightarrow \Sec(x)\big)
+\text{,}\]
+where $\Sec$ means \defkey{secured}:
+\[
+ \Sec(x)\quad:\equiv\quad \hat f(x)\neq0 \text{.}
+\]
+\end{dfn}
+In \cite{Howard81}, Howard showed that the D-interpretation of $\WKL$
+(using the classically equivalent $\FAN$)
+can be obtained using only the so called restricted Bar Recursion
+(defined in the same publication, see also definition~\ref{d:rBR}). 
+We will present this proof filling in some details 
+(the proofs of lemma \ref{l:L1} and lemma \ref{l:L2} 
+as well as the witness for the binary sequence $b$).\\
+%In fact, if one is interested only in the complexity of the realizing functionals
+%there is an even simpler way than the one given by Howard. 
+%As $\rB$ can be primitive recursively
+%defined in $\nu$, which is trivially majorizable, the realizers are 
+%majorized simply by $A*\one$ and we do not need .\\
+The secured property is conservative over
+extensions, i.e. for any two finite binary sequences $x$ and $y$ we 
+have:
+\[
+x\subseteq y \rightarrow\big(\Sec(x)\rightarrow \Sec(y)\big)\text{.} \tag{SC}
+\]
+Hence, the conclusion of $\FAN(f)$ is equivalent to a 
+$\SiL$ formulation (as the for-all quantifier 
+can be bounded):
+\[
+\forall b \exists j\ \Sec(\bar b j) \ \rightarrow \ \exists k 
+\underbrace{\forall x\in\{0,1\}^k\ \Sec(x)}_{\text{quantifier-free}}
+\text{.}\]
+Moreover, in the presence of the Markov principle,
+ the negative interpretation does not change the formula. 
+Already in intuitionistic logic,
+$\neg\neg (A\rightarrow B)$ is equivalent to $A\rightarrow\ \neg\neg B$.
+So, the negative interpretation becomes
+\[
+\forall b\ \neg\neg\ \exists j\ \Sec(\bar b j) \ 
+       \rightarrow \ \neg\neg\big(\exists k \forall\ x\in\{0,1\}^k\ \Sec(x)\big) 
+\text{.}\]
+By the Markov principle we get
+\[
+\forall b\ \exists j\ \neg\neg \Sec(\bar b j) \ 
+       \rightarrow \ \exists k\ \neg\neg\forall\ x\in\{0,1\}^k\ \Sec(x)
+\]
+and because of the stability of quantifier-free formulas modulo double negation, 
+we get just the very same sentence we started with. 
+%In other words $\FAN(f)$ retains the same form under negative translation 
+%(modulo intuitionistic equivalence).
+In summary we have:
+\begin{align*}
+\wepa &\proves\ \WKL\leftrightarrow\FAN \text{,}\\
+\weha &\proves\ (\WKL)'\leftrightarrow(\FAN)' \text{,}\\
+\weha+\M &\proves\ \FAN\leftrightarrow(\FAN)' \text{,}\\
+\weha+\M &\proves\ (\WKL)'\leftrightarrow\FAN \text{,}\\
+\end{align*}
+and therefore also:
+\[
+\weha+\M \proves\ (\WKL)^{ND}\leftrightarrow(\FAN)^D \text{.}\\
+\]
+So $\FAN$ is precisely the form of $\WKL$ we want to D-interpret.\\ 
+By quantifier-free Axiom of Choice $\QFm\AC^{1,0}$ we get 
+from $\forall b \exists j\ \Sec(\bar b j)$:
+\[ \exists A \forall b \ \Sec\big(\bar b(Ab)\big) \text{.}\]
+Now, define $K_A$ as follows:
+\[
+K_Ax:=\KA{A}{x}
+\text{.}
+\]
+Further define:
+\begin{align*}
+\BSec(k,x) &{:\equiv}
+\forall y\ \Big(\big(x\subseteq y \wedge \lh(x)+k=\lh(y)\big)\ \rightarrow\ \Sec(y)\Big) \text{,}\\
+\BSecA(x) &{:\equiv} \BSec(K_Ax,x) \text{.}
+\end{align*}
+\begin{rmk} $\BSec(k,x)$ is the predicate for: Every finite extension of $x$ with the length $\lh(x)+k$ 
+is secured.\end{rmk}
+We will make use of the following two lemmas (in both cases we consider some functional $A$ 
+for which $\forall b \ \Sec(\bar b(Ab))$ holds, moreover, w.l.o.g. it may be assumed that $A$
+is computable since it was obtained by $\QF\m\AC^{1,0}$):
+\begin{lemma}
+\label{l:L1}
+\[ A[x] < \lh(x) \rightarrow \BSecA(x) \]
+\end{lemma}
+\begin{proof}
+We assume:
+\[ A[x] < \lh(x) \tag{*} \text{.}\]
+By definition of $K_A$ we get:
+\[ K_Ax=0  \tag{**} \text{.}\] 
+From $\forall b \ \Sec(\bar b(Ab))$ we get
+\[ \Sec(\overline{[x]}(A[x]))\text{.}\]
+By (*) we know that
+\[
+\overline{[x]}(A[x])\subseteq x
+\] hence by (SC) it follows
+\[ \Sec(x) \text{.}\]
+Using (**) and the definitions of $\BSec$ and $\BSec_A$ we get:
+\[ \Sec(x) \equiv \BSec(0,x) \equiv \BSecA(x) \text{.}\]
+\end{proof}
+
+\begin{lemma}
+\label{l:L2}
+\[ \BSecA(x*0) \wedge \BSecA(x*1) \rightarrow \BSecA(x) \]
+\end{lemma}
+\begin{proof}
+Assume:
+\[ \BSecA(x*0) \wedge \BSecA(x*1)  \tag{*} \text{.}\]
+If $A[x]<\lh(x)$, then by lemma \ref{l:L1} we have $\BSecA(x)$. 
+So, using the definition of $K_A$ we may assume w.l.o.g:
+\[ K_Ax=1+max\{K_A(x*0),K_A(x*1)\} \text{.}\]
+Obviously we have:
+\[ K_Ax > K_A(x*0)\ \wedge\ K_Ax>K_A(x*1)\text{.}\]
+So by (*) we know that for some number $m\leq\lh(x)+K_A(x)$ all extensions 
+of $(x*0)$ and $(x*1)$ of the fixed length $m$ are secured. Therefore all extensions
+of $x$ with fixed length $m$ are secured. However, this is 
+expressed as $\BSec(K_Ax,x)\equiv \BSecA(x)$.\\
+\end{proof}
+
+Since $\BSecA(x)$ can be written as a quantifier-free formula for any given $x$, and
+hence is primitive recursive in $x$, 
+we can use primitive recursion on the contrapositive of lemma \ref{l:L2}:
+\[ \neg \BSecA(x)\ \rightarrow \ \neg \big(\BSecA(x*0)\wedge \BSecA(x*1)\big) \text{,}\]
+to obtain a function $g\leq\one$, s.t.
+\[ \neg \BSecA(\emptyset) \rightarrow \forall j \neg \BSecA(\bar gj) \text{.}\]
+However, we can prove the existence of a $j$ s.t. $\BSecA(\bar gj)$, 
+using only restricted Bar Recursion, and thereby proving $\BSecA(\emptyset)$.
+To do so, we follow another publication from Howard, namely \cite{Howard68},
+where he proves an, by lemma~\ref{l:L1}, even stronger lemma 
+(for the same kind of functional $A$ as above):
+%
+%  The big Lemma 3C L3C L3C L3C
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{lemma}\label{l:3c}
+By restricted bar recursion plus primitive recursion, 
+we can define $\theta_A$, s.t. for 
+all $b$ it holds:
+\[\exists k\leq \theta_Ab \emptyset\ \ \ A[\bar b k]<k\text{.}\]
+\end{lemma}
+%
+\begin{rmk}
+In fact the functional $\theta_A$ is given simply by 
+$\theta_Ab\emptyset:=\mu k.A[\bar bk]\leq k$. 
+Since we have to work in a model justifying bar recursion
+and, as discussed e.g. by Kohlenbach in~\cite{Kohlenbach08}, we can define the $\mu$-operator
+via bar recursion this functional is well defined in all such models, e.g. $\Cont$ or $\Maj$. 
+Howard's proof of lemma~\ref{l:3c} is analyzed in the first appendix of \cite{Safarik08}. It is
+rather technical and not essential at this point.
+\end{rmk}
+%
+
+Lemma \ref{l:3c} especially implies $\forall g^1\!\leq\!\one$ $\exists k^0$  $A[\bar gk]<k$, which
+implies $\forall g^1\!\leq\!\one$ $\exists k^0$ $\BSecA(\bar gk)$ by lemma \ref{l:L1}. 
+So, as mentioned above, using this result we obtain:
+\[ \BSecA(\emptyset)\ \leftrightarrow \BSec(K_A\emptyset, \emptyset) \text{.}\]
+This is, by definition, just another form of:
+\[ \forall x\ \Big(\big(\emptyset \subseteq x \wedge K_A(\emptyset)=\lh(x)\big) \rightarrow \Sec(x)\Big) \text{.}\]
+So, finally we obtain:
+\[  \forall x\ \big(\lh(x)\geq K_A(\emptyset)\  \rightarrow \Sec(x)\big) \text{.}\]
+What completes the proof that $K_A(\emptyset)$ is the ND-realizer
+of $k$ in $\FAN(f)$.\\
+
+To complete the solution of the D-interpretation we still have to 
+find the functional $B$ which satisfies:
+\[
+\forall A,x\ \Big(\ 
+\Sec\big(\overline{B}(AB)\big)\ \rightarrow\ 
+    \big(\lh(x)\geq K_A(\emptyset)\rightarrow \Sec(x)\big)
+\ \Big)
+\text{.}\]
+Fortunately, this is easily done. Let $y^0$ encode either a binary sequence 
+of length $K_A(\emptyset)$ which is in the tree or, if such a sequence doesn't exist, the empty
+sequence. Now we can define the functional $B$ as the infinite extension of this sequence, $[y]$.
+See also the theorem~\ref{t:FIwkl} below.\\
+The same functionals interpret the standard (positive) formulation of $\WKL$, 
+which is just the contrapositive of 
+the outer implication:
+\[
+\forall A,x\ \ (\ (\lh(x)\geq K_A(\emptyset)\wedge x\in f) \rightarrow\ 
+ f(\overline{B}(AB))=0\ )
+\text{.}\]
+{\samepage
+We summarize:
+\begin{thm}[{The ND-interpretation of $\WKL(f)$}]\label{t:FIwkl-nd}
+The Weak K\"onig's lemma for binary trees
+given by an arithmetic characteristic function $f$ 
+\[
+  \BTree(f) \wedge \forall k \UnBounded(f,k) 
+     \rightarrow \exists b\Big(\BFunc(b)\wedge\forall k\ f\big(\bar{b}(k)\big)=0\Big)
+\]
+is, provably in $\weha+\QF\m\AC^{1,0}+\rB_\one$, ND-interpreted as follows:
+\[
+\forall A,x\ \ \Big(\ \big(\lh(x)\geq K_A(\emptyset)\wedge x\in f\big) \rightarrow\ 
+ f\big(\overline{B}(AB)\big)=0\ \Big)
+\text{,}\]
+where
+\begin{align*}
+K_Ax&:=\KA{A}{x} \text{,} \\
+B(A)&:=\big[F_f\big(K_A(\emptyset)\big)\big] \text{,} \\
+F_f(n)&:=\Fn{f}
+\text{.}
+\end{align*}
+In particular, these terms define total functionals in $\Maj$ and $\Cont$.
+\end{thm}
+} %samepage
+\subsubsection*{Majorants for Howard's Solution} \label{ss:majFI}
+First, note that any term $t$ majorized by a term $t^*$ has at most the complexity
+of $t^*$ since it can be obtained by bounded search up to $t^*$. As the complexity
+of the realizers in theorem \ref{t:FIwkl-nd} is not obvious it might be interesting
+to examine suitable majorants for these realizers:%\\
+%Since $F$ is majorized simply by the constant function $\one^1:=_1\lambda n^0.1^0$,
+%the interesting part is to find a suitable majorant for $K_A$. 
+% Furthermore
+%we have:
+\begin{thm}
+%For any length $l\in\NN$, for all $x^0\in\{0,1\}^l$:
+%For all $x$:
+The solution of the ND-interpretation 
+of $\WKL(f)$ is, provably in $\weha+\QF\m\AC^{1,0}+\rB_\one$, majorized as follows:
+\setcounter{equation}{0}
+\begin{align}
+K^*:=_{(10)2}\lambda A^2,x^0.A^2\one\ &\maj_{(10)2}\ K\\
+B^*:=_{1(2)}\lambda A^2. \one^1 &\maj_{1(2)}\ B
+\text{.}
+\end{align}
+Again, these terms define total functionals in $\Maj$ and $\Cont$.
+\end{thm}
+\begin{proof}
+\paragraph{(2)}
+Follows directly from the fact:
+\[
+\lambda n^0,x^0.\overline{\one^1}(\lh(x)+n) \maj_{1(1)} F\text{.}
+\]
+\paragraph{(1)}
+According to definition \ref{d:maj}-(2) suppose $A^*$ majorizes $A$. 
+%Then $A[x]$ is majorized by $A^*\one$. Since $A^*$ is 
+%a well defined type $2$ functional, we get $\exists n^0\ A^*\one=_0n$.
+%We denote this $n$ by $n_A$. 
+We get immediately from the definition of $K_A$ and
+$A^* \maj_2 A$
+\[
+\forall s\in\{0,1\}^{A^*\one}\forall x\subseteq s\ \ K_Ax\ \leq_0\ A^*\one-\lh(x)\text{.}
+\]
+In other words, for any finite binary sequence $x$ we have:
+\[
+\lh(x)\leq_0A^*\one \rightarrow K_Ax\leq_0A^*\one\text{.}
+\]
+Now, suppose $\lh(x)>A^*\one$ for some $x$. 
+From $A^* \maj_2 A$ we get $\lh(x)>A[x]$ 
+and we have immediately from the definition of $K_A$ that $K_Ax=_00\leq_0A^*\one$.\\
+So finally, we obtain: $K_Ax\leq_0A^*\one$, what is the same as
+$A^*\one \maj_0 K_Ax$ for all finite binary sequences $x$.\\
+\end{proof}\\
+%\begin{rmk}
+%Note that the majorant $A^*$ for $A$ is crucial, as $A\one$ does not necessary majorize
+%$K_Ax$ in all $x$ since in general not even $A \maj_2 A$, take e.g. (for any constant number 
+%$0<c^0\in\NN$):
+%\begin{align*}
+%A[x]&:=c*(1-[x](1))+c*(1-[x](2))+c*(1-[x](3))+\ldots+c*(1-[x](c))\\
+%x&:=\langle0,0\rangle\text{,}
+%\end{align*}
+%and we get $\one^1\maj_1[x]\quad\wedge\quad 0=_0A\one^1 <_0 A[x]=_0c*c$. 
+%Of course we get a very different functional
+%$A$ as it has to satisfy $\forallb \Sec(\bar b(Ab))$, 
+%but this is no reason to guarantee the monotonicity of such an $A$ in full generality.
+%\end{rmk}
+%So finally we can conclude:\\
+%\begin{thm}
+%The realizing functionals of $\WKL$ are majorized by closed terms of $\weha$ and
+%\end{thm}
+\subsubsection*{Summary}
+Above, we discussed at length the $\WKL$ principle purposefully following the notation
+as used by Kohlenbach in~\cite{Kohlenbach08}, which would unfortunately 
+clash with the remainder of this thesis. Therefore, let us here briefly summarize the important
+results regarding $\WKL$ using a more compatible notation. Also, we resort directly to Shoenfield
+interpretation.
+
+\begin{dfn}{{$\WKL_\Delta$}$\equiv\forall f\WKL_\Delta(f)$},
+\label{d:frown_g} where
+\[
+\WKL_\Delta(f)\quad :\equiv\quad\exists b^1\forall k^0\ 
+  \widefr{\Big(\!\text{\widefr{f}}\Big)_{\!g}} (\bar bk)=_00\text{, with}
+\]
+\begin{align*}
+\widefr{f}n&:=\begin{cases}
+  fn &\Tif \ fn\neq0\ \vee\ 
+       \big(\forall k,l(k*l=n\rightarrow fk=0)\wedge \forall i<\lh(n)\ 
+(n_i\leq 1)\big)\\
+  1^0 &\Telse, \end{cases} \\
+f_gn&:=\begin{cases}
+  fn &\Tif\ f\big(g(\lh(n))\big)=0\wedge \lh\big(g(\lh(n))\big)=\lh(n)\\
+  0^0 &\Telse, \end{cases} \\
+gk:=g f k&:=\begin{cases}
+\min n\leq\overline{\one^1}k\ (\lh(n)=k \wedge fn=0)&\text{if such an $n$ 
+exists}\\
+0^0&\Telse,
+\end{cases}
+\end{align*}
+where for any given number theoretical function $f^1$, 
+$\widefr{f}$ assigns a unique characteristic function of a $0/1$-tree\footnote{
+If $f$ was such a characteristic function already, then it is not modified at all (i.e. we would have $\widefr{f}=f$).}
+and $f_gn$ adds the full subtree if there is no path of length $n$\footnote{
+Again, if $f$ defined an infinite tree already, then it is not modified at all (i.e. we would have $f_g=f$).}
+(this may destroy the tree property of $f$ if present). 
+The function $g$ simply looks for a path of length $n$ and retruns $0$ if none exists (otherwise the code of the path itself is returned).
+\end{dfn}
+We have: $\hrrweha\proves\WKL_\Delta\leftrightarrow\WKL$. \\
+Howard proves in \cite{Howard81} that one can give the realizing 
+functionals for the Sh-interpretation of $\WKL$ using only restricted bar 
+recursion and $\T_0$. This proof is
+discussed in great detail above and we use
+it to obtain the Sh-interpretation of $\WKL(f)$:
+\begin{thm}[{The Sh-interpretation of $\WKL_\Delta$}]\label{t:FIwkl}
+The Weak K\"onig's lemma for binary trees
+\[
+  \forall f\exists b^1\forall k^0\ 
+  \widefr{\Big(\!\text{\widefr{f}}\Big)_{\!g}} (\bar bk)=_00
+\]
+is, provably in $\weha+\rB_\one$, Sh-interpreted as follows:
+\[ \forall f,A\ \exists b^1\  \widefr{\Big(\!\text{\widefr{f}}\Big)_{\!g}} 
+\big(\overline{b}(Ab)\big)=0
+\text{,}\]
+where $b$ is realized by $b:=_1B^{^\WKL}Af$:
+\begin{align*}
+B^{^\WKL}(A,f)&:=\big[g\Big(\widefr{\Big(\!\text{\widefr{f}}\Big)_{\!gf}}
+\Big) \Big(K^{^\WKL}
+(A,\emptyset)\Big)\big] \text{,}  \\
+K^{^\WKL}(A,x)&:=\KA{A}{x}  
+\end{align*}
+where $g$ is the same term as we used in the 
+Definition \ref{d:WKLdelta}\footnote{We define $[\cdot]$ analogously 
+for codes of sequences
+as we did for sequences themselves.}.
+Note that $K^{^\WKL}$ is definable by $\rB_\one$.
+\end{thm}
+\begin{prop}
+The solution of the Sh-interpretation 
+of $\WKL(f)$ is, provably in $\hrrweha+\rB_\one$, majorized as follows:
+\setcounter{equation}{0}
+\[
+K^*:=_{1(0)(2)}\lambda A^2,x^0.A^2\one\ \maj_{1(0)(2)}\ K^{^\WKL}, \quad
+B^*:=_{1(2)}\lambda A^2. \one^1 \maj_{1(2)}\ B^{^\WKL}
+\text{.}
+\]
+\end{prop}
+
+
+
+
+
+
+

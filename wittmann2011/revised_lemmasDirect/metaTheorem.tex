@@ -1,0 +1,178 @@
+\section{A general bound existence theorem}\label{s:meta}
+
+One of the main results of this paper, Corollary~\ref{c:fin22}, is a quantitative version
+of a nonlinear strong ergodic theorem for 
+operators satisfying Wittmann's condition~\eqref{e:W-assym} 
+on an arbitrary subset of a Hilbert space. In this section
+we outline how for this type of theorems the existence of such uniform bounds 
+can be obtained by means of a general logical metatheorem. This sort of 
+metatheorems was developed in~\cite{Kohlenbach05meta} and~\cite{GK08} (see also~\cite{Kohlenbach08})
+and are applicable to many theorems concerning a wide range of classes of maps and abstract spaces. 
+%Many convergence theorems typically meet both conditions. 
+%Apart form ergodic theory, where at least all
+%the ergodic theorems mentioned in Figure~\ref{f:METtree} meet both of these conditions, such metatheorems were
+%successfully applied for asymptotic regularity theorems in metric fixed point theory~\cite{Kohlenbach2010}. 
+For example, they were successfully applied to 
+the ergodic theorems mentioned in Figure~\ref{f:METtree} or to 
+asymptotic regularity theorems in metric fixed point theory~\cite{Kohlenbach2010}.
+In the last mentioned example, as in this paper, 
+the authors infer from the metatheorems that uniform bounds exist and derive them explicitly.\\
+%To apply the metatheorems, we need the analyzed theorem to meet only two conditions:
+%\begin{enumerate}
+%\item The proof does not use axioms or rules which are too strong.
+%\item The analyzed theorem in its logical form is not too complex in terms of quantification.
+%\end{enumerate}
+%%spaces:
+%To formalize the first condition we start with a logical system for so called full classical analysis
+%introduced by Spector in \cite{Spector62}.\footnote{In particular this system covers full comprehension
+%over numbers, including also full second order arithmetic.} Kohlenbach
+%extended this system by an additional basic type and its defining axioms representing a given abstract space
+%and its properties. Kohlenbach also considers cases, where a specific subset of such a space 
+%(or rather its characteristic function) has to exist as a constant. For instance in~\cite{Kohlenbach08} Kohlenbach defines 
+%such systems for the theory of metric, hyperbolic, normed, uniformly convex or Hilbert spaces -- 
+%if required -- together with a (bounded) convex subset.\footnote{In any such abstract space,
+%its metric plays a major role as two objects are defined to be equal, if and only if their 
+%distance is zero.} In our case (i.e. simply for a pre-Hilbert space) this extended system is denoted by $\AHilb$.
+%In general, the system can be extended to arbitrary Hilbert spaces, however it turns out that the completeness
+%is not necessary for the proof that we analyze.\\
+%%functions
+%The second condition has to be investigated for each theorem specifically, depending on
+%the given theorem and the metatheorem we wish to use. Examples are metastable versions of formulas 
+%expressing the convergence or fixed point properties
+%of nonexpansive, Lipschitz, weakly quasi-nonexpansive or uniformly continuous functions even simply functions 
+%which are majorizable (see Corollary 6.6 in~\cite{GK08} and Theorem~\ref{t:GKmeta1} below).
+%%(on the corresponding spaces)
+The metatheorem applicable
+in our scenario follows from Corollary 6.6.7) in~\cite{GK08}. In particular with 
+the theory $\AHilb$ with an additional parameter for an arbitrary subset $S$ of the
+abstract Hilbert space $X$.\footnote{This is analogous to the case where we add $C$ to the
+theory for normed space, but this time without any additional axioms.}\\
+
+\begin{thm}[Gerhardy-Kohlenbach~\cite{GK08} - a specific case]\label{t:GKmeta1}
+Let $\varphi_\forall$, resp. $\psi_\exists$, be $\forall$-
+resp. $\exists$-formulas that contain only $x,z,f$ free, resp. $x,z,f$, $v$ free. Assume that
+$\mathcal{A}^\omega[X,\langle\cdot,\cdot\rangle,S]$ proves the following sentence:
+\[
+\forall  x\in\NN^\NN, z\in S, f\in{S^S} 
+	\big( \varphi_\forall(x, z, f)\rightarrow\exists v\in\NN\ \psi_\exists(x, z, f, v)\big).
+\]
+Then there is a computable functional $F : \NN^\NN\times\NN\times\NN^\NN\to\NN$ s. t. the following holds
+in all non-trivial (real) inner product spaces $(X,\langle\cdot,\cdot\rangle)$ 
+and for any subset $S\subseteq X$
+\begin{align*}
+\forall  &x\in\NN^\NN, z\in S, b\in\NN, f\in{S^S},f^*\in\NN^\NN\\
+	&\big( \TMaj(f^*,f)\ \wedge\ \|z\|\leq b\ \wedge\ \varphi_\forall(x, z, f) \rightarrow 
+	\exists v\leq F(x,b,f^*)\ \psi_\exists(x, z, f, v) \big),
+\end{align*}
+where %$0_X$ does not occur in $\varphi_\forall$ and $\psi_\exists$ and 
+\[
+\TMaj(f^*,f):\equiv \forall n\in\NN\forall z\in S \big( \|z\|\leq_\RR n \rightarrow \|f(z)\|\leq_\RR f^*(n)\big).
+\]
+The theorem holds analogously for finite tuples. % $\tup x\in \prod^n_{i=0}\NN^\NN$.
+\end{thm}
+Consider the metastable version of Wittmann's Theorem 2.1 in ~\cite{Wittmann90} (which, of course, is
+ineffectively equivalent to the usual formulation).
+\begin{thm}[metastable version of Theorem 2.1 in~\cite{Wittmann90}] \label{t:W21}
+Let $S$ be a subset of a Hilbert space and $T:S\to S$
+be a mapping satisfying 
+\[
+\forall x,y\in S\ (\| Tx + Ty \| \leq \|x + y\|).\tag{$\TAN$}\label{e:W}
+\]
+Then for any $x\in S$ the sequence of the Ces{\`a}ro means is metastable
+\[
+\forall l\in\NN,g\in\NN^\NN\exists m\in\NN\ \big( \|A_mx-A_{m+g(m)}x\| < 2^{-l}\big).
+\]
+\end{thm}
+In contrast to the usual formulation, this theorem has the following form:
+\begin{align*}
+\forall l\in\NN,g\in\NN^\NN, &\ x\in S, T\in S^S \tag{+}\label{e:w21meta}  
+\ \big( \TAN(T)\rightarrow 
+	\exists m\in\NN \ (\|A_mx-A_{m+g(m)}x\|< 2^{-l})\big). 
+\end{align*}
+Obviously the conclusion, i.e. 
+$
+\exists m\ \big( \|A_mx-A_{m+g(m)}x\| < 2^{-l}\big),
+$
+has the form $\exists m\ \psi_\exists(m,l,g)$ 
+%(or $\exists m\psi_\exists(m,\langle l,g\rangle)$
+%for any suitable encoding of $l$ and $g$ as an element $\langle l,g\rangle$ 
+%of $\NN^\NN$)\footnote{Encoding and decoding of finite tuples of numbers, 
+%functions and even functionals are definable in $\AHilb$ as primitive recursive operations.}
+and the assumption $\TAN(T)$, i.e.
+$
+\forall x,y\in S \big(\| Tx + Ty \| \leq \|x + y\|\big),
+$
+has the form $\varphi_\forall(T)$.\\
+Moreover, $\TAN(T)$ already implies $\TMaj(\Id,T)$ (here $\Id$ stands 
+simply for the identity function on $\NN$), since $\TAN(T)$ applied to $x=y=z$
+implies
+$
+\forall z\in S \big( \|T(z)\| \leq \|z\| \big).
+$\\
+Hence we can apply Theorem~\ref{t:GKmeta1} to~\eqref{e:w21meta} by setting
+\[
+\tup x:=_{\NN\times\NN^\NN} l,g,
+\ z:=_{S}x,
+\ f:=_{S\to S}T,
+\ f^*:=_{\NN\to \NN}\Id,
+\] and
+\[
+\varphi_\forall(x, z, f):\equiv\TAN(T),\ 
+\exists v\in\NN\ \psi_\exists(x, z, f, v):\equiv\exists m\in\NN\ \big( \|A_mx-A_{m+g(m)}x\| < 2^{-l}\big),
+\]
+to obtain that there is a computable bound $M:\NN\times\NN^\NN\times\NN\to\NN$, s.t.
+\begin{align*}
+\forall l\in\NN,g\in\NN^\NN&, x\in S, T\in S^S \\
+&\big( \TAN(T) \wedge \|x\| \leq b\ \rightarrow \exists m\leq M(l,g,b)\ ( \|A_mx-A_{m+g(m)}x\|\leq 2^{-l}) \big). 
+\end{align*}
+It is rather easy to see that the proof can be formalized in $\AHilbS$, except for the question of the use
+of the axiom of extensionality (full extensionality
+is in general unavailable in any proof-theoretic extraction of computational bounds). 
+% unless one works with extremely weak systems)
+Generally, one can derive full extensionality as a
+consequence of continuity in proofs about continuous objects.
+Note that in particular any nonexpansive operator
+is also continuous. However, in our case, the operator $T$ may be discontinuous. 
+Fortunately, Wittmann proves his main results as a consequence of
+a statement about a simple sequence of elements in $S$, 
+which as such is independent of $T$ (see Theorem 2.3 in~\cite{Wittmann90}),
+whereby all relevant equalities are provable directly. Therefore the rule of extensionality
+suffices to formalize his proof.\\
+Hence the existence of a {\em uniform computable bound} for the metastable version
+can be inferred from the metatheorem in~\cite{GK08}. Furthermore, since the metatheorem is established
+by proof-theoretic reasoning, it provides not only the existence of a uniform bound but also
+a procedure for its extraction.\\
+
+We should point out that the original Corollary 6.6 in~\cite{GK08} can be used
+in a more general context than the particular example we just discussed. For instance, it can be 
+applied to both Theorem 2.2 and Theorem 2.3 in~\cite{Wittmann90} as well.\\
+In the case of Wittmann's Theorem 2.2 in~\cite{Wittmann90}, the points 7) and 3) of Corollary 6.6 in~\cite{GK08} actually guarantee seemingly more uniformity
+than we have in Corollary~\ref{c:fin22}, namely the existence of a bound $M(l,g,K,T^*,(a_n),b)$, where $T^*$ is a bound for the operator $T$,
+$(a_n)$ a bound for the sequence $(\alpha_n)$, and $b$ a bound for $\|x\|$. %\footnote{Strictly speaking only majorants in the sense of~\cite{GK08} are required.}
+The $B'$ in our corollary, however, can be easily constructed given $T^*$, $(a_n)$ and $b$ 
+(actually $a_1$ and $b$ suffice, see our remark after Corollary~\ref{c:fin22}).\\
+Also in the case of Wittmann's Theorem 2.3 in~\cite{Wittmann90},
+the uniformity guaranteed by Corollary 6.6 in~\cite{GK08} corresponds
+directly to those uniformities that we have in Theorem~\ref{t:finInt}.\\
+To repeat, these are very specific scenarios. We should emphasize that the 
+Corollaries in~\cite{GK08}, and 
+the metatheorem(s) even more so, have a much wider range of application.\\
+
+Due to the way Wittmann proved the theorems we have analyzed, it is easy to see 
+that the only proof-theoretically non-trivial principles needed in the proof are 
+the existence of the infimum/supremum of bounded sequences and 
+the principle of convergence for bounded monotone sequences.
+It turns out that in fact the proof uses only arithmetical versions of
+these non-trivial principles (see also section~\ref{s:ArProof}).
+Fortunately, for these arithmetic versions the bounds for the witnesses for the metastable
+formulations are already known and rather simple.
+\begin{prop}[Kohlenbach~\cite{Kohlenbach08}]\label{p:Ulrich}
+Let $(a_n)$ be a nonincreasing sequence in $[0,C]$ for some constant $C\in\NN$, then
+\[ \forall k\in\NN,g\in\NN^\NN\exists n\leq F(g,k,C)\forall i,j\in[n;n+g(n)]\ \big(|a_i-a_j|<2^{-k}\big), \]
+where $F(g,k,C):={\tilde g}^{C\cdot 2^k}(0)$ with $\tilde g(n):=n+g(n)$.
+\end{prop}
+\begin{proof}
+See Propositions 2.27 and Remark 2.29 in~\cite{Kohlenbach08}.
+\end{proof}\\
+Hence, we can infer that there is actually {\em an ordinary primitive recursive bound} %(a bound in $\T_0$)
+which we give explicitly in Section~\ref{s:main}.

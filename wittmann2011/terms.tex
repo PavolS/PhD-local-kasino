@@ -1,0 +1,78 @@
+\subsection{Obtaining a bound}\label{s:terms}
+%\begin{dfn}
+%By a formula $\phi$ containing
+%\[
+%t_1 \leq_l t_2,
+%\]
+%we mean that there is a small natural number $c$, s.t. for all $l$ the formula $\phi$ holds
+%with\footnote{instead of $t_1 \leq_l t_2$} $t_1 \leq t_2 + 2^{-l}$ (note that we require the existance of
+%a fixed $c$ independently on all other parameters and/or variables).
+%\end{dfn}
+The goal of this section is to roughly describe how to find a bound for $m$ in
+\[
+\forall l,g \exists m\ \big( \|A_m-A_{m+g(m)}\|\leq 2^{-l} \big).
+\]
+Similarly as before, for better understanding we leave some technical details
+for later sections and disregard the monotonicity of the bounds as well as some
+small corrections needed in the exponent of $2^{-l}$.
+We handle these two aspects very carefully in the sections~\ref{s:Main} and~\ref{s:Lemmas}, where we make also
+all of the following steps more explicit.\\
+Let the assumptions in the proof of Theorem~\ref{t:fin21ar} hold and let $K$, 
+$B$ and $C$ be as before as well.\\
+Furthermore, we assume that $N_0$ and $P_0$ are the witnessing terms for~\eqref{w:1} (note that in
+fact this means rather that we have a witness for Kreisel's no-counterexample interpretation -- n.c.i. see~\cite{Kreisel1951, Kreisel1959} -- of the
+convergence of $\|X_n\|$ in the first place) and~\eqref{w:2} as given in~\cite{Kohlenbach08}, i.e. we have that:
+\begin{align*}
+\forall l,h \forall m,n\in[N_0(l,h) ; N_0(l,h)&+g(N_0(l,h))]\ \big( 
+\langle X_{m+k},X_{n+k}\rangle \leq \langle X_{m},X_{n}\rangle + 2^{-l} \big)
+\end{align*}
+and
+\[
+\forall l,f \ \big( C(l,n_l,P_0(l,f))\leq C(l,n_l,f(P_0(l,f))) + 2^{-l} \big)
+\]
+for any $n_l$ satisfying~\eqref{w:1}.\\ This structure accounts for the already mentioned nested iteration.  
+Eventually, we have to specify a counterfunction $f$ s.t. it is sufficient that this inequality holds for that particular $f$. 
+This $f$ has to depend on $n_l$, which will obviously be defined as an iteration, and $f$ itself will be iterated by $P_0$.\\
+%Also, from now on, we will use the more formal $\lambda$-abstraction rather than the notation we used above. 
+%For example we write $F(\tup x)=_1\lambda n.n^2$ rather than $F(\tup x)(n)=n^2$, to express that $F$ is a functional, 
+%which given the arguments $\tup x$ returns the number theoretic square function
+%(see e.g. Lemma 3.15 in~\cite{Kohlenbach08} for a precise definition within a subsystem of $\AHilb$). \\
+To obtain a bound for $m$, we follow the proof from the last section backwards. We define 
+\[
+M_0(l,n,p):=2(p + n + K(l))B2^l,
+\]
+since then we have that $\|Z(l,n_l,p_l,M_0(l,n_l,p_l))-A_{m+1}\|\leq 2^{-l}$, for the 
+right values of $l$, $n_l$ and $p_l$ (which we don't know yet).\\
+From the proof we can infer that the largest $p$ needed in~\eqref{w:2} is $K(l)+m+g(m)+n_l+p_l$ (for details
+see proof of Lemma~\ref{l:Zs}.\eqref{e:Zup}), therefore we need that
+\[f(P_0(l,f))=K(l)+m+g(m)+n_l+P_0(l,f),\]
+(where $m$ and $m+g(m)$ correspond to the $m$ and $n$ in~\eqref{w:1}). \\
+Moreover, we can see that the largest $m$ or $n$ needed in~\eqref{w:1} is $n_l+p_l+m+g(m)+K(l)$ (for details
+see proof of Lemma~\ref{l:scpb} and its application in proof of Lemma~\ref{l:Zs}.\eqref{e:Zdown}). So we need that
+$h(N_0(h,l))=p_l+m+g(m)+K(l)$. \\
+Keeping in mind that $N_0(l,h)$ corresponds to $n_l$ (and to $n$ below) and $P_0(l,f)$ to $p_l$ (and to $p$ below) 
+we obtain\footnote{
+Here and in the following, when considering a complex term $t[a_1,\ldots,a_n]$ in several variables $a_1,\ldots,a_n$,
+the notation $\lambda a_i.t[a_1,\ldots,a_n]$ defines (as usual in logic) the function $a_i\mapsto t[a_1,\ldots,a_n]$.}
+\begin{align*}
+ h(l,g) = \lambda n\ .\ &\underbrace{P_0(l,\lambda p\ .\ K(l)+M_0(l,n,p)+g(M_0(l,n,p))+p+n)}_{p_l} + \\
+&+M_0(p_l,n,l) + g(M_0(p_l,n,l))+K(l),
+\end{align*}
+and define
+\[
+N(l,g):=N_0(l, h(l,g)).
+\]
+Given $N(l,g)$, which corresponds to $n_l$, and again keeping in mind that $P_0(l,f)$ corresponds to $p_l$ (and to $p$ below),
+we can define $P(l,g)$ as well:
+\[
+P(l,g):=P_0(l, f(l,g)),
+\]
+where
+$ f(l,g) = \lambda p\ .\ K(l)+M_0(p,N(l,g),l)+g(M_0(p,N(l,g),l))+p+N(l,g).$
+Finally we can define the desired witness for $m$ as follows:
+\[
+M(l,g):=M_0( l, N(l,g), P(l,g) ).
+\]
+
+
+

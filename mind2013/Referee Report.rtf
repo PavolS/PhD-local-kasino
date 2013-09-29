@@ -1,0 +1,128 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1138\cocoasubrtf510
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720
+
+\f0\fs32 \cf0 The Cauchy property of a sequence of real numbers states that in order to know the limit of the sequence up to an approximation 2^(-k) we have to compute the n-th element of the sequence. This n is the most important information we have about the value of the limit of the sequence, unfortunately it is often non-computable in the parameters of the sequence. The paper is about the next best information we may have, an effective bound to the number of mistakes we may do while making assumptions on the value of n. This goal is interesting and the paper contains some relevant results in this direction. However, some parts of the paper (especially sections 4 and 5) are written as they were ongoing research, with formulas and definitions added as soon as we find out that we miss them, and long formulas and huge technical lemmas explained only implicitly, through their use in the paper. My opinion is that some parts of the paper would require more formal definitions and more explanations, before their relevance of could be assessed.\
+\
+--------------------------------------------------\
+Page 2.\
+\'93is a bound on the Kreisel no-counterexample interpretation (called `metastability' by Tao)\'93\
+You should stress now what you say in section 4, that effectively learnability is a proper restriction to the notion of truth. You should also add that metastability is but a reformulation of the notion of truth. Indeed, the formula (4) is true if and only if there is some bound Phi(k,g) computable w.r.t. \{x_i | i in N\} and d, because if is true then for all k, g there is some n such that ForAll i,j.[n,n+g(n)](d(x_i,x_j) <2^(-k)), and (in the case < is positively decidable) this property is positively decidable. Then you may effectively find some n which satisfies (4). The interest of metastability, therefore, lies in the actual computable functional Phi we find, not in its mere existence.\
+\
+\'93As follows from the bound extraction theorem for monotone modified realizability from [23, 25] (and for theories with abstract spaces X,g) in [15]) from a proof of (1) \'85 is guaranteed. Here AC is \'85 LEM \'85 (\'85 formulas).\'94\
+This sentence is too long and twisted. Please split it.\
+\'93Let AC be \'85 LEM \'85 (\'85 formulas). Then from a proof of (1) \'85 is guaranteed. This follows from the bound extraction theorem for monotone modified realizability from [23, 25] (and for theories with abstract spaces X in [15]).\'94\
+\
+Page 7. \'93However, the aforementioned gap condition does not seem to be satisfied and so, as it stands, a fluctuation bound does not seem to follow.\'94\
+Do you mean: we conjecture that \'85\
+\
+Page 8.\
+\'93Definition 2.3\'94\
+You should say that c_i is the i-th attempt to produce an n. Why do you assume that phi is monotone in the argument number 2? Apparently this is required only later, in the proof of proposition 2.4. You should say: if we assume monotonicity we simplify the theory of learnability. Is the fact that you always select the counterexample with the smallest x restrictive?\
+\
+You should anticipate here that in section 4.2, Lemma 4.13 you prove there are true and not learnable phi.\
+\
+May you characterize the learnable sigma-0-2 formulas among the true sigma-0-2?\
+\
+Pag 11.\
+\'93we could modify L in such a way, that it looks for the smallest counterexample and uses that for its computation, assuring that we actually generate the same sequence\'94 It does not look that easy. What if the choice of the smallest x produces a sequence of c_i which is stuck, while the choice of a larger x avoid to get stuck? My guess is that for this equivalence you need monotonicity of phi in the second argument again.\
+\
+Page 12, Def. 2.8.\
+In the place of c_0 := 0 you should have c_0 := 0^\{rho\}.\
+\
+\'93Again, this definition already captures\'94\
+Do you need monotonicity of phi in the second argument here?\
+\
+Page 13, Theorem 2.10.\
+\'93where phi_0, psi_0 are quantifier-free formulas (containing at most the parameters a free) and t is a closed term in T , then\'94\
+I suppose you have the assumption phi monotone in the second parameter: if this is the case, say so. You mention a term t in the assumption of the theorem, but I could not find t anywhere else in the assumptions of the theorem.\
+\
+You should give some informal interpretation to the Theorem 2.10, before proving it. Apparently, it says that if you prove a sigma-0-2 formula using l many times a kind of excluded middle with 1 quantifier, then this formula is effectively learnable with at most l mind changes, and if l = B(a) is computable by some functional B, then the formula is effectively learnable.\
+\
+I have also the impression that the exact way you state 2.10 matters. For instance, suppose in a classical proof instead of:\
+\'93Forall a Exists l^0. (Forall m <=0 l exists u^0 forall v^0 psi_0(u, m, a) \\/ psi_0(v, m, a) -> Exists n^0 Forall x^0 phi_0(x, n, a))\'94\
+you have:\
+\'93Forall a (Forall m. exists u^0 forall v^0. psi_0(u, m, a) \\/ psi_0(v, m, a) -> Exists n^0 Forall x^0 phi_0(x, n, a))\'94\
+This amount to the same, classically, but I have the impression that in this case you would not be able to give a recursive bound l=B(a) to the value of m used in the proof, and therefore you would not be able to effectively learn the sigma-0-2 formula. In other words, possibly, you formulate the goal in such a way that the proof implicitly gives you a computable bound l to the number of excluded middle you use.\
+\
+You should discuss this problem and say if this is the case or not. This would matter to people trying to use your result in the analysis of some classical proof: they should know in which way to use it.\
+\
+Page 17.\
+Prop. 2.15\
+You should add a reference number to your formal definition of metastability.\
+You should also stress that the mere existence of a computable rate of metastability is immediate from the fact that the sigma-0-2 formula is effectively learnable, hence true, hence metastable. The point of Theorem 2.15 is to find some simple definition of it.\
+\
+\'93Hence, we have that (for a* majorizing a)\'94\
+\'93Hence, we have that (for a* majorizing a) and for the succession c_i taken from Def. number \'85 \'94\
+\
+-----------------------\
+\
+Page 20.\
+What is G_3? You introduce it without definition on page 20, then you wait until page 25, Lemma 4.5, and you say: \'93G_3A^\{omega\} is the finite type extension of Kalmar-elementary arithmetic (based on quantifier-free induction only but with classical logic) from [22] (see also [25]).\'94\
+Move this definition before the first quoting of G_3.\
+\
+Lemma 3.1 \'93Friedmann's\'94\
+\
+Proposition 3.3. As a related statement, you should quote here the general fact that any proof in PA of a Pi-0-(n+2) statement only requires EM with n quantifiers. As a particular case if PA proves a convergence result for a sequence of rationals, then, since convergence is Pi-0-3, HA + EM-1 proves the \'a0same result. This is almost what you say, except for the use of PA*^\{omega\}, HA*^\{omega\} \'a0in the place of PA, HA.\
+\
+-----------------------\
+\
+Page 23.\
+\'93follows already from the existence of Specker sequences\'94\
+\'93follows already from the existence of Specker sequences [37]\'94\
+\
+Page 27.\
+\'93Definition 4.12.\'94\
+Explain that f^ is a computable surjection from f:NxN->N to the set of g:NxM-> \{1,0\} which are monotone decreasing.\
+\
+Proposition 4.13. The sentence of the proposition is too long. Split it. First move the definition of phi before Proposition 4.13, inside Definition 4.12. Define in this order:\
+- first y_\{f,x\},\
+- then the left hand side phi_1 of phi_0,\
+- then the rigth hand side phi_2 of phi_0,\
+- eventually phi_0 and phi.\
+Then replace, in Proposition 4.13:\
+\'93The following statement (which is easily provable\'94\
+with\
+\'93The sigma-0-2 statement phi of Def. 4.12 is provable \'85 and is not effectively learnable.\'94\
+\
+Page 28. Definition of y_\{f,x\}. Why do you set\
+"y_\{f,x\} = max \{ y\'92 <= y : y\'92 = min\{ y\'92\'92 <= y : exists x\'92 <= x (f(x\'92, y\'92\'92) = 0)\}"\
+Since y\'92 is alreay fixed, adding \'93max \{ y\'92 <= y :\'94 does not change it. Or do you mean:\
+"y_\{f,x\} = min \{ y\'92 <= y : exists x\'92 <= x (f(x\'92, y\'92\'92) = 0)\}" ???\
+My suggestion is : define\
+"y_\{f,x\} = min \{ y\'92 <= y : exists x\'92 <= x (f(x\'92, y\'92\'92) = 0)\}\
+If there is such a y\'92, and\
+y_\{f,x\} = 0\
+otherwise"\
+To choose y_\{f,x\} = 0 in the place of y_\{f,x\} = x is no deep change for the proof, however the choice of y_\{f,x\} = 0 is easier to explain.\
+\
+Again Prop. 4.13.\
+"where, interpreting p = j(y, u) as a surjective code of some pair y, u"\
+This explanation is too indirect. You should introduce at the beginning of your paper some computable inverse pi_1, pi_2 of j: pi_i(j(x_1,x_2)) = x_i for all i=1,2, all x_1, x_2. Then you may state more simply:\
+"where y = pi_1(p) and u = pi_1(u)"\
+\
+You should try some informal explanation of Prop. 4.13 before proving it. Say, that the left-hand-side phi_1 of phi_0 is EM for the predicate f(x,y)=0. If you choose y_\{f,x\} = 0 when there is no y\'92<=y such that f(x,y\'92)=0, the smallest upper bound of y_\{f,x\} which is independent from y is the first y\'92 such that f(x,y\'92) if any, is 0 otherwise. This upper bound is some integer non-computable in f, x. Therefore the right-hand-side is equivalent to some number of instances of EM-1 with no computable upper bound, therefore requires some number of mind changes non-computable a priori.\
+\
+You should include an informal argument for the sigma-0-2 statement phi, instead of stating that it is \'93easily provable\'94.\
+\
+Page 33.Section 5.\
+You should reverse the order of section 5. First, introduce Birkhoff's sequences and Halpern iterations, then isolate the relevant conditions they satisfy, and eventually prove that these conditions together with the property of learnability gives some relevant fluctuation bounds.\
+\
+Page 34. Proposition 5.1.\
+You should first informally explain what are the \'93Gap conditions on the learner\'94. I take that \'93gap\'94 means:\
+(1) any two exceptions i,j to the Cauchy property for 2^(-k) should have distance at least Delta*(<i,j>,k),\
+(2) while the new value of n suggested by the learning map L*(<i,j>,k) has distance from i at most J*(<i,j>,k), and\
+(3) J*(<i,j>,k) is bound by some multiple of Delta*(<i,j>,k). But what does it mean in practice, especially condition (3)? Which kind of Cauchy sequences are supposed to satisfy these conditions?\
+\
+Page 34. Proposition 5.1.\
+Define first phi_0, then phi: you do the opposite. The same remark applies to other defitions through the paper. The notation j(i,j) is unhappy, there are two characters j having a different meaning. Define j(i,j) first. Did you mean that j is the pairing function? In this change its name to <.,.>, pi_1, pi_2.\
+\
+The role of j_1, j_2 in the Proposition 5.1 is unclear. Do you mean there are j_1, j_2 such that \'85, or that for all j_1, j_2 we have \'85? Or are they the inverse of the pairing map? I take this latter. You should introduce some standard notation for the pairing map and its inverse in some formal definition in the first lines of your paper, then recall the definition whenever you use it in a statement.\
+\
+In the equation (23), you should write (J* is in O(Delta*)) = ..., instead of: J* is in O(Delta*) = ..., otherwise it looks like you are defining O(Delta*) = ..., while, in fact, you are defining (J* is in O(Delta*)) = ....\
+\
+\
+}

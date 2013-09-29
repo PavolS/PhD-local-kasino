@@ -1,0 +1,588 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%   Layout   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%   Layout   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%   Layout   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \setlength{\parskip}{1.5ex plus .3ex minus .2ex}        % Distance between paragraphs
+%                                                         % +- indicates tolerance for TeX
+% 
+
+%margins                                                        % so it gets all on a page
+\textwidth=13.4cm
+\oddsidemargin=0.9cm
+%should be pagewidth-1in-\oddsidemargin-\textwidth-1in~=21cm-2.8cm-1cm-13cm-2.8cm=1.4cm
+\evensidemargin=1.92cm
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% get a blank page %%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\newcommand{\widefr}[1] {
+    \text{%
+     \rotatebox[x=0.5\width+0.8ex, y=0.5ex]{-90}{%
+      \ensuremath{%
+         \left(\text{\rotatebox[origin=c]{90}{\ensuremath{#1}}}\right.%
+      }%
+     }%
+    }%
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Quote  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\theQuote}[1]{
+\begin{center}
+\begin{minipage}{0.7\textwidth} 
+{\em #1} 
+\end{minipage}
+\end{center}
+}
+
+\newcommand{\reviewQuote}[3]{
+{\filinner
+\begin{minipage}{0.8\textwidth} 
+\begin{small}
+{\em \input{#1}\\} 
+\end{small}
+\phantom.\vspace{3mm}\\
+{\hfill
+\begin{footnotesize}
+{\phantom.\hfill -- anonymous referee { about}~\cite{#2}, {#3}.\\}
+\end{footnotesize}
+}
+\end{minipage}\\
+\vspace{20mm}
+}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Titles %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Titles %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Titles %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\mySubsection}[1]{
+\subsection*{#1}
+\addcontentsline{toc}{subsection}{#1}
+}
+
+\definecolor{sectiongray}{gray}{0.5}
+\newcommand{\chapterkey}{\so{SECTION}}
+\newcommand{\appendixkey}{\so{APPENDIX}}
+\newcounter{appendix}
+
+
+\newcommand{\titlekey}{
+\ifthenelse{0<\value{appendix}}
+  {\appendixkey~~\Alph{appendix}}
+  {\chapterkey~~\arabic{section}}
+}
+
+\newcommand{\chapterformat}[1]{%
+\thispagestyle{plain}
+\vspace{13mm}
+\filinner %
+\huge\sffamily\fontseries{bc}\selectfont
+\text{#1} %
+\vspace{10mm}
+}
+
+\titleformat{name=\section}[display]{}
+{
+    \filinner   
+    \large\sffamily\fontseries{c}\selectfont
+        \color{sectiongray}
+        \titlekey\makebox[5pt][r]{}\\
+  \vspace{-4mm}
+  \textcolor{sectiongray}{\titlerule}
+}
+{0cm}
+{\chapterformat}
+
+
+\newcommand{\subsecformat}[1]{%
+    \large\sffamily\fontseries{bc}\selectfont
+       {#1}
+}
+
+\titleformat{name=\subsection}{}
+{
+%   \filinner   
+    \large\sffamily\fontseries{bc}\selectfont
+%        \color{sectiongray}
+    {$\!$\thesubsection $\ $ }
+}
+{0cm}
+{\subsecformat}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Contents %%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Contents %%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Contents %%%%%%%%%%%%%%%%%%%%%
+\titlecontents{section}
+ [-1em]
+ { \vspace{0.5cm} \hspace{-1em} \large\sffamily\fontseries{bc}\selectfont }
+ { \hspace*{1cm}\contentslabel{2ex} }
+ { \hspace*{1cm}\hspace{-2ex} }
+ { \titlerule[0.0pt] 
+   \contentspage }
+ [ \vspace{0.15cm} ]
+
+\titlecontents{subsection}
+ [5em]
+ { \normalsize\sffamily\fontseries{c}\selectfont }
+ { \contentslabel{2.3em} }
+ { \hspace*{-2.3em} }
+ { \titlerule*[1ex]{.} 
+   \contentspage }
+ [ \vspace{0.1cm} ]
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Headers and footings %%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Headers and footings %%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Headers and footings %%%%%%%%%%%%%%%%%%%%%
+\pagestyle{fancy}
+
+\renewcommand{\sectionmark}[1]{
+  \markboth
+    {\small\sffamily\fontseries{c}\selectfont {#1}}
+    {}
+}
+
+\renewcommand{\subsectionmark}[1]{
+  \markright
+    {\small\sffamily\fontseries{c}\selectfont {\thesubsection~{#1}}}
+    {}
+}
+
+\fancyhf{}
+%\fancyhead[LE,RO]{\large\sffamily\fontseries{c}\selectfont {\thepage} }
+\fancyhead[LE]{ \pageboxE  }
+\fancyhead[RO]{ \pageboxO  }
+\fancyhead[LO]{\rightmark}
+\fancyhead[RE]{\leftmark}
+%\fancyfoot[RE]{\tiny\sffamily\fontseries{c}\selectfont{\today}}
+%\fancyfoot[LO]{\tiny\sffamily\fontseries{c}\selectfont{..draft...}}
+
+\renewcommand{\headrulewidth}{0pt}
+\addtolength{\headheight}{27pt}
+
+\renewcommand{\footrulewidth}{0pt}
+
+\fancypagestyle{plain}{
+   \fancyhf{}
+   \renewcommand{\headrulewidth}{0pt}
+}
+
+\definecolor{pbgray}{gray}{0.8}
+\newcommand{\pblen}{9mm}
+\newcommand{\pbh}{6mm}
+\newcommand{\raisePt}{1pt}
+
+
+\newcommand{\pageboxE}{
+   \makebox[0pt][r]{
+       \color{pbgray}\rule[-2.5pt]{\pblen}{\pbh}
+   }   
+   \makebox[3mm][l]{
+       %\color{white}
+       \rule[-3pt]{\textwidth}{0.5pt}
+   }   
+   \makebox[0pt][r]{
+       %\color{pbgray}
+       \rule[-3pt]{16mm}{0.5pt}
+       \hspace{-1mm}
+   }   
+   \makebox[0pt][r]{
+       %\color{white}
+       \rule[-3.6mm]{0.5pt}{10mm}
+       \hspace{3mm}
+       \hspace{2pt}
+   }
+   \raisebox{\raisePt}[0pt][0pt]{
+      \makebox[\pblen][r]{
+         \large\sffamily\fontseries{c}\selectfont \thepage
+         \hspace{\pblen}
+         \hspace{20pt}
+      }
+   }
+}
+
+\newcommand{\pageboxO}{
+   \makebox[0pt][l]{
+       %\color{pbgray}
+%       \hspace{-12pt}
+       \rule[-3pt]{16mm}{0.5pt}
+   }   
+   \makebox[0pt][l]{
+      \hspace{10pt}
+      \color{pbgray}\rule[-2.5pt]{\pblen}{\pbh}
+   } 
+   \makebox[0pt][l]{
+       %\color{white}
+ %      \hspace{3mm}
+       \hspace{7pt}
+       \rule[-3.6mm]{0.5pt}{10mm}
+   }
+   \raisebox{\raisePt}[0pt][0pt]{
+      \makebox[0pt][l]{
+          \makebox[\pblen][r]{
+             \large\sffamily\fontseries{c}\selectfont \thepage
+  %           \hspace{0.1\pblen}
+          }
+      }
+   }
+   \makebox[0mm][r]{
+       %\color{white}
+%       \hspace{-15pt}
+       \rule[-3pt]{\textwidth}{0.5pt}
+   }   
+}
+
+%\renewcommand{\sectionmark}[1]{\markright{\textsc{Section \arabic{section}. #1}}}
+%\renewcommand{\headmark}[1]{\markright{\textsc{Section \arabic{section}. #1}}}
+%\renewcommand{\headfont}{ \normalfont\sffamily\bfseries }
+%\renewcommand{\headfont}{ \normalfont\sffamily }
+%\rohead{\em{\headmark}}
+
+
+%\ihead{\small\sffamily\fontseries{c}\selectfont\em{\headmark}}
+%\rohead{\sectionmark}
+%\cfoot{\textsc{-draft-}$\ $ \today}
+%\newcommand 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%   Highlighting stuff  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%   Highlighting stuff  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%   Highlighting stuff  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\code}[1]{\ensuremath{#1}}
+\newcommand{\todo}[1]{\textcolor{red}{\it #1}
+  \marginpar{\smaller\center\texttt{ToDo}}}    % Issues to clarify
+%  \marginpar{\flushright\smaller\texttt{ToDo}}}    % Issues to clarify
+\newlength{\backupindent}
+\setlength{\backupindent}{\parindent}
+\newlength{\rhdlength}
+\settowidth{\rhdlength}{$\rhd$}
+\addtolength{\rhdlength}{0.75mm}
+
+\newcommand{\args}[1]{\text{\begin{smaller}$#1$\end{smaller}}}
+
+%\newenvironment{todoenv}{\setlength{\parindent}{0pt}\hspace{-\rhdlength}$\rhd$\sl}
+%{\marginpar{\flushright\smaller \texttt{ToDo}}
+%  \setlength{\parindent}{\backupindent}}
+
+%\newcommand{\hl}[1]{\textcolor{red}{\bf{\underline{#1}}}} % Highlight stuff
+\newcommand{\defkey}[1]{{\em #1}\index{#1}}               % Definition key words emphesized
+\newcommand{\defkeyn}[1]{{#1}\index{#1}}              % Definition key words not emphesized
+\newcommand{\defkeym}[1]{{#1}\index{\protect{\ensuremath{#1}}}}              % Definition key words math style
+\newcommand{\usftext}[1]{\textsf{\upshape #1}}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%   Remarks   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%   Remarks   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%   Remarks   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\newcommand{\rem}{{\tt ?}\marginpar{\Large \tt\centering ?}}
+\newcommand{\Rem}[1]{{\tt ?}\marginpar{\raggedright #1}}
+\newcommand{\OK}{\marginpar{\begin{center}\unitlength1.5em
+        \begin{picture}(1,1) \put(0.5,0.5){\circle{1}}
+        \put(0.5,0.4){\makebox(0,0){$\smile$}}
+        \put(0.4,0.7){\makebox(0,0){$\cdot$}}
+        \put(0.6,0.7){\makebox(0,0){$\cdot$}}
+        \end{picture}\end{center}}}
+\newcommand{\nOK}{\marginpar{\begin{center}\unitlength1.5em
+        \begin{picture}(1,1) \put(0.5,0.5){\circle{1}}
+        \put(0.5,0.5){\makebox(0,0){$\ddot{\frown}$}}
+        \end{picture}\end{center}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%   equations   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\be}[1][{e:\arabic{equation}}] { \begin{equation}\label{#1} }
+\newcommand{\ee} { \end{equation} }
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%   General Maths   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%   General Maths   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%   General Maths   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%stuff - mainly KL
+\DeclareMathOperator{\lh}{lh}  %length of encoding of a finite sequence
+%\DeclareMathOperator{\P}{P}  %secured
+
+%%commands
+\renewcommand{\emptyset}{\varnothing}
+
+\newcommand{\ORi}[1]{\ensuremath{\bigwedge^{#1}_{i=1}}}
+
+
+\newcommand{\RR}{\ensuremath{\mathbb{R}}}
+\newcommand{\NN}{\ensuremath{\mathbb{N}}}
+\newcommand{\QQ}{\ensuremath{\mathbb{Q}}}
+\newcommand{\II}{\ensuremath{\mathbb{I}}}
+\newcommand{\PP}{\ensuremath{\mathbb{P}}}
+
+\newcommand{\zero}{\ensuremath{\mathbf0}}
+\newcommand{\one}{\ensuremath{\mathbf1}}
+\newcommand{\two}{\ensuremath{\mathbf2}}
+
+\newcommand{\xor}{\ensuremath{\dot\vee}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%   Proof Theory   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%   Proof Theory   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%   Proof Theory   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% stuff
+\input prooftree
+
+\DeclareMathOperator{\maj}{maj} %``majorizes
+\DeclareMathOperator{\smaj}{s-maj} %``strongly majorizes
+\DeclareMathOperator{\K}{K} %K_A from Howard's WKL ND-int
+\DeclareMathOperator{\I}{I} %the ``in Interval predicate from BW
+
+
+
+%% Types
+\newcommand{\Tp}{\ensuremath{\emph{\protect\textbf{T}}}} %set of finite types T
+\newcommand{\PT}{\ensuremath{\emph{\protect\textbf{P}}}} %set of pure types P
+\newcommand{\tp}[1]{\ensuremath{^\mathbf{#1}}}
+
+%% Models
+\newcommand {\SetO}  { \ensuremath{\mathcal{S} } }
+\newcommand {\Som}  { \ensuremath{\SetO^\omega} }
+\newcommand {\Set}  { \Som }
+\newcommand {\ContO}  { \ensuremath{\mathcal{C} } }
+\newcommand {\Cont}  { \ensuremath{\ContO^\omega} }
+\newcommand {\MajO}  { \ensuremath{\mathcal{M} } }
+\newcommand {\Maj}  { \ensuremath{\MajO^\omega} }
+
+%% Special sets
+\newcommand{\universal}{\ensuremath{\emph{\protect\textbf{U}}}} %set of universal axioms
+
+%% Systems
+\newcommand{\GA}{\ensuremath{\usftext{G}_n\usftext{A}^\omega}} %GnA iaft
+\newcommand{\weha}{\ensuremath{{\usftext{WE-HA}}^{\omega}}} % WE - HA iaft
+\newcommand{\wepa}{\ensuremath{{\usftext{WE-PA}}^{\omega}}} % WE - PA iaft
+\newcommand{\HA}{\ensuremath{{\usftext{HA}}}} % HA 
+\newcommand{\PA}{\ensuremath{\usftext{PA}}} % PA 
+\newcommand{\ha}{\ensuremath{{\usftext{HA}}^\omega}} % HA iaft
+\newcommand{\pa}{\ensuremath{{\usftext{PA}}^\omega}} % PA iaft
+\newcommand{\epa}{\ensuremath{{\usftext{E-PA}}^\omega}} % E - PA iaft
+\newcommand{\eha}{\ensuremath{{\usftext{E-HA}}^\omega}} % E - HA iaft
+\newcommand{\hrrepa}{\ensuremath{\widehat{\usftext{E-PA}}^\omega\kleene}} %hrr E - PA iaft
+\newcommand{\hrreha}{\ensuremath{\widehat{\usftext{E-HA}}^\omega\kleene}} %hrr E - HA iaft
+\newcommand{\rreha}{\ensuremath{\usftext{E-HA}^\omega\kleene}} %rr E - HA iaft
+\newcommand{\rrweha}{\ensuremath{\usftext{WE-HA}^\omega\kleene}} %rr WE - HA iaft
+\newcommand{\kleene}{\ensuremath{\!\!\!\restriction}}   % upper arrow
+\newcommand{\hrrwepa}{\ensuremath{\widehat{\usftext{WE-PA}}^\omega\kleene}} %hrr WE - PA iaft
+\newcommand{\hrrweha}{\ensuremath{\widehat{\usftext{WE-HA}}^\omega\kleene}} %hrr WE - HA iaft
+
+\newcommand{\HAS}{\ensuremath{\usftext{HAS}}} %second order logic
+\newcommand{\HAH}{\ensuremath{\usftext{HAH}}} %higher -/-
+\newcommand{\ACA}{\ensuremath{\usftext{ACA}}} %
+\newcommand{\RCA}{\ensuremath{\usftext{RCA}}} %
+
+%% Principles
+\newcommand{\IA}{\ensuremath{\usftext{IA}}} %induction schema
+\newcommand{\IP}{\ensuremath{\usftext{IP}}} %induction principle
+\newcommand{\IR}{\ensuremath{\usftext{IR}}} %induction rule
+\newcommand{\BR}{\ensuremath{\usftext{BR}}} %bar recursion principle
+\newcommand{\BI}{\ensuremath{\usftext{BI}}} %bar induction principle
+
+
+\newcommand{\IPP}{\ensuremath{\usftext{IPP}}}
+\newcommand{\PCM}{\ensuremath{\usftext{PCM}}}
+\newcommand{\LEM}{\ensuremath{\Sigma^0_1\usftext{-LEM}}}
+\newcommand{\lLEM}{\ensuremath{\usftext{LEM}}}
+\newcommand{\BW}{\ensuremath{\usftext{BW}}}
+\renewcommand{\AA}{\ensuremath{\usftext{AA}}}
+\newcommand{\Limsup}{\ensuremath{\usftext{Limsup}}}
+\newcommand{\DNS}{\ensuremath{\usftext{DNS}}}
+\newcommand{\CA}{\ensuremath{\usftext{CA}}}
+\newcommand{\QF}{\ensuremath{\usftext{QF}}}
+\newcommand{\QFm}{\ensuremath{\usftext{QF-}}}
+\newcommand{\CAhut}{\ensuremath{\widehat{\CA}}}
+
+\newcommand{\AC}{\ensuremath{\usftext{AC}}} 
+\newcommand{\ER}{\ensuremath{\usftext{ER}}} 
+
+\newcommand{\WKL}{\ensuremath{\usftext{WKL}}}
+\newcommand{\FAN}{\ensuremath{\usftext{FAN}}}
+
+%% General abreviations
+\newcommand{\PiL}{\ensuremath{\Pi^0_1}} 
+\newcommand{\PiLm}{\ensuremath{\Pi^0_1\usftext{-}}} 
+\newcommand{\SiL}{\ensuremath{\Sigma^0_1}} 
+\newcommand{\SiLm}{\ensuremath{\Sigma^0_1\usftext{-}}} 
+\newcommand{\m}{\ensuremath{\usftext{-}}}
+
+
+%% for WKL
+
+\newcommand{\BTree}{\ensuremath{\usftext{BinTree}}}
+\newcommand{\BFunc}{\ensuremath{\usftext{BinFunc}}}
+\newcommand{\UnBounded}{\ensuremath{\usftext{Unbounded}}}
+%\newcommand{\Bounded}{\ensuremath{\usftext{Bounded}}}
+\newcommand{\Sec}{\ensuremath{\usftext{Sec}}} % Boundedly secured
+\newcommand{\BSec}{\ensuremath{\usftext{BarSec}}} % Boundedly secured at bar k
+\newcommand{\BSecA}{\ensuremath{\usftext{BarSec}_A}} % Boundedly secured at bar K_A
+
+\newcommand{\B}{\ensuremath{\usftext{B}}} %bar recursor
+\newcommand{\rB}{\ensuremath{\usftext{B'}}} %restricted bar recursor
+\newcommand{\R}{\ensuremath{\usftext{R}}} %recursor
+\newcommand{\bPhi}{                       %special bar recursor
+ \raisebox{-1.0pt} {
+   \ensuremath{\usftext{\Large {\!$\Phi$\!\!\!}}}
+ }
+}
+
+\newcommand{\T}{\ensuremath{\mathcal{T}}} %G�els T
+\newcommand{\M}{\ensuremath{\usftext{M}^\omega}} %Markov principle iaft
+\renewcommand{\H}{\ensuremath{\usftext{H}}} %Funny Howards argument
+
+\newcommand{\proves}{\vdash}  %proves |-
+\newcommand{\forces}{\Vdash}  %||-
+\renewcommand{\models}{\vDash}  %|=
+
+%have no idea
+%\newcommand{\restrict}[3]{\mathrel{\mathord{#1}\left|{{}_{#2}^{#3}}\right.}}
+
+\newcommand{\tup}{\underline} %tuple
+\newcommand{\atup}{\ensuremath{\,\underline}} %tuple as a parameter
+
+\newcommand{\Tif}{\text{if}}
+\newcommand{\Telse}{\text{else}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%   Theorems   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%   Theorems   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%   Theorems   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{con}[thm]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{dfn}[thm]{Definition}
+%\newenvironment{rmk}{\paragraph{Remark.}\it}{\\}
+\newtheorem{rmk}[thm]{Remark}
+
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{eg}{Example}
+
+%  from Klaus:
+ \renewenvironment{proof}[1][]{\noindent{\bf Proof{#1}. }}{\nopagebreak[4]{\hspace*{\fill}
+%   \rule{1.2ex}{1.2ex} % Full big box
+  $\Box$              % Empty box
+ }{\vspace{2ex}}}
+
+%%%%%%%%%%%%%%%% get it stylish - shortcuts %%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%% get it stylish - shortcuts %%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%% get it stylish - shortcuts %%%%%%%%%%%%%%%%%%%%%%
+
+\renewcommand{\phi}{\varphi}
+\newcommand{\lb}{\linebreak[0]}
+\newcommand{\pb}{\pagebreak[0]}
+\newcommand{\nbd}{\nobreakdash-}
+
+\newcommand{\lOrd}[1]{\text{$\!\!$
+\begin{smaller}<\end{smaller}\nolinebreak[4] $\!#1$\hspace{-3pt}
+}}
+
+\newcommand{\lOrdm}[1]{\text{
+\lOrd{#1}\nbd 
+%\hspace{-4pt}
+}}
+
+%\makeatletter
+\def\Ddots{\mathinner{\mkern1mu\raise\p@
+\vbox{\kern7\p@\hbox{.}}\mkern2mu
+\raise4\p@\hbox{.}\mkern2mu\raise7\p@\hbox{.}\mkern1mu}}
+%\makeatother
+
+\newcommand{\embeded}{\hookrightarrow}
+
+%%%%%%%%%%%%%%%%%%%%%% repetitive definitions (macros) %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%% repetitive definitions (macros) %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%% repetitive definitions (macros) %%%%%%%%%%
+\newcommand{\xTWf}[3]
+{\ensuremath{
+\bPhi_0{#1}u_{#2,#3}^{\!1(1(0))}0^00^1
+}}
+
+\newcommand{\uWf}[2]
+{\ensuremath{
+    \begin{cases}
+      1 &\Tif\ #2(n,#1(v1^0))\neq_00\\
+      #1(v1^0) &\Telse
+    \end{cases}
+}}
+
+\newcommand{\xTWfM}[2]
+{\ensuremath{
+\bPhi^*_0{#1}u_{#2}^{\!*1(1(0))}0^00^1
+}}
+
+\newcommand{\uWfM}[1]
+{\ensuremath{
+    {\max}_0\big(1,#1(v1)\big)
+}}
+
+
+\newcommand{\KA}[2]
+{\ensuremath{
+\begin{cases}
+  0&\text{if}\ #1[#2]<\lh(#2)\\ 
+  1+\max\big\{K_{#1}( #2 *0),K_A( #2 *1)\big\}&\text{else}
+\end{cases}
+}}
+
+%\newcommand{\Fnullx}
+%{\ensuremath{
+%    \begin{cases}
+%      x\vert_{[0,1]}&\text{if}\ \ x\in f\\
+%      x &\text{if}\ \ x\in f\\
+%      \emptyset&\text{else}
+%    \end{cases}
+%}}
+
+\newcommand{\Fn}[1]
+{\ensuremath{
+    \begin{cases}
+      {\min}{}_0\big\{b^0\ :\ b^0=\langle b_1,\ldots,b_n\rangle,\tup b\in\{0,1\}^n\wedge #1(b)=_00\big\}
+                     &\text{if such a $b$ exists}\\
+      \emptyset&\text{else}
+    \end{cases}
+}}
+
+\newcommand{\fs}[2]
+{\ensuremath{
+\begin{cases}
+  0&\Tif\ \             \forall n^0\!\leq_0\!\lh(#1)\ #1_{n}\!\leq_0\!1 
+              \ \wedge\ #2\geq_0 \lh(#1) 
+              \ \wedge\ I(#1,\lh(#1),\widetilde{\ s#2\ })\\
+  1&\Telse
+\end{cases}
+}}
+
+\newcommand{\InIntM}[2]
+{\ensuremath{
+    #2\leq_0 \lh(#1) \ \wedge\ 
+    \left\langle \sum_{i=1}^{#2}\frac{{#1}_i}{2^i}\right\rangle\ \leq_\QQ\ 
+    m\ \leq_\QQ\left\langle\sum_{i=1}^{#2}\frac{{#1}_i}{2^i}+\frac{1}{2^{#2}} \right\rangle
+}}
+
+
+%% Modifications for PhD thesis
+
+
+\newcommand{\PRA}{\ensuremath{\usftext{PRA}}} %
+
+\newcommand{\mon}{\ensuremath{\usftext{m}}} 
+\newcommand{\Mon}{\ensuremath{\usftext{M}}} 
+
+
+

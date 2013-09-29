@@ -1,0 +1,296 @@
+\usepackage{graphicx, color}
+\usepackage{amsmath,amsthm,amssymb,amscd}
+\usepackage[arrow, matrix, curve]{xy}
+\usepackage{url}
+
+\hyphenation{in-ter-pre-ta-tion}
+\hyphenation{in-tui-tion-istic-ally}
+
+%%%%%%%%%%%%%%%%%
+%%
+%% this paper specifc
+%%
+\DeclareMathOperator{\st}{st} %standard
+\DeclareMathOperator{\nst}{nst} %non-standard
+
+\newcommand{\dotminus}{
+\buildrel\textstyle.\over{\hbox{
+\vrule height3pt depth0pt width0pt}{\smash-}
+}}
+
+\newcommand{\forces}{\usftext{mr}}
+\newcommand{\forallst}{\forall^{\st{}}\!}
+\newcommand{\existsst}{\exists^{\st{}}\!}
+\newcommand{\veest}{\ensuremath{\vee_{\st{}}\!}}
+\newcommand{\veecl}{\ensuremath{\vee_{\cl{}}\!}}
+
+\newcommand{\Tst}{\ensuremath{\Tstar_{\st{}}\!}}
+\newcommand{\Tzerost}{\ensuremath{\T_{0}^{\st{}}\!}}
+
+\newcommand{\past}{\ensuremath{\pa_{\st{}}\!}}
+\newcommand{\hast}{\ensuremath{\ha_{\st{}}\!}}
+\newcommand{\hanst}{\ensuremath{\ha_{\nst{}}\!}}
+\newcommand{\ehast}{\ensuremath{\eha_{\st{}}\!}}
+\newcommand{\ehaststar}{\ensuremath{\ehastar_{\st{}}\!}}
+\newcommand{\epast}{\ensuremath{\epa_{\st{}}\!}}
+\newcommand{\epaststar}{\ensuremath{\epastar_{\st{}}\!}}
+\newcommand{\ehanst}{\ensuremath{\eha_{\nst{}}\!}}
+\newcommand{\ehanststar}{\ensuremath{\ehastar_{\nst{}}\!}}
+
+\newcommand{\epastr}{\ensuremath{\widehat{\usftext{E-PA}}_{\st{}}^\omega\kleene}} %hrr E - PA iaft
+\newcommand{\ehastr}{\ensuremath{\widehat{\usftext{E-HA}}_{\st{}}^\omega\kleene}} %hrr E - HA iaft
+
+
+
+\newcommand{\D}{\ensuremath{\protect{D_{\st{}}}}}
+\newcommand{\Dtilde}{\ensuremath{\protect{\widetilde{D}_{\st{}}}}}
+\newcommand{\Sh}{\ensuremath{\protect{S_{\st{}}}}}
+\newcommand{\Shb}{\ensuremath{\protect{S}}}
+
+\newcommand{\intern}{\ensuremath{{\usftext{int}}}}
+
+%% Non-standard principles
+
+\newcommand{\HIP}{\ensuremath{{\usftext{HIP}}}}
+\newcommand{\HAC}{\ensuremath{{\usftext{HAC}}}}
+\newcommand{\UP}{\ensuremath{{\usftext{UP}}}} %depricated
+\newcommand{\GUS}{\ensuremath{{\usftext{GUS}}}} %depricated
+\newcommand{\I}{\ensuremath{\usftext{I}}}
+\newcommand{\EQ}{\ensuremath{\usftext{EQ}}}
+\newcommand{\R}{\ensuremath{\usftext{R}}}
+\newcommand{\NCR}{\ensuremath{\usftext{NCR}}}
+\newcommand{\OS}{\ensuremath{\usftext{OS}}}
+\newcommand{\ENS}{\ensuremath{\usftext{ENS}}}
+\newcommand{\LLPO}{\ensuremath{\usftext{LLPO}^{\st}}}
+\newcommand{\USEQ}{\ensuremath{\usftext{USEQ}}}
+\newcommand{\US}{\ensuremath{\usftext{US}}}
+\newcommand{\MP}{\ensuremath{\usftext{MP}^{\st}}}
+\newcommand{\TPA}{\ensuremath{\usftext{TP}_{\forall}}}
+\newcommand{\TPE}{\ensuremath{\usftext{TP}_{\exists}}}
+\newcommand{\TRA}{\ensuremath{\usftext{TR}_{\forall}}}
+\newcommand{\TRE}{\ensuremath{\usftext{TR}_{\exists}}}
+\newcommand{\GHMP}{\ensuremath{\usftext{GHMP}^{\st}}}
+\newcommand{\HGMP}{\ensuremath{\usftext{HGMP}^{\st}}}
+\newcommand{\HH}{\ensuremath{\usftext{H}}}
+\newcommand{\SAT}{\ensuremath{\usftext{SAT}}}
+\newcommand{\CSAT}{\ensuremath{\usftext{CSAT}}}
+
+%\newcommand{\inter}{\circ}
+
+\newcommand{\app}{\ensuremath{\bullet}}
+\newcommand{\Rec}{\ensuremath{\mathcal{R}}}
+\newcommand{\Lam}{\ensuremath{\Lambda}}
+\DeclareMathOperator{\hr}{\usftext{hr}}
+
+\newcommand{\kr}{\usftext{Kr}}
+\newcommand{\ku}{\usftext{Ku}}
+
+
+%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   General Maths/Logic %%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   General Maths   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   General Maths   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+%%%commands
+\renewcommand{\emptyset}{\varnothing}
+\newcommand{\et}{\ensuremath{\langle\rangle}}
+
+\newcommand{\RR}{\ensuremath{\mathbb{R}}}
+\newcommand{\NN}{\ensuremath{\mathbb{N}}}
+\newcommand{\QQ}{\ensuremath{\mathbb{Q}}}
+\newcommand{\II}{\ensuremath{\mathbb{I}}}
+\newcommand{\PP}{\ensuremath{\mathbb{P}}}
+
+\newcommand{\zero}{\ensuremath{\mathbf0}}
+\newcommand{\one}{\ensuremath{\mathbf1}}
+\newcommand{\two}{\ensuremath{\mathbf2}}
+
+\newcommand{\xor}{\ensuremath{\dot\vee}}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%   Proof Theory   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%   Proof Theory   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%   Proof Theory   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\DeclareMathOperator{\cl}{cl} %``majorizes
+
+%% Types
+\newcommand{\Tp}{\ensuremath{\emph{\protect\textbf{T}}}} %set of finite types T
+\newcommand{\Tpstar}{\ensuremath{\emph{\protect\textbf{T}}^*}} %set of finite types T
+\newcommand{\PT}{\ensuremath{\emph{\protect\textbf{P}}}} %set of pure types P
+\newcommand{\tp}[1]{\ensuremath{^\mathbf{#1}}}
+
+%% Goedel's T
+\newcommand{\T}{\ensuremath{\mathcal{T}}}
+\newcommand{\Tstar}{\ensuremath{\mathcal{T}^*}}
+
+%% Models
+\newcommand {\SetO}  { \ensuremath{\mathcal{S} } }
+\newcommand {\Som}  { \ensuremath{\SetO^\omega} }
+\newcommand {\Set}  { \Som }
+\newcommand {\ContO}  { \ensuremath{\mathcal{C} } }
+\newcommand {\Cont}  { \ensuremath{\ContO^\omega} }
+\newcommand {\MajO}  { \ensuremath{\mathcal{M} } }
+\newcommand {\Maj}  { \ensuremath{\MajO^\omega} }
+
+%% Special sets
+\newcommand{\universal}{\ensuremath{\emph{\protect\textbf{U}}}} %set of universal axioms
+%
+%%% Systems
+\newcommand{\usftext}[1]{\textsf{\upshape #1}}
+
+\newcommand{\HAOK}{\ensuremath{\usftext{HAOK}}} %HA ok
+\newcommand{\PAOK}{\ensuremath{\usftext{PAOK}}} %PA ok
+\newcommand{\GA}{\ensuremath{\usftext{G}_n\usftext{A}^\omega}} %GnA iaft
+\newcommand{\GAthree}{\ensuremath{\usftext{G}_3\usftext{A}^\omega}} %G3A iaft
+\newcommand{\GRthree}{\ensuremath{\usftext{G}_3\usftext{R}^\omega}} %G3R iaft
+\newcommand{\WE}{\ensuremath{{\usftext{WE-}}}} % WE-
+\newcommand{\weha}{\ensuremath{{\usftext{WE-HA}}^{\omega}}} % WE - HA iaft
+\newcommand{\wepa}{\ensuremath{{\usftext{WE-PA}}^{\omega}}} % WE - PA iaft
+\newcommand{\HA}{\ensuremath{{\usftext{HA}}}} % HA
+\newcommand{\PA}{\ensuremath{\usftext{PA}}} % PA
+\newcommand{\ha}{\ensuremath{{\usftext{HA}}^\omega}} % HA iaft
+\newcommand{\pa}{\ensuremath{{\usftext{PA}}^\omega}} % PA iaft
+\newcommand{\epa}{\ensuremath{{\usftext{E-PA}}^\omega}} % E - PA iaft
+\newcommand{\epastar}{\ensuremath{{\usftext{E-PA}}^{\omega*}}} % E - PA iaft
+\newcommand{\nha}{\ensuremath{{\usftext{N-HA}}^\omega}} % E - HA iaft
+\newcommand{\haarrow}{\ensuremath{{\usftext{HA}}_{\to}^\omega}} % E - HA iaft
+\newcommand{\ehaarrow}{\ensuremath{{\usftext{E-HA}}_{\to}^\omega}} % E - HA iaft
+\newcommand{\eha}{\ensuremath{{\usftext{E-HA}}^\omega}} % E - HA iaft
+\newcommand{\ehastar}{\ensuremath{{\usftext{E-HA}}^{\omega*}}} % E - HA iaft
+\newcommand{\ehazero}{\ensuremath{{\usftext{E-HA}}^{\omega}_0}} % E - HA iaft
+\newcommand{\hrrepa}{\ensuremath{\widehat{\usftext{E-PA}}^\omega\kleene}} %hrr E - PA iaft
+\newcommand{\hrreha}{\ensuremath{\widehat{\usftext{E-HA}}^\omega\kleene}} %hrr E - HA iaft
+\newcommand{\rreha}{\ensuremath{\usftext{E-HA}^\omega\kleene}} %rr E - HA iaft
+\newcommand{\rrweha}{\ensuremath{\usftext{WE-HA}^\omega\kleene}} %rr WE - HA iaft
+\newcommand{\kleene}{\ensuremath{\!\!\!\restriction}}   % upper arrow
+\newcommand{\hrrwepa}{\ensuremath{\widehat{\usftext{WE-PA}}^\omega\kleene}} %hrr WE - PA iaft
+\newcommand{\hrrweha}{\ensuremath{\widehat{\usftext{WE-HA}}^\omega\kleene}} %hrr WE - HA iaft
+\newcommand{\epar}{\ensuremath{\widehat{\usftext{E-PA}}^\omega\kleene}} %hrr E - PA iaft
+\newcommand{\ehar}{\ensuremath{\widehat{\usftext{E-HA}}^\omega\kleene}} %hrr E - HA iaft
+
+
+\newcommand{\HAS}{\ensuremath{\usftext{HAS}}} %second order logic
+\newcommand{\HAH}{\ensuremath{\usftext{HAH}}} %higher -/-
+\newcommand{\ACA}{\ensuremath{\usftext{ACA}}} %
+\newcommand{\RCA}{\ensuremath{\usftext{RCA}}} %
+
+\newcommand{\ZFC}{\ensuremath{\usftext{ZFC}}} 
+\newcommand{\IST}{\ensuremath{\usftext{IST}}} 
+
+%
+%%% Principles
+\newcommand{\IA}{\ensuremath{\usftext{IA}}} %induction schema
+\newcommand{\IP}{\ensuremath{\usftext{IP}}} %induction principle
+\newcommand{\IR}{\ensuremath{\usftext{IR}}} %induction rule
+\newcommand{\BR}{\ensuremath{\usftext{BR}}} %induction rule
+
+\newcommand{\SA}{\ensuremath{\usftext{SA}}}
+\newcommand{\IPP}{\ensuremath{\usftext{IPP}}}
+\newcommand{\PCM}{\ensuremath{\usftext{PCM}}}
+\newcommand{\LEM}{\ensuremath{\usftext{LEM}}}
+
+\newcommand{\BW}{\ensuremath{\usftext{BW}}}
+\renewcommand{\AA}{\ensuremath{\usftext{AA}}}
+\newcommand{\Limsup}{\ensuremath{\usftext{Limsup}}}
+\newcommand{\DNS}{\ensuremath{\usftext{DNS}}}
+\newcommand{\CA}{\ensuremath{\usftext{CA}}}
+\newcommand{\QF}{\ensuremath{\usftext{QF}}}
+\newcommand{\QFm}{\ensuremath{\usftext{QF-}}}
+\newcommand{\CAhut}{\ensuremath{\widehat{\CA}}}
+
+\newcommand{\AC}{\ensuremath{\usftext{AC}}}
+\newcommand{\ER}{\ensuremath{\usftext{ER}}}
+
+\newcommand{\WKL}{\ensuremath{\usftext{WKL}}}
+\newcommand{\FAN}{\ensuremath{\usftext{FAN}}}
+%
+%%% General abreviations
+\newcommand{\PiL}{\ensuremath{\Pi^0_1}}
+\newcommand{\PiLm}{\ensuremath{\Pi^0_1\usftext{-}}}
+\newcommand{\SiL}{\ensuremath{\Sigma^0_1}}
+\newcommand{\SiLm}{\ensuremath{\Sigma^0_1\usftext{-}}}
+\newcommand{\m}{\ensuremath{\usftext{-}}}
+%
+%
+
+\newcommand{\tup}{\underline} %tuple
+\newcommand{\atup}{\ensuremath{\,\underline}} %tuple as a parameter
+
+\newcommand{\Tif}{\text{if}}
+\newcommand{\Telse}{\text{else}}
+\newcommand{\Tiff}{\text{ iff }}
+\newcommand{\Tand}{\text{ and }}
+\newcommand{\Tor}{\text{ or }}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%   Theorems   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%   Theorems   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%   Theorems   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{con}[thm]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{dfn}[thm]{Definition}
+\newtheorem{notation}[thm]{Notation}
+
+\theoremstyle{definition}
+\newtheorem{remark}[thm]{Remark}
+\newtheorem*{eg}{Example}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{question}[theorem]{Question}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%   Other environments   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%   Other environments   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%   Other environments   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Proof from Klaus:
+ \renewenvironment{proof}[1][]{\noindent{\bf Proof{#1}. }}{\nopagebreak[4]{\hspace*{\fill}
+%   \rule{1.2ex}{1.2ex} % Full big box
+  $\Box$              % Empty box
+ }{\vspace{2ex}}}
+
+\newcommand{\comm}[1]{
+{\marginpar{\center\it\footnotesize {#1}}}\noindent
+}
+
+
+%%%%%%%%%%%%%%%% get it stylish - shortcuts %%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%% get it stylish - shortcuts %%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%% get it stylish - shortcuts %%%%%%%%%%%%%%%%%%%%%%
+
+\renewcommand{\phi}{\varphi}
+\newcommand{\nbd}{\nobreakdash-}
+
+
+%% Margins
+
+\newlength{\topmarginmod}
+\newlength{\bottommarginmod}
+\topmarginmod=0.5in
+\bottommarginmod=0.4in
+\addtolength{\topmargin}{-\topmarginmod}
+\addtolength{\textheight}{\topmarginmod}
+\addtolength{\textheight}{\bottommarginmod}
+% so it gets all on a page
+\textwidth=13.4cm
+\oddsidemargin=0.9cm
+%should be pagewidth-1in-\oddsidemargin-\textwidth-1in~=21cm-2.8cm-1cm-13cm-2.8cm=1.4cm
+\evensidemargin=1.92cm
+
+
+%% Formulae formatting
+
+\relpenalty 10000
+\binoppenalty 10000
+\emergencystretch 2cm
+
+

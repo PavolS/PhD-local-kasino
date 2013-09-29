@@ -1,0 +1,1463 @@
+\section{Interpreting Bolzano-Weierstra{\ss}} \label{s:bw}
+\reviewQuote{bwint2010/review_bw}{KS10}{Nov 23, 2009}
+
+\subsection*{Motivation}
+In the context of proof minning, so far, 
+sequential compactness could be dealt with using an elimination 
+procedure due to U. Kohlenbach 
+(\cite{Kohlenbach96,Kohlenbach_gp,Kohlenbach98,Kohlenbach00}) 
+which replaces (if the underlying context is elementary enough) applications 
+of fixed instances of these principles by their arithmetical counterparts. 
+However, 
+more substantial applications (e.g. in the context of 
+weak compactness arguments) require solving their functional interpretation explicitly
+(see \cite{KohlenbachMints,Kohlenbach(weakcompactness)}. 
+In this section, we provide an explicit solution of the (negative translation of the) 
+G\"odel functional 
+interpretation as 
+well as the monotone functional interpretation of the Bolzano-Weierstra\ss{} 
+theorem $\BW$ for $[0,1]$ and other compact metric spaces. Moreover, we show  
+that the given solution is of optimal complexity and we will use it to 
+obtain optimal program and bound extraction theorems for proofs based on 
+$\BW$ applied to 
+fixed bounded sequences in $[0,1]$ 
+given by a term whose only free variables are the parameters 
+of the theorem to be proved. 
+\\[1mm]   
+As is known from reverse mathematics (\cite{Simpson99}) $\BW$ for 
+compact metric spaces can be 
+proved using $\CA_{ar}$ and -- already for $[0,1]$ -- 
+also implies $\CA_{ar}$. This is independent of whether 
+$\BW$ is stated to assert the existence of a cluster point or a convergent 
+subsequence. Moreover, these results can be proved
+ relative to a very weak base system $\RCA_0.$ In fact, already 
+the special case of $\BW$ stating that every monotone sequence in $[0,1]$ is 
+convergent implies $\CA_{ar}$ (much refined results in this direction can be 
+found in \cite{Kohlenbach00}). 
+\\[1mm] It follows from Spector's solution of the functional 
+interpretation of classical analysis by his bar recursive functionals 
+$\T+(\BR)$ 
+(\cite{Spector62})  that the functional interpretation 
+of $\CA_{ar}$ and hence of $\BW$ can be solved in the fragment $\T_0+\BR_{0,1}$, 
+where only the primitive recursor $\R_0$ for type $0$ and the bar recursor 
+$\B_{0,1}$ for the 
+types $0,1$ are used (see \cite{Kohlenbach99}). 
+%Up to the type 
+%level $2,$ the functionals definable by closed terms of $\T_0+\BR_{0,1}$ 
+%(and also of $\T_1+\BR_{0,1}$)  
+%coincide with those definable in G\"odel's system $\T$ of primitive recursive 
+%functionals of finite type (\cite{Goedel58,Hilbert(26)}).    
+%For type $3$ this no longer holds as $\B_{0,1}$ is not definable in $\T$ and 
+%already for the type $1$ this fails for functionals definable in 
+%$\T_2+\BR_{0,1},$ $\T_0+\BR_{0,2}$ or $\T_0+\BR_{1,1}$ (see 
+%\cite{Kohlenbach99} for all this). Here $T_n$ is the fragment of $T$ that only 
+%ontains recursors for primitive recursion of type level $\le n.$  \\ 
+However, for a faithful calibration of the contribution of 
+(single instances of) 
+$\BW$ and the extraction 
+of realizers of optimal complexity level from proofs of 
+$\forall,\exists$-statements based on uses of $\BW$ even
+a functional interpretation in $\T_0+\BR_{0,1}$ is too crude. 
+It is crucial to note that 
+the solution of the functional interpretation of $\BW$ uses only minimal 
+number 
+of nested simple $\B_{0,1}$-applications. In fact, we will see that a single use 
+of $\B_{0,1}$ plus a use of a weak `binary' form of bar recursion (due 
+to Howard) suffices. Together with results of Howard and Parson 
+this can be used to show that over systems such as 
+\[ \mbox{$\hrrwepa\,+\QFm\AC+\Sigma^0_{n+1}$-$\IA$} \] (which has 
+a functional interpretation in $\T_n,$ see \cite{Parsons72}) 
+the contribution of a use of $\BW$ in the form 
+\[ \forall n\, \big(\,\mbox{$\BW$}(\xi(n))\to\exists m\,
+\phi_{_\QF}(n,m)\big)\] 
+in a proof of a sentence 
+\[ \forall n\exists m\,\phi_{_\QF}(n,m) \ \   \mbox{(with quantifier-free 
+$\phi_{_\QF}$)} \] 
+at most increases the complexity of the 
+extractable algorithm $f$ s.t. 
+\[ \forall n\, \phi_{_\QF}(n,f(n)) \] 
+from $f\in T_n$ to $f\in T_{n+1}.$\\
+We will also show that this increase 
+in general is necessary, thereby establishing the 
+optimality of our result.   
+\\[1mm] 
+%These results complement the ones 
+%obtained in \cite{Kohlenbach98,Kohlenbach00} using the aforementioned 
+%elimination method. In those papers it is shown that fixed (sequences of) 
+%instances of $\BW$, when used over systems containing only Kalmar elementary 
+%functionals (but not the recursor $\R_0$), at most contribute by ordinary 
+%primitive recursive complexity (i.e. elevate the complexity from being 
+%Kalmar elementary to $\T_0$). Again this result is optimal. 
+So far the aforementioned elimination method (see \cite{Kohlenbach98,Kohlenbach00}) has not been 
+developed for systems based on $\T_0$-functionals and stronger ones as above. 
+At the same time, the approach in the present 
+section does not seem to be fine enough 
+to re-obtain the results based on the elimination method for
+systems containing only Kalmar elementary 
+functionals. 
+\\[1mm] 
+The functional dramatically simplifies if we switch to a majorizing functional 
+in the sense of W.A. Howard (and hence to a solution of the monotone 
+functional interpretation of $\BW$). In particular, the use of 
+Howard's `binary' bar recursion then disappears altogether. 
+\\[1mm] In \cite{Kohlenbach06}, U. Kohlenbach has argued 
+that the solutions provided by monotone functional interpretation 
+of principles $P$ directly 
+correspond to the `finitary' versions of $P$ as discussed in Tao's 
+program of `finitary analysis' (see \cite{Tao07}). Following \cite{Tao07},  
+the discussion in \cite{Kohlenbach06} focuses on the monotone 
+convergence principle PCM and the infinitary pigeonhole principle $\IPP$:
+\[ \IPP\quad:\quad\forall n\in\NN \,\forall f:\NN\mapsto\{0, \ldots, n\}
+\,\exists i\leq n \forall k\in\NN\,\exists m\geq k\ \ (f(m)=i). \] 
+Already for $\IPP$, it is nontrivial to arrive at a `correct' 
+finitization (see \cite{GasparKohlenbach} for a thorough discussion). 
+However, $\IPP$ is just a special case of $\BW$ for the discrete 
+spaces $\{ 0,1,2,\ldots,n\}.$ Hence we take one more step towards  
+investigating the role of functional interpretations in connection with 
+the program of finitizing analytical principles. 
+\\[1mm] In this section we also treat the Bolzano-Weierstra\ss{} principle for 
+the compact (w.r.t. the product metric) metric space $\Pi_{i\in\NN} 
+[-k_i,k_i]$ (for sequences $(k_i)$ in $\RR_+$) whose functional 
+interpretation has the same complexity as the one for the case $[0,1].$ 
+This is of relevance for the logical analysis of proofs that use the weak 
+compactness of closed, bounded convex sets in Hilbert spaces which can 
+be reduced to the sequential compactness of $\Pi_{i\in\NN} 
+[-k_i,k_i]$ (see \cite{KohlenbachMints,Kohlenbach(weakcompactness)}). 
+Though certain uses of weak compactness in strong convergence results 
+can be eliminated, in general it is unavoidable 
+to deal with quantitative forms of weak compactness as provided 
+by functional interpretation (see \cite{Kohlenbach(Browder)} as well as 
+\cite{Kohlenbach(weakcompactness)} for discussions).  
+\\[1mm] For simplicity, let us come back to the case of $[0,1]$ and the 
+Bolzano-Weierstra\ss{} theorem in the form stating that every sequence 
+$(x_n)$ of rational numbers 
+in $[0,1]$ has a cluster point. In order to obtain a solution of the 
+functional interpretation of optimal complexity one has to start with an 
+appropriate proof of this statement: one standard way is to select one of 
+the subintervals $[0,\frac{1}{2}],[\frac{1}{2},1]$ that contains infinitely 
+many elements of the sequence $(x_n)$ (by $\IPP$ at least one of the two 
+intervals has this property) and then to continue with that interval. In 
+this way one gets a nested sequence $I_0\supset I_1\supset I_2,\ldots$ 
+of intervals $I_k$ of length $2^{-k}$ that converges to a cluster point. 
+In order to decide whether an interval $I_k$ contains infinitely 
+many elements of $(x_n)$ one needs $\Pi^0_2$-comprehension since 
+\[ \forall m\exists n\ge m\, (x_n\in I_k) \in\Pi^0_2. \]
+However, in order to get the existence of just {\bf some} 
+sequence $I_0\supset I_1\supset I_2,\ldots$ 
+of intervals $I_n$ with the above property (rather than deciding 
+this property which would be necessary only for finding -- say -- 
+a left-most sequence, i.e. for constructing the limit inferior of $(x_n)$ 
+which indeed is of strictly greater complexity, see \cite{Kohlenbach00}) 
+one can use K\"onig's lemma for 
+$0/1$-trees. Note though, that 
+this is not a use of what is called weak K\"onig's 
+lemma ($\WKL$) in reverse mathematics (see \cite{Simpson99}) since the tree 
+predicate is not quantifier-free but is $\Pi^0_2$ (and so, in fact, is 
+an instance of what we call $\Pi^0_2$-$\WKL$). Nevertheless, using 
+a single instance of $\Sigma^0_1$-comprehension (short: $\Sigma^0_1$-$\CA$) 
+one can reduce such a 
+$\Pi^0_2$-formula to a $\Pi^0_1$-tree predicate (by absorbing the inner 
+existential quantifier). Now $\WKL$ for $\Pi^0_1$-trees (i.e. 
+$\Pi^0_1$-$\WKL$) 
+can easily be reduced to 
+the usual $\WKL$. In this way the use of $\Pi^0_2$-comprehension is replaced 
+by a use of $\Sigma^0_1$-$\CA$ plus the use of $\WKL$, where the latter is 
+known not to contribute to the complexity of extractable bounds. In fact, 
+rather than first reducing $\Pi^0_2$-$\WKL$ using $\Sigma^0_1$-$\CA$ to 
+$\Pi^0_1$-$\WKL$ and subsequently to $\WKL$, we work directly with 
+$\Sigma^0_1$-$\WKL$ 
+and reduce this via $\Sigma^0_1$-$\CA$ in one step to $\WKL$. The functional 
+interpretation of $\BW$, therefore, essentially boils down to solving the 
+functional interpretation of $\Sigma^0_1$-$\WKL$.  
+
+
+\subsection{Interpreting Bolzano-Weierstra{\ss}} \label{ss:bw}
+In this section we will use bar recursion
+to interpret the Bolzano-Weierstra{\ss} theorem.
+\begin{dfn}\label{d:BWfinal}
+{The Bolzano-Weierstra{\ss} Principle}\\
+Let $x$ be a sequence in $\PP:=\prod_{i\in\NN}[-k_i,k_i]$ for a known 
+sequence $(k_i)_{i\in\NN}$ with $k_i$ in $\QQ^+$.
+Let $d^\omega$ denote the standard product metric (as defined e.g. in 
+\cite{Simpson99}):
+\[
+d^\omega (a,b):=_\RR\sum_{i=0}^\infty 
+\frac{1}{2^i}
+\frac{|a_i-b_i|}{1+|a_i-b_i|},\text{ for } a,b\in\PP.
+\]
+In the following we tacitly 
+rely on our representation of real numbers by which 
+sequences of real numbers are represented by objects $a^{1(0)}$ and sequences
+of sequences of real numbers by objects $x^{1(0)(0)}$ (and 
+each such object is a representative of a unique such sequence).
+We define
+\[
+ \BW^\omega_\RR\quad:\quad
+  \forall x^{1(0)(0)}\in\PP^\NN
+      \underbrace{ 
+         \exists a^{10}\in\PP\ \ \forall k^0\exists l^0\geq_0 k
+           \ \ d^\omega(xl,a)\leq_\RR 2^{-k} 
+      }_{\equiv:\BW^\omega_\RR(x^{1(0)(0)})}\text{,}
+\]
+where by $x\in\PP^\NN$ we mean a sequence of elements of $\PP$ -- i.e. a 
+sequence ($x$) of sequences ($xn\in\PP,\ n\in\NN$) of real numbers in the
+corresponding intervals ($(xn)i\in[-k_i,k_i], i\in\NN$).\footnote{
+One can easily construct effective transformations which assign to any $x$ 
+of the type $1(0)(0)$ (or $1(0)$) a unique $\tilde x$ in $\PP^\NN$ 
+(or $\PP$), see theorem \ref{c:ND-bw}.}
+\end{dfn}
+
+\subsubsection*{A Simple Proof of $\BW$ based on $\SiLm\WKL$} \label{ss:spuWKL}
+To demonstrate the main idea of the proof we only treat $\BW^\omega_\RR$ for 
+sequences of rational numbers in the unit interval $[0,1]$ -- denoted by 
+$\BW_\QQ$ -- which obviously is implied by (and in fact equivalent to) 
+\[
+ {\BW_\QQ'}\quad:\quad
+  \forall s^1  
+   \underbrace{\exists a^1\forall k^0\exists l^0\geq_0 k
+     \ |\widetilde{\hat a(k+1)}-_\QQ \widetilde {\ sl\ }|\leq_\QQ\langle2^{-(k+1)}
+\rangle }_{ \equiv:\BW_\QQ'(s^1)}
+\text{,}
+\]
+where $\tilde n := \min{}_\QQ\{\langle 1\rangle,\max{}_\QQ\{\langle 0\rangle,n\}\}$.
+ Consider a tree representation of the unit interval $[0,1]$ which 
+splits the unit interval at level $n$ into $2^n$ intervals of 
+length $2^{-n}$.
+Note that we can define each node via the path from the 
+root to this interval. This path can be represented 
+by a binary sequence $b$, where the $n$-th element defines which branch 
+to take.\\
+We define a predicate $I(b^0,n^0,m^0)$, which tells us, whether the 
+rational number $r$ encoded by $m=\langle r \rangle$ belongs to an 
+interval defined by such a finite binary sequence $b$
+of length $\geq n$, i.e. in an interval of length $2^{-n}$ given by $b$: 
+\begin{align*}
+I(b^0,n^0,m^0)  :&\equiv\ \ \  
+  \InIntM{b}{n}\\
+&\Leftrightarrow\ \ \ n\leq \lh(b) \ \wedge\  
+             \sum_{i=1}^{n}\frac{b_i}{2^i}\ \leq\ 
+             r\ \leq\sum_{i=1}^{n}\frac{b_i}{2^i}+\frac{1}{2^n} 
+\text{.}
+\end{align*}
+We know that for a given finite binary sequence $b$ and 
+an infinite sequence of encodings of rational
+numbers $s$, there is a function $f_{s}^{1(0)}$, primitive recursive in $b$ 
+and $s$, such that:
+\[
+ f_{s}(b,k)=_00\ \ \leftrightarrow\ \ \Big(\ k > \lh(b)\wedge 
+I\big(b,\lh(b),\widetilde{ sk }\big)\ \Big)
+\text{.}\]
+%
+Now, by $\SiLm\CA(f_s)$ we obtain a function $g_s$, s.t. 
+$
+  \forall b^0\ \Big(\ g_sb=_00 \leftrightarrow \exists k^0\ 
+\big(f_{s}(b,k)=_00\big)\ \Big)
+\text{.}$
+%
+In other words we have for all $b^0$:
+\[
+  g_{s}(b)=_00\ \leftrightarrow \exists k^0>_0 \lh(b)\ \  
+I\big(b,\lh(b),\widetilde{ sk }\big)
+\text{.}
+\tag{+}
+\]
+
+To show $\BTree(g_s)$, consider any finite binary sequence $b$:
+\begin{align*}
+  g_s(b)=_00\ \wedge\ x\subseteq b 
+           &{\ \rightarrow\ }  \exists k^0>_0\lh(b)\ \ 
+I\big( b,\lh(b),\widetilde{ sk }\big)\ \wedge\ 
+                              \lh(x)\leq_0\lh(b)\ \wedge\ 
+                              x\subseteq b \\
+               &{\ \rightarrow\ } \exists k^0>_0\lh(x)\ \ 
+I\big( b,\lh(x),\widetilde{ sk }\big)\ \wedge\ 
+                              x\subseteq b\  \\
+               &{\ \rightarrow\ } \exists k^0>_0\lh(x)\ \ 
+I\big( x,\lh(x),\widetilde{ sk }\big)
+               {\ \rightarrow\ }g_s(x)=_00
+\text{.}
+\end{align*}
+To show 
+\[
+\forall k\exists x \big(\lh(x)=_0k \wedge g_s(x)=_00\big) \tag{++}
+\]
+just consider any given 
+natural number $k$. By the definition of our tree, it splits the $[0,1]$ 
+interval at any level, in particular on level $k$, completely. 
+Therefore, we have: $I( b, \lh(b), \widetilde{ sk })$ and $ \lh(b)=_0k$ for 
+a suitable $b.$  
+As we started with arbitrary $k$, this implies (++).\\
+Now, we can apply $\WKL(g_s)$ to get:
+\[
+\exists b^1 \big(\BFunc(b) \wedge \forall k\ g_s(\overline{b}k)=_00\big) 
+\tag{$*$}
+\text{.}
+\]
+Note that in $(*)$ (and from now on) $b^1$ is 
+a binary function and $g_s$ takes
+the encoding of the initial segment, $\langle b(0),\ldots,b(k-1)\rangle$, 
+of this infinite sequence as its type $0$ argument.
+Using (+) we can conclude that $(*)$ is equivalent to:
+$
+\exists b^1\leq\one\ \forall n\ \exists k> n\ \ I(\overline{b}n,n,
+\widetilde{\ sk\ })
+$. This means that $\BW_\QQ'(s)$ is satisfied by $\hat a$ where 
+$a$ is defined as:\\
+$
+a(n^0):=_\QQ \left\langle \sum_{i=1}^{n+1} \frac{b(i-1)}{2^i}\ +
+               \frac{1}{2^{n+2}}\right\rangle
+$ provided that $\widehat{a}=_1 a.$ \\%
+It, therefore, remains to show that $a$ represents a real 
+number in the sense of Definition~\ref{d:real}.
+W.l.o.g, at this point, we use $r$, $=$, $|\cdot|, \ldots$ directly
+instead of the proper syntactic form $\langle r\rangle$, 
+$=_\QQ$, $|\cdot|_\QQ,\ldots$ to achieve better readability.
+To prove $a=_1\hat a\in\RR$, 
+take any natural number $n$. We have:
+\begin{align*}
+|a(n)-a(n+1)|&=
+\left|
+\sum_{i=1}^{n+2} \frac{b(i-1)}{2^i}\ +
+ \frac{1}{2^{n+3}}
+-
+\left(\sum_{i=1}^{n+1} \frac{b(i-1)}{2^i}\ +
+ \frac{1}{2^{n+2}}\right)
+\right|
+\\
+&=
+\left|
+\frac{b(n+1)}{2^{n+2}}+\frac{1}{2^{n+3}}
+-
+\frac{1}{2^{n+2}}
+\right|
+=
+2^{-(n+3)} < 2^{-(n+1)}
+\text{,}
+\end{align*}
+which concludes the proof.\\
+%
+%
+
+%
+The only relevant difference for the general case (i.e. for sequences in 
+$\PP$) is the definition
+of $f_s$. If we wanted each node $i$ at level $n$ to define a subspace 
+$\PP^n_i\subseteq\PP$ such that
+$\exists a^n_i\in\PP^n_i\forall b\in\PP^n_i d^\omega(a,b)\leq2^{-n}$, then 
+the number of children couldn't be bounded by a constant. \\
+It turns out that it is simpler to define a representation of $\PP$ by a 
+binary tree, where any infinite path defines a single
+element of $\PP$ and provide a function which returns the sufficient level 
+to satisfy the condition above. \\
+We define such a tree as follows. We start by splitting the first dimension 
+into two halves, i.e. the two children represent the spaces 
+$\PP^1_0=[-k_0,0]\times\prod_{j=1}^\infty[-k_j,k_j]$ and 
+$\PP^1_1=[0,k_0]\times\prod_{j=1}^\infty[-k_j,k_j]$. Next two levels arise 
+by first splitting the new intervals in the first dimension and then 
+splitting the second dimension into two halves. At level $\frac{l(l+1)}{2}$ 
+we create the next $l+1$ levels by splitting the new intervals for the first 
+$l$ dimensions and by splitting the original interval for the 
+$(l+1)^\text{th}$ dimension. We define formally:
+\renewcommand{\l}{\ensuremath{\mathrm {lv}}}
+\begin{dfn}\label{d:PPs}
+Let $w$ be the primitive recursive function representing the number of times
+we split dimension $d$ up to level $n$:
+\[w(n^0,d^0):= {\max}{} _\NN\{l: l>0 \wedge 1+\frac{(d+l)(d+l-1)}{2}+d\leq n\ 
+\vee\ l=0\}.\]
+For an encoding of a finite binary sequence $b=\langle b_0,b_1,\ldots,b_{n-1} 
+\rangle$ we define
+\begin{itemize}
+\item $D(b^0,d^0):=\langle b_{d(d+1)/2+d}, b_{(d+1)(d+2)/2+d}, \ldots, 
+b_{(d+w(n,d)-1)(d+w(n,d))/2+d} \rangle$\\ (the code for the 
+splittings of dimension $d$ corresponding to the node defined by~$b$\\ 
+-- for $w(n,d)=0$ we define $D$ to be the empty sequence\\ 
+-- using the Cantor pairing function we could also write $D(b^0,d^0):=\langle 
+b_{\langle i,d\rangle}:i\in\{0,\ldots,w(n,d)-1\} \rangle$),
+\item $\PP^b_d:=\begin{cases}
+[-k_d+\sum_{i=0}^{w(n,d)}\frac{D(b,d)(i)}{2^i}k_d, k_d-\sum_{i=0}^{w(n,d)}
+\frac{1-D(b,d)(i)}{2^i}k_d]&\Tif\ d\leq w(n,0),\\
+[-k_d,k_d]&\Telse.
+\end{cases}$\\ (the partition
+of the dimension $d$ relevant at the node defined by $b$),
+\item $\PP^b:=\prod_{i=0}^{\infty}\PP^b_i$\\ (the subspace
+corresponding to the node defined by $b$).
+\end{itemize}
+For a sequence $s\subseteq\PP$ we define $f_s\tp1$
+as follows:
+\[
+f_s(b,k):=\begin{cases}
+0&\Tif\quad\ k>\lh(b)\ \wedge\ \forall i\!<\!\lh(b)\ b(i)\leq1\ \wedge \\
+&\quad\ \ \ \bigwedge_{i=0}^{w(\lh(b),0)} (\widetilde{sk})ik
+\in_\QQ \PP^b_i , \\
+1&\Telse.
+\end{cases}
+\]
+\end{dfn}
+From now on our notation refers to this definition.
+\begin{lemma}\label{l:ldn}
+\newcommand{\x}{\lceil\log_2(k_d(n+2))\rceil+n} %x-d
+Define the functions
+\begin{align*}
+\l_d^1(n)&:=_\NN1+\frac{(\x+1)(\x)}{2}+d,\\
+\l(n)&:=_\NN{\max}{} _\NN\{ \l_d(n) : d\leq n+1\}.
+\end{align*}
+Then the following holds for all finite binary sequences $b$ and $n\in\NN$:
+\[
+\lh(b)\geq \l(n)\rightarrow \forall x,y\in\PP^b\ \left( 
+d^\omega(x,y)\leq2^{-n} \right).
+\]
+For the specific $x$, s.t. $x_d$ is the center of $\PP^b_d$ for all 
+dimensions $d$ we have even:
+\[
+A^{^\BW}([b]) :=_{1(0)}\ \lambda d^0,n^0.\ \bigg\langle   
+-k_d+\sum_{i=0}^{w(\l(n),d)-1}\frac{D(\overline{[b]}
+(\l(n)),d)(i)}{2^i}k_d  + \frac{1}{2^{w(\l(n),d)}}k_d\bigg\rangle,\]\[
+\lh(b)\geq \l(n)\rightarrow \forall y\in\PP^b\ \left( 
+d^\omega(A^{^\BW}([b]),y)\leq2^{-n-1} \right).
+\]
+Moreover, we have 
+\[
+f_s(b,k)=0 \wedge \lh(b)\geq \l(n)\quad \rightarrow\quad d^\omega((\widetilde{sk}),A^{^\BW}([b]))<2^{-n}.
+\]
+\end{lemma}
+\begin{proof}
+\newcommand{\x}{\lceil\log_2(k_d(n+2))\rceil} 
+W.l.o.g let $l:=\lh(b)=\l(n)$.
+By definition we have $w(l,d)\geq\x+n+1-d$. This means
+$
+\x-w(l,d)\leq d-n-1.
+$\\
+So $(n+2)k_d2^{-w(l,d)}\leq 2^{-n-1+d}$ and
+$
+2k_d-\sum_{i=0}^{w(l,d)}2^{-i}k_d\leq \frac{2^{-n-1+d}}{n+2}.
+$\\
+By definition of $\PP^b_d$ we obtain for all $d\leq n+1 (\leq w(l,0))$:
+$
+|\PP^b_d|\leq \frac{2^{-n-1+d}}{n+2},
+$\footnote{
+By $|[a,b]|,\ a,b\in\QQ$ we mean the length of the rational interval $[a,b]$.
+}
+which implies\\
+$
+\sum^{n+1}_{d=0}2^{-d}|\PP^b_d|\leq 2^{-n-1}
+$
+and 
+$
+\sum^{\infty}_{d=0}2^{-d}\frac{|\PP^b_d|}{1+|\PP^b_d|} \leq 2^{-n}.
+$\\
+To show $d^\omega((\widetilde{sk}),A^{^\BW}([b]))<2^{-n}$ suppose 
+$\bigwedge_{i=0}^{w(\lh(b),0)} (\widetilde{sk})ik\in \PP^b_i$. This implies
+there is an $y\in\PP^b$ s.t. $\forall d\ |y_d-(\widetilde{sk})_d|\leq 2^{-k}$. Therefore
+$d^\omega((\widetilde{sk}),A^{^\BW}([b])) \leq 2^{-n-1}+2^{-k}$ and since
+$k>\lh(b)\geq \l(n) \geq n+2$ also $d^\omega((\widetilde{sk}),A^{^\BW}([b]))<2^{-n}$.\\
+\end{proof}\\
+Furthermore, we need to show the following property of our tree representation 
+of $\PP$.
+\begin{lemma}\label{l:split}
+At any level $n\in\NN$, the union of all spaces corresponding to the 
+paths of length $n$ is the whole space $\PP$:
+\[ \bigcup_{b\in\{b^0:\lh(b)=n\wedge 
+\bigwedge_{i=0}^{n}b(i)\leq_0 1\}}\PP^b = \PP.
+\]
+\end{lemma}
+\begin{proof}
+Let $I_d$ denote the set of indices within a given, arbitrary long binary 
+sequences $b$ used by $D$ to generate the subsequence $D(b,d)$ ( $I_d = 
+\{ (d+i)(d+i+1)/2+d = \langle i,d\rangle : i\in\NN \}$).
+Since the Cantor pairing function is bijective, it follows that
+for $d_1 \neq d_2$ the intersection $I_{d_1}\cap I_{d_2}$ is empty and we 
+can choose the binary sequences
+for each dimension independently. \\
+Therefore
+it suffices to show the following (we scale by $2k_d$ and shift by 
+$\frac 1 2$):
+\[
+ \forall n\forall x\in [0,1]\exists b\ \big(\lh(b)=n\wedge x\in
+ [\sum_{i=1}^n\frac{b(i-1)}{2^i}, 1-\sum_{i=1}^{n}\frac{1-b(i-1)}{2^i}]
+ \big).
+\]
+This holds for any $n$ and $x$ when we choose $b$ as the following binary sequence:
+\[
+b(i):=\begin{cases}
+1&\Tif\ x \geq \sum_{j=1}^i\frac{b(j-1)}{2^{j}}+\frac1{2^{i+1}},\\
+0&\Telse.
+\end{cases}
+\]
+\end{proof}
+
+\subsubsection*{Functional Interpretation of $\BW^\omega_\RR$} \label{ss:fafi}
+
+From now on we consider $s$ to be an infinite sequence of points
+in $\PP$, and $f_s$ to be the characteristic function of
+the corresponding tree (as defined in \ref{d:PPs} above).
+From section~\ref{s:wkl}, we know that using an 
+appropriate formula $\phi^{\WKL}$
+we can write $\WKL$ as
+\[
+\forall(h^1)\WKL_\Delta(h)
+\equiv
+\forall (h^1)\exists b^1\forall k\ \ \phi^{\WKL}(h,b,k)
+\equiv
+\forall(h^1)\exists b^1\forall k\ \ 
+\widefr{\Big(\!\text{\widefr{h}}\Big)_{\!g(h)}} (\bar bk)=_00
+\text{,}
+\]
+where $\phi^{\WKL}$ is quantifier-free.\\
+We introduce the following notations for $\SiLm\CA$:
+\begin{align*}
+\exists g^1\forall x^0 &\phi^{\CA(f)}_{\Sigma^0_1}(x,gx)\\
+  &\equiv \exists g^1\forall x^0 \big(gx=_00 \leftrightarrow 
+            \exists z^0\ f(x,z)=_00\big)\\
+\Leftrightarrow\ 
+\exists g^1\forall x^0 &\forall z^0_2\exists z^0_1 
+\phi^{\CA(f)}(x,gx,z_1,z_2)\\
+&\equiv\
+\exists g^1\forall x^0\forall z^0_2\exists z^0_1
+   \big((gx=_00 \rightarrow f(x,z_1)=_00)\wedge(gx=_00 \leftarrow 
+f(x,z_2)=_00) \big)
+\text{,}
+\end{align*}
+where $\phi^{\CA(f)}$ is a quantifier-free formula. \\
+The essential step in the proof above is the following implication:
+\[ \big(\SiLm\CA(f) \wedge \WKL\big)\quad \rightarrow\quad 
+  \Big( 
+   \exists g,b\forall x,k\ \big(\ \phi^{\CA(f)}_{\SiL}(x,gx)\wedge 
+\phi^{\WKL}(g,b,k)\ \big) 
+   \Big)\  
+\tag{+}\text{,} \]
+since its conclusion is essentially the same as
+$\WKL(\psi_f)$, where
+$\psi_f(k^0)$  $\leftrightarrow$ $\exists n^0 f(k,n)\!=_0$~$\!0$
+and $k$ is the variable which is bound by the last for-all quantifier in 
+$\WKL$.
+Moreover, for $f_s$ as defined above it actually directly implies $\BW$, 
+whereas 
+considered as a schema for arbitrary $f\tp1$ it corresponds to $\SiLm\WKL$.\\
+The Sh-interpretation of (+) using this representation and applying $\QFm\AC$ 
+is as follows:
+\begin{align*}
+\exists G,Z_1,B,H',&X',Z_2',K'\ \ \forall B',Z_1',G',X,Z_2,K\\
+\Big(
+ \big(
+  \phi^{\CA(f)}(&\args{
+    X'\args{(G'\args{X'Z_2'})(Z_1'\args{X'Z_2'})},
+    G'\args{X'Z_2'(X'\args{(G'\args{X'Z_2'})(Z_1'\args{X'Z_2'})})},
+    Z_1'\args{X'Z_2'(X'\args{(G'\args{X'Z_2'})(Z_1'\args{X'Z_2'})})
+   (Z_2'\args{(G'\args{X'Z_2'})(Z_1'\args{X'Z_2'})})},}\\
+    &\args{Z_2'\args{(G'\args{X'Z_2'})(Z_1'\args{X'Z_2'})}
+  })\wedge
+  \phi^{\WKL}(\args{
+     H', B'\args{H'K'}, K'\args{(B'\args{H'K'})}
+  })
+ \big)\rightarrow\\
+ \big(
+  \phi^{\CA(f)}(&\args{
+     X\args{GZ_1B},
+     G\args{(X\args{GZ_1B})},
+     Z_1\args{(X\args{GZ_1B})(Z_2\args{GZ_1B})},
+     Z_2\args{GZ_1B}
+  })\wedge
+  \phi^{\WKL}(\args{
+     G,
+     B,
+     K\args{GZ_1B}  
+  })
+ \big)
+\Big)
+\end{align*}
+
+where, again, each exists-variable (i.e. $G$, $Z_1$, $B$, $H'$, $X'$, $Z_2'$, 
+and $K'$) 
+may depend on any 
+for-all-variable (i.e. $B'$, $Z_1'$, $G'$, $X$, $Z_2$, and $K$). E.g. by $G$ 
+we mean in 
+fact $(GB'Z_1'G'XZ_2K)$.  This interpretation
+yields the following functional equations:
+\setcounter{equation}{0}
+\begin{align*}
+      X'\args{(G'\args{X'Z_2'})(Z_1'\args{X'Z_2'})}&=
+                 X\args{GZ_1B} \text{,}&                        %2
+     H'&=G \text{,}\tag{1,5}\\                                                %5
+     G'\args{X'Z_2'(X'\args{(G'\args{X'Z_2'})(Z_1'\args{X'Z_2'})})}&=
+                G\args{(X\args{GZ_1B})}\text{,}&         %1
+     B'\args{H'K'}&=B \text{,}\tag{2,6}\\                                               %6  
+     Z_1'\args{X'Z_2'(X'\args{(G'\args{X'Z_2'})(Z_1'\args{X'Z_2'})})
+   (Z_2'\args{(G'\args{X'Z_2'})(Z_1'\args{X'Z_2'})})}&=
+                Z_1\args{(X\args{GZ_1B})(Z_2\args{GZ_1B})} \text{,}&    %3
+     K'\args{(B'\args{H'K'})}&=K\args{GZ_1B}\text{,}\tag{3,7}\\      %7
+     Z_2'\args{(G'\args{X'Z_2'})(Z_1'\args{X'Z_2'})}&=
+                Z_2\args{GZ_1B} \text{.} \tag{4}                    %4
+\end{align*}
+We use a very similar approach to the one used by Gerhardy in 
+\cite{GerhardyX} to
+solve such equations for finite $\DNS$. First, we conclude from (5) and (6)
+that $B=B'GK'$ and from (1) and (2) that $G=G'X'Z_2'$. Using (6), we can set 
+$K'$ to $\lambda b.KGZ_1b$ according to (7). This is not that trivial
+for $X'$ and $Z_2'$. However, as pointed out by Gerhardy in \cite{GerhardyX}, 
+in the presence of the $\lambda g$ and $\lambda z_1$, which as we know will 
+stand for the input of $G$ and $Z_1$, the objects  $X'$ and 
+$Z_2'$ become well definable terms:
+\[
+t_{X'}:=\lambda g,z_1.Xgz_1(B'g(\lambda b.Kgz_1b))\text{,}\quad
+t_{Z_2'}:=\lambda g,z_1.Z_2gz_1(B'g(\lambda b.Kgz_1b))\text{.}
+\]
+This makes the rest of our terms we need  well defined. This is easy
+to see since for each term all dependencies are only on
+the terms defined above:
+\begin{align*} 
+t_{Z_1}:&=Z_1't_{X'}t_{Z_2'}\text{,}&
+t_{H'}:&=t_{G}\text{,}\\
+t_{G}:&=G't_{X'}t_{Z_2'}\text{,}&
+t_{K'}:&=\lambda b.Kt_{G}t_{Z_1}b\text{,}\\
+t_{B}:&=B't_{G}t_{K'}\text{.}
+\end{align*} 
+We have found the realizing terms for the Shoenfield 
+interpretation $(+)^{Sh}$ of $(+)$ 
+for any $G'$, $Z_1'$ and $B'$. To finally obtain
+the Shoenfield interpretation of $(\SiLm\WKL(\phi))$ we just need to 
+define these three functionals in such a way that the 
+assumptions $\phi^{\WKL}$ and $\phi^{\CA(f)}$ are always true.\\
+For $\phi^{\CA(f)}$, as we know from the functional interpretation of 
+$\SiLm\CA$ 
+(see section \ref{ss:CA}), we get:
+\[
+      {G'}\tp3=t_h \text{,}\quad
+      {Z_1'}\tp3=t_z\text{,} 
+\]
+where $t_h$ and $t_z$ are defined as in the Sh-interpretation of $\SiLm\CA$ 
+(see corollary \ref{c:NDSiLCA}).\\
+For $B'$, from the interpretation of $\WKL$, we know the following
+equality holds:
+\[ 
+\underbrace{\overline {B'H'K'}\big(K'(B'H'K')\big)}_{\text{as above}}\quad = 
+\underbrace{\overline{B}(AB)}_{\text{as in section \ref{s:wkl}}} 
+\text{.} 
+\]
+We use the same notation as we used to define $B$ in section \ref{s:wkl} 
+and define:
+\[
+        B':=\lambda h.\lambda A.\big[F_h\big(K_{A}(\emptyset)\big)\big] 
+\text{,}
+\]
+where $F_h$ and $K_A$ are defined as in the Sh-interpretation of $\WKL$
+(see Theorem \ref{t:FIwkl}).\\
+The terms defined above, using these definitions for $G'$ and $B'$, then 
+satisfy the Shoenfield interpretation of the conclusion of $(+):$
+\begin{align*}
+\forall X,Z_2,K\ (\ &\phi^{\CA(f)}(
+ Xt_{G}t_{Z_1}t_{B},
+ t_{G}(Xt_{G}t_{Z_1}t_{B}),
+ t_{Z_1}( Xt_{G}t_{Z_1}t_{B} )( Z_2t_Gt_{Z_1}t_{B} ),
+ Z_2t_Gt_{Z_1}t_{B})\ \wedge\\
+ &\phi^{\WKL}(t_{G},t_{B},Kt_{G}t_{Z_1}t_{B})\ ) \text{.}
+\end{align*}
+Using that 
+$\forall X^{\typeOfXZ},Z^{\typeOfXZ},a^0,b^0\ t_zXZab=_0t_zXZa0 = t_Za0$ 
+we conclude:
+\begin{lemma} \label{p:ND-PI02WKL}
+$ $
+\\
+The principle (which essentially represents\footnote{
+It trivially implies $\SiLm\WKL(\phi)$ (provably in $\hrrwepa$). Let us note, 
+however, that the actual computation of the witnesses for $\SiLm\WKL(\phi)$ 
+still involves some highly non-trivial technical work. 
+}  $\SiLm\WKL(\phi)$):
+\[
+\exists g^1,b^1\forall x^0,k^0\ \big( \phi^{\CA(f)}_{\SiL}(x,gx)\wedge 
+\phi^{\WKL}(g,b,k) \big)
+\text{,}
+\]
+is Sh-interpreted by ($\tau=01(10)1\ $\footnote{Or, in a more illustrative 
+notation: 
+$\tau = (\NN \rightarrow \NN) \rightarrow (\NN \rightarrow \NN \rightarrow 
+\NN) \rightarrow (\NN \rightarrow \NN) \rightarrow \NN$.}):
+\begin{align*}
+\forall X^\tau,Z^\tau,K^\tau\ \Big(\ &\phi^{\CA(f)}\big(
+ Xt_{G}t_{Z}t_{B},
+ t_{G}( Xt_{G}t_{Z}t_{B} ),
+ t_{Z}( Xt_{G}t_{Z}t_{B} ) 0,
+ Zt_Gt_Zt_{B}\big)\ \wedge\\
+ &\phi^{\WKL}(t_{G},t_{B},Kt_{G}t_{Z}t_{B})\ \Big) \text{,}
+\end{align*}
+where
+\newcommand{\tpA}{0(10)1}
+\newcommand{\tpz}{10}
+\begin{align*}
+        t_B    &:=_1 B^{^\WKL}(\lambda b.Kt_Gt_Zb,t_G)\text{,}&
+        t_{X}' &:=_{\tpA}\lambda g^1,z^{\tpz} . 
+Xgz(B^{^\WKL}(\lambda b.Kgzb,g))\text{,}\\
+        t_Z    &:=_{\tpz} t_zt_{X}'t_{Z}'\text{,}&
+        t_{Z}' &:=_{\tpA}\lambda g^1,z^{\tpz} . 
+Zgz(B^{^\WKL}(\lambda b.Kgzb,g))\text{,}\\ 
+        t_G    &:=_1 t_ht_{X}'t_{Z}'\text{,}\\
+\end{align*}
+The remaining terms are defined as in previous sections.\footnote{
+ $B^\WKL$ in Theorem~\ref{t:FIwkl}, and $t_z,t_h$ in Theorem~\ref{c:NDSiLCA}.
+}
+\end{lemma}
+
+\begin{thm}\label{c:ND-bw}
+The Bolzano-Weierstra{\ss} principle $\BW^\omega_\RR$ for an infinite 
+sequence $s$ of elements in $\PP$ (let $\rho=(10)0$ and $\sigma=0(10)1$, 
+$\widetilde{x^{1(0)}}:=\lambda i^0.{\min} _{\RR}\big(-k_i, 
+{\max}_\RR(k_i, xi)\big)$, recall $\PP=\prod_{i\in\NN}[-k_i,k_i]$):
+\[
+  \forall s^{\rho}
+         \exists a^{1(0)} \forall m^0\exists l^0>_0 m
+           \ \ d^\omega(\widetilde{sl},\tilde a)<_\RR 2^{-m}
+\text{.}
+\]
+is Sh-interpreted\footnote{The quantifier in $<_\RR$ is irrelevant, 
+see the remark after the theorem.} by:
+\[
+\forall s^{\rho}, M^{\sigma} \exists L^{1},a^{1(0)}
+\underbrace{
+  \big(\ \ L\args{(M\args{La})}>_0 M\args{La}\ \wedge\ 
+  d^\omega( \widetilde { s\args{(L\args{(M\args{La})})} },\tilde{a})
+<_\RR2^{-M\args{La}}\ \ \big) }_{\BW_{Sh}(a,MLa,L(MLa),s) :=}\] 
+where $L$ and $a$ are realized by the terms $t_L\tp3$ and $t_A\tp3$ 
+(we use the notation from Definition~\ref{d:PPs} 
+and Lemma~\ref{l:ldn}):
+\begin{align*} t_L(s^{\rho},M^{\sigma})&:=_1\ 
+\lambda n^0.t_Z\big(\overline{t_B}(\l(n))\big)0 \text{,}\\
+t_A(s^{\rho},M^{\sigma})&:=_{1(0)} A^{^\BW}(t_B) =\ \lambda d^0,n^0.\ 
+\bigg\langle   
+-k_d+\sum_{i=0}^{w(\l(n),d)-1}\frac{D(\overline{t_B}
+(\l(n)),d)(i)}{2^i}k_d  + \frac{1}{2^{w(\l(n),d)}}k_d\bigg\rangle
+\text{,}
+\end{align*}
+Here $t_B$ is defined as above, i.e. ($B^\WKL$ is defined in Theorem~\ref{t:FIwkl}):
+\begin{align*}
+t_B&=_1 B^{^\WKL}(M't_Gt_Z,t_G),
+\end{align*}
+where as before (with $f:=f_s$, $z^-:\equiv_1\lambda n . z^{10} n 0$, 
+$g^+:\equiv_{10}\lambda a,b\ . g^1a$ and 
+$g\!\restriction\!{_{f_s}}:\equiv \lambda n. \overleftrightarrow{f_s(n,gn) }$):
+\begin{align*}
+t_Z&=_{10}\! \bigg(\! \xTWf
+    	{\big(    \args \lambda g^1 . X \args {
+    														 (g\!\restriction\!{_{f_s}})
+    			    									 g^+
+    					    							 \big(B^{^\WKL}(M'(g\!\restriction\!{_{f_s}})g^+,g\!\restriction\!{_{f_s}})\big)	}			 \big)}
+		  {\big(    \args \lambda g^1 . Z \args {
+    														 (g\!\restriction\!{_{f_s}})
+    			    									 g^+
+    					    							 \big(B^{^\WKL}(M'(g\!\restriction\!{_{f_s}})g^+,g\!\restriction\!{_{f_s}})\big)	}			 \big)}{f_s}
+      \!\bigg)^+\\
+t_G&=_1 ((t_Z)^-)\!\restriction\!{_{f_s}}\text{.}
+\end{align*}
+Here $t_B$ and $t_Z$ are shortcuts for $t_B\args{XZM'}$ and 
+$t_Z\args{XZM'}$ with fixed $X$, $Z$:
+\[
+X:=_\tau\lambda g^1,z^{10},b^1\ .\ B(M'gzb,g,{z^-},b)\text{,}\quad
+Z:=_\tau\lambda g^1,z^{10},b^1\ .\ N(M'gzb,g,{z^-},b)\text{,}\quad
+\text{,}
+\]
+where $(M')^\tau$ (recall $\tau=01(10)1\ $) is defined for any given 
+$M^\sigma$ similarly as $X$ and $Z$ 
+as follows:
+\setcounter{equation}{0}
+\begin{equation}\label{e:Mprime}
+{M'(g^1,z^{10},b^1)}:=_0 \l\Bigg( M\args{
+ \underbrace{  
+   \bigg( \lambda n^0.z^-(\overline{b}(\l(n))) \bigg)
+ }_{\text{\normalsize $\thicksim t_L$}}
+ \underbrace{  
+   \bigg( A^{^\BW}(b)
+   \bigg)
+ }_{\text{\normalsize $\thicksim t_A$}} 
+} \Bigg)
+\text{.}
+\end{equation}
+The terms $B$, $X_n$\footnote{The existence of the required $x$ follows from 
+Lemma~\ref{l:split}.} and $N$ are primitive recursive, though not trivial, 
+case distinctions:
+\begin{align*}
+B(m^0,g^1,z^1,b^1)&:=_0
+\begin{cases}
+  {\min}_0 \left\{ x^0\ \left| \ \ 
+  \begin{minipage}{4.8cm}
+  	$\lh(x)\leq_0 m\ \wedge\ x\in\{0,1\}^{\lh(x)}\ \wedge$ \\ 
+  	$\neg\phi^{\CA}(x,gx,zx,Nmgzb) $
+  \end{minipage} \right. \right\} &\text{if it exists,} \\
+  X_n(m,g,b)&\Telse\text{,}
+\end{cases}  \displaybreak[2] \\
+X_n(m^0,g^1,b^1)&:=_0
+  \begin{cases}
+    \bar bm &\Tif\ g(\bar bm)=_00\text{,}\\
+    {\min}_0 \{ x^0 | \lh(x)=m \wedge f_s(x,m+1)=_00 \} &\Telse\text{,}
+  \end{cases}  \displaybreak[2] \\
+N(m^0,g^1,z^1,b^1)&:=_0\begin{cases}
+m+1 &\Tif\ f_s(X_n(m,g,b), m+1)=_00\text{,}\\
+z(X_nmgb) &\Telse\text{.}
+\end{cases}  
+\end{align*}
+\end{thm}
+
+\begin{proof}
+Unwinding $\phi^\CA$ and $\phi^\WKL$ 
+we get by lemma \ref{p:ND-PI02WKL}:
+\begin{multline}
+\forall K^{\tau},X^{\tau},Z^{\tau}\ 
+                     ((t_G\args{ XZK (X \args{
+                                          (t_G\args{XZK})
+                                          (t_Z\args{XZK})
+                                          (t_B\args{XZK})
+                                        } )
+                           } 
+                       )=_00  \rightarrow\\
+                       f_s( (X \args{
+                                  (t_G\args{XZK})
+                                  (t_Z\args{XZK})
+                                  (t_B\args{XZK})
+                                } )  ,
+                            t_Z \args{ XZK (X \args{
+                                                (t_G\args{XZK})
+                                                (t_Z\args{XZK})
+                                                (t_B\args{XZK})
+                                               } ) 0
+                                 }  
+                       )=_00
+                      )
+                      \label{e:CA1}
+\end{multline}
+and
+\begin{multline}
+\forall K^{\tau},X^{\tau},Z^{\tau}\ 
+                     ((t_G\args{ XZK (X \args{
+                                          (t_G\args{XZK})
+                                          (t_Z\args{XZK})
+                                          (t_B\args{XZK})
+                                        } )
+                           } 
+                       )=_00  \leftarrow\\
+                       f_s( X \args{
+                                  (t_G\args{XZK})
+                                  (t_Z\args{XZK})
+                                  (t_B\args{XZK})
+                                }   ,
+                            Z \args{
+                                 (t_G\args{XZK})
+                                 (t_Z\args{XZK})
+                                 (t_B\args{XZK})
+                               } 
+                       )=_00
+                      )
+                      \label{e:CA2}
+\end{multline}
+and
+\be[f:three]
+\forall K^{\tau},X^{\tau},Z^{\tau}\ 
+  \widefr{\ (\widefr{ t_G \args{XZK} }
+             )_{g(t_G\args{XZK}) }\ 
+          } (\overline{
+                t_B\args{XZK}
+             } (K \args{
+                    (t_G\args{XZK})
+                    (t_Z\args{XZK})
+                    (t_B\args{XZK})
+                  }
+               )
+            )=_00
+\text{.}
+\ee
+Fix an arbitrary $M^\sigma$.\\
+We set $X$, $Z$ and $K:=_\tau M'$ -- see \eqref{e:Mprime} --
+as in the theorem. We will use the following abbreviations:
+\begin{align*}
+x_0:&\equiv_0X\args{   (t_G\args{XZK}) (t_Z\args{XZK}) (t_B\args{XZK})  }, & 
+\gamma:&\equiv_1t_G\args{XZK},\\
+z_0:&\equiv_0Z\args{   (t_G\args{XZK}) (t_Z\args{XZK}) (t_B\args{XZK})  }, & 
+z:&\equiv_1\lambda n^0. t_Z\args{XZKn0},\\
+k_0:&\equiv_0K\args{   (t_G\args{XZK}) (t_Z\args{XZK}) (t_B\args{XZK})  }, & 
+b:&\equiv_1t_B\args{XZK}.
+\end{align*}
+Note that by \eqref{e:CA1}
+the equality $\gamma(x_0)=_00$ implies $f_s(x_0,zx_0)=_00$ and thereby 
+$\BFunc([x_0])$.\\
+We will not be able to show $\BTree(\gamma)$ but fortunately we need only
+to show:
+\begin{align}
+\forall x^0 
+\ \ \Big(\ \big( x\subseteq x_0 \ \wedge \ \gamma (x_0)=0 \big) \rightarrow  
+\gamma(x)=_00 \ \Big) \label{e:treeX}
+\end{align}
+and
+\begin{align}
+    \lh(x_0)=_0 k_0 \ \wedge \ \gamma(x_0)=_00.
+    \label{e:infX}
+\end{align}
+Note that if $x_0$ was not equal to $X_n(k_0,\gamma,b)$ then 
+\[\neg \phi^{^\CA} (x_0, \gamma x_0, z x_0, 
+\underbrace { N(k_0,\gamma, z, b) }_{ =z_0} ) \] would hold,
+which is a contradiction to \eqref{e:CA1} or a contradiction to \eqref{e:CA2}.
+So we can assume that $ x_0 = X_n(k_0,\gamma,b)$. Similarly, we have that
+\begin{align}
+      (\gamma (q) =_00 \rightarrow f_s( q, z(q) )=_00 )\ \ \wedge\ \ 
+      (\gamma (q) =_00 \leftarrow  f_s( q, z_0  )=_00 )
+\label{e:caFin}
+\text{.}
+\end{align}
+Suppose \eqref{e:caFin} would not hold for some $q'$ with $\lh(q') 
+\leq k_0$, then $x_0$ is equal to such 
+a $q'$ by the definition of $X$ and we get a contradiction to \eqref{e:CA1} 
+$\wedge$ \eqref{e:CA2} again.\\
+\begin{itemize}
+\item To prove \eqref{e:treeX} suppose:
+\addtocounter{equation}{1}
+\begin{align*}
+&x\subseteq 
+       x_0
+      \quad \wedge \tag{\arabic{equation}a}\label{e:trAssX-A}\\
+&\gamma
+       (x_0)=0
+                   \tag{\arabic{equation}b}\label{e:trAssX-B}
+\end{align*}
+holds for some $x$. Together with \eqref{e:trAssX-B} we obtain from 
+\eqref{e:caFin}:
+\[
+f_s\big( x_0, z(x_0 )\big)=_00
+\text{,}
+\]
+since $\lh(x_0)\leq k_0$ (by the definition of $X$). 
+We follow the definition of $Z$. We see that 
+either $z_0$ directly equals $z(X_n(k_0,\gamma,b))$ or 
+we have $f_s(X_n(k_0,\gamma,b),k_0+1)=0$ and it equals $k_0+1$.
+This means that in both cases we obtain (using that $x_0 = X_n(k_0,\gamma,b)$)
+\[
+f_s( x_0, z_0 )=_00
+\text{.}
+\]
+By the definition of $f_s$, see also section \ref{ss:spuWKL}, and 
+\eqref{e:trAssX-A} this implies
+\[
+f_s( x, z_0 )=_00
+\text{.}
+\]
+From \eqref{e:trAssX-A} we get $\lh(x)\leq k_0$ and by \eqref{e:caFin} we 
+obtain
+\[
+\gamma(x)=0
+\text{,}
+\]
+which concludes the proof of \eqref{e:treeX}.\\
+
+\item Recall that $x_0 = X_n(k_0,\gamma,b) $.
+This proves the first part of \eqref{e:infX}:
+\[\lh(x_0)=_0 k_0.\]
+Now we follow the definition of $X_n$. Either $\gamma (\overline{b}(k_0)) = 0$ 
+and therefore
+$x_0= \overline{b}(k_0)$ and we  
+obtain \eqref{e:infX} immediately, or we have that:
+\[
+f_s\big( X_n(k_0,\gamma,b), k_0+1 \big) = 0.
+\]
+In that case, we can infer that 
+\[z_0 =
+   N(k_0,\gamma, z, b) = k_0+1,\]
+and we get 
+\[
+f_s( x_0, z_0 ) = 0.
+\]  
+Finally, applying \eqref{e:CA2} concludes the proof of \eqref{e:infX}.
+\end{itemize}
+This concludes the proofs of \eqref{e:treeX} and \eqref{e:infX}.\\
+To show $\gamma\big(\overline{b}(k_0)\big)=0$ assume towards contradiction that
+\[\gamma\big(\overline{b}(k_0)\big)\neq 0.\]
+If so, then by definition \ref{d:frown_g} we have also that
+\[\widefr{\gamma}\big(\overline{b}(k_0)\big)\neq 0.\]
+By \eqref{e:infX} we know that $\gamma(x_0)=0$. Using \eqref{e:treeX} we know 
+that also $\widefr{\gamma}(x_0)=0$ and since $\lh(x_0)=k_0
+=\lh(\overline{b}(k_0))$ we have that
+\[
+\widefr{\gamma}_{g\gamma}\big(\overline{b}(k_0)\big)\neq0.
+\]
+By definition \ref{d:frown_g} this is a contradiction to \eqref{f:three} and 
+we obtain (recall that we started with an arbitrary $M$):
+\[
+ \forall M^{\sigma}\ \gamma\big(\overline{b}(k_0)\big)=_00
+\text{.}
+\]
+This implies that $x_0=\overline{b}(k_0)$ (by the definition of $X_n$) and 
+therefore it follows by \eqref{e:CA1} that:
+\begin{align*}
+ \forall M^{\tau} \ \ f_s\big(\ \overline{b}(k_0), z(\overline{b}k_0) \ \big) 
+=_00
+\text{.}
+\end{align*}
+Using the terms $t_L$ and $t_A$ in the short notation 
+(i.e. $t_L$ instead of $t_L\args{sM}$, $t_B$ instead of $t_B\args{XZM'}$ and 
+similarly for $t_A$ and $t_Z$)
+this becomes
+\begin{align*}
+ \forall M^{\sigma} \ \ f_s\bigl(\  
+     \overline{t_B}(\l(M\args{t_Lt_A})),\ 
+     t_Z(\overline{t_B}
+                   (\l(M\args{t_Lt_A})))0
+ \ \bigr)=_00
+\text{.}
+\end{align*}
+This implies by Lemma~\ref{l:ldn} (note that 
+$t_L(M\args{t_Lt_A})\equiv t_Z(\overline{t_B}(\l(M\args{t_Lt_A})))0$):
+\[
+\forall M^{\sigma}\ 
+\Big(\ t_L(Mt_Lt_A) > Mt_Lt_A\  \wedge\ 
+  d^\omega(\widetilde{t_A},\widetilde{s (t_L(M\args{t_Lt_A})) })
+<_\RR 2^{ -M\args{t_Lt_A} } \Big)
+\text{.}
+\] Finally observe that for all $n^0$ we have $(t_A(s,M))n=_{\RR} \widetilde{(t_A(s,M))}n$ 
+and that
+\begin{align*} 
+%============= t _ Z =================
+t_Z&=_{10} t_zt_{X}'t_{Z}'
+	  =\big(t_g(t_f\args t_X')(t_f\args t_Z')\big)^+ \\
+   &=\lambda a, b\ .\ \underbrace { t_g\args{
+    	\big( \args \lambda g^1 . X     		
+	(g\!\restriction\!{_{f_s}})
+    	g^+
+    	\big(B^{^\WKL}(M'(g\!\restriction\!{_{f_s}})g^+,g\!\restriction\!{_{f_s}})\big)	 \big)
+    	\big( \args \lambda g^1 . Z 
+        (g\!\restriction\!{_{f_s}})
+    	g^+
+    	\big(B^{^\WKL}(M'(g\!\restriction\!{_{f_s}})g^+,g\!\restriction\!{_{f_s}})\big)	 \big)
+    	a} }_{=\xTWf
+    	{\big( \args \lambda g^1 . X 
+        (g\!\restriction\!{_{f_s}}) g^+
+    	\big(B^{^\WKL}(M'(g\!\restriction\!{_{f_s}})g^+,g\!\restriction\!{_{f_s}})\big)	 \big)}
+		  {\big( \args \lambda g^1 . Z 
+        (g\!\restriction\!{_{f_s}})
+    	g^+ \big(B^{^\WKL}(M'(g\!\restriction\!{_{f_s}})g^+,g\!\restriction\!{_{f_s}})\big)
+        \big)}{f_s}a} ,\\
+%============= t _ G =================
+t_G &=_1t_ht_{X}'t_{Z}' 
+     =\big(t_g(t_f\args t_X')(t_f\args t_Z')\big)\!\restriction\!{_{f_s}} . 
+\end{align*} 
+\end{proof}
+
+
+\begin{remark}
+From the proof we actually see how to realize the hidden quantifier in 
+$<_\RR$. Namely before using Lemma~\ref{l:ldn} we can simply 
+apply the definition of $f_s$ and obtain
+the following equivalent universal formula (for $\rho=(10)0$ and $\sigma=0(10)1$ 
+and writing ${t_L}$ instead of $t_LsM$ and ${t_A}$ instead of $t_AsM$):
+\[
+\forall s^{\rho}, M^{\sigma}
+  \big( {t_L}\args{(M\args{{t_L}{t_A}})}>_0 M\args{{t_L}{t_A}}\wedge\ 
+  \!\!\bigwedge_{d=0}^{w(\l(M\args{{t_L}{t_A}}))}
+         (\widetilde{s\args{({t_L}\args{(M\args{{t_L}{t_A}})})}})d({t_L}\args{(M\args{{t_L}{t_A}})})
+         \in_\QQ \PP^{\overline{t_B}(\l(M\args{t_Lt_A}))}
+\text{.}
+\]
+\end{remark}
+\begin{remark} 
+One can also extend Theorem \ref{c:ND-bw} to cover the case where the 
+sequence $(k_d)$ is a sequence in $\RR_+$ rather than $\QQ_+$ provided that 
+one adapts the definition of $f_s$ in such a way that also the boundaries 
+of the interval $[-k_d,k_d]$ are replaced by suitable rational 
+approximations etc. Since the application of our analysis of the 
+Bolzano-Weierstra\ss{} theorem given in \cite{Kohlenbach(Browder)} (referred 
+to in the introduction) only uses the monotone functional interpretation 
+given below (Theorem \ref{c:NMD-bw}) as will be usually the case, 
+we restrict ourselves in this paper to treat the case with 
+real $k_d$ only in that context where things are particularly simple 
+(and no approximation of the type mentioned above is needed). 
+\end{remark}
+
+Usually, the Bolzano-Weierstra\ss{} theorem is formulated to state 
+the existence of a converging subsequence rather than the existence of
+a cluster point. The next theorem gives the solution for the 
+Shoenfield interpretation of this formulation: 
+
+\begin{thm}\label{t:ND-ssbw}
+The version of the Bolzano-Weierstra\ss{} theorem stating the existence 
+of a convergent subsequence is Sh-interpreted as follows (where 
+$t_L,t_A$ are as in theorem \ref{c:ND-bw}):
+\begin{align*}
+\forall s,M \exists f,p ( f(M\args{fp}+1) > f(M\args{fp})
+\wedge
+d^\omega ( \tilde{p},  \widetilde{s(f(M\args{fp}+1))} ) < 2^{-M\args{fp}}
+)
+\end{align*}
+Let $M'$ be obtained from $M$ by 
+\[
+M'\args{la}:=\begin{cases}
+l^{M(\lambda n . l^n0)a}0&\Tif\ \big(\forall n<M(\lambda n . 
+l^n0)a\big)\ \big(l^{n+1}0>l^n0\big),\\
+l^{\min{} _0\{n:\ l^{n+1}0\leq l^n0\}}0&\Telse.
+\end{cases}
+\] 
+Define the functionals
+\[
+t_F\args{sM}:=\lambda n.(t_L\args{sM'})^n0\quad\text{and}\quad 
+t_P\args{sM}:=t_A\args{sM'},
+\]
+then the following holds:
+\begin{align*}
+\forall s,M \quad (\ &t_F\args{sM}(M(t_F\args{sM})(t_P\args{sM})+1) > 
+t_F\args{sM}(M(t_F\args{sM})(t_P\args{sM}))
+\ \wedge\\
+&d^\omega ( \widetilde { s(t_F\args{sM}(M(t_F\args{sM})(t_P\args{sM})+1)) } , 
+\widetilde{t_P\args{sM}} ) < 2^{-M(t_F\args{sM})(t_P\args{sM})}
+\ ).
+\end{align*}
+\end{thm}
+\begin{proof} 
+Consider any given $s$ and $M$ and define
+$M'$ as in the theorem being proved. We denote $t_L\args{sM'}$, 
+$t_A\args{sM'}$ and $M\args{(\lambda n.(t_L\args{sM'})^n0)
+(t_A\args{sM'})}$ by $l_0$, $a_0$ and $m_0$. 
+Unwinding the terms $t_P$ and $t_F$ in the statement of the theorem leads to:
+\begin{align*}
+\forall s,M \quad (\ &l_0^{m_0+1}0 > l_0^{m_0}0 \ \wedge d^\omega 
+( \tilde{a}_0, \widetilde{s(l_0^{m_0+1} 0 )})\leq 2^{-m_0}\ ).
+\end{align*}
+\begin{enumerate}
+\item If $\big(\forall n<m_0\big)\ \big(l_0^{n+1}0>l_0^n0\big)$ then the 
+claim follows directly
+from theorem~\ref{c:ND-bw} applied to $s$ and $M'$ (i.e.
+$ M'\args{l_0a_0} $ becomes $l_0^{m_0}0$ ) 
+and its proof:
+\begin{align*}
+l_0\args{(l_0^{m_0}0)} > l_0^{m_0}0\ \wedge 
+d^\omega( \widetilde { s\args{(l_0\args{(l_0^{m_0}0)})} },\tilde{a}_0)
+<_\RR2^{-l_0^{m_0}0}
+  \tag{\ref{c:ND-bw} for $M'$}\label{ND-bw4Kprime}
+\end{align*}
+where the proof allows us to omit the final step from:
+\begin{align*}
+  l_0\args{(l_0^{m_0}0)}>_0 
+  l_0^{m_0}0\ \wedge  \bigwedge_{d=0}^{l_0^{m_0}0}
+        |(a_0)\args{(l_0^{m_0}0+1)d}-_\QQ 
+\widetilde{s\args{(l_0\args{(l_0^{m_0}0)})}}\args{d(l_0^{m_0}0+1)}|
+         \quad<_\QQ\quad 2^{-(l_0^{m_0}0+2)}
+\text{.}
+\end{align*}
+To see that $l_0^{m_0}\geq m_0$ recall that $\forall n<m_0\ l_0^{n+1}0>l_0^n0$.
+\item Otherwise we have $l_0^{i+1}0\leq l_0^i0$ for some $i<m_0$ and 
+$M'l_0a_0=l_0^i0$. However
+this is a contradiction to
+ theorem~\ref{c:ND-bw} which implies
+\[
+l_0^{i+1}0 = l_0(l_0^i0) = l_0 ( M'l_0a_0) > M'l_0a_0 = l_0^i0.
+\]
+\end{enumerate}
+\end{proof}
+\begin{remark}
+Analogously to the previous remark, the proof of Theorem~\ref{c:ND-bw} 
+gives us a more strict\\ $Sh$\nbd interpretation.
+\end{remark}
+
+Applying the majorization results from section~\ref{ss:majFI} we obtain a 
+(much easier) solution to the {\bf monotone} Shoenfield interpretation 
+of $\BW^\omega_{\RR}$ (which is all the information on $\BW^\omega_{\RR}$ 
+one needs to extract uniform bounds from proofs that use $\BW^\omega_{\RR}).$ 
+\\ Instead of having to majorize explicitly the complicated construction of 
+$t_A$ we can rely on the fact that elements in 
+compact intervals $[-K_d,K_d]$ with 
+$K_d\in\NN$ have a representations $x\le_1 N_{K_d},$ where $N_m(k)$ is a 
+fixed (non-decreasing) primitive recursive function in 
+$m,k$ which can be taken as 
+(see \cite{Kohlenbach06}, p.93) 
+\[ N_m(k):=j(m2^{k+3}+1,2^{k+2}-1) \ \ \mbox{for the Cantor 
+pairing function $j.$} \] 
+From the proof of Theorem~\ref{c:ND-bw} it follows that instead of 
+$(A^{\BW}(b))(d)$ we can take any other representative of the same 
+real number, in particular the representative $\le N_{K_d}$ from 
+the construction in \cite{Kohlenbach06}(p.93) for $K_d \ge k_d.$ As a 
+result, we can replace $t_A(s,M)(d)$ by another representative 
+that is -- for all $s,M$ --  
+majorized by $N_{K_d}.$ In fact, we may even allow $k_d$ to be a real number 
+where then in the definition of $f_s$ the clause `$(\widetilde{sk})ik
+\in_\QQ \PP^b_i$' has to be replaced by `$(\widetilde{sk})i
+\in_\RR \PP^b_i$'. The resulting function $f_s$ then no longer is computable 
+but still trivially majorizable by the constant-1 function. \\ 
+\begin{remark} The shape of $N_m$ above is due to the particular Cauchy representation 
+used in \cite{Kohlenbach06}. If one uses the so-called signed-digit representation, it 
+can be improved to the constant-$(2m+3)$ function, see prop. 14 in \cite{Engracia}.
+\end{remark}
+Before we state the monotone functional interpretation of $\BW^\omega_{\RR}$ 
+we first need, however, a simple lemma: 
+\begin{lemma} Define (for $\NN\ni K_d\ge k_d$ for all $d\in\NN$)
+\[ \l^*(n):=(\max\limits_{d\leq n+1} \{ K_d,n\}+2)^4. \]
+Then $\l^*\,\maj\, \l.$
+\end{lemma}
+\begin{proof}
+observe that for $d\leq n+1$ we have that
+ \[\l_d(n)\leq n+2+(\lceil k_d (n+2)\rceil+n)^2
+ \leq (n+2)+(n+2)^2(\lceil k_d + 1\rceil)^2
+ \leq (n+2)^2(\lceil k_d + 2\rceil)^2.\] Moreover $\l^*$ is non-decreasing.
+\end{proof}
+To give the monotone version of Theorem \ref{t:ND-ssbw}, we need the 
+following definition:
+\begin{dfn} A majorant for $\bPhi_0$ is given by (see also 
+\cite{Kohlenbach06} or \cite{Bezem85}):
+\[\bPhi^*_0{y}u^{\!0(1(0))(0)}nx:=_1\max\left( 
+(\bPhi_0{y^{\mon}}u_{x}^{\!0(1(0))(0)}){^\Mon} nx,x{^\Mon}\right),\]
+where 
+\begin{align*}
+w{^\Mon}(n):&=_\rho\max\{w(i):i\leq_0 n\}\quad \text{ 
+(for $w^{\rho0}$, $\rho\in\Tp$)}, \\
+y{^\mon}(x):&=_0y(x{^\Mon}), \\
+u_x(n,v):&=_1\max\{x{^\Mon},v(unv)\}.
+\end{align*}
+\end{dfn}
+
+\begin{thm}\label{c:NMD-bw} Let $(k_d)$ be a sequence of non-negative reals 
+and $(K_d)$ be a sequence of natural numbers with $K_d\ge k_d$ for all 
+$d\in\NN.$ 
+The realizing terms of the
+$Sh$-interpretation of the Bolzano-Weierstra{\ss} principle $\BW^\omega_\RR$ 
+for an infinite sequence $s$
+of elements in $\PP$ (defined by $(k_d)$, see also Theorem~\ref{c:ND-bw} above)
+can be majorized by terms $t_L^*$ and $t_A^*$, i.e. $t_L^*$ and 
+$t_A^*$ satisfy the monotone $Sh$-interpretation of $\BW^\omega_\RR$.
+The term $t_L^*$ depends only
+on $M$ (but not on $s$) and $t_A^*$ even is independent from both $s$ and 
+$M,$ indeed:
+\begin{align*}
+t_L^*(M)&:=_1
+   \lambda n^0.\xTWfM{(X^*M)}{(Z^*M)}
+\big(\bar\one(\l^*(n))\big)\text{,} \\
+t_A^*&:=_{1(0)}\lambda d^0,n^0.N_{K_d}
+\text{,}
+\end{align*}
+where 
+\[ N_m(k):=j(m2^{k+3}+1,2^{k+2}-1) \]
+and $X^*M$ and $Z^*M$ are defined primitive recursively in $M$:
+\begin{align*}
+{X^*M}&:=\lambda g^1\ .\ \bar\one(M'g)  \text{,} &
+{Z^*M}&:=\lambda g^1\ .\ {\max}_0\big(\ M'g,\ g(\bar\one(M'g))\ \big)
+\text{.}
+\end{align*}
+The term $M'$ is a similar primitive recursive modification of $M$ as before: 
+\[
+{M'}g:= \l^*\!\!\left(M
+   \left( \lambda n^0.g(\overline{\one}(\l^*(n))) \right)
+   \left( t_A^* \right)\right).
+\]
+The majorized versions of $u$ and $\l$, are given by:
+\[
+u^*_{Z}n^0v^{1(0)}  := \uWfM{Z} \text{,}
+\quad \l^*(n):=(\max_{d\leq n+1} {} _\NN \{K_d,n\}+2)^4
+\text{.}
+\]
+\end{thm}
+Though it is not entirely obvious how we obtain this theorem, the
+actual steps are purely elementary. 
+
+Similarly, we can obtain the majorized version of Theorem~\ref{t:ND-ssbw}:
+\begin{thm}\label{t:NMD-BW}
+The terms $t_F^*$ and $t_P^*$ satisfy the monotone $Sh$-interpretation of 
+$\BW^\omega_\RR$ 
+stating the existence of  a converging subsequence (see also 
+Theorem~\ref{t:ND-ssbw} above):
+\[
+t_F^*\args{M}:=\lambda n.(t_L^*\args{M''})^n0,\quad t_P^*:=t_A^*,
+\]
+with $t_L^*$ and $t_A^*$ defined as in the Theorem~\ref{c:NMD-bw} and the 
+term and where 
+the term $M''$ is a similar primitive recursive modification of $M$ as in 
+Theorem~\ref{t:ND-ssbw}: 
+\[
+{M''}la:= l^{M(\lambda n . l^n(0))a}(0)\text.
+\]
+\end{thm}
+\begin{proof}
+For $M^*$ s-maj $M$, we have that 
+$(M^*)''$ s-maj $M',M''.$ Hence 
+$t_L^*\args{((M^*)'')}(n)\ge t_L\args{sM'}(n)$  
+and the function $t_L^*\args{((M^*)'')}$ 
+is non-decreasing. Therefore
+$t_F^*\args{M^*}$ is non-decreasing as well and majorizes $t_F\args{sM}.$
+\end{proof}
+
+
+\subsection {Analysis of the Complexity of the Realizers} \label{ss:acr}
+
+\newcommand{\tn}{$t\in\T_n$}
+\newcommand{\tsn}{$t\in\T_0$}
+
+Theorem \ref{c:NMD-bw} implies that we can use only a single
+application of $\B_{0,1}$ on primitive recursive functionals
+and primitive recursion to obtain the realizing terms for $\BW^\omega_\RR.$ \\
+Now, we can investigate how the principle $\BW^\omega_\RR$ does affect the
+complexity of the realizers of a given theorem proved using this principle.
+Depending on the way the $\BW^\omega_\RR$-principle is used in such a proof, 
+we get the results stated in theorems \ref{t:PEfBW} and \ref{t:PEBW} 
+respectively.\\
+%
+\begin{thm}{\em Program extraction for proofs based on an instance of 
+$\BW^\omega_\RR$.\\} 
+\label{t:PEfBW}
+For $n\geq1$, given a proof using $\BW^\omega_\RR$ on a known sequence $sx$ 
+of elements in $\PP$ 
+specified by a closed term $s$ of $\hrrwepa,$ 
+i.e. $s\in(\PP^\NN)^\NN$ defines a sequence of such sequences  
+(where the bounds $(k_d)$ used in forming 
+$\PP$ are also given by a term $rx$ that may depend on $x$), and a 
+quantifier-free formula $\varphi_{_\QF}(x,y)$ containing only $x,y$ as 
+free variables we have: from a proof 
+\[
+\hrrwepa\ +\ \QFm\AC\ +\ \Sigma^0_n\usftext{-IA}\ \ \vdash\ \ 
+    \forall x^0\big(\BW^\omega_\RR(sx)\rightarrow\exists y^0 
+\phi_{_\QF}(x,y)\big)\text{,}
+\]
+we can extract a function $f\in\T_n$ by $Sh$-interpretation s.t.
+\[
+\Som\ \ \models\ \ \forall x^0 \phi_{_\QF}\big(x,f(x)\big) \text{.}
+\]
+\end{thm}
+\begin{remark}
+\begin{enumerate}
+\item
+In particular, for $n=1$ we obtain a \lOrdm{\omega^{\omega^\omega}} 
+recursive realizer.
+Moreover, for the special case $n=0$, U: Kohlenbach showed 
+in~\cite{Kohlenbach98} that when some weaker systems
+than $\hrrwepa\ +\ \QFm\AC$ are used, namely 
+$\usftext{G}_{\infty}\usftext{A}^\omega+\ \QFm\AC$,
+one obtains even \lOrdm{\omega^\omega}recursive realizers. Note that this 
+case is not covered by Theorem \ref{t:PEfBW} above.
+\item 
+Instead of $\hrrwepa$ we may also have the system resulting from this 
+by adding the recursors $R_{\rho}$ with $deg(\rho)\le n-1.$
+\end{enumerate} \mbox{ }
+\end{remark}
+\begin{cor} Theorem \ref{t:PEfBW} also holds with $\hrrepa$ instead of 
+$\hrrwepa$ once we restrict $\QFm\AC$ to the types $(\rho,\tau):=(1,0)$ and 
+$(\rho,\tau):=(0,1).$
+\end{cor} 
+\begin{proof} Apply elimination of extensionality to theorem \ref{t:PEfBW} 
+(see \cite{Luckhardt73} or \cite{Kohlenbach06}). 
+\end{proof}
+
+
+\begin{proof}[ of Theorem \ref{t:PEfBW}]
+By soundness of $\hrrwepa$ (see e.g.~\cite{Kohlenbach06} and 
+\cite{streicherkohlenbach07}) we know that one can construct 
+closed terms $t_M$ and $t_Y$ in $T_{n-1}$ realizing the Sh-interpretation 
+of the analyzed proof:
+\[
+\forall x,L,a\, (\BW_{Sh}(a,t_MxLa,L(t_MxLa),sx)\rightarrow\phi_{Sh}(x,t_YxLa))
+\text{.}
+\]
+Now, using the solution terms $t_A,t_L$ for the Shoenfield interpretation of 
+$\BW^{\omega}_{\RR}$ from theorem \ref{c:ND-bw} we define 
+\[ a:=t_A(sx,t_Mx) \ \ \mbox{and} \ \ L:=t_L(sx,t_Mx) \] 
+and obtain that 
+\[ \BW_{Sh}(a,t_MxLa,L(t_MxLa),sx). \] 
+Hence for 
+\[ tx:=t_YxLa=t_Yx(t_L(sx,t_Mx))(t_A(sx,t_Mx)) \] 
+we have that $\varphi_{qf}(x,tx).$
+\\ Now let $t^*_M,t^*_Y$ be majorants for $t_M,t_Y$ in $T_{n-1}.$ 
+Then --using the majorants $t^*_L,t^*_A$ of $t_L,t_A$ from theorem 
+\ref{c:NMD-bw} -- we define 
+\[ t^*x:=t^*_Yx(t^*_L(t^*_Mx))(t^*_A(t^*_Mx)). \] 
+Since $x \ \maj_0 \, x$ we get that $t^*x\ge tx$ for all $x.$ It, therefore, 
+suffices to show 
+that the function denoted by $t^*$ can be defined in $T_n:$
+Using Parsons' result
+from \cite{Parsons71} (p.~361) we know that
+$t^*_Mx$ has computational sizes $<\omega_{n}(\omega)$.
+This fact allows us to apply Howard's proposition, see~\cite{Howard81} (p.~23),
+from which it follows that $t^*_L\args{(t^*_Mx)}y^0$ has 
+computational size $<\omega_{n+1}(\omega)$ and so (using Parson's result 
+again) can be defined by a term in $T_n$ which finishes the proof as 
+$t^*_A$ even is in $T_0.$\\
+\end{proof}
+
+%space necessary
+
+The Theorem~\ref{t:PEfBW} is optimal in the following sense:
+%
+\begin{prop}\label{p:optPEfBW}
+Any function $h$ given by a closed term in $\T_n$ can be proven to be total
+in $\hrrwepa\ +\ \QFm\AC\ +\ \Sigma^0_n\usftext{-IA}$ using a concrete 
+instance of
+$\BW(s)$ for a suitable closed term $s^1$ in $\T_0$.
+\end{prop}
+\begin{proof}
+
+In \cite{Kohlenbach00} (Proposition 5.5), U. Kohlenbach gave a 
+construction of a
+functional $F\tp2$ such that 
+(relative to $\hrrwepa$) $\forall 
+f^{1(0)}(\PCM(F(f))\rightarrow\PiLm\CAhut(f)),$ 
+where $\PCM(f^{1(0)})$ is the principle of 
+monotone convergence defined as follows:
+\[
+\forall n\big(0\leq_\RR f(n+1)\leq_\RR f(n)\big)\ \rightarrow 
+       \exists g\forall k\forall m_1,m_2\geq gk
+\left(|fm_1-_\RR fm_2|\leq\frac{1}{k+1}\right)
+\text{.}
+\]
+ Moreover, in the presence of $\QFm\AC$
+we also have $\forall f^{1(0)}( \BW_\RR(G(f)) \rightarrow\PCM(f) )$ for a 
+suitable functional $G.$ 
+Hence there are functionals $F_\exists$, and $F_\forall$ such that 
+(relative to $\hrrwepa\ +\ \QFm\AC$) for any
+function $f^{1(0)}$ the instance $\BW(F_\exists f)$, resp. $\BW(F_\forall f)$, 
+of $\BW$ implies the instance $\SiLm\CA(f)$ of $\SiLm\CA$, 
+resp. $\PiLm\CA(f)$ of $\PiLm\CA$.\\ 
+By Parsons's results in \cite{Parsons72} we know that
+$\hrrwepa\ +\ \QFm\AC$ proves the $\Pi^0_2$ sentence stating
+the totality of $h$ using additionally just finitely many, say $m$, instances
+of $\Sigma^0_{n+1}\usftext{-IA}$ with number parameters only.\\
+%
+Assume that $n$ is odd. Each of these $m$ instances
+can be reformulated 
+as an instance of $\Sigma^0_{n}\usftext{-IA}$ with number and 
+function parameters plus the instances 
+$\forall \tup a^{\tup0} \PiLm\CA(t_i'(\tup a))$ of $\Pi^0_1$-comprehension, 
+where the term $t_i'\in\T_0$ ($i\in\{1\ldots m\}$) corresponds to the 
+quantifier-free matrix of the induction formula in the $i^{th}$ instance of 
+$\Sigma^0_{n+1}\usftext{-IA}$ (i.e. $t_i'$ essentially is the characteristic 
+term of that matrix). 
+Furthermore, for suitable closed terms $t_i\in\T_0$
+ each formula $\forall \tup a^{\tup0} \PiLm\CA(t_i'(\tup a))$ is
+equivalent to an instance $\PiLm\CA(t_i)$ of $\PiLm\CA$.
+Moreover, $\bigwedge^{m}_{i=0} \PiLm\CA(t_i)$ is 
+equivalent to $\PiLm\CA(t)$ for a suitable \tsn (see \cite{Kohlenbach96} for 
+this).\\
+Analogously, if $n$ is even we obtain the equivalence to $\SiLm\CA(t)$.\\
+Finally, $\PiLm\CA(t)$ and $\SiLm\CA(t)$ are
+derivable from the instances $\BW(F_\forall t)$ resp. $\BW(F_\exists t)$ of 
+$\BW$.\\
+\end{proof} 
+
+Theorem~\ref{t:PEfBW} should be contrasted to the case of 
+proofs based on the full (2nd order closure -- also w.r.t. the 
+bounding sequence $(k_d)$ from $\PP$ -- of the) 
+Bolzano-Weierstra\ss{} principle 
+$\BW$ where the following (equally optimal) result follows from 
+the literature: 
+\begin{thm} 
+\label{t:PEBW}
+Given a proof 
+using $\BW^\omega_\RR$ on any given sequence in $\PP$: Let $\phi_{_\QF}(x,y)$ be 
+a quantifier-free formula containing only the free variables $x,y.$ Then 
+from a proof 
+\[
+\hrrwepa\ +\ \QFm\AC\ +\ \Sigma^0_\infty\usftext{-IA}\ +\ \BW^\omega_\RR\ \ 
+\vdash\ \ 
+    \forall x^1\exists y^0 \phi_{_\QF}(x,y)
+\]
+we can extract by Sh-interpretation a closed term $t^1\in\T$ s.t.
+\[
+\Som\ \ \models\ \ \forall x^0 \phi_{_\QF}\big(x,t(x)\big) \text{.}
+\]
+\end{thm} 
+\begin{proof}
+Over $\hrrwepa\ + \QFm\AC$ the schema of arithmetical comprehension 
+$\CA^0_{ar}$ clearly implies both $\BW^\omega_{\RR}$ as well as 
+$\Sigma^0_{\infty}\usftext{-IA}.$ The system 
+$\hrrwepa\ + \QFm\AC +\CA^0_{ar}$, however, has a $Sh$-interpretation by terms 
+in  $\T_0\ +\ \B_{0,1}$ (see e.g. \cite{Kohlenbach06}, Theorem 11.14).
+Hence we get a term $t\in \T_0\ +\ \B_{0,1}$ satisfying
+ $\forall x^1\phi_{_\QF}(x,t(x))$. Finally, using Corollary 4.4.1 
+from \cite{Kohlenbach99}, 
+we can conclude that $t$ can be
+rewritten as a functional in $\T$.\\
+\end{proof}
+

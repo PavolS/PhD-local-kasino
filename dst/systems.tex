@@ -1,0 +1,223 @@
+\subsection{Formalities}
+
+In this section, we follow very closely~\cite{BBS12} and extend our first section to cover the necessary
+technicalities to formalize proofs in non-standard analysis.
+
+\subsubsection*{The system $\ehastar$}
+
+In this chapter, $\ehastar$ will be the extension of the system called $\ehazero$ in \cite{Troelstra73} and $\ehaarrow$ in \cite{troelstravandalen88b} with types for finite sequences, see also Definition~\ref{d:eha_epa} in first chapter (though note that we treat things here a little differently -- see below). More precisely, the collection of types $\Tpstar$ 
+(similarly to $\Tp$, see Definition~\ref{d:Tp}) will be smallest set closed under the following rules:
+\begin{enumerate}
+\item[(i)] $0 \in \Tpstar$;
+\item[(ii)] $\sigma, \tau \in \Tpstar \Rightarrow (\sigma \to \tau) \in \Tpstar$;
+\item[(iii)] $\sigma \in \Tpstar \Rightarrow \sigma^* \in \Tpstar$.
+\end{enumerate}
+
+In dealing with tuples, we will follow the notation and conventions of the first chapter, \cite{Troelstra73} and \cite{Kohlenbach08}. Specifically 
+for this context see also Details in~\cite{BBS12}. This includes the enrichment of the term language (G\"odel's $\T$); it now also includes a constant $\et_\sigma$ of type $\sigma^*$ and an operation $c$ of type $\sigma \to (\sigma^* \to \sigma^*)$ (for the empty sequence and the operation of prepending an element to a sequence, respectively), as well as a list recursor $\tup L_{\sigma, \tup \rho}$ satisfying the usual axioms (again see~\cite{BBS12} and also
+\cite[p. 456]{troelstravandalen88b} or \cite[p. 48]{Kohlenbach08}). In addition, we have the recursors and combinators for all the new types in G\"odel's $\T$, satisfying the usual equations.  The resulting extension we will denote by $\Tstar$.
+
+Differently to previous chapters, we will have a primitive notion of equality at every type and equality axioms expressing that equality is a congruence (as in \cite[p. 448-9]{troelstravandalen88b}). Since decidability of quantifier-free formulas is not essential for this paper, this choice will not create any difficulties. In addition, we assume the axiom of extensionality for functions:
+\begin{displaymath}
+\begin{array}{l}
+f =_{\sigma \to \tau} g \leftrightarrow \forall x^\sigma \, fx =_{\tau} gx.
+\end{array}
+\end{displaymath}
+
+The axiom schemas of the underlying system (i.e. $\eha$) apply to all formulas in the language (i.e., also those containing variables of sequence type and the new terms that belong to $\Tstar$).\\
+Finally, we add the following sequence axiom:
+\[ \SA: \quad \forall y^{\sigma^*} \, ( \, y = \et_\sigma \lor \exists a^\sigma, x^{\sigma^*} \, y = c(a,x) \, ). \]
+In the usual formalization of $\eha$, as in \cite{Kohlenbach08} or \cite{troelstravandalen88b} (or simply our system from Definition~\ref{d:eha_epa}), for example, one can also talk about sequences, but these have to be coded up (see \cite[p. 59]{Kohlenbach08}). As a result, $\ehastar$ is a definitional extension of, and hence conservative over, $\eha$ as defined in \cite{Kohlenbach08} or \cite{troelstravandalen88b}.
+
+\subsubsection*{The system $\ehaststar$}
+
+\begin{dfn}[As given in~\cite{BBS12}] The language of the system $\ehaststar$ is obtained by extending that of $\ehastar$ with unary predicates $\st^\sigma$ as well as two new quantifiers $\forallst x^\sigma$ and $\existsst x^\sigma$ for every type $\sigma \in \Tpstar$. Formulas in the language of $\ehastar$ (i.e., those that do not contain the new predicate $\st_\sigma$ or the two new quantifiers $\forallst x^\sigma$ and $\existsst x^\sigma$) will be called \emph{internal, denoted -- as before -- by small Greek letters e.g. $\phi$, $\psi$}. Formulas which are not internal will be called \emph{external, denoted by capital Greek letters, e.g. $\Phi$, $\Psi$}.
+\end{dfn}
+
+\begin{dfn}[$\ehaststar$, in~\cite{BBS12}] The system $\ehaststar$ is obtained by adding to $\ehastar$ the axioms $\EQ, \Tst$ and  $\IA^{\st{}}$, where
+\begin{itemize}
+\item $\EQ$ stands for the defining axioms of the external quantifiers:
+\begin{eqnarray*}
+\forallst x \, \Phi(x) & \leftrightarrow &  \forall x \, (\, \st(x)\rightarrow\Phi(x) \, ),\\
+\existsst x \, \Phi(x) & \leftrightarrow & \exists x \, (\, \st(x)\wedge\Phi(x) \, ),
+\end{eqnarray*}
+with $\Phi(x)$ an arbitrary formula, possibly with additional free variables.
+\item $\Tst$ consists of:
+\begin{enumerate}
+\item the axioms $\st(x) \land x = y \to \st(y)$,
+\item the axiom $\st(t)$ for each closed term $t$ in $\Tstar$,
+\item the axioms $\st(f)\wedge\st(x)\rightarrow\st(fx)$.
+\end{enumerate}
+\item $ \IA^{\st{}}$ is the external induction axiom:
+\[
+\IA^{\st{}} \quad : \quad\big(\Phi(0)\wedge\forallst n^0 (\Phi(n)\rightarrow\Phi(n+1) )\big)\rightarrow\forallst n^0 \Phi(n),
+\]
+where $\Phi(n)$ is an arbitrary formula, possibly with additional free variables.
+\end{itemize}
+Here it is to be understood that in $\ehaststar$ the laws of intuitionistic logic apply to all formulas, while the induction axiom from $\ehastar$
+\[ \quad\big(\varphi(0)\wedge\forall n^0 (\varphi(n)\rightarrow\varphi(n+1) )\big)\rightarrow\forall n^0 \varphi(n) \]
+applies to internal formulas $\varphi$ only.
+\end{dfn}
+
+\begin{lemma}[\cite{BBS12}] \label{congruence}
+$\ehaststar \vdash \Phi(x) \land x= y\to \Phi(y)$ for every formula $\Phi$.
+\label{le:extensionality}
+\end{lemma}
+
+\begin{lemma}[\cite{BBS12}]
+$\ehaststar \vdash \st^0(x) \land y \leq x \to \st^0(y)$.
+\end{lemma}
+
+\begin{dfn}[\cite{BBS12}]
+For any formula $\Phi$ in the language of $\ehaststar$, we define its \emph{internalization} $\Phi^{\intern}$ to be the formula one obtains from $\Phi$ by replacing $\st(x)$ by $x = x$, and $\forallst x$ and $\existsst x$ by $\forall x$ and $\exists x$, respectively.
+\end{dfn}
+
+One of the reasons $\ehaststar$ is such a convenient system for the proof-theoretic investigations in~\cite{BBS12} is because we have the following easy result:
+
+\begin{prop}[\cite{BBS12}] \label{conservativeint}
+If a formula $\Phi$ is provable in $\ehaststar$, then its internalization $\Phi^{\intern}$ is provable in $\ehastar$. Hence $\ehaststar$ is a conservative extension of $\ehastar$ and $\eha$.
+\end{prop}
+
+\subsubsection*{Operations on finite sequences}
+
+We have all the standard operations on finite sequences, see~\cite{BBS12} for 
+details and the following lemma.
+\begin{lemma}[\cite{BBS12}] \label{presstandardness}
+     \begin{enumerate}
+       \item $\ehaststar \vdash \st(x^{\sigma^*}) \to \st (|x|),$
+      \item $\ehaststar \vdash \st(x^{\sigma^*}) \to \st ((x)_{i}),$
+\item $\ehaststar \vdash \st(x^{\sigma}_0) \land \ldots \land \st(x^{\sigma}_n) \to \st (\langle x^{\sigma}_0,\ldots,x^{\sigma}_n\rangle),$
+      \item $\ehaststar \vdash \st(x^{\sigma^*}) \land \st(y^{\sigma^*}) \to \st (x*_{\sigma}y).$
+%       \item $\ehast \vdash \st(x^{\sigma\to\tau}) \land \st(y^{\sigma}) \to \st (x[y])$
+\item $\ehaststar \vdash \st(F^{0 \to \sigma^*}) \land \st(n^0) \to \st(F(0) * \ldots * F(n-1))$.
+    \end{enumerate}
+\end{lemma}
+\begin{proof} Follows from the $\Tst$-axioms together  with the fact that the list recursor $L$ belongs to $\Tstar$.
+\end{proof}
+
+\subsubsection*{Finite sets}
+
+Most of the time, as in~\cite{BBS12}, we will regard finite sequences as stand-ins for finite sets. We also use the notion of an element and that of one sequence being contained in another, as given in~\cite{BBS12}.
+
+\begin{dfn}[\cite{BBS12}]\label{def:element}
+For $s^{\sigma},t^{\sigma^*}$ we write $s \in_{\sigma} t$ and say that $s$ \emph{is an element of} $t$ if
+\[
+         \exists i < |t| (\, s =_{\sigma} (t)_i \, ).
+\]
+%(We will mostly write simply $\preceq$.)
+For $\tup{s}^{\tup{\sigma}}=s_0^{\sigma_0},\ldots,s_{n-1}^{\sigma_{n-1}}$ and $\tup{t}^{\tup{\sigma}^*}=t_0^{\sigma^*_0},\ldots,t_{n-1}^{\sigma^*_{n-1}}$ we write $\tup{s} \in_{\tup{\sigma}} \tup{t}$ and say that $\tup{s}$ \emph{is an element of} $\tup{t}$ if
+\[
+        \bigwedge_{k=0}^{n-1} \, s_k \in_{\sigma_k} t_k.
+\]
+In case no confusion can arise, we will drop the subscript and write simply $\in$ instead of $\in_{\sigma}$ or $\in_{\sigma^*}$.
+\end{dfn}
+
+\begin{lemma}[\cite{BBS12}] \label{elemstsetset}
+$\ehaststar \vdash \st(x^{\sigma^*}) \land y \in_\sigma x \to \st(y^\sigma)$.
+\end{lemma}
+
+\begin{dfn}[\cite{BBS12}]\label{def:preorder}
+For $s^{\sigma^*},t^{\sigma^*}$ we write $s \preceq_{\sigma} t$ and say that $s$ \emph{is contained in} $t$ if
+\[
+         \forall x^\sigma \, ( \, x \in s \to x \in t \, ),
+\]
+or, equivalently,
+\[ \forall i < |s| \, \exists j < |t| \, (s)_i =_{\sigma} (t)_j. \]
+%(We will mostly write simply $\preceq$.)
+For $\tup{s}^{\tup{\sigma}^*}=s_0^{\sigma^*_0},\ldots,s_{n-1}^{\sigma^*_{n-1}}$ and $\tup{t}^{\tup{\sigma}^*}=t_0^{\sigma^*_0},\ldots,t_{n-1}^{\sigma^*_{n-1}}$ we write $\tup{s} \preceq_{\tup{\sigma}} \tup{t}$ and say that $\tup{s}$ \emph{is contained in} $\tup{t}$ if
+\[
+        \bigwedge_{k=0}^{n-1} \, s_k \preceq_{\sigma_k} t_k.
+\]
+%\[
+%        \forall k \leq n\forall i\leq |s_k| \exists j \leq |t_k| ((s_k)_i=_{\sigma_k} (t_k)_j)
+%\]
+\end{dfn}
+
+\begin{lemma}[\cite{BBS12}] $\ehastar$ proves that $\preceq_{\sigma}$ determines a preorder on the set of objects of type $\sigma^*$. More precisely, for all $x^{\sigma^*}$ we have $x \preceq_{\sigma} x$, and for all $x^{\sigma^*},y^{\sigma^*},z^{\sigma^*}$ with $x \preceq_{\sigma} y$ and $y \preceq_{\sigma} z$, we have $x \preceq_{\sigma} z$.
+\end{lemma}
+
+\begin{dfn}[\cite{BBS12}]
+A property $\Phi(\tup{x}^{\tup{\sigma}^*})$ is called \emph{upwards closed in $\tup{x}$} if
+$\Phi(\tup{x})\land \tup{x} \preceq \tup{y} \to \Phi(\tup{y})$
+and \emph{downwards closed in $\tup{x}$} if
+$\Phi(\tup{x})\land \tup{y} \preceq \tup{x} \to \Phi(\tup{y})$.
+\end{dfn}
+
+\subsubsection*{Induction and extensionality for sequences}
+
+\begin{prop}[\cite{BBS12}]
+$\ehastar$ proves the induction schema for sequences:
+\[ \varphi(\et_\sigma) \land \forall a^\sigma, y^{\sigma^*} \, ( \, \varphi(y) \to \varphi(c(a, y) \, ) \to \forall x^{\sigma^*} \, \varphi(x). \]
+\end{prop}
+
+A consequence of this is the principle of extensionality for sequences. We follow~\cite{BBS12} and call two elements $x^{\sigma^*},y^{\sigma^*}$ extensionally equal, and write $x =_{e, \sigma^*} y$, iff
+\[ |x| =_0 |y| \land \forall i < |x| \, ( \, (x)_i =_\sigma (y)_i \, ). \]
+\begin{prop}[\cite{BBS12}] \label{extprincforseq}
+$\ehastar$ proves 
+\[ \forall x^{\sigma^*},y^{\sigma^*} \, ( \, x=_{e, \sigma^*} y \to x =_{\sigma^*} y \, ). \]
+\end{prop}
+
+\begin{cor}[\cite{BBS12}]
+$\ehaststar$ proves
+\[ \forall x^{\sigma^*} \, \st(|x|) \land \forall i < |x| \, \st((x)_i) \to \st(x). \]
+\end{cor}
+
+\begin{cor}[\cite{BBS12}]
+$\ehaststar$ proves the external induction axiom for sequences:
+\[  \Phi(\et_\sigma) \land \forallst a^\sigma, y^{\sigma^*} \, ( \, \Phi(y) \to \Phi(c(a, y) \, ) \to \forallst x^{\sigma^*} \, \Phi(x). \]
+\end{cor}
+
+\subsubsection*{Finite sequence application}
+
+We already said, that we have all the usual operations on sequences. The following, more involved, operations are crucial for this chapter.
+
+\begin{dfn}[Finite sequence application and abstraction,~\cite{BBS12}]
+If $s$ is of type $(\sigma \to \tau^*)^*$ and $t$ is of type $\sigma$, then
+\[
+         s[t] := (s)_0 (t) *\ldots * (s)_{|s|-1}(t):\tau^*.
+\]
+For every term $s$ of type $\sigma \to \tau^*$ we set 
+\[ \Lambda x^\sigma.s(x):=\langle\lambda x^\sigma . s(x)\rangle: (\sigma \to \tau^*)^*. \]
+\end{dfn}
+
+Note that we have
+\[ (\Lambda x.s(x))[t] =_{\tau^*} (\lambda x.s(x))(t)=_{\tau^*} s(t). \]
+Also, the same conventions as for ordinary application and abstraction apply.
+
+Moreover, in~\cite{BBS12} we also define recursors $\tup{\mathcal{R}}_{\tup{\rho}}$ for each tuple of types $\tup{\rho}^* = \rho^*_0, \ldots, \rho^*_k$, such that
+\begin{eqnarray*}
+          \tup{\mathcal{R}}_{\tup{\rho}} (0,\tup{y},\tup{z}) &=_{\tup{\rho}^*} & \tup{y}, \\
+           \tup{\mathcal{R}}_{\tup{\rho}} (n+1,\tup{y},\tup{z}) &=_{\tup{\rho}^*} & \tup{z}[n,\tup{\mathcal{R}}_{\tup{\rho}} (n,\tup{y},\tup{z})],
+\end{eqnarray*}
+(where $y_i$ is of type $\rho^*_i$ and $z_i$ is of type $(0 \to \rho^*_0 \to \ldots \to \rho^*_k  \to \rho^*_i)^*$). Indeed, by letting
+\[
+      \tup{\mathcal{R}}_{\tup{\rho}} :=\lambda n^0,\tup{y},\tup{z}. \tup{R}_{\tup{\rho}^*}(n,\tup{y},(\lambda \tup{s}^{\tup{\rho}^*}, t^0 . \tup{z} [t,\tup{s}])),
+\]
+where $\tup{R}_{\tup{\rho}}$ are constants for simultaneous primitive recursion as in~\cite{Kohlenbach08},
+we get
+\[
+          \tup{\mathcal{R}}_{\tup{\rho}} (0,\tup{y},\tup{z}) =_{\tup{\rho}^*} \tup{R}_{\tup{\rho}^*}(0,\tup{y},(\lambda \tup{s}^{\tup{\rho}^*}, t^0 . \tup{z} [t,\tup{s}]))  =_{\tup{\rho}^*} \tup{y}
+\]
+and
+\begin{eqnarray*}
+           \tup{\mathcal{R}}_{\tup{\rho}} (n+1,\tup{y},\tup{z}) &=_{\tup{\rho}^*} & \tup{R}_{\tup{\rho}^*}(n+1,\tup{y},(\lambda \tup{s}^{\tup{\rho}^*}, t^0 . \tup{z} [t,\tup{s}])) \\
+           &=_{\tup{\rho}^*} & (\lambda \tup{s}^{\tup{\rho}^*}, t^0 . \tup{z} [t,\tup{s}]) (\tup{R}_{\tup{\rho}^*} (n,\tup{y},  (\lambda \tup{s}^{\tup{\rho}^*}, t^0 . \tup{z} [t,\tup{s}])  ),n) \\
+           &=_{\tup{\rho}^*} &  \tup{z}[n,\tup{R}_{\tup{\rho}^*} (n,\tup{y},  (\lambda \tup{s}^{\tup{\rho}^*}, t^0 . \tup{z} [t,\tup{s}])  )] \\
+           &=_{\tup{\rho}^*} &  \tup{z}[n,\tup{\mathcal{R}}_{\tup{\rho}} (n,\tup{y},\tup{z})].
+\end{eqnarray*}
+
+We have the following concerning the preorder defined above.
+
+\begin{lemma}[\cite{BBS12}]\label{le:herbrand:new_application} $\ehastar$ proves
+      \begin{enumerate}
+         \item If $s^{(\sigma\to\tau^*)^*} \preceq \tilde{s}^{(\sigma\to\tau^*)^*}$, then
+                   $s[t] \preceq \tilde{s}[t]$, for all $t^{\sigma}$.
+         \item If $s \preceq \tilde{s}$, then $s[\tup{t}] \preceq \tilde{s}[\tup{t}]$ for all $\tup{t}$ of suitable types.
+         \item If $\tup{s} \preceq \tup{\tilde{s}}$, then $\tup{s}[\tup{t}] \preceq \tup{\tilde{s}}[\tup{t}]$ for all $\tup{t}$ of suitable types.
+    \end{enumerate}
+\end{lemma}
+
+\begin{lemma}[\cite{BBS12}] $\ehaststar$ proves \[         \st^{(\sigma\to\tau^*)^*}(x) \land \st^{\sigma}(y) \to \st^{\tau^*} (x[y]) \] and \[ \st^{\sigma \to \tau^*}(s) \to \st^{(\sigma \to \tau^*)^*}(\Lambda x^\sigma. s(x)). \]
+\end{lemma}
+
+

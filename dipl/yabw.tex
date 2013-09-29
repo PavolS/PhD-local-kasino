@@ -1,0 +1,859 @@
+\section{Interpreting Bolzano-Weierstra{\ss}} \label{s:bw}
+In this section we will use bar recursion
+ to interpret the Bolzano-Weierstra{\ss} 
+\paragraph{\defkey{\BW(s)}}
+\[
+  \exists a\forall k\exists l\geq k\ |a-_\RR\lambda n.sl|\leq_\RR2^{-k}
+\]
+theorem. We will use two common principles: $\CA$ and $\WKL$. 
+Their respective interpretations can be found in previous sections. Recall:
+\paragraph{\defkey{$\SiLm\CA(f)$}}
+\[
+  \exists g \forall x\ (gx=_00 \leftrightarrow \exists y\ fxy=_00)
+\]
+\paragraph{\defkey{$\WKL_K(f)$}}
+\[
+  \BTree_K(f) \wedge \forall k\exists x (\lh(x)=_0k \wedge f(x)=_00) 
+     \rightarrow \exists b\leq_1\one^1\ (\forall k\ f(\bar{b}(k))=_00)
+\text{.}
+\]
+First, in section \ref{ss:spuWKL}, we give a simple 
+proof of $\BW(s)$ using $\SiLm\CA$ and $\WKL_K$
+to be able to apply $\Pi^0_2\m\WKL$ to a specific tree determined by $s$.\\
+We analyze a minor modification of this proof and obtain the D-interpretation
+of $\BW$ in section \ref{ss:fafi}.\\
+Finally, in section \ref{ss:acr}, we discuss the complexity of the realizers 
+obtained in \ref{ss:fafi} depending on the way the $\BW$ principle is used in
+a given proof.
+
+\subsection{Simple Proof based on $\Pi^0_2\m\WKL$} \label{ss:spuWKL}
+Consider a tree representation of the unit interval $[0,1]$ which 
+splits the unit interval at level $n$ into $2^n$ intervals of 
+length $2^{-n}$. We can draw the tree for first two levels as follows:
+\[
+\begin{parsetree}
+(.. 
+   (.$[0,\frac{1}{2}]$.
+      (.$[0,\frac{1}{4}]$. .. ..)
+      (.$[\frac{1}{4},\frac{1}{2}]$. .. ..)
+   ) 
+   (.$[\frac{1}{2},1]$.
+      (.$[\frac{1}{2},\frac{3}{4}]$. .. ..)
+      (.$[\frac{3}{4},1]$. .. ..)
+   )
+)
+\end{parsetree}
+\text{.}\]
+Note that we can define each node via the path from the 
+root to this interval. This path can by represented 
+by a binary sequence $b$, where the $n$-th element defines which branch 
+to take (here $0$ means left and $1$ means right).\\
+%
+We define a predicate $I(b^0,n^0,m^0)$, which tells us, whether the 
+rational number $r$ encoded by $m=\langle r \rangle$ is from an 
+interval defined by such a finite binary sequence $b$
+of length $n$ (we can encode any finite sequence of natural numbers 
+as a natural number), i.e. in a by 
+$b$ given interval of length $2^{-n}$. 
+\begin{align*}
+I(b^0,n^0,m^0)  :&\equiv\ \ \  
+  \InIntM{b}{n}\\
+&\equiv\ \ \ n\leq \lh(b) \ \wedge\  
+             \sum_{i=1}^{n}\frac{b(i)}{2^i}\ \leq\ 
+             r\ \leq\sum_{i=1}^{n}\frac{b(i)}{2^i}+\frac{1}{2^n} 
+\end{align*}
+For example, $I(<1,1>,2,m^0)$ decides whether $m$ is or is not in
+the interval 
+$[\sum_{i=1}^{2}\frac{(<1,1>(i)}{2^i},\lb\sum_{i=1}^{2}\frac{(<1,1>(i)}{2^i}+\frac{1}{2^2}]$
+which is $[\frac{3}{4},1]$.\\
+We know that for given finite binary sequence $b$ and 
+an infinite sequence of encodings of rational
+numbers $s$ there is a function $f_{s}^{1(0)}$ such that:
+\[
+ f_{s}(b,k)=_00\ \ \leftrightarrow\ \ (\ k>\lh(b)\wedge I(s,\lh(b),sk)\ )
+\text{.}\]
+%
+Now, by $\SiLm\CA(f_s)$ we obtain a function $g_s$, s.t.:
+\[
+  \forall b^0\ (\ g_sb=_00 \leftrightarrow \exists z^0\ (f_{s}(b,z)=_00)\ )
+\text{.}\]
+%
+In other words we have for all $b^0$:
+\[
+  g_{s}(b)=_00\ \leftrightarrow \exists k^0\geq_0 \lh(b)\ \  I(b,\lh(b),sk)
+\text{.}
+\tag{+}
+\]
+%
+%
+% showing bintree(f)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+To show $\BTree(g_s)$, consider any finite binary sequence $b$:
+\begin{align*}
+  g_s(b)=_00\ \wedge\ x\subseteq b 
+           &{\ \rightarrow\ }  \exists k^0\geq_0\lh(b)\ \ I( b,\lh(b),sk)\ \wedge\ 
+                              \lh(x)\leq_0\lh(b)\ \wedge\ 
+                              x\subseteq b \\
+               &{\ \rightarrow\ } \exists k^0>_0\lh(x)\ \ I( b,\lh(x),sk)\ \wedge\ 
+                              x\subseteq b\  \\
+               &{\ \rightarrow\ } \exists k^0>_0\lh(x)\ \ I( x,\lh(x),sk)\\
+               &{\ \rightarrow\ }g_s(x)=_00
+\text{.}
+\end{align*}
+To show 
+\[
+\forall k\exists x (\lh(x)=_0k \wedge g_s(x)=_00) \tag{++}
+\]
+just consider any given 
+natural number $k$. By the definition of our tree, it splits the $[0,1]$ 
+interval at any level, i.e. especially also on level $k$, completely. 
+I.e. we can find also at level $k$ an interval, defined by a binary 
+sequence of length $k$, such that $s(k)$ is contained in this
+interval defined by some $b$ with $\lh(b)=k$  . 
+So, we have: $I( b, \lh(b), s(k))$ and $ \lh(b)=_0k$. 
+As we started with arbitrary $k$, this implies (++).\\
+Now, we can apply $\WKL_K(g_s)$ to get:
+\[
+\exists b^1 (\BFunc(b) \wedge \forall k\ g_s(\overline{b}k)=_00) 
+\tag{*}
+\text{.}
+\]
+Note that in (*) (and from now on) $b^1$ is 
+a binary function and $g_s$ takes
+the encoding of the finite beginning, $\langle b(0),\ldots,b(k)\rangle$, 
+of this infinite sequence as its type $0$ argument.
+Using (+) we can conclude that (*) is equivalent to:
+\[
+\exists b^1\leq\one\ \forall n\ \exists l>n\ \ I(\overline{b}n,n,xl)
+\text{.}\]
+This means that $\BW$ is satisfied by $\hat a$ by setting:
+\[
+a(n^0):=_\QQ \left\langle \sum_{i=1}^n \frac{b(i)}{2^i}\ +
+               \frac{1}{2^{n+1}}\right\rangle
+\text{.}
+\]
+%
+It remains to show that $a$ is a real 
+number in the sense as defined in the introduction or in \cite{KO02}.
+To do so, take any natural number $n$. We have:
+\begin{align*}
+|a(n)-a(n+1)|&=
+\left|
+\sum_{i=1}^{n+1} \frac{b(i)}{2^i}\ +
+ \frac{1}{2^{n+2}}
+-
+{\left(\sum_{i=1}^n \frac{b(i)}{2^i}\ +
+ \frac{1}{2^{n+1}}\right)}
+\right|
+\\
+&=
+\left|
+\frac{b(n+1)}{2^{n+1}}+\frac{1}{2^{n+2}}
+-
+\frac{1}{2^{n+1}}
+\right|
+\\
+&=
+2^{-(n+2)} < 2^{-(n+1)}
+\text{,}
+\end{align*}
+what concludes the proof.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\subsection{Formal Analysis and functional Interpretation} \label{ss:fafi}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+%
+Recall the standard formulation of $\BW$:\\
+\[
+\forall s(\ \ (\forall n\ 0\leq_\QQ sn\leq_\QQ 1) \rightarrow 
+  \exists a\forall k\exists l\geq k\ |a-_\RR\lambda n.sl|\leq_\RR2^{-k}\ \ )
+\text{.}
+\tag{$\BW_0$}
+\]
+Using the $\hat f$ transformation from definition \ref{d:hat}, we can
+derive $\BW_0$ from the formula:
+\[
+\forall s^1\leq_1\one\exists a^1\forall k^0\exists l^0\geq k_0\ 
+ |\hat a(k+1)-_\QQ s(l)|\leq_\QQ2^{-(k+2)}
+\text{.}
+\tag{$\BW_1$}
+\]
+From now on we consider $s$ to be an infinite sequence of encodings of rational 
+numbers within the $[0,1]$ interval, and $f_s$ to be the characteristic function of
+the corresponding tree as defined in section \ref{ss:spuWKL} above.
+From section \ref{s:wkl}, we know that using an 
+appropriate quantifier-free formula $\phi'^{\WKL}$
+we can write $\WKL$ as
+\[
+\forall h\exists b^1\leq\one\forall k\ \ \phi^{\WKL}(h,b,k)\equiv\forall(h)\WKL_t(h)
+\text{,}
+\]
+where $\phi^{\WKL}$ is quantifier-free.\\
+We introduce following notations for $\SiLm\CA$:
+\begin{align*}
+\exists g^1\forall x^0 &\phi^{\CA(f)}_{\Sigma^0_1}(x,gx)\\
+&\equiv\ \exists g^1\forall x^0 (gx=_00 \leftrightarrow \exists z^0\ f(x,z)=_00)\\
+\Leftrightarrow\ 
+\exists g^1\forall x^0 &\exists z^0_1\forall z^0_2 \phi^{\CA(f)}(x,gx,z_1,z_2)\\
+&\equiv\
+\exists g^1\forall x^0\exists z^0_1\forall z^0_2
+   ((gx=_00 \rightarrow f(x,z_1)=_00)\wedge(gx=_00 \leftarrow f(x,z_2)=_00) )
+\text{,}
+\end{align*}
+where $\phi^{\CA(f)}$ is a quantifier-free formula. \\
+%The index $s$ stands for the original
+%sequence of rationals we are working with. The formula $\phi_{\CA}(x,y,z)$ 
+%uses $f_s$ as its only free 
+%variable representing the tree corresponding to $s$ as described in the previous section.\\
+Now, at the first glance, the proof-tree for the proof from previous
+ section is fairly simple:
+\[
+\begin{prooftree}
+\SiLm\CA(f_s)
+ \quad \quad
+\WKL
+%--------------------------------------------------------------------------
+\justifies
+\BW(s)
+\end{prooftree}
+\text{,}
+\]
+where we know that $\BW(s)$ is just $\SiLm\CA(f_s) \wedge \WKL(g_s)$, 
+where $g_s$ is the realizing 
+function from $\SiLm\CA(f_s)$. However, we can interpret only the
+negative translations of the assumptions what leads us to:
+\[
+\begin{prooftree}
+(\SiLm\CA(f_s))'
+ \quad \quad
+(\WKL)'
+%--------------------------------------------------------------------------
+\justifies
+(\BW(s))'
+\end{prooftree}
+\text{.}
+\]
+Moreover, to be able to exploit the whole benefits of functional interpretation
+we have to investigate the interpretation of this proof itself, 
+namely the functional interpretation of:
+\[ \ ((\SiLm\CA(f_s))' \wedge (\WKL)')\quad \rightarrow\quad (\BW(s))' \tag{+}\text{.} \]
+So finally we have the following picture:
+\[
+\begin{prooftree}
+(\SiLm\CA(f_s))' \wedge (\WKL)'
+ \quad \quad
+((\SiLm\CA(f_s))' \wedge (\WKL)')\ \rightarrow\ (\BW(s))'
+%--------------------------------------------------------------------------
+\justifies
+(\BW(s))'
+\end{prooftree}
+\text{.}
+\]
+Similarly as in \ref{ss:CA} this turns down to solving the interpretation of (+). This is
+not trivial, since the negative translation double negates each formula. So
+ (+) becomes essentially
+the finite $\DNS$ schema, what becomes even clearer using same
+ notation as in the definition \ref{d:NT}:
+\[ \ (\neg\neg(\SiLm\CA(f_s))^* \wedge 
+\neg\neg(\WKL)^*)\quad \rightarrow\quad \neg\neg(\BW(s))^* \text{.} \]
+Using the representations for $\neg\neg(\BW(s))^*$ becomes
+\[
+\neg\neg \exists g,b\forall x,k\ ( \phi^{\CA(f_s)}_{\SiL}(x,gx)\wedge \phi^{\WKL}(g,b,k)
+\]
+what is essentially $(\Pi^0_2\m\WKL(\phi))'$ for the specific 
+formula $\phi^\BW(s)(\bar b(k))$ corresponding
+to $\exists z\ f_s(\bar b(k),sz)$, where $f_s$ is 
+defined as in section \ref{ss:spuWKL} above. So, treating (+) in the form
+\begin{align*}
+( \neg\neg \exists g'\forall x'\ \phi^{\CA(f)}_{\SiL}(x',g'x')\wedge
+  \forall h' \neg\neg &\exists b'\forall k'\ \phi^{\WKL}(h',b',k') ) \rightarrow\\
+\neg\neg \exists g,b&\forall x,k\ ( \phi^{\CA(f)}_{\SiL}(x,gx)\wedge \phi^{\WKL}(g,b,k) ) 
+%\text{.}
+\end{align*}
+independetly of the precise structure of $f$, we obtain the 
+functional interpretation of $(\Pi^0_2\m\WKL(\psi_f))'$, for which 
+$\psi_f(x^0)$ $\leftrightarrow$ $\exists n^0\ f(x,n)=_00$.\\
+The functional interpretation of (+) using this representation is as follows:
+\[
+\begin{minipage}{\textwidth}
+$\exists G,Z_1,B,H',X',Z_2',K'\ \ \forall B',Z_1',G',X,Z_2,K$
+\vspace{-0.3cm}
+\[
+\quad
+\left(
+\begin{minipage}{0.93\textwidth}
+\vspace{-0.4cm}
+\[
+\left(
+\phi^{\CA(f)} \left(
+\begin{minipage}{0.38\textwidth} 
+\vspace{-0.4cm}
+   \begin{align*}
+     (&G'X'Z_2')(X'(G'X'Z_2')(Z_1'X'Z_2')),\\
+     &X'(G'X'Z')(Z_1'X'Z_2'),  \\
+     (&Z_1'X'Z_2')(X'(G'X'Z_2')(Z_1'X'Z_2')), \\
+     &Z_2'(G'X'Z')(Z_1'X'Z_2')
+   \end{align*}
+\end{minipage}
+\right)
+\wedge
+\phi^{\WKL} \left(
+\begin{minipage}{0.16\textwidth} 
+\vspace{-0.4cm}
+   \begin{align*} 
+     &H', \\
+     &B'H'K',\\
+     &K'(B'H'K')
+   \end{align*}
+\end{minipage}
+\right)
+\right)
+\rightarrow
+\hspace{1cm}
+\]
+
+\vspace{-0.7cm}
+\[
+\hspace{4.85cm}
+\left(
+\phi^{\CA(f)} \left( 
+\begin{minipage}{0.18\textwidth} 
+\vspace{-0.4cm}
+  \begin{align*}
+     &G(XGZ_1B), \\
+     &XGZ_1B, \\
+     &Z_1(XGZ_1B), \\
+     &Z_2GZ_1B
+   \end{align*}
+\end{minipage}
+\right)
+\wedge
+\phi^{\WKL} \left(
+\begin{minipage}{0.11\textwidth} 
+\vspace{-0.4cm}
+   \begin{align*} 
+     &G, \\
+     &B,\\
+     &KGZ_1B
+   \end{align*}
+\end{minipage}
+\right)
+\right)
+\]
+
+\end{minipage}
+\right)
+\]
+\end{minipage}
+\text{,}
+\]
+where, again, each exists-variable (i.e. $G$, $B$, $H'$, $X'$, $Z'$, and $K'$) 
+may depend on any 
+for-all-variable (i.e. $B'$, $G'$, $X$, $Z$, and $K$). E.g. by $G$ we mean in 
+fact $(GB'G'XZK)$.  This interpretation
+yields following functional equations:
+\setcounter{equation}{0}
+\begin{align}
+     (G'X'Z_2')(X'(G'X'Z_2')(Z_1'X'Z_2'))&=G(XGZ_1B)\\         %1
+     X'(G'X'Z')(Z_1'X'Z_2')&=XGZ_1B  \\                        %2
+     (Z_1'X'Z_2')(X'(G'X'Z_2')(Z_1'X'Z_2'))&=Z_1(XGZ_1B) \\    %3
+     Z_2'(G'X'Z')(Z_1'X'Z_2')&=Z_2GZ_1B \\                     %4
+     H'&=G \\                                                  %5
+     B'H'K'&=B\\                                               %6  
+     K'(B'H'K')&=KGZ_1B                                        %7
+\text{.}
+\end{align}
+We use a very similar approach to the one used by Gerhardy in \cite{GerhardyX} to
+solve such equations for finite $\DNS$. First, we conclude from (5) and (6)
+that $B=B'GK'$ and from (1) and (2) that $G=G'X'Z_2'$. Using (6), we can set 
+$K'$ to $\lambda b.KGZ_1b$ according to (7). This is not that trivial
+for $X'$ and $Z_2'$. However, as Gerhardy presented in \cite{GerhardyX}, in the presence
+of the $\lambda g$ and $\lambda z_1$, which as we know will stand for the input 
+of $G$ and $Z_1$, becomes
+$K'$ and thereby $B$ suddenly a well definable term:
+\begin{align*} 
+t_{X'}:&=\lambda g,z_1.Xgz_1(B'g(\lambda b.Kgz_1b))\\
+t_{Z_2'}:&=\lambda g,z_1.Z_2gz_1(B'g(\lambda b.Kgz_1b))\text{.}
+\end{align*} 
+This makes the rest of our presets well defined, what is easy
+to see, since for each term all dependencies are only on
+the terms defined above:
+\begin{align*} 
+t_{Z_1}:&=Z_1't_{X'}t_{Z_2'}\\
+t_{G}:&=G't_{X'}t_{Z_2'}\\
+t_{H'}:&=t_{G}\\
+t_{K'}:&=\lambda b.Kt_{G}t_{Z_1}b\\
+t_{B}:&=B't_{G}t_{K'}\text{.}
+\end{align*} 
+We have found the realizing terms for ($+^D$) for any $G'$, $Z_1'$ and $B'$. To finally obtain
+the functional interpretation of $(\Pi^0_2\m\WKL(\phi))'$ we just need to 
+define these two functionals in such a way that the 
+assumptions $\phi^{\WKL}$ and $\phi^{\CA(f)}$ are always true.\\
+For $\phi^{\CA(f)}$, as we know from the functional interpretation of $\SiLm\CA$ 
+(see section \ref{ss:CA}), 
+i.e. nothing else as setting 
+\begin{align*}
+      G'^{\mathit{3}}&=t_h \\
+      Z_1'^{\mathit{3}}&=\lambda T^{2(1)},\lambda W^{2(1)},a^0\ .\ t_zTWa0^0
+\text{,} 
+\end{align*}
+where $t_h$ and $t_z$ are defined as in the ND-interpretation of $\SiLm\CA$ 
+(see corollary \ref{c:NDSiLCA}).\\
+For $B'$, from the interpretation of $\WKL$, we know the following
+correspond:
+\[ 
+\underbrace{\overline {B'H'K'}(K'(B'H'K'))}_{\text{as above}}\quad = 
+\underbrace{\overline{B}(AB)}_{\text{as in section \ref{ss:HFI}}} 
+\text{.} 
+\]
+We use the same notation as we used to define $B$ in section \ref{ss:HFI} and define:
+\[
+        B':=\lambda h.\lambda A.[F_h(K_{A}(\emptyset),\emptyset)] \text{,}
+\]
+where $F_h$ and $K_A$ are defined as in the ND-interpretation of $\WKL$ 
+(see theorem \ref{t:FIwkl}).\\
+The terms defined above using these definitions for $G'$ and $B'$ then satisfy the following
+modification of ($+^D$):
+\begin{align*}
+\forall X,Z_2,K\ (\ &\phi^{\CA(f)}(
+ t_{G}(Xt_{G}t_{Z_1}t_{B}),
+ Xt_{G}t_{Z_1}t_{B},
+ t_{Z_1}( Xt_{G}t_{Z_1}t_{B} ),
+ Z_2t_Gt_{B})\ \wedge\\
+ &\phi^{\WKL}(t_{G},t_{B},Kt_{G}t_{Z_1}t_{B})\ ) \text{,}
+\end{align*}
+which is in principle the functional interpretation of $\Pi^0_2\m\WKL(\phi)$. In summary we get:
+%
+% ND-interpretation of \phi_BW(s)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{prop}[The ND-interpretation of $\Pi^0_2\m\WKL(\phi)$] \label{p:ND-PI02WKL}
+$ $
+\\
+W.l.o.g. assume:
+\[
+\forall k\phi(\bar bk) \Leftrightarrow \forall k^0\exists z^0\ f(\bar bk,z)=_00
+\text{.}
+\]
+The $\Pi^0_2\m\WKL(\phi)$ principle in the classically equivalent form:
+\[
+\exists g,b\forall x,k\ ( \phi^{\CA(f)}_{\SiL}(x,gx)\wedge \phi^{\WKL}(g,b,k) )
+\text{,}
+\]
+is ND-interpreted by
+\begin{align*}
+\forall X,Z,K\ (\ &\phi^{\CA(f)}(
+ t_{G}(Xt_{G}t_{Z}t_{B}),
+ Xt_{G}t_{Z}t_{B},
+ t_{Z}( Xt_{G}t_{Z}t_{B} ),
+ Zt_Gt_{B})\ \wedge\\
+ &\phi^{\WKL}(t_{G},t_{B},Kt_{G}t_{Z}t_{B})\ ) \text{,}
+\end{align*}
+where
+\begin{align*}
+        t_B    &:= [F_{t_G}(K_{\lambda b.Kt_Gt_Zb}(\emptyset),\emptyset)]\\
+        t_Z    &:= \lambda n^0\ .\ t_zt_{X}'t_{Z}'n0^0\\
+        t_G    &:= t_ht_{X}'t_{Z}'\\
+        t_{X}' &:=\lambda g,z.Xgz( 
+                 [F_{\lambda b.Kgzb,g}(K_{\lambda b.Kgzb}(\emptyset),\emptyset)] )\\
+        t_{Z}' &:=\lambda g,z.Zgz( 
+                 [F_{\lambda b.Kgzb,g}(K_{\lambda b.Kgzb}(\emptyset),\emptyset)] )\text{.}
+\end{align*}
+The remaining terms are defined as in previous sections:
+\begin{align*}
+        K_Ax     &:= \KA{A}{x}        \\
+        F_{A,f}(0,x)   &:= \Fnullx \\
+        F_{A,f}(n+1,x) &:= \Fnx \\
+        x_0TW    &:= \xTWf{T}{W}{f}   \\
+        u_{f,W}n^0v^{1(0)}  
+                 &:= \uWf{W}{f}\\
+        t_z      &:=\lambda X^{2(1)},Z^{2(1)},a^0,b^0\ .\ t_g(t_fX)(t_fZ)a\\
+        t_h      &:=\lambda X^{2(1)},Z^{2(1)},n^0\ .\ 
+                        {\min}_0(f(n,t_g(t_fX)(t_fZ)n),1) \\
+        t_f      &:=\lambda X^{2(1)},g^1\ .\ 
+                       X(\lambda n^0 . {\min}_0(f(n,gn),1) )(\lambda a^0,b^0 . ga) 
+\text{.}
+\end{align*}
+\end{prop}
+
+\begin{rmk}
+One might wonder, why we still need the first element of the conjunction.
+The point is, the second part of our result is not as strong as it may seem. 
+The formula:
+\[
+\forall K\ \phi^{\WKL}(t_{G},t_{B},Kt_{G}t_{Z}t_{B}) \text{,}
+\]
+becomes useful only if we can prove that $t_{G}$ defines the 
+infinite binary tree we originally started with. 
+Otherwise, all conclusions taken are about some, though primitive recursive, 
+modifications of $t_G$; moreover we could not prove what does this $t_G$ stand for. 
+See also the proof of the corollary \ref{c:ND-bw} below.
+\end{rmk}
+
+\begin{cor}\label{c:ND-bw}
+The Bolzano-Weierstra{\ss} principle $\BW(s)$ for an infinite sequence
+of rational numbers, $s$, bounded within the interval $[0,1]$:
+\[
+\forall s\leq_1\one
+  \exists a\forall k\exists l\geq k\ |\hat a(k+1)-_\QQ sl|\leq_\QQ2^{-(k+1)}
+\text{,}
+\]
+is ND-interpreted by
+\[
+\forall s\leq_1\one, K
+  (\ \ t_L(Kt_At_L)\ \wedge\ 
+  |\hat t_A(Kt_At_L+1)-_\QQ s(t_L(Kt_At_L))|\leq_\QQ2^{-(Kt_At_L+1)}\ \ )
+\text{,}
+\]
+where the terms $t_L$ and $t_A$ depend on both $s$ and $K$ and are defined as follows:
+\begin{align*}
+t_L&:=\lambda n^0.t_Z(\overline{t_B}(n))\\
+t_A&:=\lambda n^0.\sum^{n}_{i=1}\frac{t_Bi}{2^i}\ +\ \frac{1}{2^{n+1}}
+\text{,}
+\end{align*}
+where $t_B$ and $t_Z$ are defined as above in proposition \ref{p:ND-PI02WKL} 
+with fixed $X$, $Z$, and $f$:
+\begin{align*}
+X\tp2&:=\lambda g^1,z^1,b^1\ .\ B(Kgzb,g,z,b)\\
+Z\tp2&:=\lambda g^1,z^1,b^1\ .\ N(Kgzb,g,z,b)\\
+f\tp1&:=f_s\tp1
+\text{,}
+\end{align*}
+where
+\begin{align*}
+B(m^0,g^1,z^1,b^1)&:=_0
+\begin{cases}
+  {\min}_0 \{ x^0 | \lh(x)<_0 m \wedge \neg\phi^{\CA}(x,gx,zx,N_zm) \} &\text{if it exists} \\
+  X_n(m,g,b)&\Telse
+\end{cases}\\
+X_n(m^0,g^1,b^1)&:=_0
+  \begin{cases}
+    \bar bm &\Tif\ g(\bar bm)=_00\\
+    {\min}_0 \{ x^0 | \lh(x)=m \wedge f_s(x,m)=_00 \} &\Telse
+  \end{cases}\\
+N(m^0,g^1,z^1,b^1)&:=_0\begin{cases}
+\lh(m) &\Tif\ f_s(m,\lh(m))=_00\\
+z(X_nmgb) &\Telse
+\end{cases}\\
+        f_s(b^0,z^0)
+                 &:=_0\fs{b}{z}\\
+        I(b^0,n^0,m^\QQ)
+                 &:\equiv\ \ \  \InIntM{b}{n}
+\text{.}
+\end{align*}
+\end{cor}
+%%%%
+%
+% Proof
+%
+\begin{proof}% [ of corrolary \ref{c:ND-bw}]
+Unwinding $\phi^\CA$ and $\phi^\WKL$ 
+we get by proposition \ref{p:ND-PI02WKL}:
+\setcounter{equation}{0}
+\begin{multline}
+\forall K\tp2,X\tp2,Z\tp2\ 
+                     ((t_G\args{ XZK (X \args{
+                                          (t_G\args{XZK})
+                                          (t_Z\args{XZK})
+                                          (t_B\args{XZK})
+                                        } )
+                           } 
+                       )=_00  \rightarrow\\
+                       f_s( (X \args{
+                                  (t_G\args{XZK})
+                                  (t_Z\args{XZK})
+                                  (t_B\args{XZK})
+                                } )  ,
+                            t_Z \args{ XZK (X \args{
+                                                (t_G\args{XZK})
+                                                (t_Z\args{XZK})
+                                                (t_B\args{XZK})
+                                               } )
+                                 }  
+                       )=_00
+                      )
+\end{multline}
+and
+\begin{multline}
+\forall K\tp2,X\tp2,Z\tp2\ 
+                     ((t_G\args{ XZK (X \args{
+                                          (t_G\args{XZK})
+                                          (t_Z\args{XZK})
+                                          (t_B\args{XZK})
+                                        } )
+                           } 
+                       )=_00  \leftarrow\\
+                       f_s( X \args{
+                                  (t_G\args{XZK})
+                                  (t_Z\args{XZK})
+                                  (t_B\args{XZK})
+                                }   ,
+                            Z \args{
+                                 (t_G\args{XZK})
+                                 (t_Z\args{XZK})
+                                 (t_B\args{XZK})
+                               } 
+                       )=_00
+                      )
+\end{multline}
+and
+\be[f:three]
+\forall K\tp2,X\tp2,Z\tp2\ 
+  \widehat{\ (\widehat{ t_G \args{XZK} }
+             )_{ t_{ t_G\args{XZK} } }\ 
+          } (\overline{
+                t_B\args{XZK}
+             } (K \args{
+                    (t_G\args{XZK})
+                    (t_Z\args{XZK})
+                    (t_B\args{XZK})
+                  }
+               )
+            )=_00
+\text{.}
+\ee
+
+Note that by (1) the equality $t_G\args{XZK}(x)=_00$ implies $f_s(x,z)=_00$ and thereby
+ $\BFunc([x])$.\\
+We will not be able to show $\forall K\tp2\BTree(t_g\args{XZK})$. Fortunately, we need only
+to show:
+\begin{multline*}
+\forall K\tp2\ {\big(} 
+\widehat{t_G\args{XZK}}
+ (\overline{t_B\args{XZK}}(K\args{ (t_G\args{XZK}) (t_Z\args{XZK}) (t_B\args{XZK}) }))=_00 
+       \rightarrow\\
+ t_G\args{XZK}
+   (\overline{t_B\args{XZK}}(K\args{ (t_G\args{XZK}) (t_Z\args{XZK}) (t_B\args{XZK}) }))=_00\ 
+{\big)} 
+\end{multline*}
+and
+\begin{multline*}
+\forall K\tp2\ {\big(}\ (t_G\args{XZK})_{t_{t_G\args{XZK}}}(\overline{t_B\args{XZK}}(K\args{ (t_G\args{XZK}) (t_Z\args{XZK}) (t_B\args{XZK}) }))=_00 \rightarrow\\
+                           t_G\args{XZK}(\overline{t_B\args{XZK}}(K\args{ (t_G\args{XZK}) (t_Z\args{XZK}) (t_B\args{XZK}) }))=_00)\ {\big)}\text{.}
+\end{multline*}
+Due to the definition \ref{d:hatAndG} to do so it suffices to show:
+\begin{multline}
+\forall K\tp2,x^0 
+\ \ {\Big(\ }{\big(} x\subseteq 
+       \overline{t_B\args{XZK}}(K\args{ (t_G\args{XZK}) (t_Z\args{XZK}) (t_B\args{XZK}) } ) 
+      \ \wedge \\
+      t_G\args{XZK}
+       (\overline{t_B\args{XZK}}(K\args{ (t_G\args{XZK}) (t_Z\args{XZK}) (t_B\args{XZK}) } ))=0
+    {\big)}
+    \rightarrow 
+                           t_G\args{XZK}(x)=_00 {\ \Big)} \label{e:tree}
+\end{multline}
+\begin{align}
+\forall K\tp2\ 
+  \forall n^0 \leq_0 K\args{ (t_G\args{XZK}) (t_Z\args{XZK}) (t_B\args{XZK}) }\ \ 
+\left(\ \exists x (\lh(x)=_0 n \wedge t_G\args{XZK}x=_00\ \right) \label{e:inf}
+\end{align}
+respectively.
+\begin{itemize}
+\item To prove \eqref{e:tree} suppose:
+\begin{multline}\label{e:trAss}
+x\subseteq 
+       \overline{t_B\args{XZK}}(K\args{ (t_G\args{XZK}) (t_Z\args{XZK}) (t_B\args{XZK}) } ) 
+      \ \wedge \\
+      t_G\args{XZK}
+       (\overline{t_B\args{XZK}}(K\args{ (t_G\args{XZK}) (t_Z\args{XZK}) (t_B\args{XZK}) } ))=0
+\end{multline}
+holds for some $K$ and $x$. By (1), (2), and definitions of $X$ and $B$ we have
+for all binary sequences $b$ with $\lh(b)
+  \leq l:=K\args{
+    (t_G\args{XZK})
+    (t_Z\args{XZK})
+    (t_B\args{XZK})
+   }$
+\begin{multline}
+      ((t_G\args{ XZK} (b) )=_00 \rightarrow f_s( b, t_Z \args{ XZK}(b) )=_00 )\ \ \wedge\\
+      (t_G\args{ XZK } (b) )=_00 \leftarrow f_s( b, Z\args{
+        (t_G\args{XZK})
+        (t_Z\args{XZK})
+        (t_B\args{XZK})
+       }  )=_00 ))
+\label{e:caFin}
+\text{.}
+\end{multline}
+Suppose namely \eqref{e:caFin} would not hold for some $b_0\leq l$, then by definition of
+$X$, is $X\args{(t_G\args{XZK})(t_Z\args{XZK})(t_B\args{XZK})}$ equal to $b_0$ 
+and we get a contradiction to (1)$\wedge$(2), for our specific $X$.\\
+So, together with \eqref{e:trAss} we obtain from \eqref{e:caFin}:
+\[
+f_s( \overline{t_B\args{XZK}}(l), t_Z \args{ XZK}(\overline{t_B\args{XZK}}(l)) )=_00
+\text{,}
+\]
+what by definition of $Z$ implies
+\[
+f_s( \overline{t_B\args{XZK}}(l), Z\args{(t_G\args{XZK})(t_Z\args{XZK})(t_B\args{XZK})} )=_00
+\text{.}
+\]
+By definition of $f_s$, see also section \ref{ss:spuWKL}, and \eqref{e:trAss} this implies
+\[
+f_s( x, Z\args{(t_G\args{XZK})(t_Z\args{XZK})(t_B\args{XZK})} )=_00
+\text{.}
+\]
+Again, using both: \eqref{e:trAss} and  \eqref{e:caFin}, we obtain
+\[
+t_G\args{XZK}(x)=0
+\text{.}
+\]
+\item To prove \eqref{e:inf} take any $n^0\leq l:=K\args{
+    (t_G\args{XZK})
+    (t_Z\args{XZK})
+    (t_B\args{XZK})
+   }$ for some fixed $K$.\\
+If $t_G\args{XZK}( \overline{t_B\args{XZK}}(l) )=0$ we are done, otherwise 
+we have:
+\[
+X\args{(t_G\args{XZK})(t_Z\args{XZK})(t_B\args{XZK})}=
+   X_n\args{l(t_G\args{XZK})(t_B\args{XZK})}=
+{\min}_0 \{ x^0 | \lh(x)=l \wedge f_s(x,l)=_00 \}
+\text{.}
+\]
+Let us denote this binary sequence by $b_n$. Using definition of $Z$ we obtain that:
+\[
+f_s(
+  X\args{(t_G\args{XZK})(t_Z\args{XZK})(t_B\args{XZK})} , 
+  Z\args{(t_G\args{XZK})(t_Z\args{XZK})(t_B\args{XZK})}
+ ) = 0
+\text{.}
+\]
+This implies 
+\[
+f_s(
+  \overline{[X\args{(t_G\args{XZK})(t_Z\args{XZK})(t_B\args{XZK})}]}(n) , 
+  Z\args{(t_G\args{XZK})(t_Z\args{XZK})(t_B\args{XZK})}
+ ) = 0
+\text{.}
+\]
+
+
+\[
+t_G\args{XZK}(X\args{(t_G\args{XZK})(t_Z\args{XZK})(t_B\args{XZK})})
+\ \wedge\ \lh (X\args{(t_G\args{XZK})(t_Z\args{XZK})(t_B\args{XZK})})=n
+\]
+by (1).
+
+\end{itemize}
+hmky du
+\[
+t_G(k_0)=_00 \wedge k_1\subseteq k_0
+\text{,}
+\]
+by (1) this implies
+\[
+f_s(k_0,t_Z(k_0))=_00 \wedge k_1\subseteq k_0
+\text{}
+\]
+%
+%
+Hence, by lemma \ref{l:Nz2} we get:
+\[
+f_s(k_1,N_{t_Z\args{XZK}}(k_1))=_00
+\text{,}
+\]
+and using (2) also $t_G(k_1)=_00$. In summary, we have:
+\[
+\BTree(t_G)
+\text{.}
+\]
+By definition of $f_s$ we have (see also section \ref{ss:spuWKL}):
+\[
+\forall l^0 \exists k\ (\ \lh(k)=_00 \wedge f_s(k,l)\ )
+\text{.}
+\]
+By lemma \ref{l:Nz3} this implies
+\[
+\forall l^0 \exists k\ (\ \lh(k)=_00 \wedge f_s(k,N_{t_Z}(k))\ )
+\text{.}
+\]
+So, by (3) and lemma \ref{l:hatg} we get:
+\[
+ \forall K\ t_G(\overline{t_B}(K\tup t))=_00
+\]
+It follows by (1):
+\[
+ \forall K f_s(\overline{t_B}(Kt_Gt_Zt_B), t_Z(\overline{t_B}(Kt_Gt_Zt_B)))=_00
+\text{.}
+\]
+Now, as the last sentence holds for any $K$, it especially holds, given any $K''$, for:
+$Kt_Gt_Zt_B:=K''t_At_L$. In other words we can also write:
+\[
+\forall K\ \ f_s(\overline{t_B}(Kt_At_L), t_Z(\overline{t_B}(Kt_At_L)))=_00
+\text{.}
+\]
+This implies 
+\[
+\forall K\ \ 
+(\ t_L(Kt_At_L) \geq  Kt_At_L \wedge I(\overline{t_B}(Kt_At_L), Kt_At_L, s(t_L(Kt_At_L)))\ )
+\text{}
+\]
+and finally, using the definition of $I$, we obtain (note that $t_A=\widehat {t_A}$; 
+see end of section \ref{ss:spuWKL}):
+\[
+\forall K\ 
+(\ t_L(Kt_At_L) \geq  Kt_At_L\  \wedge\ 
+|t_A(Kt_At_L)-_\QQ s(t_L(Kt_At_L))|\leq2^{-(Kt_At_L+1)}\ )
+\text{.}
+\]
+\end{proof}
+%
+%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection {Analysis of the Complexity of the Realizers} \label{ss:acr}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+First, we will majorize the realizers similarly as we have done for $\WKL$ 
+in section \ref{s:wkl} using there obtained results.\\
+\begin{prop}\label{p:majBW}
+\begin{align*}
+\one&\maj_1 t_B\\
+\Phi^* \ldots &\maj t_G\\
+\end{align*}
+\end{prop}
+\begin{proof}
+...
+\end{proof}\\
+In other words, proposition \ref{p:majBW} states that we can use only $\B_{0,1}$
+and bounded search to obtain the realizing terms for $\BW$.\\
+Depending on the way the $\BW$-principle is used in a given proof of a given
+theorem, we get the following results:
+
+\begin{thm}{\em Program extraction for proofs based on an instance of $\BW$.\\} Given a proof 
+using $\BW$ on a known sequence of rational numbers given by a well defined term $t_x$
+\[
+\hrrepa\ +\ \QFm\AC\ +\ \Sigma^0_n\usftext{-IA}\ \ \vdash\ \ 
+    \forall x^0(\BW(t_x)\rightarrow\exists y^0 \phi(x,y))
+\]
+we can extract by ND-interpretation a functional $F\in\T_n$ s.t.
+\[
+\epa\ \ \vdash\ \ \forall x^0 \phi(x,F(x)) \text{.}
+\]
+\end{thm}
+\begin{proof}
+At least for $n=\infty$, i.e. for $\epa$, follows from section \ref{sr} and 
+Schwichtenberg \ref{t:Schwichtenberg}.
+\end{proof}
+
+\begin{thm}{\em Program extraction for proofs based on the full $\BW$ schema.\\} Given a proof 
+using $\BW$ on any given sequence of rational numbers:
+\[
+\hrrepa\ +\ \QFm\AC\ +\ \Sigma^0_n\usftext{-IA}\ \ \vdash\ \ 
+    \forall x^0\ \BW(x)\ \rightarrow\ \forall x\exists y^0 \phi(x,y))
+\]
+we can extract by ND-interpretation a functional $F\in\T$ s.t.
+\[
+\epa\ \ \vdash\ \ \forall x^0 \phi(x,F(x)) \text{.}
+\]
+\end{thm}
+\begin{proof}
+For $\epa$, same as above.
+\end{proof}

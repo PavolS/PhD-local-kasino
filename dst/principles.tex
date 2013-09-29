@@ -1,0 +1,115 @@
+\subsection{Nonstandard principles}
+
+Let us motivate this section with a similar introduction as in~\cite{BBS12}.\\
+Nonstandard analysis employs the existence of nonstandard models of the first-order theory of the reals (or the natural numbers). One uses the compactness theorem for first-order logic (or, alternatively, the existence of suitable nonprincipal ultrafilters) to show that there are extensions of the natural numbers (or the reals, or other structures) that are \emph{elementary}, i.e. satisfy the same first-order sentences (or formulas with parameters from the original structure). E.g. for the natural numbers, this means that there are structures ${}^*\NN$ and embeddings $i: \NN \to {}^*\NN$ that satisfy
+\[ {}^*\NN \models \varphi(i(n_0), \ldots, i(n_k)) \Longleftrightarrow \NN \models \varphi(n_0, \ldots, n_k) \]
+for all first-order formulas $\varphi(x_0, \ldots, x_k)$ and natural numbers $n_0, \ldots, n_k$.\\
+The image of $i$ is then called the \emph{standard} natural numbers, while those that do not lie in the image of $i$ are the \emph{nonstandard} natural numbers. Also, it is common to add a new predicate $\st$ to the structure ${}^*\NN$, which is true only for the standard natural numbers.\\
+The elementarity of the embedding implies that ${}^*\NN$ is still a linear order in which the nonstandard natural numbers must be infinite (i.e., bigger than any standard natural number). The point of nonstandard systems is that one can use these infinite natural numbers to prove theorems in the nonstandard structure ${}^*\NN$, which must then be true in $\NN$ as well, since the embedding $i$ is elementary. The same applies to the reals, with the addition of infinitesimals (nonstandard reals having an absolute value smaller than any positive standard real). Typically, these infinitesimals are then used to prove theorems in analysis in ${}^*\RR$ to show that they must hold in $\RR$ as well.\\
+Of course, this makes sense only \emph{first-order, internal} statements. So, using nonstandard models requires some understanding about what can and what can not be expressed in first-order logic as well as whether formulas are internal.
+
+Let us the following, most important principles in nonstandard analysis:
+\begin{enumerate}
+\item Overspill: if $\varphi(x)$ is internal and holds for all standard $x$, then $\varphi(x)$ also holds for some nonstandard $x$.
+\item Underspill: if $\varphi(x)$ is internal and holds for all nonstandard $x$, then $\varphi(x)$ also holds for some standard $x$.
+\item Transfer: an internal formula $\varphi$ (possibly with standard parameters) holds in ${}^*\NN$ iff it holds in $\NN$.
+\end{enumerate}
+
+
+These principles will provide us with three criteria with which we will be able to measure the success of the different interpretations. Let us have a closer look. 
+
+\begin{remark}
+Unless we state otherwise, the formulas in this chapter may have additional parameters besides those explicitly shown. 
+\end{remark}
+
+
+\subsubsection*{Overspill}
+
+When formalised in $\ehaststar$, overspill (in type 0) is the following statement:
+\[ \OS_0: \forallst x^0 \, \varphi(x) \to \exists x^0 \, ( \, \lnot \st(x) \land \varphi(x) \, ). \]
+
+\begin{prop} {\rm \cite{palmgren98}}
+In $\ehaststar$, the principle $\OS_0$ implies the existence of nonstandard natural numbers,
+\[ \ENS_0: \exists x^0 \, \lnot \st(x), \]
+as well as:
+\[ \LLPO_0: \forallst x^0, y^0 \, ( \, \varphi(x) \lor \psi(y) \, ) \to \forallst x^0 \, \varphi(x) \lor \forallst y^0 \, \psi(y) . \]
+\end{prop}
+
+Formulated for all types, we get:
+\[ \OS: \forallst x^\sigma \, \varphi(x) \to \exists x^\sigma \, ( \, \lnot \st(x) \land \varphi(x) \, ). \]
+
+Generalized, this becomes a higher-type version of Nelson's idealization principle \cite{nelson77}:
+\[ \I: \forallst x^{\sigma^*} \exists y^\tau \forall x' \in_{\sigma} x \, \varphi(x', y) \to \exists y^\tau \forallst x^\sigma \, \varphi(x, y). \]
+
+\begin{prop} {\rm \cite{palmgren98}} In $\ehaststar$, the idealization principle $\I$ implies overspill, as well as the statement that for every type $\sigma$ there is a nonstandard sequence containing all the standard elements of that type:
+\[ \USEQ: \exists y^{\sigma^*} \, \forallst x^\sigma \, x \in_{\sigma} y. \]
+\end{prop}
+
+\begin{prop}[\cite{BBS12}]\label{prop:LLPO} In $\ehaststar$, the idealization principle $\I$ implies the existence of nonstandard elements of any type,
+\[ \ENS: \exists x^\sigma \, \lnot \st(x), \]
+as well as $\LLPO$ for any type:
+\[ \LLPO: \forallst x^\sigma, y^\sigma \, ( \, \varphi(x) \lor \psi(y) \, ) \to \forallst x^\sigma \, \varphi(x) \lor \forallst y^\sigma \, \psi(y) . \]
+\end{prop}
+
+Of course, classically (intuitionistically, things are not so clear), idealization is equivalent to its dual
+\[ \R: \forall y^\tau \existsst x^\sigma \, \varphi(x, y) \to \existsst x^{\sigma^*} \forall y^\tau \exists x' \in x \, \varphi(x', y), \]
+which was dubbed the \emph{realization principle} in~\cite{BBS12}.
+
+Our interpretation for constructive nonstandard analysis actually eliminates the stronger \emph{nonclassical realization principle}:
+\[ \NCR: \forall y^\tau \existsst x^\sigma \, \Phi(x, y) \to \existsst x^{\sigma^*} \forall y^\tau \exists x' \in x \, \Phi(x', y), \]
+where $\Phi(x, y)$ can be any formula. This is quite remarkable, as $\NCR$ is incompatible with classical logic (hence the name) in that one can prove:
+
+\begin{prop}[\cite{BBS12}]
+In $\ehaststar$, the nonclassical realization principle $\NCR$ implies the undecidability of the standardness predicate:
+\[ \lnot \forall x^\sigma \, ( \, \st(x) \lor \lnot \st(x) \, ). \]
+\end{prop}
+
+\subsubsection*{Underspill}
+
+Underspill (in type 0) is the following statement:
+\[ \US_0: \forall x^0 \, ( \, \lnot \st(x) \to \varphi(x) \, ) \to \existsst x^0 \, \varphi(x). \]
+In a constructive context it has the following nontrivial consequence (compare \cite{avigadhelzner02}):
+
+\begin{prop}[\cite{BBS12}] \label{US_0impliesMP_0}
+In $\ehaststar$, the underspill principle $\US_0$ implies
+\[ \MP_0: \big( \, \forallst x^0 \, ( \, \varphi(x) \lor \lnot \varphi(x) \, ) \land \lnot \lnot \existsst x^0 \varphi(x) \, \big) \to \existsst x^0 \varphi(x). \]
+In particular, $\ehaststar + \US_0 \vdash \lnot \lnot \st^0 (x) \to \st^0(x)$.
+\end{prop}
+
+Also underspill has a direct generalization to higher types:
+\[ \US: \forall x^\sigma \, ( \, \lnot \st(x) \to \varphi(x) \, ) \to \existsst x^\sigma \, \varphi(x). \]
+
+
+\subsubsection*{Transfer}
+
+Following Nelson \cite{nelson77}, the transfer principle is usually formulated as follows:
+\[ \TPA: \forallst \tup t \, ( \, \forallst x \,  \varphi(x, \tup t) \to \forall x \, \varphi(x, \tup t) \, ), \]
+where, this time, $x$ and $\tup t$ include all free variables of the formula $\varphi$. This is classically, but not intuitionistically, equivalent to the following:
+\[ \TPE: \forallst \tup t \, ( \, \exists x \,  \varphi(x, \tup t) \to \existsst x \, \varphi(x, \tup t) \, ), \]
+where, once again, we do not allow parameters.
+
+Interpreting transfer is very difficult, especially in a constructive context (in fact, Avigad and Helzner have devoted an entire paper \cite{avigadhelzner02} to this issue).
+In~\cite{BBS12}, we discuss three problems as follows:
+\begin{enumerate}
+\item Transfer principles together with overspill imply instances of the law of excluded middle, as was first shown by Moerdijk and Palmgren in \cite{moerdijkpalmgren97}. In our setting we have:
+\begin{prop}[\cite{BBS12}]
+\begin{enumerate}
+\item In $\ehaststar$, the combination of $\ENS_0$ and $\TPA$ implies the law of excluded middle for all internal arithmetical formulas.
+\item In $\ehaststar$, the combination of $\USEQ$ and $\TPA$ implies the law of excluded middle for all internal formulas.
+\end{enumerate}
+\end{prop}
+\item As Avigad and Helzner observe in \cite{avigadhelzner02}, also the combination of transfer principles with underspill results in a system which is no longer conservative over Heyting arithmetic. More precisely, adding $\US_0$ and $\TPA$, or $\US_0$ and $\TPE$, to $\ehaststar$ results in a system which is no longer conservative over Heyting arithmetic $\HA$. The reason is that there are quantifier-free formulas $A(x)$ such that
+\[ \HA \not\vdash \lnot \lnot \exists x \, A(x) \to \exists x \, A(x). \]
+Since one can prove a version of Markov's Principle in $\ehaststar + \US_0$, adding either $\TPA$ or $\TPE$ to it would result in a nonconservative extension of $\HA$ (and hence of $\ehastar$). We refer to \cite{avigadhelzner02} for more details.
+\item The last point applies to functional interpretations only. As is well-known, in the context of functional interpretations the axiom of extensionality always presents a serious problem and when developing a functional interpretation of nonstandard arithmetic, the situation is no different. Now, $\ehaststar$ includes an internal axiom of extensionality (as it is part of $\ehastar$), but for the functional interpretation that we will introduce in Section 5 that will be harmless. What will be very problematic for us, however, is the following version of the axiom of extensionality: if for two elements $f, g$ of type $\sigma_1 \to (\sigma_2 \to \ldots \to 0))$, we define
+\[ f =^{\st} g \, :\equiv \, \forallst x_1^{\sigma_1}, x^{\sigma_2}_2, \ldots \, ( \, f\tup x =_0 g\tup x \, ), \]
+then extensionality formulated as
+\[ \forallst f \, \forallst x, y \, ( \, x =^{\st} y \to fx =^{\st} fy \, ) \]
+will have no witness definable in $\ZFC$. But that means that also $\TPA$ can have no witness definable in $\ZFC$: for in the presence of $\TPA$ both versions of extensionality are equivalent.
+\end{enumerate}
+
+To cope with this, we follow the route taken in most sources (beginning with \cite{moerdijk95}), to have transfer not as a principle, but as a \emph{rule}. As we will see, this turns out to be feasible. In fact, we will have two transfer rules (which are not equivalent, not even classically):
+\[ \begin{array}{ccc}
+\infer[\TRA]{\forall x \, \varphi(x)}{\forallst x \, \varphi(x)} & & \infer[\TRE]{\existsst x \, \varphi(x)}{\exists x \, \varphi(x)}
+\end{array} \]
+(this time, no special requirements on the parameters).

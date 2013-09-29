@@ -1,0 +1,191 @@
+\section{Introduction}
+
+
+%To generalize MET to nonlinear mappings one has
+%to add additional requirements (to gain at least``some linearity'') or one obtains a weaker conclusion (such as different
+%means instead of the Caesaro means or just weak convergence).
+The Riesz version of the von Neumann mean ergodic theorem~\cite{Neumann1932} asserts that for any linear operator $T$ on a Hilbert space $X$, which is nonexpansive, i.e. 
+\[
+\forall u,v\in X\ \big(\|Tu-Tv\|\leq\|u-v\|\big),
+%\forall u,v\in C \|Tu-Tv\|\leq\|u-v\|,
+\]
+the sequence of the  Ces{\`a}ro means
+\[
+A_nx:=\frac{1}{n+1}\sum^{n}_{i=0} T^i x,
+\]
+converges in norm for any starting point $x$. 
+%It is known that this in general need not  
+%be the case without linearity. 
+It follows from an example 
+by Genel and Lindenstrauss~\cite{Genel1975} that there is a nonexpansive operator on
+the unit ball of $\ell_2$, for which the sequence of the  Ces{\`a}ro means does not converge strongly (see also~\cite{Krengel1985}).
+So in comparison with von Neumann's linear mean ergodic theorem, in nonlinear ergodic theory 
+one obtains either a weaker conclusion (such as weak convergence or convergence of a different
+iteration scheme instead of the Ces{\`a}ro means) or one has to add additional requirements 
+(to preserve at least some linearity).\\ 
+Let $H$ be a Hilbert space, $C$ a subset of $H$ and
+$T:C\to C$ a (possibly nonlinear) mapping. In 1975, Baillon~\cite{Baillon1975} showed  that if $C$ is convex and closed,
+and $T$ is nonexpansive and has a fixed point, then the sequence of the Ces{\`a}ro means is weakly convergent to a fixed point of $T$.
+%, i.e.
+%\[
+%\forall x\in C\exists w,y\in H\forall k\in\NN\ \big( \lim_{n\to\infty}\frac{1}{n}\sum^{n-1}_0T^{i+k}\wedge Ty=y\big).
+%\]
+A year later, Baillon~\cite{Baillon1976} also proved that if in addition $T$ is {\em odd}, i.e.
+\[
+-C = C\text{ and } \forall u\in C\ \big( T(-u)=-Tu\big),
+\]
+then the sequence of the Ces{\`a}ro means converges to a fixed point in norm. Shortly after this,
+Br\'ezis and Browder~\cite{Brezis1976} showed that 
+Baillon's first result is also true for a more general averaging process than the usual Ces{\`a}ro means
+and that
+Baillon's second
+result remains valid if $0\in C$ and $T$ is not necessarily odd but satisfies the following, weaker condition:
+\begin{align*}
+\exists c&\in\RR\ \forall u,v \in C 
+ \big(\|Tu+Tv\|^2\leq\|u+v\|^2+c(\|u\|^2-\|Tu\|^2+\|v\|^2-\|Tv\|^2)\big). \tag{BB}\label{e:BB}
+\end{align*}
+On the other hand, in 1979, Hirano and Takahashi~\cite{Hirano1979} showed that Baillon's weak convergence result remains true if the mapping is just {\em asymptotically} nonexpansive, i.e. 
+\[
+\forall u,v\in C\ \forall n\in\NN\ \big( \|T^nu-T^nv\|\leq \alpha_n\|u-v\|\big),
+\]
+for some sequence $(\alpha_n)_n$ of nonnegative real numbers which converges to $1$. 
+Moreover, an odd and nonexpansive
+mapping satisfies the following condition
+\[
+\forall u,v\in C\ (\| T^nu + T^nv \| \leq \|u + v\|) \tag{$W$}\label{e:W-intro}
+\]
+and analogously an odd and asymptotically nonexpansive mapping satifies the assymptotic version
+\[
+\forall n\in\NN\ \forall u,v\in C\ (\| T^nu + T^nv \| \leq \alpha_n\|u + v\|), \tag{$W^-$}\label{e:W-assym}
+\]
+for some sequence $(\alpha_n)_n$ of nonnegative real numbers which converges to $1$. In 1990, Wittmann~\cite{Wittmann90}
+proved a generalization of Baillon's strong convergence theorem 
+to an arbitrary $C$ and a mapping satisfying the condition~\eqref{e:W-assym} (see also Theorem 2.2 in~\cite{Wittmann90} and Theorem~\ref{t:fin21ar} below).
+%\begin{thm}[Theorem 2.2 in~\cite{Wittmann90}] \label{t:W22}
+%Let $S$ be a subset of a Hilbert space and $T:S\to S$
+%be a mapping satisfying 
+%\[
+%\forall u,v\in C\ (\| T^nu + T^nv \| \leq \alpha_n\|x + y\|).
+%\]
+%Then for any $x\in S$ the sequence of the Ces{\`a}ro means
+%\[
+%A_nx:=\frac{1}{n+1}\sum^{n}_{i=0} T^i x
+%\]
+%is norm convergent.
+%\end{thm}
+Two years later, Wittmann~\cite{Wittmann1992} also showed that for a nonexpansive $T$ which has a fixed point, and a convex and closed $C$, the averaging sequence $(x_n)$, first defined by Halpern~\cite{Halpern1967} (for $x=0$) as
+\[
+x_0:=x,\quad x_{n+1}:=\alpha_{n+1}x+(1-\alpha_{n+1})T(x_n),
+\] converges to the closest fixed point of $T$ in norm. The Halpern iteration coincides
+with the Ces{\`a}ro means for linear maps and $\alpha_n=\frac{1}{n+1}$.
+We depict this development in Figure~\ref{f:METtree} (the references in parentheses refer to
+quantitative versions of the respective theorems, which we discuss below).
+\begin{figure}[htb]%
+\[
+\begin{xy}
+  \xymatrix@C=-50pt@M=3pt{
+  		  & \txt{ MET : von Neumann  1931 \\ linear, nonexpansive operator $\ |\ $ strong convergence\\(Avigad, Gerhardy, Towsner 2010 in~\cite{AGT08})\footnotemark\\ ( Leu{\c{s}}tean, Kohlenbach 2009 in~\cite{Kohlenbach2009})
+ 		  } \ar[dl]_-{\txt{\tiny weak\\\tiny convergence}} \ar[d]^{\txt{\tiny odd}} \ar[dr]^-{\txt{\tiny $ $\hspace{2ex} Halpern\\ \tiny $ $\hspace{2ex} iteration}} &  \\
+        \txt{ 					Baillon 1975 in~\cite{Baillon1975} \\ (Kohlenbach 2010 in~\cite{Kohlenbach_ComContemporaryMath})} \ar[d]^{\txt{\tiny more general\hspace{5ex}$ $\\ \vspace{-7pt}\tiny averaging process}} &  
+        \txt{ Baillon 1976 in~\cite{Baillon1976} \\ (this paper) } \ar[d]_{\txt{\tiny \eqref{e:BB}}} \ar[dr]^{\txt{\tiny \eqref{e:W-assym}}} &  
+        \txt{ Wittman 1992 in~\cite{Wittmann1992} \\ (Kohlenbach 2011 in~\cite{Kohlenbach2011})}        \\
+         \txt{ Br\'ezis, Browder 1976 in~\cite{Brezis1976} \\ (Kohlenbach 2010 in~\cite{Kohlenbach_ComContemporaryMath}) }  & \txt{ Br\'ezis, Browder 1976 in~\cite{Brezis1976} \\ (unknown) } & \txt{Wittmann 1990 in~\cite{Wittmann90} \\ (this paper)} &   
+   }
+\end{xy}
+\]
+\caption{Some nonlinear ergodic theorems (for Hilbert spaces) and their finitisations.}%
+\label{f:METtree}
+\end{figure}
+\footnotetext{While the results were essentially available on arxive since 2007, the paper as such was submitted in 2008. Thereafter Kohlenbach and Leu{\c{s}}tean 
+extended the result to uniformly convex Banach spaces and gave a better bound.} \\					
+There are many further results and generalizations
+in the field of nonlinear ergodic theory 
+(regarding different spaces see e.g.~\cite{Bruck1979,Hirano1982}, even weaker "linearity" conditions see e.g.~\cite{Miyadera1997,Rouhani2001}, and other improvements) 
+and it is subject to ongoing research.\\
+In this paper we investigate the computational content of Wittmann's nonlinear strong ergodic
+theorem: 
+\begin{thm}[Wittmann 1990,~\cite{Wittmann90}]\label{t:22}
+Let $S$ be a subset of a Hilbert space and $T:S\to S$
+be a mapping satisfying 
+\[
+\forall x,y\in S\ (\| T^nx + T^ny \| \leq \alpha\|x + y\|),
+\lim_{n\to\infty}\alpha_n=1.
+\]
+Then for any $x\in S$ the sequence of the Ces{\`a}ro means,
+\[
+A_nx:=\frac{1}{n+1}\sum^{n}_{i=0} T^i x,
+\]
+is norm convergent.
+\end{thm}
+Although in general the sequence of the ergodic averages does not have a
+computable rate of convergence (even for the 
+von Neumann's mean ergodic theorem for a separable space and computable $x$ and $T$),
+as was shown by Avigad, Gerhardy and Towsner in \cite{AGT08},
+the so called metastable version nevertheless has a primitive recursive bound.
+In our case this means that given the assumptions from Wittmann's strong ergodic theorem,
+the following holds
+\begin{align*}
+\forall b, l\in\NN, g:\NN\to\NN, x\in S\ &\exists m\leq M(l,g,b,K)
+\big( \|x\|\leq b \rightarrow \|A_mx-A_{m+g(m)}x\|\leq 2^{-l} \big),
+\end{align*}
+for a primitive recursive $M$, where $K$ is a rate of convergence for the sequence $\alpha$ in
+the assumption~\eqref{e:W-assym}. 
+%In this paper, we not only show the existence of such an $M$,
+%but also we give such a bound explicitly in Corollary~\ref{c:fin22}.
+We will not only prove the existence of such an $M$ but also give such a bound explicitly in Corollary~\ref{c:fin22}.
+For the specific case where $(\alpha_n)_n$ is a constant $1$ sequence (i.e. $T$ satisfies~\eqref{e:W-intro} rather than~\eqref{e:W-assym},
+see also Theorem 2.2 in~\cite{Wittmann90} and Corollary~\ref{c:fin21} below),
+$M$ can be defined as follows:
+\begin{align*}
+M(l,g,b)&:=(N( 2l+7, g^M,b) + P( 2l+7, g^M, b)){b}2^{2l+8}+1,\\
+P(l,g,b)&:=P_0(l,F(l,g,N(l,g,b),b),b),\\
+F(l,g,n,b)(p) &:= p+n+\tilde g((n + p){b}2^{l+1}),\\
+N(l,g,b)&:= \big(H(l,g,b) \big)^{{b}^22^{l+2}}(0), \\
+H(l,g,b)(n) &:= n+P_0(l,F(l,g,n,b),b)+\tilde g((n + P_0(l,F(l,g,n,b),b)){b}2^{l+1}),
+\end{align*}
+where (for $f:\NN\to\NN$)
+\begin{align*}
+ P_0(l,f,b)&:=\tilde f^{ {b}^2 2^l}(0),\quad \tilde g(n):=n+g(n),\ g^M(n):=\max_{i\leq n+1} g(i).\footnote{The slightly unintuitive definition of $g^M$ makes the definition of $M(l,g,b)$ shorter.}\\
+\end{align*}
+Note that apart from the counterfunction $g$ and the precision $l$,
+this bound depends only on $b$ and not on $S$, $T$ or $x$.
+For another quantitative result on operators satisfying the condition~\eqref{e:W-intro} see~\cite{Kohlenbach2011odd}.\\
+%
+These results, along with those 
+by Avigad, Gerhardy, Towsner~\cite{AGT08} and Kohlenbach,  
+Leu{\c{s}}tean~\cite{Kohlenbach2009} for the finitary version of the von Neumann ergodic theorem 
+as well as Kohlenbach's bounds for the finitary versions of Baillon's weak ergodic theorem~\cite{Kohlenbach_ComContemporaryMath} and Wittmann's 
+convergence result for Halpern means~\cite{Kohlenbach2011} 
+%(for quantitative versions of convergence theorems in other spaces, such as uniformly smooth Banach spaces or CAT(0) spaces, see e.g. \cite{KL11bl} or \cite{KL11} respectively)
+, 
+can be seen as instances of `hard analysis' in the sense of T. Tao; see ~\cite{Tao07, tao-2007}, where he
+discusses the uses and benefits of (the existence of) uniform bounds for such finitary formulations of well-known
+theorems.
+%The uniformity of these bounds is thereby most important.\\
+%In some cases we even improve their uniformity in comparison to the results guaranteed by the metatheorem. 
+It is one of the goals of this paper to demonstrate that there are proof-theoretic means to systematically 
+obtain such uniform bounds.
+In fact, for many theorems the existence of a uniform bound is guaranteed by Kohlenbach's metatheorems
+introduced in~\cite{Kohlenbach05meta} and refined in~\cite{GK08}. Additionally, 
+%due to the proof-theoretic nature of these metatheorems, 
+proof theoretic methods such as Kohlenbach's monotone functional interpretation (see~\cite{Kohlenbach96mfi}) can be used to
+systematically obtain these effective bounds.
+The paper at hand is a case study in applying such proof mining techniques. \\
+%As a result,
+We improve results in the area of nonlinear
+generalizations of the mean ergodic theorem and their corresponding finitisations (see Figure~\ref{f:METtree}). Moreover, 
+we have here a rare example of an application of these techniques to not necessarily continuous operators. In logical terms this amounts
+to the subtlety that only a weak version of extensionality is available. Also, for the first time,
+we obtain a bound which in fact makes use of nested iteration. One can
+see this quickly on the term $M$ above. While $F$ as a function is defined via iteration of the counterfunction
+$g$, it itself is being iterated by $P$. This is a direct consequence
+of the logical form of Wittmann's original proof.\\
+It is a surprising observation that so far for all metastable versions of strong ergodic theorems
+primitive recursive bounds could be obtained.\\ 
+We discuss the application of general logical metatheorems in more detail in Section~\ref{s:Meta} which is not
+necessary to understand and verify our main results. We present these, namely the explicit bounds
+for all three theorems in Wittmann's paper~\cite{Wittmann90}, in Section~\ref{s:Main}.
+We explain how to obtain the explicit bounds in Section~\ref{s:terms},
+after formalizing Wittmann's proof in Section~\ref{s:ArProof}. Both of these sections, though inspired by proof theoretic methods, 
+require no facts from logic.
+					

@@ -1,0 +1,184 @@
+%
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{A functional interpretation for $\ehaststar$}\label{s:dst:dialectica}
+
+In this section we will define and study a functional interpretation for $\ehaststar$
+introduced in~\cite{BBS12}.
+
+\subsubsection*{The interpretation}\label{ss:dst:dialectica}
+
+The basic idea of the $\D$-interpretation (the nonstandard Dialectica interpretation) is to associate to every formula $\Phi (\tup{a})$ a new formula $\Phi(\tup{a})^{\D}\equiv\existsst \tup{x}\forallst \tup{y} \, \phi_{\D} (\tup{x},\tup{y},\tup{a})$
+%(with the same free variables $\tup{a}$)
+such that 
+\begin{enumerate}
+\item all variables in $\tup x$ are of sequence type and
+\item $\phi_{\D} (\tup{x},\tup{y},\tup{a})$ is upwards closed in $\tup{x}$.
+\end{enumerate}
+We will interpret the standardness predicate $\st^{\sigma}$ similarly to the case for Herbrand realizability: For a realizer for the interpretation of $\st^{\sigma}(x)$ we will require a standard finite list $\langle y_0,\ldots,y_n \rangle$ of candidates, one of which must be equal to $x$.
+
+\begin{dfn}[The $\D$-interpretation for $\ehaststar$,~\cite{BBS12}]
+We associate to every formula $\Phi (\tup{a})$ in the language of $\ehaststar$ (with free variables among $\tup{a}$) a formula $\Phi(\tup{a})^{\D}\equiv\existsst \tup{x}\forallst \tup{y} \, \phi_{\D} (\tup{x},\tup{y},\tup{a})$ in the same language (with the same free variables) by:
+%s.t. $\phi_{\D} (x,y)$ is upwards closed in $x$.
+    \begin{itemize}
+      \item[(i)] $\phi(\tup{a})^{\D}:\equiv \phi_{\D}(\tup{a}):\equiv \phi(\tup{a})$ for internal atomic formulas $\phi(\tup{a})$,
+      \item[(ii)] $\st^{\sigma}(u^{\sigma})^{\D}:\equiv \existsst x^{\sigma^*} u \in_{\sigma} x$.
+    \end{itemize}
+Let $\Phi(\tup{a})^{\D}\equiv\existsst \tup{x}\forallst \tup{y} \, \phi_{\D} (\tup{x},\tup{y},\tup{a})$ and $\Psi(\tup{b})^{\D}\equiv\existsst \tup{u}\forallst \tup{v} \, \psi_{\D} (\tup{u},\tup{v},\tup{b})$. Then
+    \begin{itemize}
+      \item[(iii)] $(\Phi (\tup{a}) \land \Psi (\tup{b}))^{\D} :\equiv \existsst \tup{x},\tup{u} \forallst \tup{y},\tup{v} \, \big(\phi_{\D} (\tup{x},\tup{y},\tup{a}) \land \psi_{\D} (\tup{u},\tup{v},\tup{b})\big),$
+      \item[(iv)] $(\Phi (\tup{a}) \lor \Psi (\tup{b}))^{\D}  :\equiv \existsst \tup{x},\tup{u} \forallst \tup{y},\tup{v} \, \big(\phi_{\D} (\tup{x},\tup{y},\tup{a}) \lor \psi_{\D} (\tup{u},\tup{v},\tup{b})\big),$
+
+      \item[(v)] $(\Phi(\tup{a}) \to \Psi(\tup{b}))^{\D}  :\equiv   \existsst \tup{U},\tup{Y} \forallst \tup{x},\tup{v} \, \big(\forall \tup{y} \in \tup{Y}[\tup{x},\tup{v}]\, \phi_{\D} (\tup{x},\tup{y}, \tup{a})    \to\psi_{\D} (\tup{U}[\tup{x}],\tup{v}, \tup{b})\big).$
+      \end{itemize}
+Let $\Phi(z,\tup{a})^{\D}\equiv\existsst \tup{x}\forallst \tup{y} \, \phi_{\D} (\tup{x},\tup{y},z,\tup{a})$, with the free variable $z$ not occuring among the $\tup{a}$. Then
+    \begin{itemize}
+ \item[(vi)] $(\forall z\Phi(z,\tup{a}))^{\D} :\equiv \existsst \tup{x} \forallst \tup{y} \forall z \, \phi_{\D} (\tup{x},\tup{y},z,\tup{a}),$
+ \item[(vii)] $(\exists z\Phi(z,\tup{a}))^{\D} :\equiv \existsst \tup{x} \forallst \tup{y} \exists z \forall \tup{y'} \in \tup{y}\, \phi_{\D} (\tup{x},\tup{y'},z,\tup{a}),$
+ \item[(viii)] $(\forallst z\Phi(z,\tup{a}))^{\D} :\equiv \existsst \tup{X} \forallst z,\tup{y}  \, \phi_{\D} (\tup{X}[z],\tup{y},z,\tup{a}),$
+ \item[(ix)] $(\existsst z\Phi(z,\tup{a}))^{\D} :\equiv \existsst \tup{x},z \, \forallst \tup{y} \, \exists z' \in z \, \forall \tup y' \in \tup{y}\, \phi_{\D} (\tup{x},\tup{y'},z',\tup{a}).$
+\end{itemize}
+\end{dfn}
+\begin{dfn}[\cite{BBS12}]
+We say that a formula $\Phi$ is a $\forallst$-formula if $\Phi \equiv \forallst \tup{x}\,  \phi (\tup{x})$, with $\phi (\tup{x})$ internal.
+\end{dfn}
+\begin{lemma}[\cite{BBS12}]\label{le:forallst-formulas}
+Let $\Phi$ be a $\forallst$-formula. Then $\Phi^{\D}\equiv \Phi$.
+\end{lemma}
+
+Note that the clause for $\existsst z$ causes the interpretation to be not idempotent and that realizers are upwards closed:
+
+
+\begin{lemma}[\cite{BBS12}] Let $\Phi (\tup{a})$ be a formula in the language of $\ehaststar$ with interpretation $\existsst \tup{x}\forallst \tup{y} \, \phi_{\D} (\tup{x},\tup{y},\tup{a})$. Then the formula $\phi_{\D} (\tup{x},\tup{y},\tup{a})$ is provably upwards closed in $\tup{x}$, i.e.,
+\[
+          \ehastar \vdash \phi_{\D} (\tup{x},\tup{y},\tup{a}) \land \tup{x} \preceq \tup{x}' \to  \phi_{\D} (\tup{x}',\tup{y},\tup{a}).
+\]
+\end{lemma}
+
+%Before proving the soundness of the $\D$-interpretation
+The $\D$-interpretation will allow us to interpret the nonclassical realization principle $\NCR$, and also both $\I$ and $\HAC$. Additionally we will be able to interpret a herbrandized independence of premise principle for formulas of the form $\forallst x \, \phi(x)$, and also a herbrandized form of a generalized Markov's principle:
+\begin{enumerate}
+\item $\HIP_{\forallst}$:
+\[
+           \big( \forallst x \, \phi(x) \to\existsst y\Psi(y)\big)\rightarrow \existsst y \, \big(\forallst x \,  \phi (x)\to \exists y' \in y \, \Psi(y')\big),
+            \]
+           where $\Psi(y)$ is a formula in the language of $\ehaststar$ and $\phi(x)$ is an internal formula. If $\Psi(y)$ is upwards closed in $y$, then this is equivalent to
+           \[
+        \big( \forallst x \, \phi(x) \to\existsst y\Psi(y)\big)\rightarrow \existsst y \, \big(\forallst x \,  \phi (x)\to \Psi(y)\big).
+\]
+\item $\HGMP$:
+\[
+  ( \forallst x \, \phi(x) \to\psi)\to \existsst x \, \big(\forall x' \in x\,  \phi (x')\to\psi\big),
+            \]
+           where $\phi(x)$ and $\psi$ are internal formulas in the language of $\ehaststar$. If $\phi(x)$ is downwards closed in $x$, then this is equivalent to
+           \[
+       ( \forallst x \, \phi(x) \to\psi)\to \existsst x (  \phi (x)\to\psi).
+\]
+The latter gives us a form of Markov's principle by taking $\psi \equiv 0=_0 1$ and $\phi (x) \equiv \lnot \phi_0 (x)$ (with $\phi_0(x)$ internal and quantifier-free), whence the name.
+\end{enumerate}
+
+\begin{thm}[Soundness of the $\D$-interpretation,~\cite{BBS12}] \label{soundnessDst}
+Let $\Phi (\tup{a})$ be a formula of $\ehaststar$ and let $\Delta_{\intern}$ be a set of internal sentences.
+If
+\[
+    \ehaststar + \I + \NCR + \HAC + \HGMP
+    %+ \LLPO
+    +  \HIP_{\forallst} + \Delta_{\intern} \vdash \Phi (\tup{a})
+\]
+and $\Phi(\tup{a})^{\D}\equiv\existsst \tup{x}\forallst \tup{y} \, \phi_{\D} (\tup{x},\tup{y},\tup{a})$,
+then from the proof we can extract closed terms $\tup{t}$ in $\Tstar$ such that
+\[
+    \ehastar +\Delta_{\intern} \vdash \forall \tup{y} \, \phi_{\D} (\tup{t},\tup{y},\tup{a}).
+\]
+\end{thm}
+
+\begin{remark} \label{hanst} We could define a system $\ehanststar$ by adding primitive predicates $\nst^{\sigma}$ (``nonstandard'') to $\ehaststar$ for each finite type $\sigma$, along with axioms
+\[
+          \forall x^{\sigma} \big(\nst (x) \leftrightarrow \lnot \st (x)\big).
+\]
+If we then extend the $\D$-interpretation by
+\[
+      \big(\nst^{\sigma}(x^{\sigma})\big)^{\D} :\equiv \forallst y^{\sigma}  y \neq_{\sigma} x),
+\]
+we get an analogue of Theorem~\ref{soundnessDst}, since $\big(  \nst (x) \to \lnot \st (x) \big)^{\D}$
+is provably equivalent to
+\[
+     \existsst Y \forallst z \left( \forall y \in Y[z] (y \neq x) \to  x \not\in z \right)
+\]
+and $\big( \lnot \st (x) \to \nst(x)\big)^{\D}$
+to
+\[
+     \existsst Z \forallst y \left( \forall z' \in Z[y] x \not\in z' \to y\neq x \right),
+\]
+so that we can take $Y[z] :=z$ and $Z[y] := \langle \langle y \rangle \rangle$  respectively .
+
+
+\end{remark}
+
+\subsubsection*{The characteristic principles of the nonstandard functional interpretation}
+
+In~\cite{BBS12} we proved that the characteristic principles of the nonstandard functional interpretation are $\I$, $\NCR$, $\HAC$, $\HIP_{\forallst}$, and $\HGMP$. For notational simplicity we will let
+\[
+     \HH := \ehaststar + \I + \NCR + \HAC + \HIP_{\forallst} + \HGMP.
+\]
+\begin{thm}[Characterization theorem for the nonstandard functional interpretation,~\cite{BBS12}] $\, $
+
+\begin{enumerate}
+
+\item For any formula $\Phi$ in the language of $\ehaststar$ we have
+%\[
+%          \ehaststar + \I + \NCR + \HAC + \HIP_{\forallst} + \HGMP \vdash \Phi \leftrightarrow \Phi^{\D}.
+%\]
+\[
+          \HH \vdash \Phi \leftrightarrow \Phi^{\D}.
+\]
+\item For any formula $\Psi$ in the language of $\ehaststar$ we have: If for all $\Phi$ in
+$\mathcal{L}(\ehaststar)$ (with $\Phi^{\D}\equiv \existsst \tup{x}\forallst \tup{y}\, \phi_{\D}(\tup{x},\tup{y})$) the implication
+\begin{equation}\label{eq:char_thm_dst}
+          \HH +\Psi \vdash \Phi  \quad \Longrightarrow \quad \mbox{there are closed terms $\tup{t}\in\Tstar$ s.t. }
+          \eha \vdash \forall \tup{y}\, \phi_{\D}(\tup{t},\tup{y})
+\end{equation}
+holds, then $\HH \vdash \Psi$.
+%implies that there exist closed terms $\tup{T}$ in G\"{o}del's $\T$ such that
+%\[
+%         \eha \vdash \forall \tup{y}\, \phi(\tup{x},\tup{y}),
+%\]
+%where $\Phi^{\D}\equiv \existsst \tup{x}\forallst \tup{y}\, \phi(\tup{x},\tup{y})$, we have
+%\[
+%          \HH \vdash \Psi
+%\]
+
+
+\end{enumerate}
+\end{thm}
+
+Theorem~\ref{soundnessDst} allows us to extract a finite sequence of candidates for the existential quantifier in formulas of the form $\forallst x \, \existsst y \, \phi (x,y)$, in the following sense:
+
+\begin{thm}[Main theorem on program extraction by the $\D$-interpretation,~\cite{BBS12}]
+Let $\forallst x \existsst y \, \phi (x,y)$ be a sentence of $\ehaststar$ with $\phi(x,y)$ an internal formula,
+and let $\Delta_{\intern}$ be a set of internal sentences.
+If
+\[
+    \ehaststar + \I + \NCR + \HAC + \HGMP
+    +  \HIP_{\forallst} + \Delta_{\intern} \vdash \forallst x \, \existsst y \, \phi (x,y),
+\]
+then from the proof we can extract a closed term $t$ in $\Tstar$ such that
+\[
+    \ehastar +\Delta_{\intern} \vdash \forall x \, \exists y \in t(x)\, \phi (x,y).
+\]
+\end{thm}
+
+It follows from the soundness of the $\D$-interpretation (Theorem \ref{soundnessDst}) that it can be used to eliminate nonstandard principles, like overspill, realization and idealization, from proofs. It also allows one to eliminate underspill, since we have the following result (recall that $\R$ is the realization principle from Section 4.1):
+\begin{prop}[\cite{BBS12}] \label{USfromRHGMP} We have
+\[ \ehaststar + \R + \HGMP \vdash \US, \]
+and therefore the underspill principle $\US$ is eliminated by the $\D$-interpretation.
+\end{prop}
+
+We also have:
+\begin{prop}[\cite{BBS12}]
+The system $\HH :\equiv \ehaststar + \I + \NCR + \HAC + \HGMP +  \HIP_{\forallst}$ is closed under both transfer rules, $\TRA$ and $\TRE$.
+\end{prop}
+
+%Therefore our functional interpretation $\D$ meets all the benchmarks that we discussed in Section 4. 
+

@@ -1,0 +1,2056 @@
+\section{
+  Preliminaries
+} \label{s:si}
+\reviewQuote{bwint2010/review_bw_prelim}{KS10}{Nov 23, 2009}
+
+\newcommand{\typeOfXZ}{0(10)(1)}
+
+\mySubsection{Proof Interpretation} Generally, using a suitable proof interpretation, 
+not necessarily the D-interpretation, 
+ in the context of proof mining we can expect to extract 
+programs and/or computable bounds 
+from a given proof. However, the two interpretations we will use throughout this thesis, 
+namely negative translation 
+ and D-interpretation, were originally
+presented with a different aim. The proof-theoretic gain of negative 
+translation as a tool for a translation
+from classical to intuitionistic systems is clear. The functional 
+interpretation was first introduced
+by G\"odel to obtain consistency results relative to $\T$ motivated by Hilbert's program and not
+as a tool for proof mining. We give a 
+very brief description of these interpretations right now,  see
+e.g. \cite{Kohlenbach08} or \cite{AF98} and definitions \ref{d:NT} and 
+\ref{d:FI} for further details.\\
+%
+As mentioned earlier, we will make use of Kuroda's negative translation, 
+which assigns to every formula $\phi$ a 
+logically equivalent formula $\phi':\equiv\neg\neg (\phi^*)$, where $\phi^*$ is just $\phi$ 
+with a double negation behind each $\forall$-quantifier.\\
+%
+G\"odel's functional interpretation assigns to every formula $\phi$ an intuitionistically 
+equivalent formula $\phi^D:\equiv\exists\tup x\forall\tup y \phi_D(\tup x,\tup y,\tup a)$,
+where $\tup x$ and $\tup y$ are tuples of variables of arbitrary finite type, $\tup a$ is 
+a tuple of parameters of arbitrary finite type and $\phi_D(\tup a)$ is quantifier-free. 
+Moreover, by the soundness of
+the functional interpretation we know there is a tuple $\tup t$ 
+of closed terms of our intuitionistic system, such that 
+$\forall y \phi_D(\tup t\atup a,\tup y,\tup a)$ holds intuitionistically and 
+even provably in a quantifier-free calculus, provided
+that $\phi$ is provable in $\weha+\M+\AC$.\\
+We should mention 
+that under the combination of both interpretations 
+(i.e. under the ND-interpretation) for every formula provable in $\wepa$
+with the help of quantifier-free axiom of choice and any additional universal 
+axioms (usually denoted as $\wepa + \QFm\AC + \mathcal{U}$) the interpreted 
+formula can be proved in $\weha+\mathcal{U}$ using the same purely universal
+axioms $\mathcal{U}$ as we allowed in the original classical proof. 
+%
+%Furthermore, 
+%since we can interpret and thereby eliminate the Markov principle under 
+%ND-interpretations, we add this schema to our 
+%intuitionistic system to be able to simplify the formulas we want to
+%interpret without any significant effect on the 
+%final interpretation of the formula which, of course,
+%remains provable without this principle. 
+%
+Kohlenbach introduced in \cite{Kohlenbach96mfi}
+the \defkey{monotone functional interpretation} or shortly \defkey{MD-interpretation} 
+(see \ref{ss:mfi}). 
+This interpretation is based on the D-interpretation and Howard's majorizability 
+property (see definition \ref{d:maj}). 
+Instead of delivering a concrete realizer as before, by the MD-interpretation 
+we can construct a tuple of closed terms $\tup t$ which \defkey{majorize} 
+some realizers. Unless combined with negative translation, we still need an 
+intuitionistic proof, but, fortunately,
+it can use some other ineffective principles which have
+a direct MD-interpretation (e.g. Weak K\"onig's lemma, for general 
+definition of these principles see theorem \ref{t:mfi}).\\
+
+\todo{cite my Dipl for a trivial example? or Schwichtenberg?}
+
+\bigskip
+%
+%  SYSTEMS
+%
+%
+The first two interpretations in this section as well as the particular 
+axiomatization of intuitionistic logic and arithmetic
+go originally back to G\"odel (see \cite{Goedel33}, \cite{Goedel58}), 
+the monotone functional interpretation was first introduced
+by Kohlenbach (see \cite{Kohlenbach96mfi}).
+The calculus of $\weha$ and Heyting Arithmetic in general was further
+analyzed by Troelstra in \cite{Troelstra73}.\\
+The herein presented description of the formal systems and representations
+is based mainly on \cite{Kohlenbach08} and we use also the shortened version
+extracted by E. M. Briseid (see \cite{Briseid05}).
+We define the system $\weha$ directly
+with its language, axioms, and rules rather than going the usual way of
+defining an intuitionistic calculus for first order logic
+ followed by the addition of arithmetic and
+types.
+%
+%\section{Preliminaries}
+%\subsection{All finite Types}
+%
+%
+%
+\begin{dfn}\label{d:Tp}
+The \defkey{set of all finite types}, \defkeyn{$\Tp$}, is generated
+inductively by
+\begin{align*}
+0 &\in \Tp \text{,} \\
+\rho,\tau \in  \Tp \rightarrow\quad \tau(\rho) &\in  \Tp
+\text{,}\end{align*} 
+where the type $0$ is the type corresponding to the natural numbers $\NN$.
+Objects of type $\tau(\rho)$ are functions mapping 
+objects of type $\rho$ to objects of type $\tau$. We will sometimes 
+omit brackets when specifying types, i.e. write $\rho(\tau \sigma)$ 
+meaning in fact $\rho(\tau(\sigma))$.\\
+The \defkey{set of pure types}, \defkeyn{$\PT$}, is generated
+inductively by
+\begin{align*}
+0 &\in \PT \text{,}\\
+\rho \in \PT \rightarrow\quad 0(\rho) &\in  \PT 
+\text{.}\end{align*} 
+We often denote pure types by natural numbers, with $1$ for
+$00$, $2$ for $0(00)$, and $n+1$ for $0(n)$.\\
+The \defkey{degree} or \defkey{type level} of $\rho$ is defined by
+\begin{align*}
+\emph{deg}(0) &: = 0 \text{,} \\
+\emph{deg}(\tau(\rho)) &: = \max (\emph{deg}(\tau), \emph{deg}(\rho)+1)
+\text{.}
+\end{align*} 
+\end{dfn}
+We will use numbers in bold font for the type level of terms. I.e. for
+a functional $A$ of type 
+$(0\rightarrow 0) \rightarrow ( (0\rightarrow 0)\rightarrow((0\rightarrow 0)\rightarrow 0) ) $
+we write also $A\tp{2}$, expressing that $A$ has degree $2$, 
+instead of $A^{(21)1}$, where the type of $A$ is declared precisely.\\                                                         
+%
+We define higher order equality as follows:
+\begin{dfn}\label{l:hte}
+Two terms of type $\rho$ are equal, iff:
+                        \[
+         s^{\rho} =_{\rho} t^{\rho} : \equiv \forall y_{1}^{\rho_{1}},
+         \dots, y_{k}^{\rho_{k}}(sy_{1} \dots y_{k} =_{0} ty_{1} \dots y_{k})\text{,}
+                        \]
+where $\rho = 0(\rho_{k})\dots (\rho_{1})$.
+\end{dfn}
+
+\subsection{The System $\weha$}
+%
+%
+%
+We call the system $\weha$, which we describe below, weakly
+extensional intuitionistic ('Heyting'-) arithmetic in all finite
+types. 
+\begin{dfn}{\em Weakly extensional arithmetic in all finite types \defkeyn{$\weha$}}
+  \label{d:weha}
+  \begin{itemize}
+  %
+  % Language
+  %
+  \item {\em The language ${\mathcal{L}}(\weha)$ of $\weha$}:  
+    \begin{itemize}
+    \item {\em The signature of ${\mathcal{L}}(\weha)$}:  
+      \begin{itemize}
+      \item We use the following logical symbols (for any type $\rho$):
+        \begin{align*}
+          \wedge\quad &\text{and}&            \vee  \quad &\text{or}\\
+          \rightarrow\quad &\text{implies}&    \perp\quad &\text{absurdity}\\
+          \exists\ x^\rho\quad &\text{there exists}&        \forall\ x^\rho\quad &\text{for all}
+          \text{.}\end{align*}
+      \item We write (for any type $\rho$) $x^\rho,y^\rho,z^\rho,... $
+            for variables of type $\rho$ (bound or free).
+      \item We include the constants: 
+        \begin{align*}
+          0^0\quad &\text{natural number $0$}&  S^{00}\quad &\text{successor}\\
+          \Sigma_{\delta,\rho,\tau}\quad 
+                &\text{combinator of type $\tau\delta(\rho\delta)(\tau\rho\delta)$}&
+          \Pi^{\rho\tau\rho}_{\rho,\tau}\quad &\text{projector}\\    
+          \tup R_{\tup \rho}\quad &\text{simultaneous recursors of type 
+           $\tup\rho(\tup\rho 0\tup\rho)\tup\rho0$}\text{.}&&
+          \end{align*}
+      \item and the binary predicate constant $=_0$ for equality between type $0$ objects.
+       \end{itemize}
+     \item {\em \defkeyn{Terms} of ${\mathcal{L}}(\weha)$}:
+       \setcounter{equation}{0}
+       \begin{enumerate}
+     \item For any type $\rho$, the terms of type $\rho$ are the variables $x^{\rho},y^\rho,...$ and 
+       the constants $c_1^\rho,c_2^\rho,...$ %.
+     \item If $t^{\tau\rho}$ is a term of type $\tau\rho$ and $s^\rho$
+       is a term of type $\rho$, then $t^{\tau\rho}(s^\rho)$ is a 
+       term of type $\tau$.
+     \end{enumerate}
+   \item {\em \defkeyn{(Prime) Formulas} of ${\mathcal{L}}(\weha)$}:
+     \begin{enumerate}
+     \item Absurdity, $\perp$, is a (prime) formula.
+     \item If $s^0$ and $t^0$ are terms of type $0$ 
+       then $s=_0t$ is a (prime) formula. Prime formulas are also called 
+       \defkey{atomic formulas}.
+     \item If $\phi$ and $\psi$ are formulas and $x^\rho$ is
+       a variable of type $\rho$ then
+         \begin{align*}
+           &\phi \wedge \psi& &\phi\vee\psi\\
+           &\phi \rightarrow \psi& &\exists x^\rho\ \phi(x)\\
+           &\forall x^\rho\ \phi(x)
+         \end{align*}
+         are formulas.
+       \end{enumerate}
+     \item {\em Abbreviations}:
+       \begin{align*}
+         &\neg\phi:\equiv\ \phi\rightarrow\perp& 
+         &\phi\leftrightarrow\psi:\equiv\ (\phi\rightarrow\psi)\wedge(\psi\rightarrow\phi)
+         \text{.}\end{align*}
+     \end{itemize} 
+   \item {\em Axioms of $\weha$}
+   %  
+   %  Axioms
+   %  
+     \begin{enumerate}
+       \item Axioms of contraction:
+         \begin{align*}
+           &\phi\vee\phi\rightarrow\phi& 
+           &\phi\rightarrow\phi\wedge\phi
+           \text{.}
+         \end{align*}
+       \item Axioms of weakening:
+         \begin{align*}
+           &\phi\rightarrow\phi\vee\psi& 
+           &\phi\wedge\psi\rightarrow\phi
+           \text{.}
+         \end{align*}
+       \item Axioms of permutation:
+         \begin{align*}
+           &\psi\vee\phi\rightarrow\phi\vee\psi& 
+           &\phi\wedge\psi\rightarrow\psi\wedge\phi
+           \text{.}
+         \end{align*}
+       \item Ex falso quodlibet axiom:
+         \[
+           \perp\rightarrow\phi\text{.}
+         \]
+       \item Quantifier axioms:
+         \begin{align*}
+           &\forall x\phi(x)\rightarrow\phi(t)& 
+           &\phi(t)\rightarrow\exists x\phi(x)
+           \text{,}
+         \end{align*}
+           where $t$ is free for $x$ in $\phi$.
+       \item Axioms of equality for $=_0$ ($x^0$, $z^0$ and $y^0$ are variables of type $0$):
+         \begin{align*}
+           x&=_0x&   x=_0y&\rightarrow y=_0x\\
+           x=_0y\wedge y=_0z&\rightarrow x=_0z\text{.}&&
+         \end{align*}
+         The reflexivity, symmetry and transitivity of higher type equalities 
+         $=_\rho$ are derivable from these axioms (see lemma \ref{l:hte}).
+       \item Successor axioms:
+         \begin{align*}
+           &S(x^0)\neq_0 0\\
+           &S(x^0)=_0S(y^0)\rightarrow x=_0y\text{.}
+         \end{align*}
+         We write also $x+1$ for $S(x)$.
+       \item Induction schema for an arbitrary formula $\phi(x^0)$ of $\weha$:
+         \[ \IA \quad:\quad \phi(0)\wedge\forall x^0(\phi(x)\rightarrow\phi(x+1))\ 
+             \rightarrow\ \forall x^0\phi(x) \text{.}\]
+       \item Axioms for $\Pi_{\rho, \tau}$,$\Sigma_{\delta, \rho, \tau}$ 
+         and $\tup R_{\tup \rho}$:
+         \begin{align*}
+         (\Pi)\quad&:\quad \Pi_{\rho,\tau}x^{\rho}y^{\tau} =_{\rho}x^{\rho}\\ 
+         (\Sigma)\quad&:\quad \Sigma_{\delta, \rho, \tau}
+           x^{\tau \rho\delta}y^{\rho\delta}z^{\delta} =_{\tau} xz(yz)\\
+         (\tup R_{\tup \rho})\quad&:\quad\text{for $i=1,...,k$:}\\
+           &\quad\quad\begin{cases}
+             (R_{i})_{\tup\rho}0\tup y\atup z =_{\rho_i} \tup y  \\
+             (R_{i})_{\tup\rho}(Sx^{0})\tup y\atup z=_{\rho_i} 
+                  z_i(\tup R_{\tup\rho}x\tup y\atup z)x 
+           \end{cases}
+           \text{,}
+         \end{align*}
+         where $\tup \rho=\rho_1,...,\rho_k$,  $\tup\rho^t:=\rho_k\ldots\rho_1$,
+         $\tup y=y_1,...,y_k$ and
+         $\tup z=z_1,...,z_k$ with $y_i$ of type $\rho_i$ and $z_i$ of
+         type $\rho_i0\tup\rho^t$.
+     \end{enumerate}
+   \item {\em Rules of $\weha$}
+   %
+   % Rules
+   %
+     \begin{enumerate}
+       \item Modus ponens and syllogism:
+         \begin{align*}
+           &\begin{prooftree}
+             \phi \quad \phi\rightarrow \psi
+             \justifies
+             \psi
+           \end{prooftree}& 
+           &\begin{prooftree}
+             \phi\rightarrow\psi \quad \psi\rightarrow \chi
+             \justifies
+             \phi\rightarrow\chi
+           \end{prooftree}\text{.}
+         \end{align*}
+       \item Exportation and importation:
+         \begin{align*}
+           &\begin{prooftree}
+             \phi\wedge\psi\rightarrow\chi 
+             \justifies
+             \phi\rightarrow(\psi\rightarrow\chi)
+           \end{prooftree}& 
+           &\begin{prooftree}
+             \phi\rightarrow(\psi\rightarrow\chi)
+             \justifies
+             \phi\wedge\psi\rightarrow\chi 
+           \end{prooftree}\text{.}
+         \end{align*}
+       \item Expansion:
+         \[\begin{prooftree}
+             \phi\rightarrow\psi
+             \justifies
+             \chi\vee\phi\rightarrow\chi\vee\psi
+           \end{prooftree}\text{.}\]
+       \item Quantifier rules (assuming $x$ is not free in $\psi$):
+         \begin{align*}
+           &\begin{prooftree}
+             \psi\rightarrow\phi(x) 
+             \justifies
+             \psi\rightarrow\forall x\ \phi(x) 
+           \end{prooftree}& 
+           &\begin{prooftree}
+             \phi(x) \rightarrow \psi
+             \justifies
+             \exists x\ \phi(x)\rightarrow\psi
+           \end{prooftree}\text{.}
+         \end{align*}
+       \item Quantifier-free rule of extensionality:
+         \[ \QFm\ER\quad:\quad
+           \begin{prooftree}
+             \phi_{{}_{\QF}}\rightarrow s=_\rho t
+             \justifies
+             \phi_{{}_{\QF}}\rightarrow r[s]=_\tau r[t]
+           \end{prooftree}\text{,}\]
+           where $s^\rho$, $t^\rho$ and $r[x^\rho]^\tau$ are terms of $\weha$, 
+           $\phi_{{}_{\QF}}$ is a quantifier-free formula and $\rho,\tau\in\Tp$ are arbitrary.
+     \end{enumerate}
+     
+   \end{itemize}
+\end{dfn}
+\begin{rmk}
+A careful reader observed that the congruence axioms for $=_0$
+are not explicitly included in 
+the axioms of equality (6). However, it is implied by $\QFm\ER$ that:
+\[
+\begin{prooftree}
+  x=_0y\ \rightarrow\ x=_0y
+  \justifies
+  x=_0y\ \rightarrow\ r[x]=_\rho r[y]
+  \using \QFm\ER
+\end{prooftree}
+\text{.}
+\]
+\end{rmk}
+The system obtained by the axioms 1\nbd5 together with the rules
+1\nbd4 restricted to closed formulas corresponds to the one suggested by G\"odel for the 
+purpose of verifying the soundness of the D-interpretation. 
+Troelstra shows in \cite{Troelstra73} the equivalence
+between G\"odel's and Spector's system as defined originally 
+by Spector in \cite{Spector62} which, in turn, was proved to be equivalent to Kleene's 
+formalization given in \cite{Kleene52} by Spector in \cite{Spector62}.\\ % as well.
+Moreover, Troelstra shows the equivalence of Spector's system to 
+the well known natural deduction calculus proving the deduction theorem
+for Spector's system. Both, the proof and the definition, 
+are given in \cite{Troelstra73}.
+In that book, Troelstra also derives some additional schemata and rules, e.g. the 
+contraposition rule, $(\phi\rightarrow\psi)\rightarrow(\neg\psi\rightarrow\neg\phi)$, or
+the equivalence of single/triple negation, $\neg\neg\neg\phi\leftrightarrow\neg\phi$.\\
+This means that as $\weha$ is an extension
+of G\"odel's system it surely proves all that can be proved by the natural deduction 
+system as defined in \cite{Troelstra73}.
+As a facile motivation, we will derive a simple lemma in the form we will need later. To do so, we use
+Troelstra's results and the axioms and rules
+above. Generally, one can prove even
+\[
+  \neg\neg\exists x\ \phi(x)\ \leftrightarrow\ \neg\forall x\ \neg\phi(x)\text{,}
+\]
+again, using only Spector's system 
+(or, equivalently, the selection of axioms and rules of $\weha$ as given above).
+%
+\begin{lemma}\label{l:exnegall}
+\[\weha\quad\proves\quad
+  \neg\neg\exists x\ \phi(x)\ \rightarrow\ \neg\forall x\ \neg\phi(x)\text{.}\]
+\end{lemma}
+\begin{proof}
+First, we derive $\exists x\phi(x),\forall x\neg\phi(x)\proves\perp$:
+\[
+\begin{prooftree}
+         \exists x\phi(x)^\text{ass.}
+         \[
+          \[
+             \forall x\neg\phi(x)^\text{ass.}\quad
+             \forall x\neg\phi(x)\rightarrow\neg\phi(x)^\text{Ax. 5}
+           \justifies
+           \phi(x)\rightarrow\perp
+           \using \text{Rule 1}
+          \]
+           \justifies
+           \exists x\phi(x)\rightarrow\perp
+           \using \text{Rule 4}
+        \]
+        \justifies
+        \perp
+        \using \text{Rule 1}
+\end{prooftree}
+\text{,}
+\]
+which implies $\exists x\phi(x)\rightarrow\neg\forall x\neg\phi(x)$ by the deduction theorem
+proved by Troelstra in \cite{Troelstra73}. 
+By contraposing this implication twice, again using \cite{Troelstra73}, we obtain:
+\[
+\neg\neg\exists x\phi(x)\rightarrow\neg\neg\neg\forall x\neg\phi(x)
+\text{,}
+\]
+what is equivalent to
+\[
+\neg\neg\exists x\phi(x)\rightarrow\neg\forall x\neg\phi(x)
+\text{,}
+\]
+by \cite{Troelstra73} yet again.
+\end{proof}
+%
+%
+
+We have that $\weha$ allows $\lambda$-abstraction in the
+following sense.
+\begin{lemma}\emph{(see e.g. \cite{Kohlenbach08})} 
+If $\,t[x^{\rho}]^{\tau}$ is a term of $\weha$, one can
+construct in $\weha$ a term $\lambda x^{\rho}. t[x]$ of type 
+$\tau\rho$ such that
+\[ \weha \vdash (\lambda x^{\rho}. t[x])(s^{\rho}) =_{\tau} t[s], \]
+and such that the free variables of $\lambda x^{\rho}. t[x]$ are the
+same as the free variables of $t[x^{\rho}]^{\tau}$ only without
+$x^{\rho}$.
+\end{lemma}
+We also note that 
+prime formulas are decidable in $\weha$. In addition,
+ we will be able to treat any quantifier-free formula
+$\phi_{{}_{\QF}}(\tup x)$ containing only $\tup x$ free
+as a prime formula, since we can find closed terms
+$t$ of $\weha$
+such that 
+\[ \weha \vdash \phi_{0}(\underline{x}) \leftrightarrow t
+\underline{x} =_{0}0\text{.}\]
+We can also code a finite tuple of variables of different 
+types into a single variable, whose type depends on the types of the
+variables in the tuple. This can be shown in $\weha$ 
+(see \cite{Troelstra73}). So, in principle, simultaneous recursion
+$\tup R_{\tup\rho}$ can be reduced to $R_\tau$ for suitable type $\tau$.\\
+The inequality $\leq$ between numbers is definable in $\weha$ as 
+a quantifier-free predicate. 
+\begin{dfn}\label{d:leq}
+The inequality predicate $\leq_{\rho}$ between functionals of type
+$\rho$ is defined inductively by
+\setcounter{equation}{0}
+\begin{align}
+  x \leq_{0} y &:\equiv x \leq y\\
+  x \leq_{\tau \rho} y &:\equiv \forall z^{\rho}(xz\leq_{\tau} yz)\text{.} 
+\end{align}
+\end{dfn}
+
+\subsection{Fragments and Extensions of $\weha$}
+%
+% EXTENSIONS
+%
+The classical system corresponding to $\weha$ is obtained simply by
+adding the law of excluded middle:
+\begin{dfn} 
+\label{d:wepa}
+By adding the law of excluded middle 
+\[ \usftext{LEM}\quad:\quad \phi \vee \neg \phi\text{,} \]
+to the axioms of $\weha$ for any formula in $\weha$ we obtain \defkeyn{$\wepa$}.
+\end{dfn}
+%
+Furthermore, we define the extensional systems:
+\begin{dfn} 
+\label{d:eha_epa}
+By replacing the rule $\QFm\ER$ by the 
+\defkey{axioms of higher type extensionality}
+\[ 
+\defkeyn{\usftext{E}}_\rho\quad:\quad 
+%   \forall z^{\rho},x_1^{\rho_1},y_1^{\rho_1},...,x_k^{\rho_k},y_k^{\rho_k}
+ \forall z^{\rho},x_1^{\rho_1},y_1^{\rho_1},\ldots,x_k^{\rho_k},y_k^{\rho_k}
+   \ \Big( 
+%\text{$\ORi{k}$}
+%\ORi{k}
+%\bigwedge_{i=1\ldots k}
+\bigwedge_{i=1}^{k}
+( x_i=_{\rho_i} y_i ) \rightarrow z\tup x=_0 z \tup y \Big)
+\text{,} 
+\]
+in the systems $\weha$/$\wepa$, where $\rho=0\rho_k\ldots\rho_1$, we obtain the systems \defkey{$\eha$/$\epa$}.
+\end{dfn}
+
+%
+%FRAGMENTS
+%
+On the other hand, sometimes it is sufficient to have weaker systems. 
+This leads us to the definition of the following fragments:
+\begin{dfn}
+For all four systems $\weha$, $\wepa$, $\eha$ and $\epa$ let
+correspondingly $\hrrweha$, $\hrrwepa$, $\hrreha$, $\hrrepa$ denote
+the fragments where we only have the recursor $R_0$ for type-0-recursion and
+the induction schema is restricted to the schema of
+quantifier-free induction:
+\[
+\QF\m\IA\quad:\quad
+             \left(\phi_{{}_{\QF}}(0)\wedge\forall n^0\big( \phi_{{}_{\QF}}(n)\rightarrow  \phi_{{}_{\QF}}(n+1)\big)\right)
+             \rightarrow\forall n^0 \phi_{{}_{\QF}}(n)
+\text{,}
+\]
+where $\phi_{{}_{\QF}}$ is a quantifier-free formula and may 
+contain parameters of arbitrary types.
+\end{dfn}
+
+%
+% REPRESENTATION
+%
+%
+\subsection{The ordered Field of rational Numbers within $\weha$}
+%
+Rational numbers are represented by
+codes $j(m,n)$ of pairs $(m,n)$ of natural numbers. 
+Typically $j$ would be just the Cantor pairing function, but any common surjective pairing 
+function $j$ with the inverse functions $j_1(j(m,n))=m$ and $j_2(j(m,n))=n$ does the job.
+We need the surjectivity to be able to conceive each natural number as a code of
+a uniquely determined rational number.
+For more examples on paring functions see e.g. \cite{Odifreddi89}.
+\begin{dfn}{\em Coding of rational numbers\\}
+The rational number represented by $j(m,n)$ is 
+\[
+    j(m,n)\sim\begin{cases}
+         \frac{\frac{n}{2}}{m+1} &\text{if $n$ is even}\\
+        - \frac{\frac{n+1}{2}}{m+1} &\Telse \end{cases}\text{.}
+\]
+%We need also the projections $j_1$ and $j_2$:
+%\begin{align*}
+%j_1(j(m,n))&:=m\\
+%j_2(j(m,n))&:=n\text{.}
+%\end{align*}
+\end{dfn}
+%\begin{rmk}We can choose an arbitrary pairing function $p$. E.g. the Cantor
+%pairing function or one of the common pairing functions given in \cite{Odifreddi89}.}\\
+Next, we define an equality relation $=_\QQ$ on 
+these representatives of the rational numbers.
+\begin{dfn}{\em Equality of rational numbers\\}
+We define the equality between the codes of two rational numbers
+ $q_1$ and $q_2$, $=_\QQ$, as follows:
+\[
+    q_{1} =_\QQ q_{2} : \equiv
+    \frac{\frac{j_{1}q_{1}}{2}}{j_{2}q_{1}+1} =
+    \frac{\text{$\frac{j_1q_2}{2}$}}{j_{2}q_{2}+1}  
+\]
+if $j_{1}q_{1}$ and $j_{1}q_{2}$ are both even, and analogously
+in the remaining cases. 
+The equality
+\[\frac{a}{b} = \frac{c}{d}\]
+is defined to hold iff
+   \[ad =_{0} cb \wedge bd >_0 0\text{.}\]
+\end{dfn}                       
+%
+We write $n=_{\mathbb{Q}} \langle r \rangle$ to
+express the statement that $n$ represents the rational number
+$r$. By using only the representatives of natural 
+numbers and $=_\QQ$
+we can avoid a formal introduction of the set $\QQ$ as 
+the set of the equivalence classes on $\NN$ w.r.t. $=_\QQ$.\\
+For the embedding $\NN\embeded\QQ$, we define for a natural number $n$ its representation
+as a rational number as follows: 
+$\langle n\rangle = n_{\mathbb{Q}} : = j(2n,0)$. 
+One can then define the primitive recursive operations $+_{\mathbb{Q}}, 
+\cdot_{\mathbb{Q}}$ and 
+the predicates $<_{\mathbb{Q}}, \leq_{\mathbb{Q}}$ on $\mathbb{N}$ in
+$\weha$ such that one can prove (within $\weha$)
+that \[(\mathbb{N}, +_{\mathbb{Q}}, \cdot_{\mathbb{Q}}, 0_{\mathbb{Q}},
+1_{\mathbb{Q}}, <_{\mathbb{Q}})\] 
+represents the field of rational numbers, $(\QQ,+,\cdot,0,1,\leq)$, in $\weha$.
+%
+% Reals
+%
+\subsection{The Archimedean ordered Field of real Numbers within $\weha$}
+%
+We represent the real numbers by sequences of rational numbers with
+a fixed rate of convergence $2^{-n}$. 
+\begin{dfn}{\em Representation of a real number\\}\label{d:real}
+A function $f : \NN \mapsto \NN$ such that
+\[
+  \forall n\ \big(|fn -_\QQ f(n+1)|_\QQ <_\QQ \langle 2^{-(n+1)}  \rangle\big)
+\text{,}
+\]
+which implies
+\begin{align*}
+  \forall n\ \forall k\!>\!m\!\geq\!n\ \Big(\ \
+    |fm -_\QQ fk|_\QQ\  &\leq_\QQ\  \sum^{k-1}_{i =m}|fi-_\QQ f(i+1)|_\QQ \\
+                       &\leq_\QQ\  \sum^{\infty}_{i =n}|fi -_\QQ f(i+1) |_\QQ
+                       <_\QQ\ \langle 2^{-n} \rangle\ \ \Big)\text{,}
+\end{align*}
+represents a real number.
+\end{dfn}
+We can arrange for each function $f^1$ to code a unique real number in this way.
+\begin{dfn} \label{d:hatReal}
+Let $f\ :\ \NN\mapsto\NN$ be a function. Define $\widehat{\!f}$ by   
+\[
+\widehat{\!f}n := 
+  \begin{cases}
+    fn & \Tif\ \ \forall k<n\ \big(|fk -_\QQ f(k+1)|_\QQ <_\QQ \langle 2^{-k-1}\rangle\big) \\
+    fk & \Telse
+  \end{cases}\text{,}
+\]
+where $k$ is the least number such that $k<n$ 
+and  \[|fk-_\QQ f(k+1)|_\QQ \geq_\QQ \langle 2^{-k-1} \rangle\text{.}\]
+The function $\widehat{\!f}$ defines a uniquely determined real number, so
+we say also that $f$ defines a uniquely determined real number, namely the one represented 
+by $\widehat{\!f}$.
+\end{dfn}
+The functional which maps $f$ to $\widehat{\!f}$ can be defined primitive 
+recursively in $\weha$. So we can reduce quantifiers ranging over
+$\mathbb{R}$ to quantifiers ranging over type $1$ objects. 
+The usual operations and relations on $\RR$ can be defined in $\weha$. As an
+example we define $=_{\mathbb{R}}$ and $+_{\mathbb{R}}$ as follows:
+\begin{dfn}\label{d:Rel}
+Equality on $\RR$ is represented by the equivalence relation $=_{\mathbb{R}}$
+ of the representatives as follows:
+        \[
+            f_{1}^{1} =_{\mathbb{R}} f_{2}^{1} : \equiv \forall n
+            \big(|\widehat{f_{1}}(n+1) -_\QQ
+            \widehat{f_{2}}(n+1)|_\QQ <_\QQ \langle
+                                           2^{-n} \rangle \big).
+        \]
+We define
+       \[
+       f_{1} <_{\mathbb{R}} f_{2} : \equiv \exists n
+            \big(\widehat{f_{2}}(n+1) -_\QQ
+            \widehat{f_{1}}(n+1) \geq_\QQ \langle
+                                           2^{-n} \rangle  \big),
+       \]
+and get $f_{1} =_{\mathbb{R}} f_{2} \in \Pi^{0}_{1}$, $f_{1}
+<_{\mathbb{R}} f_{2} \in \Sigma^{0}_{1}$, and $f_{1}
+\leq_{\mathbb{R}} f_{2} : \equiv \lnot( f_{2} <_{\mathbb{R}} f_{1} )
+\in \Pi^{0}_{1}$.\\
+The extensionality of these relations can be proved in $\weha$.
+\end{dfn}
+\begin{dfn}\label{d:Rpm}
+We define $+_\RR$ as follows:
+\[
+( f_{1} +_{\mathbb{R}} f_{2}) (k): = \widehat{f_{1}}(k+1)
++_\QQ \widehat{f_{2}}(k+1)
+\text{.}
+\]
+Analogously for  $-_\RR$.
+\end{dfn}
+For the embedding $\QQ\embeded\RR$, we define for the coding $n=\langle r\rangle$ of a rational number $r$
+its coding $n_{\mathbb{R}} : = \lambda k. n_\QQ$ for the real
+number corresponding to $r$. However, usually we omit
+the intermediate encoding to a rational number and write shortly $r_\RR$ instead of $(\langle r\rangle)_\RR$.
+Again, we do not introduce $\mathbb{R}$ as the set of equivalence classes of
+representatives, but consider only the representatives themselves. The structure
+\[              
+ (\NN^\NN, +_\RR,\cdot_\RR, 0_{\mathbb{R}}, 1_{\mathbb{R}}, <_{\mathbb{R}})
+\]
+represents the Archimedean ordered field of real numbers $(\mathbb{R}, +, \cdot, 0, 1, <)$ in $\weha$. 
+%
+% INTERPRETATIONS
+%
+%
+\subsection{Kuroda's negative Translation}
+%
+As mentioned earlier, we will use Kuroda's version \cite{Kuroda51} of G\"odel's
+negative translation \cite{Goedel33}. We also give directly the intuitionistically
+equivalent version for tuples of variables 
+(compare e.g. to \cite{Kohlenbach08}).
+\begin{dfn}[Kuroda '51] \label{d:NT}
+To each formula $\phi$ of ${\mathcal L}(\weha)$ we associate its \defkey{negative translation}
+$\phi'$, which is a formula of the form
+\[
+\phi':\equiv \neg\neg \phi^*
+\text{,}
+\]
+where $\phi^*$ is defined inductively as follows:
+\begin{enumerate}
+\item For an atomic formula $\phi$ we have:
+\[
+\phi^*:\equiv\phi\text{.}
+%\tag{0}
+\]
+\item Otherwise, suppose we already know $\phi^*$ 
+and $\psi^*$. We define:
+\begin{align*}
+% and
+(\phi\!\wedge\!\psi)^*\!\!&:\equiv
+    \phi^* \wedge \psi^*\text{,}\\
+% or
+(\phi\!\vee\!\psi)^*\!\!&:\equiv
+    \phi^* \vee \psi^*\text{,}\\
+%implies
+(\phi\!\rightarrow\!\psi)^*\!\!&:\equiv
+    \phi^* \rightarrow \psi^*\text{,}\\
+% exists
+(\exists a\ \phi(a))^*\!\!&:\equiv
+  \exists a (\phi(a))^*\text{,}\\
+% for all
+(\forall \tup a\ \phi(\tup a))^*\!\!&:\equiv
+  \begin{cases}
+    \forall \tup a\ \neg\neg (\phi(\tup a))^* & \text{if $\phi$ does not begin with a $\forall$-quantifier}\\
+    \forall \tup a\ (\phi(\tup a))^* & \text{else}
+  \end{cases}
+\end{align*}\text{.}
+\end{enumerate}
+\end{dfn}
+%
+This negative translation translates a proof of 
+a formula $\phi$ in $\wepa$ into a proof in
+$\weha$ of $\phi'$.
+%associates with each formula $\phi$
+%provable in $\wepa$ the formula $\phi'$ provable in $\weha$.
+\begin{thm}{\em( See e.g. \cite{Luckhardt73}.)\\}
+Whenever
+\[
+\wepa \vdash \phi
+\]
+we have 
+\[
+\weha \vdash \phi'\text{.}
+\]
+\end{thm}
+%
+\subsection{G\"odel's Functional Interpretation}
+%
+%
+%
+As mentioned already in the introduction, the D-interpretation
+was originally developed by G\"odel as a possible modification
+of Hilbert's program. The D-interpretation itself was first
+presented in a lecture to the Mathematics and Philosophy
+Clubs at Yale University in 1941 and published in \cite{Goedel58}.
+This first version was for the ordinary Heyting Arithmetic, the version presented
+here is based on Luckhardt's in \cite{Luckhardt73} and Troelstra's
+in \cite{Troelstra73}.
+Further details on historical 
+background can be found
+in \cite{AF98}. 
+\begin{dfn}[G\"odel '41] \label{d:FId}
+To each formula $\phi(\tup{a})$ in ${\mathcal L}(\weha)$ with the tuple of
+free variables $\tup{a}$ we associate its \defkey{D-interpretation}
+$\phi^D(\tup{a})$, which is a formula of the form
+\[
+\phi^D(\tup{a}):\equiv\exists \tup x\forall \tup y\ \phi_D(\tup x, \tup y, \tup{a})
+\text{,}
+\]
+where $\phi_D(\tup{a})$ is a quantifier-free formula.
+Each of $\tup x$ and $\tup y$ is a tuple of variables whose
+types, as well
+as the length of each tuple, depend only on the logical structure of $\phi$. 
+We also write $\phi_D(\tup x, \tup y, \tup{a})$ for $\phi_D(\tup{a})$. If some variables
+$\tup z$ of $\phi$ are exhibited, as $\phi(\tup z,\tup a)$, then we write
+$\phi_D(\tup x, \tup y, \tup z,\tup{a})$ for $\phi_D(\tup{a})$.\\
+We define the construction of $\phi^D$ inductively as follows 
+\begin{enumerate}
+\item For an atomic formula $\phi(\tup{a})$, the tuples $\tup x$ and $\tup y$ are empty
+and we have:
+\[
+\phi^D(\tup{a}):\equiv\phi_D(\tup{a}):\equiv\phi(\tup{a})\text{.}
+\tag{0}
+\]
+\item Otherwise, suppose we already know the D-interpretation of $\phi(\tup a)$ 
+and $\psi(\tup b)$ to be as follows:
+\[
+\phi^D(\tup{a})\equiv\exists \tup x\forall \tup y\ \phi_D(\tup{a})
+\quad\text{and}\quad
+\psi^D(\tup{b})\equiv\exists \tup u\forall \tup v\ \psi_D(\tup{b})
+\text{.}
+\]
+where $\phi_D$, $\psi_D$, $\tup{a}$, $\tup x$, $\tup y$ and $\tup{b}$ satisfy the
+assumptions from above and additionally the variable $z$ is not part of any of 
+the tuples above (otherwise we could use
+a different name for the variable e.g. $z_1$). We define:
+\setcounter{equation}{0}
+\begin{align}
+% and
+(\phi(\tup a)\!\wedge\!\psi(\tup b))^D\!\!&:\equiv\!
+  \exists \tup x, \tup u\forall \tup y, \tup v
+  \big(\phi_D(\tup x,\tup y,\tup{a}) \wedge \psi_D(\tup u,\tup v, \tup{b})\big)\text{,}\\
+% or
+(\phi(\tup a)\!\vee\!\psi(\tup b))^D\!\!&:\equiv\!
+  \exists z^0\!\!,\! \tup x\!,\! \tup u\forall \tup y\!,\! \tup v
+  \Big( \big(z\!\!=_0\!0\!\rightarrow\!\phi_D(\tup x,\! \tup y,\!\tup{a})\big) \wedge 
+    \big(z\!\!\neq_0\!0\!\rightarrow\!\psi_D(\tup u,\!\tup v,\!\tup{b})\big)  \Big)\text{,}\\
+% for all
+(\forall z\ \phi(z,\tup a))^D\!\!&:\equiv\!
+  \exists \tup X \forall z,\tup y\ \phi_D(\tup X z,\tup y, z, \tup{a})\text{,}\\
+% exists
+(\exists z\ \phi(z,\tup a))^D\!\!&:\equiv\!
+  \exists z,\tup x \forall \tup y\ \phi_D(\tup x,\tup y, z, \tup{a})\text{,}\\
+% implies
+(\phi(\tup a)\!\rightarrow\!\psi(\tup b))^D\!\!&:\equiv\!
+  \exists \tup U,\tup Y \forall \tup x, \tup v
+  \big(\phi_D(\tup x,\tup Y\atup x\atup v,\tup{a}) \rightarrow 
+   \psi_D(\tup U\atup x,\tup v, \tup{b})\big)\text{.}
+\end{align}
+\end{enumerate}
+\end{dfn}
+The clauses (0),(1) and (4) in the definition \ref{d:FId} are
+very easy to comprehend.
+The D-interpretation of (3), $(\forall z\ \phi(z,\tup a))^D$,
+is basically just ``Skolemizing'' the existentially quantified variables in 
+$\forall z\exists\tup x\forall\tup y \phi_D(\tup x, \tup y, z,\tup{a})$.
+The most interesting part of the definition is the D-inter\-pre\-ta\-tion 
+of the implication (5). A very detailed and comprehensive explanation
+can be found in \cite{Kohlenbach08}.\\
+% interpretation of OR
+Originally, G\"odel in \cite{Goedel58} as well as Avigad and 
+Feferman in \cite{AF98} defined the D-inter\-pre\-ta\-tion  of 
+(2):$(\phi(\tup a)\!\vee\!\psi(\tup b))$ in the following intuitionistically
+equivalent way:
+\[  \exists z^0,\tup x,\tup u\forall \tup y,\tup v\ 
+  \Big( \big(z\!=\!0\wedge\phi_D(\tup x, \tup y,\tup{a})\big) \vee 
+  \big(z\!=\!1\wedge\psi_D(\tup u,\tup v,\tup{b})\big)\Big) \tag{+} \text{.}\]
+Here we go after the version used by Troelstra (see e.g. 
+\cite{Troelstra73}) and Kohlenbach (see e.g. \cite{Kohlenbach08}).
+Apart from that the formula $(\phi(\tup a)\!\vee\!\psi(\tup b))_D$ gets not 
+only quantifier-free but also $\vee$-free this version
+assures the following idempotency property of the D-interpretation:
+\begin{thm}\label{t:DDD}
+For any formula $\phi$ in ${\mathcal L}(\weha)$ we have
+\[
+(\phi^D)^D\equiv\phi^D\text{.}
+\]
+\end{thm}
+This would not be the case if we defined (2) in the original way of G\"odel.
+Suppose $\phi$ and $\psi$ are atomic formulas. By (+) we have
+\begin{align*}
+\big((\phi \vee \psi)^D\big)^D
+&\equiv\Big(\exists z^0 \big(  ( z\!=_00\wedge\phi ) \vee  ( z\!=_01\wedge\psi )  \big)  \Big)^D\\
+&\equiv\exists z^0\bigg(\exists z_1^0 \Big(  
+  \big( z_1\!=_00\wedge(z\!=_00\wedge\phi )\big) \vee  
+  \big( z_1\!=_01\wedge(z\!=_01\wedge\psi )\big) \Big) \bigg)  \\
+&\not\equiv \exists z^0 \big(  ( z\!=_00\wedge\phi ) \vee  ( z\!=_01\wedge\psi )  \big)  
+\equiv(\phi \vee \psi)^D
+\text{,}
+\end{align*}
+which obviously contradicts Theorem \ref{t:DDD}.\\
+We should mention that as a consequence $\neg\phi$
+is D-interpreted as (given that $\phi(\tup a)$ is D-interpreted as
+$\exists \tup x\forall \tup y\ \phi_D(\tup{a})$) 
+$\exists\tup Y\forall\tup x \neg\phi_D(\tup x,\tup Y\atup x,\tup a)$. This gives
+us the following ``macro'' for double negation:
+\[
+(\neg\neg\phi)^D\!\!\equiv
+        \exists\tup X\forall\tup Y\neg\neg\phi_D(\tup X\atup {\args Y},\tup Y\args{(\tup X\atup Y)})\text{,}\]
+which is, provably in $\weha$, equivalent to:
+\[   \exists\tup X\forall\tup Y\phi_D(\tup X\args{\atup Y},\tup Y\args{(\tup X\atup Y)}) \text{.}\]
+We should also mention a partial (weaker) interpretation of the implication,
+which can be used if the data or information of the premise are not needed
+for further use of the D\nbd interpretation of a given formula. E.g. if the
+premise can be proved directly. Typically, we would analyze a proof in which
+the elimination of an implication is the final step in the 
+proof of the conclusion $\psi$:
+\[
+\weha\quad\proves\quad(\phi(\tup a)\!\rightarrow\!\psi(\tup b))^D\ \rightarrow\ 
+  \exists \tup U\forall \tup x, \tup v
+  \big((\forall\tup y\phi_D(\tup x,\tup y,\tup{a})) \rightarrow 
+   \psi_D(\tup U\atup x,\tup v, \tup{b})\big)
+\text{.}\]\\
+
+The D-interpretation is sound in the following sense.
+\begin{dfn}
+The \defkey{Independence-of-Premise} schema for universal premises:
+\defkeyn{$\IP^\omega_\forall$}; is the union (for all types $\rho$) of
+\[
+\IP^\rho_\forall\quad:\quad
+   \big(\forall\tup x\phi_{{}_{\QF}}(\tup x)\rightarrow \exists y^\rho\psi(y)\big)
+   \rightarrow \exists y^\rho\big(\forall\tup x\phi_{{}_{\QF}}(\tup x)\rightarrow\psi(y)\big)
+\text{,}
+\]
+where $y$ is not free in $\forall \tup x\phi_{{}_{\QF}}(x)$.
+\end{dfn}
+
+\begin{thm}{\em Soundness of D-Interpretation \cite{Kohlenbach08}\\}\label{t:sFI}
+Let ${\mathcal{U}}$ be an arbitrary set of purely universal sentences of $\weha$ and
+$\phi$ a formula of $\weha$ containing only $\tup a$ as free variables, then 
+\[
+\weha + \AC + \IP^\omega_\forall + \M + {\mathcal{U}} \quad\vdash\quad \phi(\tup a)
+\]
+implies that
+\[
+\weha + {\mathcal{U}} \quad\vdash\quad \forall \tup y\phi_D(\tup t\atup a, \tup y, \tup a)
+\text{,}
+\]
+where $\tup t$ is a suitable tuple of closed terms of $\weha$ which can 
+be extracted from a given proof.
+\end{thm}
+In combination with the negative translation as a pre-processing step
+we get the {\em ND\nbd in\-ter\-pre\-ta\-tion}\index{ND-interpretation} with the following properties.
+\begin{thm}{}
+Let ${\mathcal{U}}$ be an arbitrary set of purely universal sentences of $\wepa$,
+$\phi$ a formula of $\wepa$ containing only $\tup a$ as free variables 
+and suppose
+\[
+\wepa\ \  +\ \ \QFm\AC\ \ +\ \ {\mathcal{U}}\quad\vdash\quad \phi(\tup a)\text{,}
+\]
+then the ND-interpretation extracts closed terms $\tup t$ of $\weha$, such that
+\[
+\weha\ \  +\ \ {\mathcal{U}}\quad\vdash\quad \forall 
+    \tup y(\phi')_D(\tup t\atup a, \tup y,\tup a)\text{.}
+\]
+\end{thm}
+\begin{thm}{\em Main theorem on program extraction by ND-interpretation \cite{Kohlenbach08}\\}
+\/Let ${\mathcal{U}}$ be an arbitrary set of purely universal sentences of $\wepa$ 
+and $\phi_{{}_{\QF}}(\tup x,\tup y)$ be a quantifier-free formula of $\wepa$ which
+contains only $\tup x^{\tup\rho}$,$\tup y^{\tup\tau}$ as free variables. Suppose
+\[
+\wepa\ \  +\ \ \QFm\AC\ \ +\ \ {\mathcal{U}}\quad\vdash\quad 
+  \forall \tup x^{\tup\rho}\exists \tup y^{\tup\tau} \phi_{{}_{\QF}}(\tup x, \tup y)
+\text{,}
+\]
+then the ND-interpretation extracts a tuple of  closed terms $\tup t$ 
+of $\weha$, such that
+\[
+\weha\ \  +\ \ {\mathcal{U}}\quad\vdash\quad \forall 
+    \tup x^{\tup \rho}\phi_{{}_{\QF}}(\tup x, \tup t\atup x)\text{.}
+\]
+\end{thm}
+
+
+In this thesis, it is almost always the combination of negative 
+translation and functional interpretation that is used. This combination becomes 
+particularly convenient to formulate if one uses a negative translation due 
+to Krivine, as it then coincides with the so-called Shoenfield variant 
+\cite{Shoenfield67} (for the fragment $\{ \forall, \vee,\neg\}$) as 
+was shown in \cite{streicherkohlenbach07}, where this interpretation is 
+given for the full language (i.e. $\{ \forall, \exists, \rightarrow,\vee,
+\wedge,\neg \}$ with $A\leftrightarrow B:\equiv 
+(A\to B) \wedge (B\to A)$). 
+\\[1mm]
+We now give the definition of this Shoenfield interpretation:   
+\begin{dfn}[\cite{Shoenfield67,streicherkohlenbach07}] \label{d:FI}
+To each formula $\phi(\tup{a})$ in ${\mathcal L}(\wepa)$ with the tuple of
+free variables $\tup{a}$ we associate its {Sh-interpretation}
+$\phi^{Sh}(\tup{a})$, which is a formula of the form
+\[
+\phi^{Sh}(\tup{a}):\equiv\forall \tup{u}\,\exists \tup{x}\, 
+\phi_{Sh}(\tup{u},\tup{x}, \tup{a})
+\text{,}
+\]
+where $\phi_{Sh}(\tup{a})$ is a quantifier-free formula.
+Each of $\tup{x}$ and $\tup{y}$ is a tuple of variables whose
+types, as well
+as the length of each tuple, depend only on the logical structure of $\phi$. 
+We also write $\phi_{Sh}(\tup{x},\tup{y},\tup{a})$ for $\phi_{Sh}(\tup{a})$. 
+If some variables
+$\tup z$ of $\phi$ are exhibited, as $\phi(\tup z,\tup a)$, then we write
+$\phi_{Sh}(\tup x, \tup y, \tup z,\tup{a})$ for $\phi_{Sh}(\tup{a})$.\\
+We define the construction of $\phi^{Sh}$ inductively as follows 
+(with $\tup{x}\,\tup{y}$ denoting $x_1\tup{y},\ldots,x_n\tup{y}$ for 
+$\tup{x}=x_1,\ldots,x_n$). In the inductive steps we assume that 
+\[
+\phi^{Sh}(\tup{a}):\equiv\forall \tup{u}\,\exists \tup{x}\, 
+\phi_{Sh}(\tup{u},\tup{x}, \tup{a}) \ 
+\text{and} \ \psi^{Sh}(\tup{b}):\equiv\forall \tup{v}\,\exists \tup{y}\, 
+\psi_{Sh}(\tup{v},\tup{y}, \tup{b})
+\] are already defined. 
+\begin{enumerate}
+\item[(S1)] $\phi^{Sh}(\tup{a}) 
+\equiv:\phi_{Sh}(\tup{a})$ for atomic 
+$\phi(\tup{a}),$
+\item[(S2)] $(\neg \phi)^{Sh} \equiv \forall \tup{f} \exists \tup{u} \, 
+\neg \phi_{Sh}(\tup{u},\tup{f}\,\tup{u}),$
+\item[(S3)] $(\phi \vee \psi)^{Sh} \equiv 
+             \forall \tup{u},\tup{v} \exists \tup{x},\tup{y} \, 
+\big(\phi_{Sh}(\tup{u},\tup{x}) \vee \psi_{Sh}(\tup{v},\tup{y})\big),$
+\item[(S4)] $(\forall z \, \phi)^{Sh} \equiv \forall  z,\tup{u} 
+\exists \tup{x} \, \phi_{Sh}(z,\tup{u},\tup{x}),$
+\item[(S5)] 
+$(\phi{\to} \psi)^{Sh} 
+\equiv \forall \tup{f}, \tup{v} \exists \tup{u}, \tup{y} \, \big(\phi_{Sh}
+(\tup{u},\tup{f}\, \tup{u}) \to \psi_{Sh}(\tup{v},\tup{y})\big),$
+\item[(S6)] 
+$(\exists z \,\phi)^{Sh} \equiv \forall \tup{U} \exists z, \tup{f} \, 
+\phi_{Sh}(z,\tup{U} \,z\,\tup{f},\tup{f}(\tup{U}\,z\,\tup{f})),$
+\item[(S7)] $(\phi \wedge \psi)^{Sh} \leftrightarrow 
+\forall \tup{u},\tup{v} \exists \tup{x}, \tup{y} \,
+\big( \phi_{Sh}(\tup{u},\tup{x}) \wedge \psi_{Sh}(\tup{v},\tup{y})\big).$ 
+\end{enumerate}
+\end{dfn}
+\begin{remark} The official definition  of (S7) in \cite{streicherkohlenbach07} 
+is slightly different from the one given above (where our version is called 
+(S7$^*$)) 
+but is intuitionistically equivalent to that.
+\end{remark}
+As before, a partial (weaker) interpretation of the implication is sufficient
+when the witnessing data from the premise are not needed
+for further use of the Sh\nbd interpretation of a given formula. E.g. if the
+premise can be proved directly. Typically, we would analyze in such cases 
+an implication as:
+
+
+\[ \forall \tup{f} \exists \tup{y} \, \big( \forall \tup{u}\,
+\phi_{Sh}
+(\tup{u},\tup{f}\,\tup{u}) \to \psi_{Sh}(\tup{v},\tup{y})\big).\]
+\begin{remark} 
+The Shoenfield version of the functional interpretation is often -- for 
+obvious reasons -- called $\forall\exists$-form, whereas the Dialectica 
+interpretation (and hence also the combination ND of some 
+negative translation N with 
+the Dialectica interpretation D -- see above) always is of the form $\exists\forall.$ 
+If the Krivine negative translation is used (see 
+\cite{streicherkohlenbach07}), 
+the latter is nothing else but 
+the result of a final application of the axiom schema of quantifier-free 
+choice $\QFm\AC$ 
+to the Shoenfield interpretation. One should stress though that this passage 
+from the $\forall\exists$-form to the $\exists\forall$-version which  
+also is implicitly present in the soundness theorem of the Shoenfield 
+interpretation (stating the extractability of suitable terms realizing 
+the $\forall\exists$-form) is necessary for the interpretation to be sound 
+for the modus ponens rule.  
+\end{remark}
+
+
+%
+\subsection{Majorizability}
+%
+%
+We introduce an important structural property of the closed terms of all systems
+used in this thesis (and more, e.g.\ all systems used in \cite{Kohlenbach08}). We need this
+property of \defkey{majorizability}, which is due to W.A.Howard in \cite{Howard73}, 
+to define the third interpretation we will apply. However, there are several applications
+of majorizability. Mainly, to prove results on growth of the definable functionals of 
+given systems or, more generally, to give 
+bounds on growth or complexity of functionals belonging to a specific class.
+%\begin{minipage}{\textwidth}
+\begin{dfn}
+\label{d:maj}
+The relation \defkeyn{$x^*\maj_\rho x$} ($x^*$ \defkey{majorizes} $x$) between functionals of
+type $\rho$ is defined by induction on $\rho$:
+\setcounter{equation}{0}
+\begin{align}
+ x^*\maj_0 x &:\equiv x^*\geq_0x\text{,} \\
+ x^*\maj_{\tau\rho} x &:\equiv \forall y^*,y(y^*\maj_\rho y\rightarrow 
+        x^*y^*\maj_\tau xy)\text{.}
+\end{align}
+\end{dfn}
+%\end{minipage}
+%
+Moreover, Howard showed in \cite{Howard73} the following very useful fact:
+\begin{thm}{\em W.A.Howard \cite{Howard73}\\}
+\/For each closed term $t^\rho$ of $\weha$ one can construct a closed term
+$t^*$ in $\weha$ of the same type, such that:
+\[
+\weha\quad\proves\quad t^* \maj_\rho t \text{.}
+\]
+\end{thm}
+
+\subsection{Monotone Functional Interpretation}\label{ss:mfi}
+%
+%
+The monotone functional interpretation, also called \defkey{MD-interpretation},
+ extracts the terms which majorize some functionals realizing
+the usual functional interpretation directly. It was introduced by Kohlenbach in \cite{Kohlenbach96mfi}. 
+However, he studied and used the combination of D-interpretation 
+with majorizability earlier as well, see e.g. \cite{Kohlenbach92}.\\
+We have the following soundness theorem:
+\begin{thm}{\em Soundness of MD-interpretation \cite{Kohlenbach96mfi},\cite{Kohlenbach08}\\}
+\label{t:mfi}
+Let $\Delta$ be a set of sentences of the 
+form ($\phi_{{}_{\QF}}$ is a quantifier-free formula and the tuple $\tup r$ consists of closed terms):
+\[
+  \forall\tup a^{\tup\delta}\exists\tup b\leq_\sigma\tup r\atup a\forall\tup c^{\tup\gamma}
+  \phi_{{}_{\QF}}(\tup a,\tup b,\tup c)\text{,}
+\] 
+and suppose
+\[
+\weha\ \  +\ \ \AC\ \ +\ \ \IP_\forall^\omega\ \ +\ \ \M\ \ +\ \ \Delta
+     \quad\vdash\quad \phi(\tup a)\text{,}
+\]
+then MD-interpretation extracts closed terms $\tup t^*$ of $\weha$ such that
+\[
+\weha\ \  +\ \ \tilde\Delta\quad\vdash\quad 
+  \exists\tup x(t^*\maj x \wedge \forall \tup a,\tup y
+    \phi_D(\tup x\atup a, \tup y,\tup a))\text{,}
+\]
+where $\tilde\Delta$ is the corresponding set of the Skolem normal forms of
+sentences in $\Delta$:
+\[ 
+\tilde\Delta:=\left\{
+\tilde\phi:\equiv 
+  \exists\tup B\leq\tup r\forall\tup a,\tup c\phi_{{}_{\QF}}(\tup a,\tup B\atup a,\tup c)\ :\ 
+\phi\equiv
+  \forall\tup a^{\tup\delta}\exists\tup b\leq_\sigma\tup r\atup a\forall\tup c^{\tup\gamma}
+  \phi_{{}_{\QF}}(\tup a,\tup b,\tup c)\in\Delta
+\right\}\text{.}
+\]
+\end{thm}
+\begin{dfn}{}\label{d:mfi}
+Considering the theorem~\ref{t:mfi}, we say that the tuple of terms
+$\tup t^*$ satisfies the \defkey{monotone functional interpretation}, or simply
+\defkey{MD-interpretation}, of $\phi$.
+\end{dfn} {\samepage
+Kohlenbach connects in \cite{Kohlenbach08} the MD-interpretation with 
+proof mining by the following theorem:
+\begin{thm}{\em Main theorem on uniform bound extraction by MD-interpretation 
+\cite{Kohlenbach08}\\}\label{t:ubeMD}
+Let $\Delta$ be as above and $\phi(x^1,y^\rho,z^\tau)$ an arbitrary 
+formula containing only $x$,$y$,$z$ free. Let $s^{\rho(1)}$ be a closed
+term of $\weha$ and the type level of $\tau$ not greater than $2$.\\
+Then if one can prove:
+\[
+\weha+\AC+\IP^\omega_\forall+\M+\Delta\quad\proves\quad
+  \forall x^1\forall y\leq_\rho sx\exists z^\tau \phi(x,y,z)
+\]
+one can also extract a closed term $t$ of $\weha$ s.t.
+\[
+\weha+\AC+\IP^\omega_\forall+\M+\Delta\quad\proves\quad
+  \forall x^1\forall y\leq_\rho sx\exists z^\tau\leq_\tau tx\ \phi(x,y,z)\text{.}
+\]
+\end{thm}
+} %end samepage
+As in the case of D-interpretation, we can combine the MD-interpretation with
+the negative translation to obtain the \defkey{NMD-interpretation}. In this case
+the main theorem, again due to Kohlenbach (see e.g. \cite{Kohlenbach08}), becomes:
+\begin{thm}{\em Main theorem on uniform bound extraction by NMD-interpretation \cite{Kohlenbach08}\\}
+\label{t:ubeNMD}
+Let $\Delta$,$\tilde\Delta$ be as above and $\phi_{{}_{\QF}}(x^1,y^\rho,z^\tau)$ be a 
+quantifier-free formula of $\wepa$ containing only $x$,$y$,$z$ free. 
+Let $s^{\rho(1)}$ be a closed
+term of $\weha$ and the type level of $\tau$ not greater than $2$.\\
+Then if one can prove:
+\[
+\wepa+\QFm\AC+\Delta\quad\proves\quad
+  \forall x^1\forall y\leq_\rho sx\exists z^\tau \phi_{{}_{\QF}}(x,y,z)
+\]
+one can also extract a closed term $t$ of $\weha$ s.t.
+\[
+\weha+\tilde\Delta\quad\proves\quad
+  \forall x^1\forall y\leq_\rho sx\exists z^\tau\leq_\tau tx\ \phi_{{}_{\QF}}(x,y,z)\text{.}
+\]
+\end{thm}
+Both theorems, ~\ref{t:ubeMD} and ~\ref{t:ubeNMD}, apply also to tuples of variables, 
+where tuples of terms are extracted. The proofs are given e.g. in~\cite{Kohlenbach08}.
+%
+%
+\subsection{Models of $\epa$}
+%
+%
+%
+%
+We will introduce three models of $\epa$:
+\begin{itemize}
+\item The full set-theoretic model: $\Set$.
+\item The model of all sequentially continuous functionals: $\Cont$.
+\item The model of all strongly majorizable functionals: $\Maj$.
+\end{itemize}
+Note that as models of $\epa$ these are also models of any other system
+we presented so far.
+%
+\begin{dfn}The {\em full set-theoretic model}\index{model of all set-theoretic functionals} is defined inductively
+as the type-structure of all set-theoretic functionals:
+\setcounter{equation}{0}
+\begin{align}
+\SetO_0&:=\NN\text{,}\\
+\SetO_{\tau\rho}&:=\{\text{ all set-theoretic functionals } F:\SetO_\rho\rightarrow\SetO_\tau\}\text{,}\\
+%\defkeym{\Set}&:=\bigcup_{\rho\in\Tp}\SetO_\rho
+\Set&:=\bigcup_{\rho\in\Tp}\SetO_\rho
+\text{.}
+\end{align}
+\end{dfn}
+%
+%
+%
+To define $\Cont$ we need the following definition first:
+\begin{dfn}
+Let $(X,\rightarrow_X)$ and $(Y,\rightarrow_Y)$ be two L-spaces. A function $f:X\rightarrow Y$
+is called continuous if $f(p_n)\rightarrow_Y f(p)$ whenever $p_n\rightarrow_X p$. We denote
+the set of all continuous functions from $X$ to $Y$ by $\ContO(X,Y)$.\\
+Here, by L-space we mean a `limit space' as defined in~\cite{Kuratowski52}.
+\end{dfn}
+%
+\begin{dfn}{\bf\cite{Scarpellini71}} The \defkey{model of all sequentially continuous functionals} is defined inductively
+as follows:
+\setcounter{equation}{0}
+\begin{align}
+\ContO_0&:=\NN\text{,} & p_n\rightarrow_0 p\ &:\equiv\ \exists k\forall m>k\ p_m=p\\
+\ContO_{\tau\rho}&:=\ContO(\ContO_\rho, \ContO_\tau)\text{,} &
+  f_n\!\rightarrow_{\tau\rho}\! f\ &:\equiv\ \forall (p_n)\!\in\!\ContO^\NN_\rho,p\!\in\!\ContO_\rho\ 
+                  \left(p_n\!\rightarrow_\rho\! p\Rightarrow f_n(p_n)\!\rightarrow_\tau\! f(p)\right)\\
+%\defkeyn{\text{$\Cont$}}&:=\bigcup_{\rho\in\Tp}\ContO_\rho & &
+\Cont&:=\bigcup_{\rho\in\Tp}\ContO_\rho\text{.} & &
+\end{align}
+\end{dfn}
+To define $\Maj$ we will make use of the variant $\smaj$ of Howard's majorization relation $\maj$.
+\begin{dfn}{\bf\cite{Bezem85}} The \defkey{model of strongly majorizable functionals} is the
+type structure $\Maj$ defined inductively as follows:
+\begin{align*}
+%
+\MajO_0&:=\NN,\\
+&n \smaj_0 m\ :\equiv\ n\geq m\wedge\ n,m\in\NN \tag{1}\\
+%
+\MajO_{\tau(\rho)}&:=\left\{x\in\MajO^{\MajO_\rho}_{\tau}\ :\ 
+                                 \exists x^*\in\MajO^{\MajO_\rho}_{\tau}\ (x^* \smaj_{\tau(\rho)} x)\right\},\\
+&x^* \smaj_{\tau(\rho)} x\ :\equiv\ 
+             \forall y^*\!,y\!\in\!\MajO_\rho\left( y^*\smaj_\rho y\ \rightarrow\ x^*y^*\smaj_\tau x^*y, xy \right)
+             \wedge x^*\!,x\!\in\!\MajO^{\MajO_\rho}_{\tau} \tag{2}\\
+%
+%\defkeyn{\Maj}&:=\bigcup_{\rho\in\Tp}\MajO_\rho  \tag{3}
+\Maj&:=\bigcup_{\rho\in\Tp}\MajO_\rho  \tag{3}
+%
+\text{,}
+\end{align*}
+%
+where $\MajO^{\MajO_\rho}_{\tau}$ is the set of all total set-theoretic mappings 
+from $\MajO_\rho$ into $\MajO_\tau$.
+\end{dfn}
+\begin{rmk} While $\Maj$ and $\Cont$ are models of $\epa$ with bar recursion (see definition~\ref{d:BR})
+added, $\Set$ is obviously not. However, the models start to differ only from type $2$ on, where
+we still have: $\ContO_2\subset\MajO_2\subset\SetO_2$. So, if we use bar recursion and Peano Arithmetic to
+produce a functional $F$ of type level $2$, we know that it is a well defined functional in $\Cont$ therefore
+also in $\Maj$ and in $\Set$ and so a total function: $\NN^\NN\mapsto\NN$.
+\end{rmk}
+
+\subsection{\defkeyn{Bar Recursion}} \label{ss:BR}
+We give the definition in the form presented by Spector in 
+\cite{Spector62}. Note that this form already 
+uses the fact that tuples of variables of any type can be 
+contracted into single variables. Alternatively, one could use a 
+simultaneous form of bar recursion (see \cite{Kohlenbach08}).
+\begin{dfn}
+\label{d:BR}
+The \defkey{bar recursor} $\B_{\rho,\tau}$ is defined by:
+\[
+\B_{\rho,\tau}yzunx:=_\tau\begin{cases}
+   zn(\overline{x,n})&\text{if}\ y(\overline{x,n})<_0n\\
+   u\big(\lambda D^\rho.\B_{\rho,\tau}yzu(n+1)(\overline{x,n}*D)\big)n(\overline{x,n})&\text{else}
+   \end{cases}
+\text{,}\]
+where
+\[
+(\overline{x,n})(k^0)=_\rho\begin{cases}
+  x(k)&\text{if}\ k<_0 n\\
+  0^\rho&\text{else}
+  \end{cases}
+\]
+and
+\[
+(\overline{x,n}*D)(k^0)=_\rho\begin{cases}
+  x(k)&\text{if}\ k<_0 n\\
+  D&\text{if}\ k=_0 n\\
+  0^\rho&\text{else}
+  \end{cases}
+\text{.}\]
+\end{dfn}
+%
+\begin{rmk}
+  Note that $\overline{f,n}$, which is
+  still a type 1 function, is not the same as $\bar fn$, what is a type 0 object
+  (see the section Introduction, paragraph Notation and Common Expressions).
+\end{rmk}
+%
+For better readability Spector presented in \cite{Spector62}
+the recursor $\bPhi$,
+\begin{align*}
+& \bPhi_\rho yunxm:=_{\rho}\left\{ \begin{array}{l} 
+        xm,\: \mathrm{if}\ m<_0n\\
+        0^\rho,\: \mathrm{if}\ m\geq_0n \wedge y(\overline{x,n})<n\\
+        \bPhi_\rho yun' (\overline{x,n}*D_0)m,\: \mathrm{otherwise}
+\end{array} \right. &&  D_0=_\rho un(\lambda D^\rho.\bPhi_\rho yun'(\overline{x,n}*D))\text{,}&
+\end{align*}
+for a special form of bar recursion.
+As in this thesis we deal only with arithmetical comprehension
+over numbers we don't need the bar recursion for all types.
+The recursor $\B_{0,1}$ is fully sufficient and
+corresponds to $\bPhi_0$ which can be defined 
+primitive recursively in $\B_{0,1}$ as follows:
+% Phi in B01
+%
+\begin{dfn}\label{d:PhiB}
+\[ \bPhi_0 yunx =_{1} \B_{ 0, 1}yz\tilde unx \text{,}\]
+where
+\begin{align*} 
+znxm&:=_{0} \begin{cases} 
+  xm &\text{if}\ m<_0n\\
+  0^0 &\text{else}
+\end{cases} \text{,} \\
+\tilde uvnxm&:=_{0} \begin{cases} 
+  xm &\text{if}\ m<_0n\\
+  v(unv)m &\text{else}
+\end{cases} \text{.} 
+\end{align*}
+\end{dfn}
+%
+% Phi defined directly
+%
+However, for any practical issue we will use the direct definition:
+\[  \bPhi_0 yunxm:=_{0}\left\{ \begin{array}{l} 
+        xm,\: \mathrm{if}\ m<_0n\\
+        0^0,\: \mathrm{if}\ m\geq_0n \wedge y(\overline{x,n})<n\\
+        \bPhi_0 yun' (\overline{x,n}*D_0)m,\: \mathrm{otherwise}
+\end{array} \right. \text{,} \]
+where
+\[ D_0=_0 un\big(\lambda D^0.\bPhi_0 yun'(\overline{x,n}*D)\big)\text{.} \]
+%
+%
+Furthermore, to be able to properly analyze the complexity of the witnessing functionals 
+in later sections, we introduce Howard's schemas of restricted bar recursion as given
+in \cite{Howard81}.
+\begin{dfn}\label{d:rBR}
+The \defkey{restricted bar recursor} for \defkey{Scheme 1}, $\rB_\one$, is defined by:
+\begin{align*}
+\rB_\one&y^2z^{(2)0}un^0x^1:=_0\\
+   &\begin{cases}
+   zn(\overline{x,n})&\text{if}\ y(\overline{x,n})<_0n\\
+   u\big(\rB_\one yzu(n\!+\!1)(\overline{x,n}\!*\!0)\big)
+    \big(\rB_\one yzu(n\!+\!1)(\overline{x,n}\!*\!1)\big)
+    n(\overline{x,n})&\text{else}
+   \end{cases}\text{,}
+\end{align*}
+and for \defkey{Scheme 2}, $\rB_\two$, by:
+\[
+\rB_\two y^2u^1n^0x^1:=_0
+   \begin{cases}
+   0&\text{if}\ y(\overline{x,n})<_0n\\
+   1+\rB_\two yu(n+1)\big(\overline{x,n}*(un)\big)&\text{else}
+   \end{cases}\text{.}
+\]
+\end{dfn}
+\begin{rmk}Note that, $\rB_\one$ and $\rB_\two$ are just special
+ forms of $\B_{0,0}$ since we have:
+\[
+\rB_\one y^2z^{(2)0}un^0x^1=\B_{0,0}yz\tilde unx\text{,}
+\]
+by setting
+\[
+ \tilde uvnx:=u(v0)(v1)nx
+\]
+i.e. it holds
+\begin{align*}
+\tilde u\big(\lambda &D^0.\B_{0,0}yz\tilde u(n+1)(\overline{x,n}*D)\big)
+         n(\overline{x,n})=\\
+    &u\Big(\big(\lambda D^0.\B_{0,0}yz\tilde u(n\!+\!1)(\overline{x,n}\!*\!D)\big)0\Big)
+     \Big(\big(\lambda D^0.\B_{0,0}yz\tilde u(n\!+\!1)(\overline{x,n}\!*\!D)\big)1\Big)
+     n(\overline{x,n})
+   \text{.}
+\end{align*}
+And also:
+\[
+\rB_\two y^2u^1n^0x^1=\B_{0,0}y\zero^{(2)0}\tilde unx\text{,}
+\]
+by setting
+\[
+ \tilde uvnx:=1+v(un)
+\] 
+i.e. it holds
+\begin{align*}
+\tilde u\big(\lambda D^0.\B_{0,0}&yz\tilde u(n+1)(\overline{x,n}*D)\big)
+         n(\overline{x,n})=\\
+     &1+\big(\lambda D^0.\B_{0,0}yz\tilde u(n\!+\!1)(\overline{x,n}*D)\big)(un)
+   \text{.}
+\end{align*}
+Furthermore applied only to 0,1-sequences (i.e. type one
+functions $x:\NN\mapsto\{0,1\}$), as is always the case in this
+thesis, is $\rB_\two$ a special form of $\rB_\one$ since we have:
+\[
+\rB_\two y^2u^1n^0x^1=\rB_\one y^2\zero^{(2)0}\tilde un^0x^1 \text{,}
+\]
+by setting
+\[ 
+\tilde uv_1v_2nx:=\\
+   \begin{cases}
+     1+v_1 &\text{if}\ un=_00\\
+     1+v_2 &\text{else}
+   \end{cases}\text{.}
+\]
+i.e. it holds
+\begin{align*}
+\tilde u\big(\rB_\one yz\tilde u(n+1)(\overline{x,n}*0)\big)
+        &\big(\rB_\one yz\tilde u(n+1)(\overline{x,n}*1)\big)
+         n(\overline{x,n})=\\
+   &\begin{cases}
+     1+\big(\rB_\one yz\tilde u(n+1)(\overline{x,n}*0)\big) &\text{if}\ un=_00\\
+     1+\big(\rB_\one yz\tilde u(n+1)(\overline{x,n}*1)\big) &\text{else}
+   \end{cases}\text{.}
+\end{align*}\end{rmk}
+%
+%  LEM
+%
+%%%%%%%%%%%%%%%%%%%
+%
+%
+\subsection{Law of excluded Middle} \label{ss:LEM}
+The law of excluded middle over numbers for $\SiL$-formulas is defined as follows:
+\[ 
+ \defkeyn{\text{$\LEM(f)$}}\quad:\quad\forall x\exists y\forall z\  \big(f(x,y)=_00 \vee f(x,z)\neq_00\big)  
+\text{.}\]
+\begin{rmk}
+Usually this law would be formulated in the following, under $\weha$ equivalent, way:
+\[ 
+ \forall x\ \big(\exists y\ f(x,y)=_00 \vee \forall z\ f(x,z)\neq_00\big)  
+\text{.}\]
+\end{rmk}
+To obtain the ND-interpretation we first use the negative translation $(\LEM(f))'$:
+\[\neg\neg\forall x^0\neg\neg\exists y^0\forall z^0\ 
+          \neg\neg\big(f(x,y)=_00 \vee f(x,z)\neq_00\big)\text{,}\]
+which is intuitionistically equivalent to
+\[ \forall x\neg\neg\exists y\forall z\ (f(x,y)=_00 \vee f(x,z)\neq_00)  \text{.}\]
+Now, following very strictly all rules, we get the functional 
+interpretation of \defkey{$(\LEM)'$}:
+\begin{align*}
+ \forall Z^{10},&f^{10},x^0\\
+       \bigg(\ &\Big(t_D\big(Z(t_YZxf)(t_DZxf)\big)Zxf=_00\wedge f(x,t_YZxf)=_00\Big)\ \vee \\
+          &\Big(t_D\big(Z(t_YZxf)(t_DZxf)\big)Zxf=_01\wedge f\big(x,Z(t_DZxf)(t_YZxf)\big)\neq_00\Big)\ \bigg) \text{,} 
+\end{align*}
+ where
+\begin{align*}
+  t_D(n^0,Z,x,f)&:=_0 \begin{cases}1&\text{if }\ f(x,Z11)\neq_00 \\ 0  &\text{else}\end{cases}
+      \text{,}\\
+  t_Y(Z,x,f)&:=_0 \begin{cases}1&\text{if }\ f(x,Z11)\neq_00 \\ Z11&\text{else}\end{cases}
+\text{.}
+\end{align*}
+However, we can see that this interpretation is unnecessarily blown up (e.g. the
+parameter $n$ corresponding to $Z(t_YZxf)(t_DZxf)$ in the term $t_D$
+can be completely ignored). Therefore, we give
+a more readable, but still intuitionistically equivalent, form:
+\[
+ \forall Z^1,f^{10},x^0\ \Big( f(x,t_YZxf)=_00\ \vee\ f\big(x,Z(t_YZxf)\big)\neq_00 \Big)
+ \text{,}
+\] where \[ 
+t_Y(Z,x,f):=_0 \begin{cases}1&\text{if }\ f(x,Z1)\neq_00 \\ Z1&\text{else}\end{cases}
+\text{.}\]
+
+%
+\begin{rmk}From now on we will always simply prefer better readability
+ whenever possible.\end{rmk}
+Looking closely at the case distinction of $f(x,Z1)\neq_00$ being true or not, 
+it is easy to see the correctness of the interpretation.
+%
+% the DNS
+%
+%%%%%%%%%%%%%%%%%%%%
+\subsection{Double Negation Shift} \label{ss:DNS}
+The Double Negation Shift
+schema over numbers for $\Sigma^0_2$ formulas is defined as follows:
+\[
+\defkeyn{\text{$\Sigma^0_2\usftext{-}\DNS(f)$}}\quad:\quad
+ \forall x^0\neg\neg\exists y^0\forall z^0\ f(x,y,z)=_00\ \ \rightarrow\ \ 
+     \neg\neg\forall x^0\exists y^0\forall z^0\ f(x,y,z)=_00  
+\text{.}\]
+%The Double Negation Shift is intuitionistically a very strong principle. In fact, apart from
+%intuitionistically very weak axioms, it suffices to prove 
+This schema is interpreted under the functional interpretation using Bar Recursion essentially in the same way as full $\DNS$ as presented by Spector in \cite{Spector62}:
+\[ \forall A^{2(0)},T^2,W^2\ \Big(  f\big( t_x^0, At_xt_B^1, t_B(At_xt_B)\big)=_00  
+     \rightarrow f\big(Tt_U^1,t_U(Tt_U),Wt_U\big)=_00\Big)  
+\]
+\[  t_x:=_0 Tx_0^1\text{,}\ \ \ \ 
+      t_U:=_1 x_0\text{,}\ \ \ \  
+      t_B=_1 \lambda D^0.W^2(E^{1(0)}_{Tx_0}D)
+  \text{,}\]
+where
+\begin{align*}
+     x_0 &{:=_1}  \bPhi_0Tu^{1(1(0))}0^00^1 \\
+     E_{n^0} &{:=_{1(0)}} \lambda D^0.\bPhi_0Tun'(\overline{x_0,n}*D) \\
+     un^0v^{1(0)} &{:=_0} An\left(\lambda D^0.W(v(D))\right) \text{.}
+\end{align*}
+\begin{rmk}The detailed steps of the interpretation show
+ that any term can depend on all three variables $A$, $T$ and $W$. 
+However, for better readability we present the result in its simpler form. E.g.
+by $t_x$ we mean in fact $t_xATW$. To be absolutely correct
+we would have to write: $t_x:=_{((0(20))(2))(2)} \lambda A,T,W. Tx_0^{(2)2}AW$.\end{rmk}
+The correctness proof as well as some more details can be 
+found e.g. in \cite{Kohlenbach08}.
+%\todo{Insert some steps, possibly proof?}
+%
+%
+% the pi-01 AC
+%
+%
+%
+\subsection{Axiom of Choice} \label{ss:AC}
+The very well known Axiom of Choice is used in a wide variety of forms
+in Proof Theory. We follow Troelstra (see \cite{Troelstra73}) and define:
+\begin{dfn}{Axiom of Choice\\}
+\begin{align*}
+\AC^{\rho,\tau}\quad&:\quad \forall x^\rho\exists y^\tau 
+  \phi(x,y)\rightarrow\exists Y^{\tau(\rho)}\forall x^\rho\phi(x,Zx)\\
+\AC\quad&:\quad \bigcup_{\rho,\tau\in\Tp}\AC^{\rho,\tau}\\
+\QFm\AC^{\rho,\tau}\quad&:\quad \forall x^\rho\exists y^\tau 
+  \phi_{{}_\QF}(x,y)\rightarrow\exists Y^{\tau(\rho)}\forall x^\rho\phi_{{}_\QF}(x,Zx)\\
+\QFm\AC\quad&:\quad \bigcup_{\rho,\tau\in\Tp}\QFm\AC^{\rho,\tau}\text{,}
+\end{align*}
+where $\phi_{{}_\QF}$ is quantifier-free.
+\end{dfn}
+Moreover, we define an arithmetical version for universal formulas:
+\begin{dfn}
+Axiom of Choice over numbers for $\PiL$ formulas, \defkey{$\PiLm\AC(f)$}:
+\[ \forall x^0\exists y^0\forall z^0\ 
+      f(x,y,z)=_00\ \ \rightarrow\ \ \exists g^1\forall x^0, z^0\ f(x,gx,z)=_00)  
+\text{.}\]
+\end{dfn}
+This axiom is interpreted under the functional interpretation as:
+  \[ \forall x^0,z^0,Y^1\ \Big(f\big(t_XYxz,Y(t_XYxz),t_ZYxz\big)=_00\rightarrow f\big(x,(t_GY)x,z\big)=_00\Big)  \text{,}
+  \]
+  \[  t_X(Y^1,x^0,z^0):=_0 x\text{,}\ \ \ \
+      t_Z(Y^1,x^0,z^0):=_0 z\text{,}\ \ \ \  
+      t_G(Y^1):=_1 Y
+  \text{.}\]
+We can see the correctness immediately. For further use we will need also the 
+functional interpretation of the double negation of {$\PiLm\AC$}, {$\neg\neg\PiLm\AC$}, 
+which is also straightforward.\\
+$\neg\neg\PiLm\AC(f)$:
+\[ \neg\neg\big(\forall x^0\exists y^0\forall z^0\ f(x,y,z)=_00\ \ \rightarrow\ \ 
+        \exists g^1\forall u^0, v^0\ f(u,gu,v)=_00)\big)
+\text{.}\]
+This double negation is interpreted under the functional interpretation as:
+  \begin{align*}
+    \forall Y^1,U,V\ &{\Big(}\ \ f\big(t_XYUV,Y(t_XYUV),t_ZYUV\big)=_00 \\
+    {}               &{}\ \ \ \ \ \ \rightarrow f\big(U(t_GY),(t_GY)(U(t_GY)),V(T_GY)\big)=_00\ \ \Big)
+     \text{,}
+  \end{align*} where
+  \begin{align*}
+    t_X(Y,U,V)&:=_0 UY \text{,}\\
+      t_Z(Y,U,V)&:=_0 VY  \text{,}\\  
+      t_G(Y)&:=_1 Y
+  \text{.}
+  \end{align*}
+To prove \defkey{$(\PiLm\AC(f))'$},
+\[ 
+\forall x^0\neg\neg  \exists y^0\forall z^0\ f(x,y,z)=_00\ \ \rightarrow\ \ 
+\neg\neg\exists g^1\forall x^0, z^0\ f(x,gx,z)=_00 
+\text{,}\]
+we need only $\DNS$ and $\neg\neg(\PiLm\AC(f))$.
+The double negation $\neg\neg(\PiLm\AC(f))$ is intuitionistically equivalent to:
+\[ 
+\neg\neg \forall x^0\exists y^0\forall z^0\ f(x,y,z)=_00\ \ \rightarrow\ \ 
+\neg\neg\exists g^1\forall x^0, z^0\ f(x,gx,z)=_00 
+\tag{+} 
+\text{.}\]
+Using $(+)$ we can prove $(\PiLm\AC(f))'$ by a single use of the rule
+\[
+\begin{prooftree}
+\phi\rightarrow \psi \quad \psi\rightarrow \chi
+\justifies
+\phi\rightarrow \chi
+\end{prooftree}
+\text{,}\]
+since by setting
+\begin{align*}
+\phi&:\equiv \forall x^0\neg\neg\exists y^0\forall z^0\ f(x,y,z)=_00\text{,}\\
+\psi&:\equiv \neg\neg \forall x^0\exists y^0\forall z^0\ f(x,y,z)=_00\text{,}\\ 
+\chi&:\equiv \neg\neg\exists g^1\forall x^0, z^0\ f(x,gx,z)=_00 \text{,}
+\end{align*}
+we get
+\[
+\begin{prooftree}
+\Sigma^0_2\usftext{-}\DNS(f) \quad \neg\neg(\PiLm\AC(f))
+\justifies
+(\PiLm\AC(f))'
+\end{prooftree}
+\text{.}\]
+To find the interpreting terms we follow the term construction as given e.g. 
+in \cite{Kohlenbach08}.
+We will use the interpretations given above (see section \ref{ss:DNS} for the
+interpretation of $\DNS$) and solve the following equations:
+\begin{align*}
+  t_XYUV    &{=_0} Tt_U \\
+  Y(t_XYUV) &{=_0} t_U(Tt_U) \\
+  t_ZYUV    &{=_0} Wt_U \text{.}
+\end{align*}
+Now, easily by setting $Y:=t_U$ we get $T=U$ and $V=W$, which leads
+us to precisely the same interpretation
+as the one of $\DNS$:\\
+\[
+\forall A^{2(0)}, T^2, W^2\ \Big( 
+  f\big(t_x,At_xt_B,t_B(At_xt_B)\big)=_00 \rightarrow f\big(Tt_U,t_U(Tt_U),Wt_U\big)=_00 \Big)
+\text{,}\]
+where $t_x$, $t_B$ and $t_U$ are as in section \ref{ss:DNS}.
+\begin{rmk}We could conclude this already from the fact that apart from $\DNS$ the
+only used principle was a double negation of intuitionistically very weak and trivially
+interpretable axiom $\PiLm\AC$.\end{rmk}
+%
+%   CA 
+%
+%%%%%%%%%%%%%%%%%%%
+\subsection {Arithmetical Comprehension}\label{ss:CA}
+{\samepage
+The \defkey{Schema of Comprehension} is known in several forms.
+% Troelstra in \cite{Troelstra73} gives three variants in a very general form, using second order language. 
+We give following four in $\mathcal{L}(\weha)$.
+\begin{dfn}%{\em Arithmetical comprehension\\}
+\label{d:CA}
+The schema:
+\[
+\exists f^{0(\tup\tau)}\forall\tup x^{\tup \tau}\ \big(\ \phi(\tup x) \leftrightarrow f\tup x=_00\ \big)
+\]
+is called
+\begin{itemize}
+\item \defkey{Full Comprehension},
+abbreviation: $\CA$; iff there are no restrictions on the formula $\phi$.
+\item \defkey{Arithmetical Comprehension}, abbreviations: 
+ $\Pi^0_\infty\usftext{-CA}$,  $\usftext{ACA}$ or $\CA_{ar}$; iff all quantifiers in $\phi$ 
+range over numbers only. Equivalently, we may say 
+$\phi$ is an arithmetical formula or $\phi$ is a $\Pi^0_\infty$ formula. 
+\item (Arithmetical) \defkey{Comprehension over numbers}, abbreviations:
+ $(\Pi^0_\infty\usftext{-})\CA^0$,  $(\usftext{A})\CA^0$ or $\CA^0_{(ar)}$; 
+iff $x$ is a single number, i.e. $\tup\tau=(0)$. 
+\item {\em Arithmetical Comprehension over numbers for purely universal formulas}, 
+\defkey{$\PiLm\CA$}, iff
+$\phi$ is a $\PiL$ formula and $x$ is a number. Using the fact that 
+in all systems we use, we have characteristic functions for 
+quantifier-free formulas, see e.g. \cite{Kohlenbach08}, we obtain the following 
+equivalent formulation:
+\[
+\PiLm\CA\quad:\quad\forall f^{0(00)}\underbrace {\exists g^1\forall x^0
+  \Big(\ \big(\forall y^0\ f(x,y)=_00\big) \leftrightarrow g x=_00\ \Big)}_{\equiv:\PiLm\CA(f^{0(00)})}\text{.}
+\]
+\end{itemize}
+\end{dfn}
+} %end samepage
+\begin{rmk} Since we can derive any instance of $\CA^0_{ar}$ in $\wepa$
+by iterated application of $\PiLm\CA$, the last two versions are
+equivalent. However, this is only the case for full $\PiLm\CA$ and not
+for concrete instances $\PiLm\CA(f)$.\end{rmk}
+The schema of arithmetical comprehension is one of the core schemas we need for the
+interpretation of proofs based on sequential compactness. It is also
+considered to be essential for formalizing large
+parts of classical analysis, see \cite{Simpson99}. 
+For our purposes the suitable instances of the schema of comprehension over
+numbers for $\PiL$ (or equivalently for $\SiL$) formulas are fully sufficient.
+As in the case of $\PiLm\AC$ the whole complexity
+of the interpretation is given by $\Sigma^0_2\m\DNS$ with a primitive recursive case distinction
+from $\LEM$.\\
+The even in $\epa$ stronger, but using $\QF\m\AC^{0,0}$ already in $\hrrweha$ to $\PiLm\CA$ equivalent, form called 
+modified schema of comprehension over numbers for $\PiL$ formulas,
+\[
+\PiLm\CAhut(f)\quad:\quad\exists g^1 \forall x^0,z^0 \big(fx(gx)=_00 \vee fxz\neq_00\big)\text{,}
+\]
+is very practical for finding the functional interpretation as well as for finding
+the functional interpretation of the negative translation.
+\begin{rmk}
+To see the fact that $\PiLm\CA$ is weaker than $\PiLm\CAhut$ observe that
+$\PiLm\CAhut$ proves the existence of functions growing faster than any function in $\T$, which
+$\PiLm\CA$ does not, as the function $f$ in $\PiLm\CA$ is always majorized by $\one^1$.\\
+On the other hand, for suitable primitive recursive functional $F$, we can prove $\PiLm\CA(Ff)$ implies $\PiLm\CAhut(f)$ in $\hrrweha\ +\ \QF\m\AC^{0,0}$
+in a similar way as we prove $(\PiLm\CA(f))'$ below.
+First, we apply $\PiLm\CA$ to the intuitionistically valid law $\LEM(f)$:
+\[
+\forall x\exists y \underbrace{
+                        \forall z\  \underbrace {\big(f(x,y)=_00 \vee f(x,z)\neq_00\big)}_{
+                                                                                :\equiv F(f,x,y,z)=_00\ \text{for a suitable prim. rek. F} } }_{
+                                                        \text{apply}\ \PiLm\CA(Ff) }
+\text{,}
+\]
+obtaining a $g^{0(00)}$ s. t. $\forall x^0\exists y^0\ (gxy=_00\ \leftrightarrow\ \forall z^0\ Ffxyz=_00)$.
+By $\QF\m\AC^{0,0}$ we get a function $h^1$ such that it holds: $\forall x\ g(x,hx)=_00$, so finally we obtain $\PiLm\CAhut(f)$.\\
+On the other hand, given $\PiLm\CAhut(f)$ we can define a new $g^1$ as $\lambda x^0.f^{0(00)}(x,g^1x)$ obtaining $\PiLm\CA(f)$.
+\end{rmk}
+The negative translation of the modified schema of comprehension 
+over numbers for $\PiL$ formulas,
+\[
+(\PiLm\CAhut(f))'\quad:\quad
+ \neg\neg \exists g^1 \forall x^0,z^0 \big(fx(gx)=_00 \vee fxz\neq_00\big)\text{,}
+\]
+follows directly by applying $(\PiLm\AC(G))'$ to $(\LEM(f))'$ for a suitable $\phi$.\\
+By defining
+\[
+G_f(x,y,z):\equiv
+  \begin{cases}
+    0&\text{if}\ \ f(x,z)\neq_00\\
+    f(x,y)&\text{else}
+  \end{cases}
+\text{,}\]
+$(\LEM(f))'$ becomes:
+\[ \forall x^0 \neg\neg\exists y^0 \forall z^0 G_fxyz=_00 \text{.}\]
+Applying $(\PiLm\AC(f))'$ is actually  a single use of a primitive rule, namely the modus ponens instance
+\[
+\begin{prooftree}
+\phi \quad \phi\rightarrow \psi
+\justifies
+\psi
+\end{prooftree}
+\text{,}\]
+since setting $\phi$ to $(\LEM(f))'$ allows us to set $\phi\rightarrow\psi$ to 
+$(\PiLm\AC(G_f))'$, what leads us to the conclusion $\psi$:
+\[ \neg\neg\exists g^1\forall x^0,z^0 G_fx(gx)z=_00 \text{,}\] 
+what is the same, unwinding $G_f$, as $(\PiLm\CAhut(f))'$.\\
+%
+% FI of CA
+%
+To find the functional interpretation of $(\PiLm\CAhut(f))'$ first consider
+the functional interpretation of $(\PiLm\AC(G_f))'$. We can even use a
+partial interpretation (producing a weaker statement), since the assumption 
+$\phi$ in the modus ponens is proved directly 
+(satisfying the weaker statement). We obtain following representation (for $f$ free):
+\begin{align*}
+\forall A_f^{2(0)}, T, W\ \Big(\ \forall x^0,B^1\ G_{f}\big(x&,A_fxB,B(A_fxB)\big)=_00\rightarrow  \\
+                                   & G_{f}\big(Tt_U,t_U(Tt_U),Wt_U\big)=_00\ \Big)
+\text{.}\end{align*} 
+\begin{rmk}This approach would be very unwise if the functional interpretation of the
+implication was used to compute some further results within a larger proof.
+Using this approach in such a case results in loss of information about the 
+logical relation between the assumption and conclusion.\end{rmk}
+From the interpretation of $\LEM'$ we know that (for $f$ free and knowing
+that any term can depend on $T$ and $W$)
+\[ \forall x,B\ \ G_{f}\big(x,A_fxB,B(A_fxB)\big)=_00)\]
+ is satisfied by setting (for $f$ free)
+\[
+   A_fxB:=    
+    \begin{cases}
+      1&\text{if}\ \ f(x,B1)\neq_00\\
+      B1&\text{else}
+    \end{cases}
+\text{.}\]
+Obviously, the functional interpretation of $\forall f\ (\PiLm\CAhut(f))'$ just 
+swaps the $\forall f$ and the exists quantification of the functional interpretation of
+$(\PiLm\CAhut(f))'$ adding $f$ as a parameter to every existential variable
+(see also section \ref{ss:LEM}). In particular $A$ becomes dependent on
+$f$. We can actually define $t_A$, the corresponding primitive recursive
+term to $A(f,x,B)$ as:
+\[
+   t_A:=\lambda f.\lambda x.\lambda B.
+    \begin{cases}
+      1&\text{if}\ \ f(x,B1)\neq_00\\
+      B1&\text{else}
+    \end{cases}
+\text{,}\]
+what satisfies
+\[
+   t_Af=A_f
+\text{.}\]
+It is important to mention the dependency of $A$ on $f$, since this is the main 
+difference to the ND-interpretation of $\AC$, where the realizing terms 
+were completely independent on this function. % $f$.
+This means, $(\PiLm\CAhut(f))'$ is interpreted (keeping in mind that,
+as before, $t_U$ always has $T$ and $W$ as parameters, and now, via $A_f$ also $f$) by:
+\[
+  \forall T,W\ \ \Big(G_{f}\big(Tt_U,t_U(Tt_U),Wt_U\big)=_00\Big)
+\text{,}\]
+which is
+\[
+  \forall T^2,W^2\ \ \Big(f\big(Tt_U,t_U(Tt_U)\big)=_00 \vee f(Tt_U,Wt_U)\neq_00\Big)\text{,}
+\]
+where $t_U:=_1 x_0$ is the same functional as in the interpretation of $\DNS$ in 
+section \ref{ss:DNS}, in which $A$ is defined as above and $T$ and $W$ correspond
+to the $T$ and $W$ above. We summarize:
+\begin{prop}[\em{ND-interpretation of \PiLm\CAhut(f)}]\label{p:NDPiLCAhut}
+The schema of arithmetical comprehension over numbers for purely universal
+formulas (for a given function $f^{1(0)}$)
+\[
+\exists g^1 \forall x^0,z^0\ \big(fx(gx)=_00 \vee fxz\neq_00\big)\text{,}
+\]
+is ND-interpreted as follows:
+\[
+  \forall X^2,Z^2\ \ \Big(f\big(Xt_g,t_g(Xt_g)\big)=_00 \vee f(Xt_g,Zt_g)\neq_00\Big)\text{,}
+\]
+where
+\begin{align*}
+%t_g&:=_1x_0\\
+%x_0&:=_1\bPhi_0Xu_f^{\!1(1(0))}0^00^1\\
+%x_0&:=_1\xTWf{X}{Z}{f}\\
+t_g&:=_1\xTWf{X}{Z}{f}\text{,}\\
+u_{Z,f}n^0v^{1(0)}&:=_0\uWf{Z}{f}
+\text{.}
+\end{align*}
+\end{prop}
+\begin{rmk}Note that in contrast to the functional interpretation of
+$\PiLm\AC$, where all realizing terms were independent on the function $f$, 
+here the bar recursive term $t_g$ realizing the function $g$
+has to be defined using $f$.\end{rmk}
+Using the ND-interpretation of $\PiLm\CAhut(f)$ we obtain
+also the ND-interpretations of  $\PiLm\CA$ and $\SiLm\CA$:
+%
+% cor PI01-CA
+%
+\begin{cor}[\em{ND-interpretation of \PiLm\CA}]\label{c:NDPiLCA}
+The schema of arithmetical comprehension over numbers for purely universal
+formulas 
+\[
+  \forall f^{1(0)}\exists h^1\leq_1\one^1 \forall x^0 (hx=_00 \leftrightarrow \forall z\ fxz\neq_00)\text{,}
+\]
+is ND-interpreted as follows:
+\begin{align*}
+  \forall X^{\typeOfXZ},Z^{\typeOfXZ}\ \big(\ (\ t_h&\args{XZ(X\args{(t_h\args{XZ})(t_z\args{XZ})})}=_00
+        \rightarrow \\
+        & \quad f(X \args{(t_h\args{XZ})(t_z\args{XZ})}, 
+                  Z \args{(t_h\args{XZ})(t_z\args{XZ})} ) \neq_00)\ )\ \wedge\\
+ (\ t_h&\args{XZ(X\args{(t_h\args{XZ})(t_z\args{XZ})})}=_00 
+         \leftarrow \\
+     &\quad f (
+           X\args{(t_h\args{XZ})(t_z\args{XZ})}, 
+           t_{z}\args{XZ (X\args{(t_h\args{XZ})(t_z\args{XZ})})
+                      (Z\args{(t_h\args{XZ})(t_z\args{XZ})}) } 
+      ) \neq_00\ )\ \big)
+\text{.}
+\end{align*}
+The witnessing terms are
+\begin{align*}
+t_z&:=\lambda X^{\typeOfXZ},Z^{\typeOfXZ},a^0,b^0\ .\ t_g\args{(t_f\args{X})(t_f\args{Z})a}\text{,}\\
+t_h&:=\lambda X^{\typeOfXZ},Z^{\typeOfXZ},n^0\ .\ 
+ \overleftrightarrow{f(n,t_g\args{(t_f\args X)(t_f\args Z)n})}
+\text{,}
+\end{align*}
+where 
+\begin{align*}
+\overleftrightarrow{n^0}&:=_0\begin{cases}1&\Tif\quad n=_00\\0&\Telse\end{cases}\text{,}\\
+t_f&:=\lambda X^{\typeOfXZ},g^1\ .\ 
+  X \args{ (\lambda n^0.\overleftrightarrow{f(n,g\args{n})})(\lambda a^0,b^0 . g\args{a}) }
+\text{.}
+\end{align*}
+The remaining terms are defined as above in proposition \ref{p:NDPiLCAhut}, just
+we give the two type $2$ arguments of $t_g$ explicitly, i.e.,
+$t_g$ stands only for the term $t_g$ of type level $3$ and not for 
+the type $1$ term $t_gXZ$ as above.
+\end{cor}
+%
+% rmk
+%
+\begin{rmk}
+We use a slightly different form of $\PiLm\CA$ than in definition~\ref{d:CA} above in two aspects:
+\begin{enumerate}
+\item Since we can give a realizer for $h^1$ bounded by $\one^1$
+we formulate the sentence directly in the stronger version with $h^1\leq_1\one^1$. We do so also in
+corollary~\ref{c:NDSiLCAnonsh}.
+\item In contrast to the common formulations we want $h$ to comprehend $\forall z\ fxz\neq 0$ instead of
+$\forall z\ fxz= 0$. Both formulations are equivalent, though the one used in corollary~\ref{c:NDPiLCA}
+spares us some technical overhead and so improves the readability of the proof below.
+\end{enumerate}
+Moreover, we don't strictly follow the rules of the ND-interpretation and choose the "$\forall\exists$"
+prenexiation over "$\exists\forall$" to start with. Again, this leads to an equivalent statement resulting in simpler
+and more readable terms of lower type.
+\end{rmk}
+
+%
+% proof PI01-CA
+%
+\begin{proof}[ of corollary~\ref{c:NDPiLCA}]
+Rewriting proposition \ref{p:NDPiLCAhut} using the formally correct notation
+of corollary \ref{c:NDPiLCA} we have that:
+\[
+  \forall X^2,Z^2\ \ (\ 
+      f(X\args{(t_g\args{XZ})}, t_g\args{XZ (X \args{(t_gXZ)})})=_00 \vee 
+      f(X\args{(t_g\args{XZ})}, Z\args{(t_g\args{XZ})} )\neq_00\ )
+\text{.}\tag{+}
+\]
+Given any $X^{\typeOfXZ}_0$, $Z^{\typeOfXZ}_0$ set $X^2:=t_f\args{X_0}$ and $Z^2:=t_f\args{Z_0}$ to
+obtain:
+\begin{align*}
+X\args{(t_g\args{XZ})}&= t_f\args{X_0(t_g\args{XZ})}\\
+        &= X_0 \args 
+         {(\lambda n . \overleftrightarrow{f(n,t_g\args{XZ}n)})
+          (\lambda a,b . t_g\args{XZ}a)} \\
+        &= X_0 \args
+         {(\lambda n . \overleftrightarrow{f(n,t_g\args{(t_f\args{X_0})(t_f\args{Z_0})}n)}) 
+          (\lambda a,b . t_g\args{(t_f\args{X_0})(t_f\args{Z_0})}a)} \\
+        &= X_0\args{(t_h\args{X_0Z_0})(t_z\args{X_0Z_0})} \tag{*}
+\end{align*}
+and analogously $Z(t_g\args{XZ})=Z_0(t_h\args{X_0Z_0})(t_z\args{X_0Z_0})$. 
+\begin{itemize}
+\item Suppose we have $t_h\args{X_0Z_0(X_0\args{ (t_h\args{X_0Z_0})(t_z\args{X_0Z_0}) })}=_00$.\\
+It follows by (*) that $t_h\args{X_0Z_0(X\args{(t_g\args{XZ})})}=_00$ and by 
+definition of $t_h$ that
+\[
+f( X\args{(t_g\args{XZ})}, 
+   t_g\args{ (t_f\args{X_0}) (t_f\args{Z_0}) (X\args{(t_g\args{XZ})}) } ) \neq 0
+\text{.}\]
+%% old notation...
+By definition of $X$ and $Z$ we get $ f(X(t_g\args{XZ}),t_g\args{XZ}(X(t_g\args{XZ})))\neq 0$ which
+implies 
+\[f(X(t_g\args{XZ}),Z(t_g\args{XZ}))\neq0\] by (+) and 
+\[
+f(X_0(t_h\args{X_0Z_0})(t_z\args{X_0Z_0}),Z_0(t_h\args{X_0Z_0})(t_z\args{X_0Z_0}))\neq 0
+\] by (*).
+\item On the other hand, let 
+\[
+f( X_0(t_h\args{X_0Z_0})(t_z\args{X_0Z_0}) , t_z\args{X_0Z_0}(X_0(t_h\args{X_0Z_0})(t_z\args{X_0Z_0}))(Z_0(t_h\args{X_0Z_0})(t_z\args{X_0Z_0}))) \neq 0 \text{.}
+\]
+Unwinding $t_z$ we get
+\[
+ f( X_0\args{(t_h\args{X_0Z_0})(t_z\args{X_0Z_0})}  , 
+    t_g\args{ (t_f\args{X_0}) (t_f\args{Z_0}) (X_0\args{ (t_h\args{X_0Z_0}) (t_z\args{X_0Z_0}) }) } )
+         \neq 0
+\text{.}
+\]
+Hence, we obtain $t_h\args{X_0Z_0}(X_0(t_h\args{X_0Z_0})(t_z\args{X_0Z_0})) = 0$.
+\end{itemize}
+\end{proof}
+
+%
+% cor SI01-CA
+%
+The schema $(\SiLm\CA)'$ is D-interpreted in a similar way. % as $(\PiLm\CA)'$. 
+%
+\begin{cor}[\em{ND-interpretation of \SiLm\CA(f)}]\label{c:NDSiLCAnonsh}
+  The schema of arithmetical comprehension over numbers for purely existential
+  formulas (for a given function $f^{1(0)}$)
+  \[
+  \exists h^1\leq_1\one^1 \forall x^0 (hx=_00 \leftrightarrow \exists z\ fxz=_00)\text{,}
+  \]
+is ND-interpreted as follows:
+\begin{align*}
+  \forall X^{\typeOfXZ},Z^{\typeOfXZ}\ \ (\ t_h&\args{XZ(X\args{(t_h\args{XZ})(t_z\args{XZ})})}=_00
+        \leftarrow \\
+        & \quad f(X \args{(t_h\args{XZ})(t_z\args{XZ})}, 
+                  Z \args{(t_h\args{XZ})(t_z\args{XZ})} ) \neq_00)\ \ \wedge\\
+ t_h&\args{XZ(X\args{(t_h\args{XZ})(t_z\args{XZ})})}=_00 
+         \rightarrow \\
+     &\quad f (
+           X\args{(t_h\args{XZ})(t_z\args{XZ})}, 
+           t_{z}\args{XZ (X\args{(t_h\args{XZ})(t_z\args{XZ})})
+                      (Z\args{(t_h\args{XZ})(t_z\args{XZ})}) } 
+      ) \neq_00\ )
+\text{.}
+\end{align*}
+As above in corollary \ref{c:NDPiLCA}, the witnessing terms are:
+\begin{align*}
+t_z&:=\lambda X^{\typeOfXZ},Z^{\typeOfXZ},a^0,b^0\ .\ t_g\args{(t_f\args{X})(t_f\args{Z})a}\text{,}\\
+t_h&:=\lambda X^{\typeOfXZ},Z^{\typeOfXZ},n^0\ .\ 
+ \overleftrightarrow{f(n,t_g\args{(t_f\args X)(t_f\args Z)n})}
+\text{.}
+\end{align*}
+The term $t_g$ corresponds to the term
+defined in proposition \ref{p:NDPiLCAhut}. The only difference is that 
+we give the two type $2$ arguments of $t_g$ explicitly, i.e.,
+$t_g$ stands only for the term $t_g$ of type level $3$ and not for 
+the type $1$ term $t_gXZ$ as above.
+We redefine $\overleftrightarrow{n^0}$ as:
+\[
+\overleftrightarrow{n^0}:=_0\begin{cases}0&\Tif\quad n=_00\\1&\Telse\end{cases}\\
+\text{,}
+\]
+what slightly changes the meaning of $t_f$ (and $t_h$) compared to 
+corollary \ref{c:NDPiLCA}. However, we keep the exact syntactic
+form for $t_f$ as before:
+\begin{align*}
+t_f&:=\lambda X^{\typeOfXZ},g^1\ .\ 
+  X \args{ (\lambda n^0.\overleftrightarrow{f(n,g\args{n})})(\lambda a^0,b^0 . g\args{a}) }
+\text{.}
+\end{align*}
+\end{cor}
+%
+% proof SI01-CA
+%
+\begin{proof}
+The proof is essentially the same as the proof of \ref{c:NDPiLCA}. 
+By (+) and (*) we refer to the statements (+) and (*) in that proof. The
+notation and definitions of $X$ and $Z$ remain 
+syntactically the same as above as well. 
+\begin{itemize}
+\item Suppose we have $t_h\args{X_0Z_0}(X_0(t_h\args{X_0Z_0})(t_z\args{X_0Z_0}))=_00$. It 
+follows by (*) that \[t_h\args{X_0Z_0}(X(t_g\args{XZ}))=_00\] and by definition of $t_h$ that
+\[f(X(t_g\args{XZ}), t_g(t_f\args{X_0})(t_f\args{Z_0})(X(t_g\args{XZ})))= 0\text{.}\]
+By (*) and definition of $X$ and $Z$ we get 
+\begin{align*}
+&f(X_0(t_h\args{X_0Z_0})(t_z\args{X_0Z_0}),t_g(t_f\args{X_0})(t_f\args{Z_0})(X_0(t_h\args{X_0Z_0})(t_z\args{X_0Z_0})))=\\
+&f( X_0(t_h\args{X_0Z_0})(t_z\args{X_0Z_0}) , t_z\args{X_0Z_0}(X_0(t_h\args{X_0Z_0})(t_z\args{X_0Z_0}))(Z_0(t_h\args{X_0Z_0})(t_z\args{X_0Z_0}))) ) = 0
+\text{.}
+\end{align*}
+\item On the other hand, let 
+$f( X_0(t_h\args{X_0Z_0})(t_z\args{X_0Z_0}) , Z_0(t_h\args{X_0Z_0})(t_z\args{X_0Z_0}) ) = 0$.
+By (*) it means $f( X(t_g\tup{U}) ,  Z(t_g\tup{U}) ) = 0$, what implies
+$f(X(t_g\args{XZ}),t_g\args{XZ}(X(t_g\args{XZ}))) = 0$ by (+). Using (*) and
+the definition of $X$, $Z$, and $t_h$ we obtain
+\begin{multline*}
+ f(X_0(t_h\args{X_0Z_0})(t_z\args{X_0Z_0})  , 
+       t_g(t_f\args{X_0})(t_f\args{Z_0})(X_0(t_h\args{X_0Z_0})(t_z\args{X_0Z_0}))) =  \\
+   t_h\args{X_0Z_0}(X_0(t_h\args{X_0Z_0})(t_z\args{X_0Z_0}))) = 0
+\text{.}
+\end{multline*}
+\end{itemize}
+\end{proof}
+%
+%
+\begin{rmk}
+We mentioned earlier that we will use $\M$ and the stability of 
+atomic formulas modulo double negation
+silently to obtain more readable results. In addition, in this case we 
+use two modifications to obtain the ND-interpretation of $\SiLm\CA$. Each modification
+leads to an intuitionistically equivalent formula:
+\[
+\begin{prooftree}
+\[
+\neg\neg\exists h^1 \forall x^0 (hx=_00 \leftrightarrow \neg\neg\exists z\ fxz=_00)
+\justifies
+\neg\neg\exists h^1 \forall x^0 (hx=_00 \leftrightarrow \neg\forall z\ \neg(fxz=_00))
+\using{\text{Lemma \ref{l:exnegall}}}
+\]
+\justifies
+\neg\neg\exists h^1 \forall x^0 (hx\neq_00 \leftrightarrow \forall z\ fxz\neq_00)
+\using{\text{Definition \ref{d:weha}}}
+\end{prooftree}
+\text{.}
+\]\\
+The ND-interpretations of $\PiLm\CA$ and $\SiLm\CA$ could be simplified even more.
+Namely, we have $\forall X^{\typeOfXZ},Z^{\typeOfXZ},a^0,b^0 t_zXZab=_0t_zXZa0$, i.e. the term $t_zXZ$ does not
+depend on its second type $0$ argument. Hence, we could define the terms $t_z$ and $t_f$ as:
+\begin{align*}
+t_z&:=\lambda X^{2(1)},Z^{2(1)},a^0\ .\ t_g\args{(t_f\args{X})(t_f\args{Z})a}\\
+t_f&:=\lambda X^{2(1)},g^1\ .\ X \args{ (\lambda n^0.\overleftrightarrow{f(n,g\args{n})})g }
+\end{align*}
+and reformulate the corollaries~\ref{c:NDPiLCA} and~\ref{c:NDSiLCAnonsh} equivalently for all 
+$X^{2(1)}$ and $Z^{2(1)}$ using 
+\[
+ t_{z}\args{XZ(   X \args{ (t_h\args{XZ}) (t_z\args{XZ}) }   )}
+\]
+instead of $ t_{z}\args{XZ(X\args{(t_h\args{XZ})(t_z\args{XZ})}) (Z\args{(t_h\args{XZ})(t_z\args{XZ})})}$.
+\end{rmk}
+
+\subsubsection*{Summary}
+
+The main result, which we will need also in later sections is the ND-interpretation of $\CA$ (Corollary~\ref{c:NDSiLCAnonsh}), we reformulate is here using the more compact Sh-interpretation:
+\begin{thm}[$Sh$-interpretation of $\SiLm\CA$]\label{c:NDSiLCA}
+  The schema of arithmetical comprehension over numbers for purely existential
+  formulas (for a given function $f^{1(0)}$)
+  \[
+  \exists h^1\forall x^0 (hx=_00 \leftrightarrow \exists z\ fxz=_00)\text{,}
+  \]
+is $Sh$-interpreted as follows (using the clause (S7$^*$) for the 
+conjunction hidden in `$\leftrightarrow$'):
+\begin{align*}
+  \forall X^{\typeOfXZ},Z^{\typeOfXZ}\ \ [(\ 
+t_h&\args{XZ(X\args{(t_h\args{XZ})(t_z\args{XZ})})}=_00
+        \leftarrow \\
+        & \quad f(X \args{(t_h\args{XZ})(t_z\args{XZ})}, 
+                  Z \args{(t_h\args{XZ})(t_z\args{XZ})} ) =_00)\ \ \wedge\\
+ (t_h&\args{XZ(X\args{(t_h\args{XZ})(t_z\args{XZ})})}=_00 
+         \rightarrow \\
+     &\quad f (
+           X\args{(t_h\args{XZ})(t_z\args{XZ})}, 
+           t_{z}\args{XZ (X\args{(t_h\args{XZ})(t_z\args{XZ})})
+                      (Z\args{(t_h\args{XZ})(t_z\args{XZ})}) } 
+      ) =_00\ )]
+\text{.}
+\end{align*}
+The witnessing terms are:
+\begin{align*}
+t_z&:=\lambda X^{\typeOfXZ},Z^{\typeOfXZ},a^0,b^0\ .\ t_g\args{(t_f\args{X})
+(t_f\args{Z})a}\text{,}\\
+t_h&:=\lambda X^{\typeOfXZ},Z^{\typeOfXZ},n^0\ .\ 
+ \overleftrightarrow{f(n,t_g\args{(t_f\args X)(t_f\args Z)n})}
+\text{,}
+\end{align*}
+where
+$
+t_f:=\lambda X^{\typeOfXZ},g^1\ .\ 
+  X \args{ (\lambda n^0.\overleftrightarrow{f(n,g\args{n})})
+(\lambda a^0,b^0 . g\args{a}) }
+\text{ and }
+\overleftrightarrow{n^0}:=_0\begin{cases}0&\Tif\quad n=_00\\1&\Telse\end{cases}
+\text{.}
+$\\
+The term $t_g$ corresponds to the term
+defined in proposition \ref{p:NDPiLCAhut}. The only difference is that 
+we give the two type $2$ arguments of $t_g$ explicitly, i.e.,
+$t_g$ stands only for the term $t_g$ of type level $3$ and not for 
+the type $1$ term $t_gXZ$ as above.
+\end{thm}
+
+
+\input{dipl/wkl.tex}
+\input{dipl/compPM.tex}
+
+
+

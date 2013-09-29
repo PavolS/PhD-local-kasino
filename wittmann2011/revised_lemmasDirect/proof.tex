@@ -1,0 +1,310 @@
+\subsection{Proof of Proposition~\ref{p:fin}}\label{s:proof}
+
+From now on, we assume that the assumptions of Proposition~\ref{p:fin} hold and use the terms as they are defined in that proposition. 
+Moreover, we will sometimes omit obvious dependency on trivial arguments, mainly the parameters $K$ and $B$.\\
+As a first step towards the proof, we define a specific primitive recursive $2^{-l}$ approximation of the square of the norm of the smallest 
+convex combination of $X_n, X_{n+1}, \ldots, X_p$. 
+\begin{rmk}
+Note that while it is convenient to represent convex combinations of a fixed set of elements via finite tuples of
+rational numbers, not every tuple of rational numbers corresponds to such a convex combination. Moreover, we need a formal way to produce convex combinations
+of arbitrary length. Therefore we introduce for any tuple of rational numbers $\tup s$ a function $\widetilde{\tup s}:\NN\to\NN$ which does have these properties and
+if $\tup s$ did correspond to a valid convex combination of desired length the result remains unchanged. Of course, it is not important to define
+$\tilde{\tup s}$ in a specific way (or at all).
+\end{rmk}
+
+\begin{dfn}[$C$]\label{d:C}  
+Let \[ C'(\tup s, l,n,p, X) := \left\|\sum^{p}_{i=0} \tilde {\tup s}(i)X_{n+i}\right\|^2 \] and
+\[
+C(l,n,p) := C(l,n,p, X) := \min_{\tup s\in S_{p,l}}\{ C'(\tup s,l,n,p,X)\},
+\] where
+\begin{align*}
+S_{p,l}:=\Big\{(s_0,\ldots,s_p)\ \Big|%\text{s.t.}
+\ \sum^{p}_{i=0} s_i = 1 \ \wedge
+ \forall i\in [0;p]\ \exists k_i\leq \Big\lceil\frac{pB^2}{2^{-(l+1)}}\Big\rceil\quad\Big( s_i=k_i\frac{2^{-(l+1)}}{pB^2}\Big)\Big\},\\
+ \widetilde {s_0,\ldots,s_m}(n) := \begin{cases}
+s_n&\Tif\ n< m\wedge \ \ \ 0\leq s_n \wedge s_n+\sum^{n-1}_{i=0} \tilde {\tup s}(i) \leq 1,\\
+0&\Tif\ n< m\wedge \neg(   0\leq s_n \wedge s_n+\sum^{n-1}_{i=0} \tilde {\tup s}(i) \leq 1),\\
+s_m&\Tif\ n= m\wedge \ \ \  0\leq s_m \wedge s_m+\sum^{m-1}_{i=0} \tilde {\tup s}(i) = 1,\\
+1 - \sum^{m-1}_{i=0} \tilde{\tup s}(i)&\Tif\ n= m\wedge \neg(  0\leq s_m \wedge s_m+\sum^{m-1}_{i=0} \tilde {\tup s}(i) = 1),\\
+0&\Telse.
+\end{cases}\\
+\end{align*}
+\end{dfn}
+\begin{lemma}[$C$ approximates the smallest convex combination]\label{l:newC}
+For any tuple of rational numbers $\tup s$ we have that
+\[
+\forall l,n,p,X\ \big( C'(\tup s,l,n,p)+2^{-l}\geq C(l,n,p) \big).
+\]
+\end{lemma}
+\begin{proof}
+Given $\tup s$ choose $\tup s'\in S_{p,l}$ s.t. $|s'_i-\tilde {\tup s}(i)|\leq \frac{2^{-(l+1)}}{pB^2}$ for all $i\in[0;p]$. 
+Then we have that
+\begin{align*}
+\left\|\sum_{i=0}^{p} \widetilde{\tup s}(i) X_{n+i} - \sum_{i=0}^{p} {s'}_i X_{n+i}\right\| = 
+\left\|\sum_{i=0}^{p} (\widetilde{\tup s}(i)-s'_i) X_{n+i} \right\| \leq
+\frac{2^{-(l+1)}}{pB^2}pB = \frac{2^{-(l+1)}}{B},
+\end{align*}
+and therefore also that
+$
+\left|\ \left\|\sum_{i=0}^{p} \widetilde{\tup s}(i) X_{n+i}\right\| - \left\|\sum_{i=0}^{p} {s'}_i X_{n+i}\right\| \ \right|\leq\frac{2^{-(l+1)}}{B},
+$
+so finally we get that
+\[
+\left|\ \left\|\sum_{i=0}^{p} \widetilde{\tup s}(i) X_{n+i}\right\|^2 - \left\|\sum_{i=0}^{p} {s'}_i X_{n+i}\right\|^2\  \right| \leq \frac{2^{-(l+1)}}{B} ( B + \frac{2^{-(l+1)}}{B} ) \leq 2^{-l}.
+\]
+\end{proof}
+
+We will also use that $M$ majorizes itself (in the sense of Howard~\cite{Howard73}, see also~\cite{Kohlenbach08}) and that $N_0$ and $P_0$ are the right witnesses for the two main assumptions needed in Wittmann's proof. 
+
+\begin{lemma}[$M$ is a majorant]\label{l:M}
+Each of the terms $M$,$P$,$N$,$M_0$,$P_0$,$N_0$ majorizes itself.
+In particular we have:
+\[ \forall l\in\NN,l'\geq l\ \forall h',h:\NN\to\NN\ ( \forall n (h(n)\geq h'(n)) \rightarrow N_0(l',h\powM)\geq N_0(l,h') ) \]
+and
+\begin{align*}
+ \forall l\in\NN,g:\NN\to\NN\ \forall n\leq N(l,g\powM) &\forall p\leq P(l,g\powM)\\
+  &( P(l,g\powM)\geq P_0(l,F(l,g\powM,n))\ \wedge\ M(l,g\powM)\geq M_0(l,n,p) ) . 
+\end{align*}
+\end{lemma}
+
+
+\begin{lemma}[$N_0$ is correct]\label{l:N0}
+\[
+%\forall l\in\NN,h:\NN\to\NN\ \exists n \leq N_0(l,h) \forall i,j\in[n;n+h(n)]\ i\leq j\rightarrow \|X_i\|^2-\|X_j\|^2\leq 2^{-l}.
+\forall l\in\NN,h:\NN\to\NN\ \exists n \leq N_0(l,h) \forall i,j\in[n;n+h(n)]\ \ \big(\|X_i\|^2-\|X_j\|^2\leq 2^{-l}\big).
+\]
+\end{lemma}
+\begin{proof}
+W.l.o.g assume that $K=K^M$. The sequence $\|X_i\|^2$ is bounded by $0$ and $B^2$ hence we can apply analogous version of
+Proposition~\ref{p:Ulrich} (actually the proof becomes even simpler, see~\cite{Kohlenbach08}, Proposition 2.26)
+to obtain that (recall that $P_0(l,u)=\tilde u^{B^22^l}(0)$):
+\[ \forall l,u \exists r\leq P_0(l,u) \forall i\leq u(r) 
+	\quad \big( \|X_{i}\|^2 + 2^{-l}\geq \|X_{r}\|^2\big)\tag{R}\label{e:R}.\]
+Note that $N_0(l,h)=P_0(l+1,u)+K(l+1)\geq P_0(l,u)$ with $ u(n):=n + K(l+1)+ h\powM(n + K(l+1))$ so this implies that
+\begin{align*}
+\forall l,h \exists n\leq N_0(l,h) \quad  \Big(\ \big|\ \|X_{n+h(n)}\|^2 - \|X_{n}\|^2\big| \leq 2^{-l}\ \Big),  \tag{N0}\label{e:N_0} 
+\end{align*}
+since the following holds (here $N_0'(l,h,r) = r+K(l+1)$):
+\begin{align*}
+\forall l,h \exists r\leq P_0(l+1,u)\ \big(
+		  & \|X_{N_0'(l,h,r)+h(N_0'(l,h,r))}\|^2\leq \|X_{r}\|^2 + 2^{-l-1}\ \wedge\\
+		  & \|X_{N_0'(l,h,r)+h(N_0'(l,h,r))}\|^2 + 2^{-l-1}\geq \|X_{r}\|^2 \big).
+\end{align*}
+The second inequality follows from~\eqref{e:R} (for $u$ as above) since
+\begin{align*}
+u(r)&= r + K(l+1) + h\powM(r + K(l+1)) \geq N_0'(l,h,r)+h(N_0'(l,h,r)).
+\end{align*}
+The first inequality follows from
+\begin{align*}
+\|X_{N_0'(l,h,r)+h(N_0'(l,h,r))}\|^2&=\|X_{r+K(l+1)+h(N_0'(l,h,r))}\|^2\\
+&\leq\|X_{r}\|^2+\frac{\delta_{K(l+1)+h(N_0'(l,h,r))}}{4}\leq\|X_{r}\|^2 + 2^{-l-1}.
+\end{align*}
+Note that for all $r\leq P_0(l,u)$ we have that $N_0'(l,h,r)\leq N_0'(l,h,P_0(l,u)) \leq N_0(l,h)$.
+Finally, given any $h$ in the claim, we can define 
+\begin{align*}
+h'(n):=&\min\Big\{ i\in [0;h(n)]\, \Big|\, 
+ \forall j\in[0;h(n)]\ \Big(\big|\, \|X_{n+i}\|^2 - \|X_n\|^2 \big| \geq \big|\, \|X_{n+j}\|^2- \|X_n\|^2 \big|\Big) \Big\}.
+\end{align*}
+Now the claim follows from~\eqref{e:N_0} applied to $h'$, the triangle inequality and the fact
+that we actually prove not only that  
+$\|X_{i}\|^2 - \|X_j\|^2\leq 2^{-l}$ 
+but also
+$|\ \|X_{i}\|^2 - \|X_j\|^2 |\leq 2^{-l}$, and 
+$
+N_0(l,h')\leq N_0(l,h\powM),
+$
+which follows from lemma~\ref{l:M} (we discuss a similar argument in the proof of Theorem~\ref{t:finInt} in more detail). \\
+\end{proof}
+
+\begin{lemma}[$P_0$ is correct]\label{l:P0}
+\[
+\forall l,n\in\NN\ \forall f:\NN\to\NN\ \exists p\leq P_0(l,f,B)\ \ \big( C(l,n,p)\leq C(l,n,f(p)) + 2^{-l} \big).
+\]
+\end{lemma}
+\begin{proof}
+Fix an $n$ and $l$ arbitrarily. The sequence $(a_i)$ defined by
+%\footnote{Note that
+%we can consider $a_i:=C(i,n,n)$ if $n>>l$ which is always true in our case.}
+$
+a_i:=C(l,n,i)
+$
+is monotone, since for $i<j$ we have $\forall \tup s \in S_{i,l}\exists \tup s'\in S_{j,l}\ \widetilde{\tup s}=\widetilde{\tup s'}$ and therefore also $C(l,n,i)\geq C(l,n,j)$. Moreover $(a_i)$
+is a sequence in $[0,B^2]$, since $0\leq C(l,n,i)\leq \|X_n\|^2 \leq B^2$ (note that $B\geq1$) for any $i$.
+Hence by Proposition~\ref{p:Ulrich} we get 
+\[ \forall k\in\NN,g\in\NN^\NN\exists n\leq {\tilde g}^{B^2\cdot 2^k}(0)\forall i,j\in[n;n+g(n)]\ \big(|a_i-a_j|<2^{-k}\big), \]
+which holds in particular also for $g=f$ and $k=l$ which implies that $P_0(l,f,B)=\tilde f^{B^22^l}(0)={\tilde g}^{B^2\cdot 2^k}(0)$.
+\end{proof}
+
+Next three lemmas give a quantitative analysis of the original proof in~\cite{Wittmann90}. By $l$ and $g$ we always denote a natural number and a function $\NN\to\NN$ respectively.
+
+\begin{lemma}[The scalar product increase is bounded]\label{l:scpb}
+For any $l$ and any $g$, consider $h:\NN\to\NN$, $h:=H(l,g\powM)$. Let
+$n$ be a witness for Lemma~\ref{l:N0}, i.e. 
+\[
+n\leq N(l,h)\ \wedge\ \forall i,j\in[n;n+h(n)]\ 
+\big( i\leq j\rightarrow \|X_i\|^2-\|X_j\|^2\leq 2^{-l-1} \big) . \tag{N}\label{e:N1}
+\]
+Moreover let $f:=F(l,g\powM,n)$,
+$p$ be a number smaller than $P_0(l,f)$ 
+and  $m:=M_0(l,n,p)$. Then we have that
+\[ 
+\langle X_{a+k},X_{b+k} \rangle \leq \langle X_{a},X_{b} \rangle + 2^{-l}
+\]
+holds for all $k,a,b$ s.t. $K\powM(l)\leq k \leq K\powM(l)+m+g\powM(m)$ and $ n\leq a,b \leq n+p$.
+\end{lemma}
+\begin{proof}
+We have
+\[
+\|X_{a+k}+X_{b+k}\|^2 \leq \|X_{a}+X_{b}\|^2 + 2^{-l} \tag{1}\label{e:sc1}
+\] since $k\geq K(l)$. Moreover we can infer
+\[
+\|X_{a+k}\|^2 \geq \|X_{a}\|^2 - 2^{-l-1} \wedge \|X_{b+k}\|^2 \geq \|X_{b}\|^2 - 2^{-l-1} \tag{2}\label{e:sc2}
+\] from~\eqref{e:N1}, $a\geq n$, $b \geq n$, and 
+\begin{align*}
+ a+k,b+k &\leq n+p+m+g\powM(m)+K(l) \\
+ &= n+p+M_0(l,n,p)+g\powM(M_0(l,n,p))+K(l) \\
+% &\leq n + \max\{ p+M_0(l,n,p)+g(M_0(l,n,p))+K(l) | p\leq P_0(l,F(l,g,n)) \} \\
+% &=n+H(l,g)(n) = n+h(n).
+ &\leq n+H(l,g\powM)(n) = n+h(n). 
+\end{align*}
+Therefore
+\begin{align*}
+\langle X_{a+k},X_{b+k} \rangle &= \frac{1}{2}( \|X_{a+k}+X_{b+k}\|^2 - \|X_{a+k}\|^2 - \|X_{b+k}\|^2 )\\
+&\leq \frac{1}{2}( \|X_{a}+X_{b}\|^2 + 2^{-l} - \|X_{a}\|^2 + 2^{-l-1} - \|X_{b}\|^2  + 2^{-l-1})\\
+&= \langle X_{a},X_{b} \rangle + 2^{-l}.
+\end{align*}
+\end{proof}
+
+Analogously to Wittmann~\cite{Wittmann90} we define
+\begin{dfn}[$Z$]\label{d:Z}
+$Z(l,n,p,m):=\frac{1}{m+1}\sum^{K\powM(l)+m}_{k=K\powM(l)}\sum^{p}_{i=0}  \widetilde{\tup s}_i X_{n+k+i},$
+with $\tup s$ corresponding to the tuple in the definition of $C(l,n,p)$ (see
+Definition~\ref{d:C} above). 
+\end{dfn}
+
+\begin{lemma}[$Z$s are close]\label{l:Zs}
+For any $l$ and any $g$, consider $h:= H(l,g\powM)$. Let
+$n$ be a witness for Lemma~\ref{l:N0}, i.e. 
+\[
+n\leq N(l,g\powM)\ \wedge\ \forall i,j\in[n;n+h(n)]\ 
+\big( i\leq j\rightarrow \|X_i\|^2-\|X_j\|^2\leq 2^{-l-1} \big) . \tag{N} 
+\]
+Moreover, let $m:=M_0(l,n,p)$, $f:=F(l,g\powM,n)$ and 
+$p$ be a witness for Lemma~\ref{l:P0}, i.e. 
+\begin{align*}
+p\leq P_0(l,f)\ \wedge\ ( C(l,n,p)\leq C(l,n,f(p)) + 2^{-l}  ),  \tag{P}\label{e:P2}\\
+\end{align*} 
+Then we have that
+$ \|Z(l,n,p,m) - Z( l,n,p,m+g\powM(m) ) \|^2 \leq 2^{-l+4}.$
+%holds for $m=M_0(l,n,p)$.
+\end{lemma}
+\begin{proof}
+Firstly, we will show that
+\[
+\|\frac{1}{2}( Z(l,n,p,m) + Z( l,n,p,m+g(m) )  )\|^2 + 2^{-l+1} \geq C(l,n,p). \tag{1}\label{e:Zup}
+\]
+Since $\frac{1}{2}( Z(l,n,p,m) + Z( l,n,p,m+g(m) )  )$ is a convex
+combination of \[ X_{n+K(l)},\ldots,X_{n+K(l)+p+m+g(m)},\] 
+we obtain by Lemma~\ref{l:newC} that
+\begin{align*}
+\Big\|\frac{1}{2}( Z(l,n,p,m) + Z( l,n,p,m&+g(m) )  )\Big\|^2 + 2^{-l} \geq\\ &C( l,n,n+K(l)+p+m+g\powM(m) ). 
+\end{align*}
+Now, because of 
+\begin{align*}
+f(p)&=p+n+K(l)+M_0(l,n,p)+g\powM(M_0(l,n,p))\\&=n+K(l)+p+m+g\powM(m), 
+\end{align*}
+it follows from~\eqref{e:P2} that
+\[
+ C( l,n,n+K(l)+p+m+g\powM(m) ) \geq  C(l,n,p) - 2^{-l}, % \tag{1.1}\label{e:ZupPrime}
+\]
+which concludes the proof of~\eqref{e:Zup}.
+Secondly, we will show that \[
+\forall o\leq m+g(m)\ \big( \big\| Z( l,n,p,o ) \big\|^2\leq C(l,n,p) + 2^{-l} \big). \tag{2}\label{e:Zdown}
+\] 
+Let $\tup s$ be the tuple corresponding to the tuple in the definition of $C(l,n,p)$ (note that $\tilde{\tup s}=\tup s$).
+By Lemma~\ref{l:scpb} we have
+\begin{align*}
+\bigg\|\sum^{p}_{i=0} s_i X_{n+k+i}\bigg\|^2&=\sum^{p}_{i,j=0}  s_i s_j \langle X_{n+k+i},X_{n+k+j} \rangle \\
+&\leq \sum^{p}_{i,j=0}  s_i s_j \langle X_{n+i},X_{n+j} \rangle + \sum^{p}_{i,j=0}  s_i s_j 2^{-l}=\bigg\|\sum^{p}_{i=0} s_i X_{n+i}\bigg\|^2+2^{-l},
+\end{align*}
+for all $K(l)\leq k \leq K(l)+m+g\powM(m)$, since $n\leq n+i,n+j\leq n+p$. Together with the convexity of the square function (and the definition of $Z$) this implies~\eqref{e:Zdown}.\\
+Finally, the claim follows from \eqref{e:Zup}
+%, \eqref{e:ZupPrime} 
+and \eqref{e:Zdown} by the parallelogram identity:
+\begin{align*}
+\big\|Z&(l,n,p,m) - Z( l,n,p,\tilde g(m) ) \big\|^2 =\\ 
+&=2\big\|Z( l,n,p,m)\big\|^2 + 2\big\|Z( l,n,p,\tilde g(m) )\big\|^2  - \big\|Z(l,n,p,m) + Z( l,n,p,\tilde g(m) )\big\|^2 \\
+&\leq 4( C(l,n,p) + 2^{-l} ) - 4( C(l,n,p) - 2^{-l+1} ) = 2^{-l+2} + 2^{-l+3} \leq 2^{-l+4}.
+\end{align*}
+\end{proof}
+
+\begin{lemma}[$Z$s and $A$s are close]\label{l:ZA}
+For any $l$ and any $g$, consider $h:= H(l,g\powM)$. Let
+$n$ be a witness for Lemma~\ref{l:N0}, i.e. 
+\[
+n\leq N(l,g\powM)\ \wedge\ \forall i,j\in[n;n+h(n)]\ 
+\big( i\leq j\rightarrow \|X_i\|^2-\|X_j\|^2\leq 2^{-l-1} \big) . \tag{N}  \label{e:N3}
+\]
+Moreover let $f:=F(l,g\powM,n)$,
+$p$ be a witness for Lemma~\ref{l:P0}, i.e. 
+\begin{align*}
+p\leq P_0(l,f)\ \wedge\ ( C(l,n,p)\leq C(l,n,f(p)) + 2^{-l}  ),  \tag{P}\\
+\end{align*} 
+and  $m:=M_0(l,n,p)$, $m':=m+g(m)$.
+Then we have that
+\[
+ \|A_{m+1} - Z( l,n,p,m )\|\leq \frac{1}{m+1}(2n + 2p + 2K(l))B +2^{-l}
+\]
+and
+\[
+ \|A_{m'+1} - Z( l,n,p,m' )\|\leq \frac{1}{m'+1}(2n + 2p + 2K(l))B +2^{-l}.
+\]
+\end{lemma}
+\begin{proof}
+From the definition of $Z$ we see that (note that $m,m'\geq p$):
+\begin{align*}
+(m+1)Z(l,n,p,m) - \sum^{n+K(l)+m}_{i=n+p+K(l)} X_{i} = 
+\sum^{p-1}_{i=0} t_iX_{n+K(l)+i} + \sum^{p}_{i=l} r_iX_{n+K(l)+m+i},
+\end{align*}
+for suitable $\tup t$ and $\tup r$ with $0\leq t_i,r_i\leq 1$. Hence (note that $m,m'\geq K(l)+n+p$)
+\begin{align*}
+(m&+1)\big\|Z( l,n,p,m ) - A_{m+1}\big\| =
+	 \bigg\| \sum^{K(l)+m}_{k=K(l)}\sum^{p}_{i=0}  \widetilde{\tup s}_i X_{n+k+i} - \sum^{m+1}_{i=1}X_i \bigg\|	\\
+	 &=\bigg\| \sum^{p-1}_{i=0} t_iX_{n+K(l)+i} + \sum^{p}_{i=1} r_iX_{n+K(l)+m+i} + \sum^{n+K(l)+m}_{i=n+p+K(l)} X_{i} 
+	      - \sum^{m+1}_{i=1}X_i \bigg\| \\
+	 &= \bigg\| \sum^{p-1}_{i=0} t_iX_{n+K(l)+i} + \sum^{p}_{i=1} r_iX_{n+K(l)+m+i} + \sum^{n+K(l)+m}_{i=m+2} X_{i} - \sum^{n+p+K(l)-1}_{i=1} X_{i}  \bigg\| \\
+	 &\leq \bigg\| \sum^{p-1}_{i=0} t_iX_{n+K(l)+i} - \sum^{n+p+K(l)-1}_{i=1} X_{i} \bigg\| + \bigg\|\sum^{p}_{i=1} r_iX_{n+K(l)+m+i} \bigg\| +  \bigg\| \sum^{n+K(l)+m}_{i=m+2} X_{i} \bigg\|  \\
+	 &\leq (n+p+K(l)-1)B + pB + (n+K(l)-1)B \leq (2n + 2p + 2K(l))B.
+\end{align*}
+Obviously, same holds for $m'$.\\
+\end{proof}
+
+
+Now, Proposition~\ref{p:fin} can be proved as follows.
+
+\begin{proof}[ of Proposition~\ref{p:fin}]
+Fix arbitrary $l$ and $g$. Set $h:= H(l,g\powM)$.
+By Lemma~\ref{l:N0} we know there is an $n$ s.t.  
+\[
+n\leq N(l,g\powM)\ \wedge\ \forall i,j\in[n;n+h(n)]\ 
+\big( i\leq j\rightarrow \|X_i\|^2-\|X_j\|^2\leq 2^{-l-1} \big). %\tag{N}\label{e:N1}
+\]
+Let $f:=F(l,g\powM,n)$. By Lemma~\ref{l:P0} we know that there is a $p$ s.t.
+\begin{align*}
+p\leq P_0(l,f)\ \wedge\ ( C(l,n,p)\leq C(l,n,f(p)) + 2^{-l}  ).  %\tag{P}\label{e:P1}\\
+\end{align*}
+Note that by Lemma~\ref{l:M} we have that $p\leq P(l,g\powM)$. We set $m:=M_0(l,n,p)$. By Lemma~\ref{l:M} we get that $m\leq M(l,g\powM)$.
+Finally, it follows from lemmas~\ref{l:Zs} and~\ref{l:ZA} that
+\begin{align*}
+\|A_{m+1} - A_{m+g(m)+1}\| &\leq \|Z( l,n,p,m ) - Z( l,n,p,m+g(m) )\|\\
+		&\quad\quad\quad + 2\Big(\frac{1}{m+1}(2n + 2p + 2K(l))B +2^{-l}\Big)\\
+		&\leq \sqrt{2^{-l+4}} + 2^{-l+1} + \frac{2(2n + 2p + 2K(l))B}{m+1} \\
+		&= \sqrt{2^{-l+4}} + 2^{-l+1} + \frac{2(2n + 2p + 2K(l))B}{(2n + 2p + 2K(l))B2^{l}+1} \\
+		&< \sqrt{2^{-l+4}} + 2^{-l+1} + 2^{-l+1} \leq 2^{-\frac{l}{2}+3}.
+\end{align*}
+This proves 
+\[
+\forall l,g \exists m\leq M(l,g\powM)\ \big( \|A_{m+1}-A_{m+g(m)+1}\|\leq 2^{-\frac{l}{2}+3}\big),
+\]
+from which the claim follows immediately by the definition of $M'$.
+\end{proof}

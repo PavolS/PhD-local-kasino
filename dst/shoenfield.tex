@@ -1,0 +1,166 @@
+\subsection{A functional interpretation for $\epaststar$} \label{s:Shoenfield}
+
+We will now combine negative translation and our functional interpretation $\D$ to obtain a functional interpretation of the classical system $\epaststar$.
+
+\subsubsection*{The interpretation}\label{ss:dst:shoenfield}
+
+\begin{dfn} \label{d:stS} ($\Sh$-interpretation for $\epaststar$.) To each formula $\Phi(\tup{a})$ with free variables $\tup{a}$ in the language of $\epaststar$ we associate its {$\Sh$-interpretation}
+\[
+\Phi^\Sh(\tup{a}):\equiv\forallst \tup{x}\,\existsst \tup{y}\,
+\phi_\Shb(\tup{x},\tup{y}, \tup{a})
+\text{,}
+\]
+where $\phi_\Shb$ is an internal formula. Moreover,  $\tup{x}$ and $\tup{y}$ are tuples of variables whose length and types depend only on the logical structure of $\Phi$. The interpretation of the formula is defined inductively on its
+structure. If
+\[
+\Phi^\Sh(\tup{a}):\equiv\forallst \tup{x}\,\existsst \tup{y}\, \
+\phi_\Shb(\tup{x},\tup{y}, \tup{a}) \
+\text{ and } \ \Psi^\Sh(\tup{b}):\equiv\forallst \tup{u}\,\existsst \tup{v}\, \
+\psi_\Shb(\tup{u},\tup{v}, \tup{b}),
+\]
+then
+\begin{enumerate}
+\item[(i)] $\phi^\Sh
+:\equiv \phi$ for atomic internal
+$\phi(\tup{a}),$
+\item[(ii)] $\big(\st(z) \big)^\Sh :\equiv \existsst x \, ( z = x)$,
+\item[(iii)] $(\neg \Phi)^\Sh :\equiv \forallst \tup{Y} \existsst \tup{x} \,
+\forall \tup y \in \tup Y[\tup x] \neg \phi_\Shb(\tup{x}, \tup y, \tup a),$
+\item[(iv)] $(\Phi \vee \Psi)^\Sh :\equiv
+             \forallst \tup{x},\tup{u} \existsst \tup{y},\tup{v} \,
+\big(\phi_\Shb(\tup{x},\tup{y}, \tup a) \vee \psi_\Shb(\tup{u},\tup{v}, \tup b)\big),$
+\item[(v)] $(\forall z \, \phi)^\Sh :\equiv \forallst \tup{x}
+\existsst \tup{y} \forall z \exists {\tup y}' \in \tup y \, \phi_\Shb(\tup x,\tup{y}', z).$
+\end{enumerate}
+\end{dfn}
+
+\begin{thm} \label{soundnessshoenfield} {\rm (Soundness of the $\Sh$-interpretation.)} Let $\Phi(\tup a)$ be a formula in the language of $\epaststar$ and suppose $\Phi(\tup a)^\Sh\equiv\forallst \tup x \, \existsst \tup y \, \phi(\tup x, \tup y, \tup a)$. If $\Delta_{\intern}$ is a collection of internal formulas and
+\[ \epaststar + \Delta_{\intern} \vdash \Phi(\tup a), \]
+then one can extract from the formal proof a sequence of closed terms $\tup t$ in $\Tstar$ such that
+\[
+\epastar + \Delta_{\intern} \vdash\ \forall \tup x\exists \tup y \in \tup t(\tup x)\ \phi(\tup x,\tup y, \tup a).
+\]
+\end{thm}
+
+Our proof of this theorem relies on the following lemma:
+\begin{lemma}\label{p:ShD}
+Let $\Phi(\tup a)$ be a formula in the language of $\epaststar$ and assume
+\begin{eqnarray*}
+\Phi^\Sh & \equiv & \forallst \tup x\existsst  \tup y \, \phi(\tup x, \tup y, \tup a) \quad \mbox{and} \\
+(\Phi_\kr)^\D & \equiv & \existsst \tup u \forallst \tup v \, \theta(\tup u,\tup v, \tup a).
+\end{eqnarray*}
+Then the tuples $\tup x$ and $\tup u$ have the same length and the variables they contain have the same types. The same applies to $\tup y$ and $\tup v$. In addition, we have
+\[
+\epastar\ \vdash\ \phi(\tup x, \tup y, \tup a)\leftrightarrow \lnot \theta(\tup x, \tup y, \tup a).
+\]
+\end{lemma}
+\begin{proof} The proof is by induction on the structure of $\Phi$.
+\begin{enumerate}
+\item[(i)] If $\Phi \equiv \psi$, an internal and atomic formula, then $\varphi \equiv \psi$ and $\theta \equiv \lnot \psi$, so $\epastar \vdash \varphi \leftrightarrow \lnot \theta$.
+\item[(ii)] If $\Phi \equiv \st(z)$, then $\varphi \equiv y = z$ and $\theta \equiv y \not= z$, so $\epastar \vdash \varphi \leftrightarrow \lnot \theta$.
+\item[(iii)] If $\Phi \equiv \lnot \Phi'$ with $(\Phi')^\Sh \equiv \forallst \tup x\existsst  \tup y \, \phi'(\tup x, \tup y, \tup a)$ and $(\Phi'_\kr)^\D \equiv \existsst \tup u \forallst \tup v \, \theta'(\tup u,\tup v, \tup a)$, then $\varphi \equiv \forall \tup y' \in \tup Y[\tup x]\ \neg\phi'(\tup x,\tup y')$ and $\theta \equiv \neg\forall \tup i\in \tup Y[\tup x]\ \theta'(\tup x,\tup i)$. Since $\epastar \vdash \varphi' \leftrightarrow \lnot \theta'$ by induction hypothesis, also $\epastar \vdash \varphi \leftrightarrow \lnot \theta$.
+\item[(iv)] If $\Phi \equiv \Phi_0 \lor \Phi_1$ with \[ \Phi_i^\Sh \equiv \forallst \tup x\existsst  \tup y \, \phi_i(\tup x, \tup y, \tup a) \] and \[ ((\Phi_i)_\kr)^\D \equiv \existsst \tup u \forallst \tup v \, \theta_i(\tup u,\tup v, \tup a),\] then $\varphi \equiv \varphi_0 \lor \varphi_1$ and $\theta \equiv \theta_0 \land \theta_1$. Since $\epastar \vdash \varphi_i \leftrightarrow \lnot \theta_i$ by induction hypothesis, also $\epastar \vdash \varphi \leftrightarrow \lnot \theta$.
+\item[(v)] If $\Phi \equiv \forall z \, \Phi'$ with \[ (\Phi')^\Sh \equiv \forallst \tup x\existsst  \tup y \, \phi'(\tup x, \tup y, z, \tup a) \] and \[ (\Phi'_\kr)^\D \equiv \existsst \tup u \forallst \tup v \, \theta'(\tup u,\tup v, z, \tup a),\] then $\varphi \equiv \forall z \exists \tup y' \in \tup y \varphi'(\tup x, \tup y', z, \tup a)$ and $\theta \equiv \exists z\forall  \tup y' \in \tup y\ \theta'(\tup x,\tup y',z, \tup a)$. Since $\epastar \vdash \varphi' \leftrightarrow \lnot \theta'$ by induction hypothesis, also $\epastar \vdash \varphi \leftrightarrow \lnot \theta$.
+\end{enumerate}
+\end{proof}
+
+\begin{remark}
+This lemma is the reason why we introduced the system $\ehanststar$ in Remark \ref{hanst}: it would fail if we would let the Krivine negative translation land directly in $\ehaststar$ with $\st(z)_\kr = \lnot \st(z)$. As it is, this lemma yields a quick proof of the soundness of the $\Sh$-interpretation.
+\end{remark}
+
+\begin{proof} (Of the soundness of the $\Sh$-interpretation, Theorem \ref{soundnessshoenfield}.) Let $\Phi(\tup a)$ be a formula in the language of $\epaststar$ and let  $\varphi$ and $\theta$ be such that
+\begin{eqnarray*}
+\Phi^\Sh & \equiv & \forallst \tup x\existsst  \tup y \, \phi(\tup x, \tup y, \tup a), \\
+(\Phi_\kr)^\D & \equiv & \existsst \tup x \forallst \tup y \, \theta(\tup x,\tup y, \tup a)
+\end{eqnarray*}
+and $\epastar \vdash \varphi \leftrightarrow \lnot \theta$, as in Lemma \ref{p:ShD}.
+
+Now, suppose that $\Delta_\intern$ is a set of internal formulas and $\Phi(\tup a)$ is a formula provable in $\epaststar$ from  $\Delta_\intern$. We first apply soundness of the Krivine negative translation (Theorem~\ref{l:kukr}) to see that
+\[ \ehanststar + \Delta_\intern^\kr \vdash \Phi^\kr, \]
+where $\Phi^\kr \equiv \lnot \Phi_\kr$. So if $(\Phi_\kr)^\D \equiv \existsst \tup x \forallst \tup y \, \theta(\tup x,\tup y, \tup a)$, then
+\[ (\Phi^\kr)^\D \equiv \existsst \tup Y \forallst \tup x \exists \tup y \in \tup Y[\tup x] \lnot \theta(\tup x, \tup y, \tup a). \]
+It follows from the soundness theorem for $\D$ (Theorem \ref{soundnessDst}) and Remark \ref{hanst} that there is a sequence of closed terms $\tup s$ from $\Tstar$ such that
+\[ \ehastar + \Delta_\intern^\kr \vdash \forall \tup x \exists \tup y  \in \tup s[\tup x] \lnot \theta(\tup x, \tup y, \tup a). \]
+Since $\epastar \vdash \Delta_\intern^\kr \leftrightarrow \Delta_\intern$ and $\epastar \vdash \varphi \leftrightarrow \lnot \theta$ we have
+\[
+\epastar + \Delta_{\intern} \vdash\ \forall \tup x\exists \tup y \in \tup t(\tup x)\ \phi(\tup x,\tup y, \tup a),
+\]
+with $\tup t \equiv \lambda \tup x. \tup s[\tup x]$.
+\end{proof}
+
+\subsubsection*{Characteristic principles}
+
+The characteristic principles of our functional interpretation for classical arithmetic are idealization $\I$ (or, equivalently, $\R$: see Section 4.1) and $\HAC_\intern$
+\[     \forallst x \existsst y \, \varphi(x,y) \to \existsst F \forallst x \exists y \in F(x)\,  \varphi (x,y),         \]
+which is the choice scheme $\HAC$ restricted to internal formulas. To see this, note first of all that we have:
+
+\begin{prop}
+For any formula $\Phi$ in the language of $\epaststar$ one has:
+\[ \epaststar + \I + \HAC_\intern \vdash \Phi \leftrightarrow \Phi^\Sh. \]
+\end{prop}
+\begin{proof}
+An easy proof by induction on the structure of $\Phi$, using $\HAC_\intern$ for the case of negation and $\I$ (or rather $\R$) in the case of internal universal quantification.
+\end{proof}
+
+For the purpose of showing that $\I$ and $\HAC_\intern$ are interpreted, it will be convenient to consider the ``hybrid'' system $\ehanststar + \LEM_\intern$, where $\LEM_\intern$ is the law of excluded middle for internal formulas. For this hybrid system we have the following easy lemma, whose proof we omit:
+
+\begin{lemma} We have:
+\begin{enumerate}
+\item[1.] $\ehanststar + \LEM_\intern \, \vdash \, \varphi^\ku \leftrightarrow \varphi$, if $\varphi$ is an internal formula in the the language of $\epaststar$.
+\item[2.] $\ehanststar + \LEM_\intern + \I \, \vdash \, \I^\ku$.
+\item[3.] $\ehanststar + \LEM_\intern + \HAC_\intern + \HGMP \, \vdash \, \HAC^\ku_\intern$.
+\end{enumerate}
+\end{lemma}
+
+This means we can strengthen Theorem  \ref{soundnessshoenfield} to:
+
+\begin{thm} {\rm (Soundness of the $\Sh$-interpretation, full version.)}\label{fullsoundnessSst} Let $\Phi(\tup a)$ be a formula in the language of $\epaststar$ and suppose $\Phi(\tup a)^\Sh\equiv\forallst \tup x \, \existsst \tup y \, \phi(\tup x, \tup y, \tup a)$. If $\Delta_{\intern}$ is a collection of internal formulas and
+\[ \epaststar + \I + \HAC_\intern + \Delta_{\intern} \vdash \Phi(\tup a), \]
+then one can extract from the formal proof a sequence of closed terms $\tup t$ in $\Tstar$ such that
+\[
+\epastar + \Delta_{\intern} \vdash\ \forall \tup x\exists \tup y\in \tup t(\tup x)\ \phi(\tup x,\tup y, \tup a).
+\]
+\end{thm}
+\begin{proof} The argument is a slight extension of the proof of Theorem \ref{soundnessshoenfield}. So, once again, let $\Phi(\tup a)$ be a formula in the language of $\epaststar$ and $\varphi$ and $\theta$ be such that
+\begin{eqnarray*}
+\Phi^\Sh & \equiv & \forallst \tup x\existsst  \tup y \, \phi(\tup x, \tup y, \tup a), \\
+(\Phi_\kr)^\D & \equiv & \existsst \tup x \forallst \tup y \, \theta(\tup x,\tup y, \tup a)
+\end{eqnarray*}
+and $\epastar \vdash \varphi \leftrightarrow \lnot\theta$, as in Lemma \ref{p:ShD}.
+
+This time we suppose $\Delta_\intern$ is a set of internal formulas and $\Phi(\tup a)$ is a formula provable in $\epaststar$ from $\I + \HAC_\intern + \Delta_\intern$. We first apply soundness of the Kuroda negative translation (Theorem~\ref{soundnesskuroda}), which yields:
+\[ \ehanststar + \I^\ku + \HAC^\ku_\intern + \Delta_\intern^\ku \vdash \Phi^\ku. \]
+Then the previous lemma implies that:
+\[ \ehanststar + \LEM_\intern + \I + \HAC_\intern + \HGMP + \Delta_\intern^\ku \vdash \Phi^\ku. \]
+Note that $\ehanststar \vdash \Phi^\ku \leftrightarrow \Phi^\kr$,  $\Phi^\kr \equiv \lnot \Phi_\kr$ and
+\[ (\Phi^\kr)^\D \equiv \existsst \tup Y \forallst \tup x \exists \tup y \in \tup Y[\tup x] \lnot \theta(\tup x, \tup y , \tup a). \]
+Therefore the soundness theorem for $\D$ (Theorem \ref{soundnessDst}), in combination with Remark \ref{hanst} and the fact that the axiom scheme $\LEM_\intern$ is internal, implies that there is a sequence of closed terms $\tup s$ from $\Tstar$ such that
+\[ \ehastar + \LEM + \Delta_\intern^\ku \vdash \forall \tup x \exists \tup y \in \tup s[\tup x] \lnot \theta(\tup x, \tup y, \tup a). \]
+Since $\epastar \vdash \LEM$, $\epastar \vdash \Delta_\intern^\ku \leftrightarrow \Delta_\intern$ and $\epastar \vdash \varphi \leftrightarrow \lnot \theta$, we have
+\[
+\epastar + \Delta_{\intern} \vdash\ \forall \tup x\exists \tup y \in \tup t(\tup x)\ \phi(\tup x,\tup y, \tup a)
+\]
+with $\tup t \equiv \lambda \tup x. \tup s[\tup x]$.
+\end{proof}
+
+The following picture depicts the relation between the various interpretations we have established:
+\begin{figure}[hbt]%
+\[
+\begin{xy}
+  \xymatrix{
+      \epaststar + \I + \HAC_\intern \ar[rd]^{(\cdot)\ku} \ar[dd]_{(\cdot)^\Sh} &  \\
+      {} & \ehanststar+\LEM_\intern+\I+\NCR + \HAC + \HGMP + \HIP_{\forallst} \ar[ld]^{(\cdot)^\D}  \\
+                                   \epastar &   {}
+  }
+\end{xy}\]
+\caption{The Shoenfield and negative Dialectica interpretations.}
+\label{f:ShD}
+\end{figure}
+
+\subsubsection*{Conservation results and the transfer principle}
+
+Theorem \ref{fullsoundnessSst} immediately gives us the following conservation result:
+
+\begin{cor}
+$\epaststar + \I + \HAC_\intern$ is a conservative extension of $\epastar$ and hence of $\epa$.
+\end{cor}

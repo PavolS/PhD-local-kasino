@@ -1,0 +1,318 @@
+\section{Uniform bounds for Wittmann's ergodic theorems}\label{s:Main}
+%\section{The witness is correct}\label{s:Main}
+
+We give a bound for a finitary version of Wittmann's convergence result for
+a general series in a Hilbert space satisfying a suitable formulation
+of the condition~\eqref{e:W-assym} first 
+(see Theorem~\ref{t:fin} and Corollary~\ref{c:finInt}) to derive the bounds
+for the finitary versions of the actual ergodic theorems later
+(see Corollary~\ref{c:fin22} and Corollary~\ref{c:fin21}).\\
+We already discussed how to obtain the first bound in Sections~\ref{s:terms} and~\ref{s:ArProof},
+here we concentrate on a formal and precise definition of the bounds as well as on the proof
+that these bounds are correct.
+\begin{thm}[Finitary version of Theorem 2.3 in~\cite{Wittmann90}] \label{t:fin}
+Let $K$ be a function and $X_{(\cdot)}$ a sequence in a Hilbert space s.t. for all $m,n,k\in\NN$
+\[
+\|X_{n+k} + X_{m+k}\|^2 \leq \|X_{n} + X_{m}\|^2+\delta_k,
+\]
+with
+$
+\forall l\in\NN\forall n\geq K(l)\ \big( |\delta_{n}|<2^{-l}\big).
+$
+Then the sequence $A_{(\cdot)}$, defined by
+$
+A_n:=\frac{1}{n}\sum^n_{i=1}X_i,
+$
+is a Cauchy sequence and we have that
+\[
+\forall l,g \exists m\leq M'(l,g^M)\ \big( \|A_{m}-A_{m+g(m)}\|\leq 2^{-l} \big),
+\]
+with $g^M(n):=\max_{i\leq n} g(n)$ and $M'$ defined as follows:
+\begin{align*}
+M'(l,g)&:=M(2l+6, \lambda n\ .\ g(n+1))+1,\quad  M(l,g):=M_0( P(l,g), N(l,g), l),\\
+P(l,g)&:=P_0(l,F(l,g,N(l,g))),\\
+      &F(l,g,n) :=_1 \lambda p\ .\ p+n+K^M(l)+M_0(l,n,p)+g(M_0(l,n,p)),\\
+N(l,g)&:=N_0(l+1,H(l,g)),\quad   H(l,g):=_1 \lambda n\ .\  H_0(l,g,n,P_0(l,F(l,g,n))),
+\end{align*}
+where
+$H_0(l,g,n,p):= p + M_0(l,n, p )+g(M_0(l,n, p ))+K^M(l)$, 
+$ M_0(l,n,p):=(2n + 2p + 2K^M(l))B2^{l}$, 
+$ P_0(l,f):=\tilde f^{B^22^l}(0)$, $\tilde f(n):=n + f(n)$, 
+$ N_0(l,h):=R(l+1,U(l,h))+K^M(l+1)$, 
+$ R(l,u):=\tilde u^{\lceil \|X_0\| \rceil^22^l}(0)$, 
+$ U(l,h):=_1\lambda n\ .\ (n + K^M(l+1))+h^M(n + K^M(l+1))$, 
+$ B:=\max_{1\leq i \leq K^M(0)} \lceil \|X_i\| \rceil+1$.
+
+\end{thm}
+
+From now on, we assume that the assumptions of the theorem hold and use the terms as they are defined in the theorem. 
+We denote the set of natural numbers $\{x\in\NN : a\leq x\wedge x\leq b\}$ by $[a;b]$ and define
+a specific primitive recursive $2^{-l}$ approximation of the square of the norm of the smallest 
+convex combination of $X_n, X_{n+1}, \ldots, X_p$ as follows:
+\begin{dfn}[$C$]\label{d:C}  
+Let $C'(\tup s, l,n,p, X) := \left\|\sum^{p}_{i=0} \tilde {\tup s}(i)X_{n+i}\right\|^2$ to define
+\[
+C(l,n,p) := C(l,n,p, X) := \min_{\tup s\in S_{p,l}}\{ C'(\tup s,l,n,p,X)\},
+\] where
+\begin{align*}
+S_{p,l}:=\Big\{(s_0,\ldots,s_p)\ \Big|%\text{s.t.}
+\ \sum^{p}_{i=0} s_i = 1 \ \wedge
+ \forall i\in [0;p]\ \exists k_i\leq_\NN \Big\lceil\frac{pB^2}{2^{-(l+1)}}\Big\rceil\quad\Big( s_i=k_i\frac{2^{-(l+1)}}{pB^2}\Big)\Big\},\\
+ \widetilde {s_0,\ldots,s_m}(n) := \begin{cases}
+s_n&\Tif\ n< m\wedge \ \ \ 0\leq_\QQ s_n \wedge s_n+\sum^{n-1}_{i=0} \tilde {\tup s}(i) \leq_\QQ 1,\\
+0&\Tif\ n< m\wedge \neg(   0\leq_\QQ s_n \wedge s_n+\sum^{n-1}_{i=0} \tilde {\tup s}(i) \leq_\QQ 1),\\
+s_m&\Tif\ n= m\wedge \ \ \  0\leq_\QQ s_m \wedge s_m+\sum^{m-1}_{i=0} \tilde {\tup s}(i) =_\QQ 1,\\
+%1 - \sum^{m-1}_{i=0} \tilde{\tup s}(i)&\Tif\ n= m\wedge 0\leq_\QQ s_m \wedge s_m+\sum^{m-1}_{i=0} \tilde {\tup s}(i)\neq_\QQ 1,\\
+1 - \sum^{m-1}_{i=0} \tilde{\tup s}(i)&\Tif\ n= m\wedge \neg(  0\leq_\QQ s_m \wedge s_m+\sum^{m-1}_{i=0} \tilde {\tup s}(i) =_\QQ 1),\\
+0&\Telse.
+\end{cases}\\
+\end{align*}
+\end{dfn}
+\begin{lemma}[$C$ approximates the smallest convex combination]\label{l:newC}
+\[
+\forall l,n,p,f \forall \tup s\ \big( C'(\tup s,l,n,p,f)+2^{-l}\geq C(l,n,p) \big).
+\]
+\end{lemma}
+%\begin{proof}
+%Given $\tup s$ choose $\tup s'\in S_{p,l}$ s.t. $|s'_i-\tilde s_i|\leq \frac{2^{-(l+1)}}{pB^2}$. 
+%We have
+%\begin{align*}
+%\left\|\sum_{i=0}^{p} \widetilde{s}_i X_{n+i} - \sum_{i=0}^{p} {s'}_i X_{n+i}\right\| = 
+%\left\|\sum_{i=0}^{p} |\widetilde{s}_i-s'_i| X_{n+i} \right\| \leq
+%\frac{2^{-(l+1)}}{pB^2}pB = \frac{2^{-(l+1)}}{B}.
+%\end{align*}
+%therefore
+%\[
+%\left|\ \left\|\sum_{i=0}^{p} \widetilde{s}_i X_{n+i}\right\| - \left\|\sum_{i=0}^{p} {s'}_i X_{n+i}\right\| \ \right|\leq\frac{2^{-(l+1)}}{B}
+%\]
+%and finally
+%\[
+%\left|\ \left\|\sum_{i=0}^{p} \widetilde{s}_i X_{n+i}\right\|^2 - \left\|\sum_{i=0}^{p} {s'}_i X_{n+i}\right\|^2\  \right| \leq \frac{2^{-(l+1)}}{B} ( B + \frac{2^{-(l+1)}}{B} ) \leq 2^{-l}.
+%\]
+%\end{proof}
+
+We will also use that $M$ majorizes itself and that $N_0$ and $P_0$ are the right witnesses for the two main assumptions needed in Wittmann's proof. For better readability, we prove these lemmas in Section~\ref{s:Lemmas} at the end of the paper.
+
+\begin{lemma}[$M$ is a majorant]\label{l:M}
+Each of the terms $M$,$P$,$N$,$M_0$,$P_0$,$N_0$,$R$ majorizes itself.
+In particular we have:
+\[ \forall l'\geq l\forall h',h ( \forall n (h(n)\geq h'(n)) \rightarrow N_0(l',h^M)\geq N_0(l,h') ) \]
+and
+\begin{align*}
+ \forall l,g \forall n\leq N(l,g^M) &\forall p\leq P(l,g^M)\\
+  &( P(l,g^M)\geq P_0(l,F(l,g^M,n))\ \wedge\ M(l,g^M)\geq M_0(l,n,p) ) . 
+\end{align*}
+%and  
+%\[ \forall l \forall g \forall n'\geq n (\ (H(l,g))(n') \geq (H(l,g))(n)\ ). \]
+\end{lemma}
+
+\begin{lemma}[$N_0$ is correct]\label{l:N0}
+The sentence
+\[
+\forall l,h \exists n \forall i,j\in[n;n+h(n)]\ i\leq j\rightarrow \|X_i\|^2-\|X_j\|^2\leq 2^{-l}
+\]
+is witnessed by an $n\leq N_0(l,h)$.
+\end{lemma}
+
+\begin{lemma}[$P_0$ is correct]\label{l:P0}
+$
+\forall l,f,n\exists p\leq P_0(l,f)\ \big( C(l,n,p)\leq C(l,n,f(p)) + 2^{-l} \big).
+$
+\end{lemma}
+
+Next three lemmas give a quantitative analysis of the original proof in~\cite{Wittmann90}. Again, for better readability, we 
+give the proofs in Section~\ref{s:Lemmas}. 
+
+\begin{lemma}[The scalar product increase is bounded]\label{l:scpb}
+For any $l$ and any $g$, consider $h:= H(l,g^M)$. Let
+$n$ be a witness for Lemma~\ref{l:N0}, i.e. 
+\[
+n\leq N(l,h)\ \wedge\ \forall i,j\in[n;n+h(n)]\ 
+\big( i\leq j\rightarrow \|X_i\|^2-\|X_j\|^2\leq 2^{-l-1} \big) . \tag{N}
+\]
+Moreover let $f:=F(l,g^M,n)$,
+$p$ be a number smaller than $P_0(l,f)$ 
+and  $m:=M_0(l,n,p)$. Then we have that
+\[ 
+\langle X_{a+k},X_{b+k} \rangle \leq \langle X_{a},X_{b} \rangle + 2^{-l}
+\]
+holds for all $k,a,b$ s.t. $K^M(l)\leq k \leq K^M(l)+m+g^M(m)$ and $ n\leq a,b \leq n+p$.
+\end{lemma}
+
+Analogously to Wittmann~\cite{Wittmann90} we define
+\begin{dfn}[$Z$]\label{d:Z}
+$Z(l,n,p,m):=\frac{1}{m+1}\sum^{K^M(l)+m}_{k=K^M(l)}\sum^{p}_{i=0}  \widetilde{\tup s}_i X_{n+k+i},$
+with $\tup s$ corresponding to the tuple in the definition of $C(l,n,p)$ (see
+Definition~\ref{d:C} above). 
+\end{dfn}
+
+\begin{lemma}[$Z$s are close]\label{l:Zs}
+For any $l$ and any $g$, consider $h:= H(l,g^M)$. Let
+$n$ be a witness for Lemma~\ref{l:N0}, i.e. 
+\[
+n\leq N(l,g^M)\ \wedge\ \forall i,j\in[n;n+h(n)]\ 
+\big( i\leq j\rightarrow \|X_i\|^2-\|X_j\|^2\leq 2^{-l-1} \big) . \tag{N} 
+\]
+Moreover, let $m:=M_0(l,n,p)$, $f:=F(l,g^M,n)$ and 
+$p$ be a witness for Lemma~\ref{l:P0}, i.e. 
+\begin{align*}
+p\leq P_0(l,f)\ \wedge\ ( C(l,n,p)\leq C(l,n,f(p)) + 2^{-l}  ),  \tag{P}\\
+\end{align*} 
+Then we have that
+$ \|Z(l,n,p,m) - Z( l,n,p,m+g^M(m) ) \|^2 \leq 2^{-l+4}.$
+%holds for $m=M_0(l,n,p)$.
+\end{lemma}
+
+\begin{lemma}[$Z$s and $A$s are close]\label{l:ZA}
+For any $l$ and any $g$, consider $h:= H(l,g^M)$. Let
+$n$ be a witness for Lemma~\ref{l:N0}, i.e. 
+\[
+n\leq N(l,g^M)\ \wedge\ \forall i,j\in[n;n+h(n)]\ 
+\big( i\leq j\rightarrow \|X_i\|^2-\|X_j\|^2\leq 2^{-l-1} \big) . \tag{N} 
+\]
+Moreover let $f:=F(l,g^M,n)$,
+$p$ be a witness for Lemma~\ref{l:P0}, i.e. 
+\begin{align*}
+p\leq P_0(l,f)\ \wedge\ ( C(l,n,p)\leq C(l,n,f(p)) + 2^{-l}  ),  \tag{P}\\
+\end{align*} 
+and  $m:=M_0(l,n,p)$, $m':=m+g(m)$.
+Then we have that
+\[
+ \|A_{m+1} - Z( l,n,p,m )\|\leq \frac{1}{m+1}(2n + 2p + 2K(l))B +2^{-l}
+\]
+and
+\[
+ \|A_{m'+1} - Z( l,n,p,m' )\|\leq \frac{1}{m'+1}(2n + 2p + 2K(l))B +2^{-l}.
+\]
+\end{lemma}
+
+
+\begin{proof}[ of Theorem~\ref{t:fin}]
+Fix arbitrary $l$ and $g$. Set $h:= H(l,g^M)$.
+By Lemma~\ref{l:N0} we know there is an $n$ s.t.  
+\[
+n\leq N(l,g^M)\ \wedge\ \forall i,j\in[n;n+h(n)]\ 
+\big( i\leq j\rightarrow \|X_i\|^2-\|X_j\|^2\leq 2^{-l-1} \big). %\tag{N}\label{e:N1}
+\]
+Let $f:=F(l,g^M,n)$. By Lemma~\ref{l:P0} we know that there is a $p$ s.t.
+\begin{align*}
+p\leq P_0(l,f)\ \wedge\ ( C(l,n,p)\leq C(l,n,f(p)) + 2^{-l}  ).  %\tag{P}\label{e:P1}\\
+\end{align*}
+Note that by Lemma~\ref{l:M} we have that $p\leq P(l,g^M)$. We set $m:=M_0(l,n,p)$. By Lemma~\ref{l:M} we get that $m\leq M(l,g^M)$.
+Finally, it follows from lemmas~\ref{l:Zs} and~\ref{l:ZA} that
+\begin{align*}
+\|A_{m+1} - A_{m+g(m)+1}\| &\leq \|Z( l,n,p,m ) - Z( l,n,p,m+g(m) )\|\\
+		&\quad\quad\quad + 2\Big(\frac{1}{m+1}(2n + 2p + 2K(l))B +2^{-l}\Big)\\
+		&\leq \sqrt{2^{-l+4}} + 2^{-l+1} + \frac{2(2n + 2p + 2K(l))B}{m+1} \\
+		&= \sqrt{2^{-l+4}} + 2^{-l+1} + \frac{2(2n + 2p + 2K(l))B}{(2n + 2p + 2K(l))B2^{l}+1} \\
+		&< \sqrt{2^{-l+4}} + 2^{-l+1} + 2^{-l+1} \leq 2^{-\frac{l}{2}+3}.
+\end{align*}
+This proves 
+\[
+\forall l,g \exists m\leq M(l,g^M)\ \big( \|A_{m+1}-A_{m+g(m)+1}\|\leq 2^{-\frac{l}{2}+3}\big),
+\]
+from which the claim follows immediately by the definition of $M'$.
+\end{proof}
+
+Sometimes it is useful to work with the following version of the previous theorem, though
+both these formulations are equivalent (even in weaker systems than we used to
+formalize the original proof itself).
+
+\begin{cor}[Finitary version of Theorem 2.3 in~\cite{Wittmann90} for intervals] \label{c:finInt}
+Let $K$ be a function and $X_{(\cdot)}$ a sequence in a Hilbert space s.t. for all $m,n,k\in\NN$
+\[
+\|X_{n+k} + X_{m+k}\|^2 \leq \|X_{n} + X_{m}\|^2+\delta_k,
+\]
+with
+\[
+\forall l\in\NN\forall n\geq K(l)\ \big( |\delta_{n}|<2^{-l}\big).
+\]
+Then the sequence $A_{(\cdot)}$ defined by
+\[
+A_n:=\frac{1}{n}\sum^n_{i=1}X_i,
+\]
+is a Cauchy sequence and we have that
+\[
+\forall l,g \exists m\leq M'(l+1,g^M)\forall i,j\in[m;m+g(m)]\ \big( \|A_{i}-A_{j}\|\leq 2^{-l} \big),
+\]
+with $M'$ defined as in Theorem~\ref{t:fin}.
+\end{cor}
+\begin{proof}
+Given any $l$ and $g$, apply Theorem~\ref{t:fin} to the number $l+1$ and to the function
+\begin{align*}
+h(n):=\min\Big\{\ &i\in [0;g(n)] \text{ s.t. }\\
+ &\forall j\in[0;g(n)]\quad \Big(\big| \|A_{n+i}\| - \|A_n\| \big| \geq \big| \|A_{n+j}\|- \|A_n\|\big|\Big) \Big\}.
+\end{align*}
+It follows that 
+\[
+\exists m\leq M'(l+1,h^M)\ \big( \|A_{m}-A_{m+h(m)}\|\leq 2^{-l-1} \big).
+\]
+We fix such an $m$ and conclude (by the triangle inequality) that
+\[
+\forall i,j\in[m;m+g(m)]\ \big( \|A_{i}-A_{j}\|\leq 2^{-l} \big).
+\]
+Moreover, since $\forall n\in\NN\ (h^M(n)\leq g^M(n))$ we have that \[m\leq M'(l+1,g^M)\] due to Lemma~\ref{l:M}.
+\end{proof}
+
+Now, we obtain the bound for the metastable version of Theorem 2.2 in Wittmann's paper~\cite{Wittmann90} as a simple conclusion:
+
+\begin{cor}[Finitary version of Theorem 2.2 in~\cite{Wittmann90}] \label{c:fin22}
+Let $S$ be a subset of a Hilbert space and $T:S\to S$
+be a mapping satisfying
+\begin{align*}
+&\forall n\in\NN\forall x,y\in S\ \big(\| T^nx + T^ny \| \leq \alpha_n\|x + y\|\big),\\ % \label{e:22.a1} \\
+&\forall l\in\NN\forall n\geq K'(l)\ \big( |1-\alpha_{n}|<2^{-l}\big). % \label{e:22.a2}
+\end{align*}
+Then for any $x\in S$ the sequence of the Ces{\`a}ro means
+\[
+A_nx:=\frac{1}{n+1}\sum^{n}_{i=0} T^i x
+\]
+is norm convergent and the following holds:
+\[
+\forall l,g \exists m\leq M'(l+1,g^M)\forall i,j\in[m;m+g(m)]\ \big( \|A_{i}x-A_{j}x\|\leq 2^{-l}\big ),
+%\forall l\in\NN,g\in\NN^\NN \exists m\leq_\NN M(l,g^M)\ \big( \|A_{m}x-A_{m+g(m)}x\|\leq 2^{-l}\big ).
+\]
+with $M'$ defined as in Theorem~\ref{t:fin}.
+\end{cor}
+\begin{proof}
+Fix an arbitrary $x\in S$ and set $B':=\max_{i\leq K'(0)}(T^ix)+1.$
+The claim follows from Corollary~\ref{c:finInt} with 
+$X_i:=T^ix$, $\delta_n:=4B'^2(\alpha_n^2-1)$, $K(l):=K'(l+2\lceil\log_2 B' \rceil+2)$.
+\end{proof}
+
+The following corollary follows immediately:
+%\newpage
+\begin{cor}[Finitary version of Theorem 2.1 in~\cite{Wittmann90}] \label{c:fin21}
+Let $S$ be a subset of a Hilbert space and $T:S\to S$
+be a mapping satisfying
+\[
+\forall x,y\in S\ \big(\| Tx + Ty \| \leq \|x + y\|\big).
+\]
+Then for any $x\in S$ the sequence of the Ces{\`a}ro means
+$
+A_nx:=\frac{1}{n+1}\sum^{n}_{i=0} T^i x
+$
+is norm convergent and the following holds:
+\[
+\forall l,g \exists m\leq M(l,g^M)\forall i,j\in[m;m+g(m)]\ \big( \|A_{i}x-A_{j}x\|\leq 2^{-l}\big ),
+%\forall l\in\NN,g\in\NN^\NN \exists m\leq_\NN M(l,g^M)\ \big( \|A_{m}x-A_{m+g(m)}x\|\leq 2^{-l}\big ),
+\]
+%and there is a witness
+%\[
+%%m \leq 1+M(2l+6,(\breve g)^M),\quad \breve g(n+1):=g(n), \breve g(0):=0
+%m \leq 1+M(2l+6,(\breve g)^M),\quad \breve g(n+1):=g(n), \breve g(0):=0
+%\]
+with $M$ defined as follows:
+\begin{align*}
+%M(l,g)&:=(N( 2l+6, g) + P( 2l+6, g)){\lceil \|x\| \rceil}2^{2l+7}+1,\\
+M(l,g)&:=(N( 2l+7, g) + P( 2l+7, g)){\lceil \|x\| \rceil}2^{2l+8}+1,\\
+P(l,g)&:=P_0(l,F(l,g,N(l,g))),\\
+F(l,g,n) &:=_1 \lambda p\ .\ p+n+\tilde g((n + p){\lceil \|x\| \rceil}2^{l+1}),\\
+N(l,g)&:=\big({\lambda n\ .\ n+P_0(l,F(l,g,n))+\tilde g((n + P_0(l,F(l,g,n))){\lceil \|x\| \rceil}2^{l+1}) } \big)^{{\lceil \|x\| \rceil}^22^{l+2}}(0),
+\end{align*}
+where $P_0(l,f):=\tilde f^{ {\lceil \|x\| \rceil}^2 2^l}(0)$, $\tilde f(n):=n+f(n)$, $f^M(n):=\max_{i\leq n+1} f(i)$.\\
+
+Note that (due to Lemma~\ref{l:M}) the bound for $m$ depends only on a bound for the norm of the
+parameter $x$ and not directly on the starting point.
+\end{cor}
+

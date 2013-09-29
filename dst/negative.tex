@@ -1,0 +1,88 @@
+\subsection{The system $\epaststar$ and negative translation}
+
+By combining the functional interpretation from the previous section with negative translation we can obtain conservation and term extraction results for classical systems as well. We will work out the details in this and the next section.
+
+First, we need to set up a suitable classical system $\epaststar$. It will be an extension of $\epastar$, which is $\ehastar$ with the law of excluded middle added for all formulas. When working with classical systems, we will often take the logical connectives $\lnot, \lor, \forall$ as primitive and regard the others as defined. In a similar spirit, the language of $\epaststar$ will be that of $\epastar$ extended just with unary predicates $\st^\sigma$ for every type $\sigma \in \Tpstar$; the external quantifiers $\forallst, \existsst$ are regarded as abbreviations:
+\begin{eqnarray*}
+\forallst x \, \Phi(x) & :\equiv &  \forall x ( \, \st(x)\rightarrow\Phi(x) \, ),\\
+\existsst x \, \Phi(x) & :\equiv & \exists x (\, \st(x)\wedge\Phi(x) \, ).
+\end{eqnarray*}
+
+\begin{dfn}[$\epaststar$] The system $\epaststar$ is
+\[\epaststar := \epastar + \Tst + \IA^{\st{}} \]
+where
+\begin{itemize}
+\item $\Tst$ consists of:
+\begin{enumerate}
+\item the schema $\st(x) \land x = y \to \st(y)$,
+\item a schema providing for each closed term $t$ in $\Tstar$ the axiom $\st(t)$,
+\item the schema $\st(f)\wedge\st(x)\rightarrow\st(fx)$.
+\end{enumerate}
+\item $ \IA^{\st{}}$ is the external induction axiom:
+\[
+\IA^{\st{}} \quad : \quad\big(\Phi(0)\wedge\forallst n^0 (\Phi(n)\rightarrow\Phi(n+1) )\big)\rightarrow\forallst n^0 \Phi(n).
+\]
+\end{itemize}
+Again we warn the reader that the induction axiom from $\epastar$
+\[ \quad\big(\varphi(0)\wedge\forall n^0 (\varphi(n)\rightarrow\varphi(n+1) )\big)\rightarrow\forall n^0 \varphi(n) \]
+is supposed to apply to internal formulas $\varphi$ only.
+\end{dfn}
+
+As for $\ehaststar$, we have:
+\begin{prop}
+If a formula $\Phi$ is provable in $\epaststar$, then its internalization $\Phi^{\intern}$ is provable in $\epastar$. Hence $\epaststar$ is a conservative extension of $\epastar$ and $\epa$.
+\end{prop}
+
+We will now show how negative translation provides an interpretation of $\epaststar$ in $\ehaststar$. Various negative translations exist, with the one due to G\"odel and Gentzen being the most well-known. Here, we work with two variants, the first of which is due to Kuroda~\cite{Kuroda51}.
+
+\begin{dfn}[Kuroda's negative translation for $\epaststar$]
+For an arbitrary formula $\Phi$ in the language of $\epast$, we define
+its Kuroda negative translation in $\ehaststar$ as
+\[
+\Phi^\ku\ :\equiv\ \neg\neg\Phi_\ku,
+\]
+where $\Phi_\ku$ is defined inductively on the structure of $\Phi$ as follows:
+\begin{align*}
+ \Phi_\ku   &:\equiv \Phi\quad \text { for atomic formulas $\Phi$}, \\
+%t&\hr \st(s) & &:\equiv& &t=\langle t_0, \ldots, t_n\rangle\text{ and $s=t_i$ for some $i\leq n$},\\
+ \big(\neg\Phi\big)_\ku  &:\equiv \neg\Phi_\ku,\\
+ \big(\Phi\vee\Psi\big)_\ku  &:\equiv  \Phi_\ku\vee \Psi_\ku,\\
+ \big(\forall x \, \Phi(x)\big)_\ku  &:\equiv  \forall x \, \neg\neg\Phi_\ku(x).
+\end{align*}
+\end{dfn}
+
+\begin{thm} \label{soundnesskuroda} $\epaststar \vdash \Phi \leftrightarrow \Phi^\ku$ and if $\epaststar + \Delta \vdash\Phi$ then $\ehaststar + \Delta^\ku \vdash\Phi^\ku$.
+\end{thm}
+\begin{proof}
+It is clear that, classically, $\Phi$, $\Phi_\ku$ and $\Phi^\ku$ are all equivalent. The second statement is proved by induction on the proof of $\epaststar + \Delta \vdash\Phi$. For the cases of the axioms and rules of classical logic and $\epastar$, see, for instance, \cite[Proposition 10.3]{Kohlenbach08}. As the Kuroda negative translation of every instance of $\Tst$ or $\IA^{\st{}}$ is provable in $\ehaststar$ using the same instance of $\Tst$ or $\IA^{\st{}}$, the statement is proved.
+\end{proof}
+
+It will turn out to be convenient to introduce a second negative translation, extracted from the work of Krivine by Streicher and Reus (see \cite{krivine90, streicherreus98, streicherkohlenbach07}). This translation will interpret $\epaststar$ into $\ehanststar$ (see Remark \ref{hanst}).
+
+%The formal definition of the interpretation is as follows.
+\begin{dfn}[Krivine's negative translation for $\epaststar$]
+For an arbitrary formula $\Phi$ in the language of $\epaststar$, we define its Krivine negative translation in $\ehanststar$ as
+\[
+\Phi^\kr\ :\equiv\ \neg\Phi_\kr,
+\]
+where $\Phi_\kr$ is defined inductively on the structure of $\Phi$ as follows
+\begin{align*}
+ \phi_\kr   &:\equiv \neg\phi\quad \text { for an internal atomic formula $\phi$}, \\
+ \st(x)_\kr  &:\equiv \nst(x), \\
+%t&\hr \st(s) & &:\equiv& &t=\langle t_0, \ldots, t_n\rangle\text{ and $s=t_i$ for some $i\leq n$},\\
+ \big(\neg\Phi\big)_\kr  &:\equiv \neg\Phi_\kr,\\
+ \big(\Phi\vee\Psi\big)_\kr  &:\equiv \Phi_\kr\wedge \Psi_\kr,\\
+ \big(\forall x \, \Phi(x)\big)_\kr  &:\equiv  \exists x \, \Phi_\kr(x).\\
+\end{align*}
+\end{dfn}
+
+\begin{thm}\label{l:kukr}
+For every formula $\Phi$ in the language of $\epaststar$, we have:
+\begin{enumerate}
+\item $\ehanststar\vdash\Phi^\kr\leftrightarrow\Phi^\ku$.
+\item If $\epaststar + \Delta \vdash \Phi$, then $\ehanststar + \Delta ^\kr \vdash \Phi^\kr$.
+\end{enumerate}
+\end{thm}
+\begin{proof}
+Item 1 is easily proved by induction on the structure of $\Phi$. Item 2 follows from item 1 and Theorem \ref{soundnesskuroda}.
+\end{proof}

@@ -1,0 +1,329 @@
+\section*{Introduction}
+\label{s:intro}
+\markboth{\small\sffamily\fontseries{c}\selectfont {Introduction}}
+         {\small\sffamily\fontseries{c}\selectfont {Introduction}}
+\addcontentsline{toc}{section}{Introduction}
+%
+%
+\mySubsection{Foreword}
+In \cite{Tao07}, a recent Fields medallist, Terence Tao, 
+published some thoughts on the relation between
+ ``hard (quantitative, finitary)'' and ``soft (qualitative, 
+infinitary)'' analysis. In this essay, he also emphasized
+the importance of the so called ``hard'' analysis:
+\theQuote{ ... I therefore feel that it is often profitable for a practitioner 
+of one type of analysis to learn about the other, as they both offer their own 
+strengths, weaknesses, and intuition, and knowledge of one gives 
+more insight into the workings of the other. ... }
+His point is illustrated by the proof of Theorem~1.6 in~\cite{tao-2007},
+which is carried out in the context of ``finitary ergodic theory'': 
+\theQuote{ ... The main advantage of working in a finitary setting ... is that
+the underlying dynamical system becomes extremely explicit. ... }
+He goes on to connect the finitisation to the methods we will employ
+in this thesis:
+\theQuote{ ... In proof theory, this finitisation is known as G\"odel functional
+interpretation ... }
+In the case of convergence theorems Tao calls the finitary formulation
+metastability and the corresponding explicit content rate(s) of metastability.
+It was recently observed by Avigad and Rute \cite{Avigad/Rute} that in the 
+case of the von Neumann mean ergodic theorem a particular such rate of metastability 
+(extracted in \cite{kohlenbachleustean09}) can be used to obtain even a simple effective (and 
+also highly uniform) bound on the number of fluctuations (for the case of Hilbert spaces this 
+was already obtained with an even better bound in \cite{Jones}).\\
+This leads us to a very natural question: What kind of effective bounds (explicit information) is extractable
+under which general logical conditions on convergence proofs.  \\
+In this thesis we discuss four natural kinds of such finitary information and analyse the corresponding
+conditions.\\
+Once we established this basis for computational content extraction, we also investigate, so to say, the oposite approach. 
+Namely, given the fact that one is interested in such extraction, the question arises in which systems is this still possible and how.
+We answer this question for a very prominent case. In the last chapter, we introduce an intrinsic formalisation
+of non-standard analysis and discuss the extractability of effective bounds from proofs in that system.
+
+%As follows from the soundness of the N(M)D-interpretation (see theorems \ref{t:sFI} and \ref{t:mfi})
+%the precise realizing terms of the Bolzano-Weierstra{\ss} theorem, which we derive in this thesis,  
+%constitute the computational contribution of this theorem in proofs.\\
+%As it turns out, in contrast to Tao's concern indicated by his reference
+%to the Paris-Harrington theorem (see~\cite{PH77}), this contribution is comfortably low. 
+%In many contexts, which include systems formalizing large parts of Analysis, 
+%%this contribution is covered by the $<\nolinebreak[4]\!\!\epsilon_0$\nbd recursion and, in some cases,
+%this contribution is covered by \lOrdm{\epsilon_0}re\-cur\-sion or, in some cases,
+%%even by $<\!\!\omega^{\omega^{\omega}}$-recursion.
+%even by \lOrdm{\omega^{\omega^{\omega}}}re\-cur\-sion (see theorems \ref{t:PEfBW} and \ref{t:PEBW}). 
+%Furthermore, it follows
+%from Kohlenbach's results in \cite{Kohlenbach98} that for very weak systems 
+%the contribution can in fact be covered by \lOrdm{\omega^{\omega}}re\-cur\-sion.
+%
+\mySubsection{Scientific Context}
+At least since the presentation of G\"odel's functional 
+interpretation (also called Dialectica or simply ``D-'' interpretation)
+by K. G\"odel in 1958, proof theoretic methods can be used not only simply 
+to analyze the syntactic structure of proofs, 
+but also to deliver new information about the mathematical theorems being proved. The
+first to formulate this idea of ``unwinding proofs'' was G.~Kreisel: 
+\theQuote{ What more do we know if we have proved a theorem by 
+  restricted means than if we merely know that it is true. }
+%In our case, as mentioned above, it will be the theorem of Bolzano-Weierstra{\ss}.
+%The first work in this new direction is also due to G. Kreisel in early 50's and
+%his no-counterexample interpretation of Peano arithmetic (further $\PA$) experiencing
+%a rather great interest and development thereafter. He used
+%W. Ackermann's $\epsilon$-substitution method to prove
+%that for any theorem of the first-order $\PA$ one can find ordinal recursive functionals,
+%of order type \lOrd{\epsilon_0}, which realize the theorem's Herbrand
+%normal form (see \cite{Kreisel51}, \cite{Kreisel52}).\\
+Kreisel's ``Unwinding of Proofs'' 
+developed into a new field of Mathematical Logic providing many new 
+results in Algebra, Number Theory, and Numerical and Functional Analysis. 
+To describe better the character and aim of this field, D. Scott suggested to call
+this discipline \defkey{Proof Mining} and the new name was quickly adopted.\\
+In this thesis, we make mainly use of the above mentioned functional interpretation (in variouos forms, 
+we will even give a new variant suitable for our formalization of non-standard analysis in the last chapter).
+G\"odel's functional interpretation requires an \em{intuitionistic} proof, 
+(also called a \em{constructive} proof), which is -- roughly speaking -- a proof which doesn't make any use
+of the law of excluded middle:
+\[ \usftext{LEM}\quad:\quad \phi \vee \neg \phi\text{.} \]
+Of course, one often works with semi-intuitionistic (semi-constructive) systems, 
+where $\usftext{LEM}$ is only partially added, e.g. only for negated formulas (i.e. formulas in the form $\neg\phi$) -- denoted by $\usftext{LEM}_\neg$ -- or for formulas with only one, existential quantifier (i.e. formulas in the form $\exists\phi_\QF$) -- denoted by $\LEM$.
+An intuitionistic can be obtained from a classical one by applying the negative translation
+as a pre-processing step. The negative translation also goes back to 
+G\"odel who defined a transformation of 
+classically provable arithmetical formulas into classically equivalent and 
+intuitionistically provable formulas in early 30's. We will use a 
+modified version of this interpretation as 
+presented by Kuroda in 1951 (see definition \ref{d:NT}).
+The application of the combination of these interpretations, 
+i.e. first the negative translation and then
+the functional interpretation, is often referred to as the 
+ND-interpretation (ND for negative D-interpretation). We will discuss all of this
+in great detail in the first chapter and partially in the next paragraph.
+For even more thorough and self-contained presentation of all these topics,
+see U. Kohlenbach's book \cite{Kohlenbach08}. \\
+% At this point, it is important to mention a result of C. Spector \cite{Spector62}.
+In 1962, Spector \cite{Spector62} defined a particularly simple form of bar recursion (recursion on well-founded trees), which is sufficient
+to solve the functional interpretation of (negative translation of) 
+the schema of full comprehension over numbers:
+\[
+\CA^0\ :\quad \exists f:\NN\to\NN\forall x\in\NN\ \big(f(x)=_\NN 0 \leftrightarrow \phi(x)\big)\text{.}
+\]
+One could call this result a major break-through for proof mining, since it suffices to
+prove most of classical analysis within a simple logical system based on Peano arithmetic (again see also \cite{Kohlenbach08}).\\
+In particular, with Spector's bar recursion one can extract realizers (using ND-interpretation) for almost all
+theorems of classical analysis (given their formal proof).\\
+In fact, for many theorems the existence of a uniform bound on the realizers is guaranteed by Kohlenbach's metatheorems
+introduced in~\cite{Kohlenbach05meta} and refined in~\cite{GK08}. Additionally, 
+proof theoretic methods such as Kohlenbach's monotone functional interpretation (see~\cite{Kohlenbach96mfi}) can be used to
+systematically obtain such effective bounds from their proofs, which tend to be a lot simpler than the actual realizers, though they remain
+equally useful (again \cite{Kohlenbach08} is a very good reference for a comprehensive discussion on this topic). \\
+We use Spector's solution together with Kohlenbach's monotone interpretation of Weak König's Lemma (WKL, see~\ref{l:WKL-Feferman} in first chapter or for more details and background
+e.g. \cite{Kohlenbach92, Kohlenbach08, Howard81, Troelstra74}) to give the ND-interpretation
+of the Bolzano-Weierstrass theorem:
+\[
+ \BW_\RR\quad:\quad
+  \forall f^{1(0)}
+      \underbrace{ \exists a^1\forall k^0\exists l^0\geq_0 k
+           \ |\hat a-_\RR\widetilde {fl\ }|\leq_\RR (\lambda n.\langle 2^{-k}\rangle) }_{\equiv:\BW_\RR(f^{1(0)})}
+\text{.}
+\] \\
+The computational contribution of (instances of) BW and other principles 
+describing sequential compactness
+has been analyzed by Kohlenbach in \cite{Kohlenbach98} for proofs in somewhat 
+weaker base systems: the Grzegorczyk arithmetic of level $n$, \defkeyn{$\GA$}. 
+Kohlenbach and Oliva gave bounds for the bar-recursive realizers of the 
+Principle of monotone convergence, $\PCM$, in the last section of \cite{KO02} and
+discuss various general scenarios, where $\PCM$ has provably significantly smaller 
+computational contribution.\\ 
+Still, it is a bit surprising that the computational contribution of 
+this basic theorem was first fully (in the above sense) analyzed in \cite{Safarik08}.
+%? cite KohlenbachSafarik10
+Thereafter the interest in BW's computational content continued. It was analyzed as part of
+two different larger projects. Encouragingly, as far as the results can be compared, in both cases
+the computational content corresponds very closely to the one obtained in \cite{Safarik08}. \\
+The more recent of these results were obtained by P. Oliva and T. Powell in \cite{OP12}, where the authors
+take the same approach as in \cite{Safarik08}. The main difference is, that
+Spector's bar recursion is replaced by the use of selection functions. The authors
+show the equivalence of unbounded products of selection functions and bar-recursion in \cite{OP12br}
+and demonstrate how this can be used to give a different formalization
+of the realizers in \cite{Safarik08}. Moreover, they give a very nice game-theoretic
+interpretation of the realizers which allows for better understanding and intuition
+for he original bar-recursive solutions.\\
+On the other hand, V. Brattka analyzed the BW theorem as part of the Weihrauch-Lattice (see e.g. \cite{BG11, HP11})
+in \cite{BGM12}. Though using completely different techniques, also he arrives at the conclusion
+that while using BW in its full generality in a proof implies very strong forms of recursion, when used
+in a more natural way, i.e. applied as a single instance of the principle, the
+complexity is rather low.\\
+In general, the proof mining experience shows that very often proofs of well known and impactful theorems
+do not need this kind of strong principles, i.e. principles like $\CA^0$ requiring more than normal recursion 
+(though in most cases the proofs themselves are formulated in ways, which would suggest otherwise).\\
+In \cite{AGT10}, J. Avigad, P. Gerhardy and H. Towsner analyzed the mean ergodic theorem:
+implicitly showing that it can be proved with strictly arithmetical
+principles\footnote{more precisely, with arithmetic principles and arithmetic versions of analytical and higher principles},
+i.e. statements about numbers without the need of a specific true higher type object like an actual 
+cluster point for a sequence as in the BW theorem (please refer to section~\ref{s:ArProof} for more details on arithmetization in this context and
+to \cite{Kohlenbach98} in general). \\
+%Wittmann intro
+Shortly after \cite{AGT10}, Kohlenbach and Leu{\c s}tean gave a more efficient analysis of MET in \cite{kohlenbachleustean09},
+which was further investigated by 
+Avigad and Ruty in \cite{Avigad/Rute}, where they derive the above discussed
+bound on the number of fluctuations (roughly speaking a bound on how many times does the distance 
+between the values of the sequence exceed a given $\epsilon$, see Definition~\ref{d:nfluc}).
+Such a bound gives us, of course, much more than simply a rate of metastability. The question under which
+circumstances can a fluctuation bound be (systematically) obtained -- hoping for a similarly clear-cut answer
+as in the case of metastability -- was answered in~\cite{KS13} and led to a new but very natural and straight-forward
+definition of (effective) learnability. As expected, the kind of computational information we get, strongly depends on the ``amount of classicallity'' we use. Or in other words, how much of $\usftext{LEM}$ was truly needed to prove a given theorem.  \\
+Interestingly, to some extent, we get a bit of ``classicallity''
+in constructive formalization(s) of non-standard analysis as well (see e.g.~\cite{avigadhelzner02}).
+Of course, this makes logical formalization of non-standard analysis and possible related conservation results interesting on its own account. Moreover, it would be hugely benificial, to have an extraction procedure
+and some meta-theorems to guarantee specific uniform bounds in the non-standard context as well.
+Inspired by the work of Nelson~\cite{nelson77, nelson88}, Berg et al. give a formalization
+of non-standard analysis together with an adapted form of Shoenfield interpretation (while the similarity between Shienfield's interpretation and Nelson's translation procedure between classical and non-standard proofs were actually the main starter), which are both intended for extraction of computation content from proofs based on non-standard methods, in~\cite{BBS12}. A major
+step towards that goal would be solving the interpretation of the saturation principles, which can be used to formalize the concept of Loeb measures -- one of the most prominent non-standard techniques.  
+For certain systems, it has turned out that extending them with saturation principles has resulted in an increase in proof-theoretic strength (see \cite{hensonkeisler86, keisler07}). So far, it seems that in the
+context of~\cite{BBS12} it is also the case and we need to add a version of bar recursion
+which correspond precisely to Spector's, but adopted to our special form of sequence application as defined in~\cite{BBS12}.
+
+
+
+
+% Finally talk a little about Intiotionistic vs. classic and how this is partially included in NSA
+% and that we deal with it.
+
+
+%%
+%
+% Here comes the part about complexity
+%
+%%%%%%%%%%%%%
+%Of course, we are interested in the computational complexity of these functionals. 
+%While investigating this kind of questions definitely should
+%be considered being proof mining, it hardly fits into the proof-theoretic bounds. 
+%It is not easy, if not impossible, to assign every
+%single problem or rather approach to solve a problem of mathematical logic 
+%to a specific branch of symbolic logic, nevertheless one would probably consider this
+% sort of analysis more a part of recursion theory than proof theory. 
+%
+%
+
+\mySubsection{Goals and Organization of the Material}
+While in the context description above, we follow more or less the chronological order of
+development, this thesis is structured according to the underlying proof-theoretic strength
+or, correspondingly, the complexity of the computational content in question.
+Large parts of this thesis are based on previous publications. We precede
+each section with a short quote of some of the journal's referee comments on the corresponding
+paper. These quotes are intended to offer a short abstract on the topic at hand from a slightly different perspective.
+In the following
+we give an overview of the contents of the chapters, their relation and which
+publications are they based on.\\
+The {\em Preliminaries} chapter is somewhat different from the others. It is based on parts from
+both a joint paper with U. Kohlenbach~\cite{KS10} and~\cite{Safarik08}.
+It gives a quick introduction to the basic 
+methods and results in the area of proof mining, which might be considered folklore or common knowledge. We do give some new results (and fill tiny gaps in known proofs), but mostly it is a collection of
+known or not surprising material and can be found in
+standard literature (mainly~\cite{Troelstra73,Howard81,Kohlenbach08}). In fact, it is meant more
+as a quick reference for results we need in later topics. We capture the most relevant results in short summaries at the end of the corresponding sections. For an interested reader, 
+it is probably best to refer to \cite{Kohlenbach08} directly instead.\\
+The {\em second chapter} is about effective learnability and discusses in great detail what kind of computational content can be extracted, and under which circumstances, from convergence proofs. 
+It is based on the most recent joint work with U. Kohlenbach~\cite{KS13}. We start with this topic, because the analysis
+deals with the lowest level of computational complexity (compared to the remainder of this thesis).
+The goal is to precisely characterize when can we obtain more than a (computable) rate of metastability 
+from a proof of a convergence statement in analysis. Of course, it is known when 
+(computable) full rate of convergence is extractable. Here, we are concerned
+with computational content strictly in between. Namely a (computable) bound on fluctuations or at least an (effective) learning procedure for the limit point.\\
+We take this, so to say, a step further in the {\em third chapter}, where we dive into a
+case study on a proof of strong non-linear ergodic theorem due to R. Wittmann. 
+The situation here, closely reminds on our rather abstract separating example for a convergence statement which is non-learnable but has an effective rate of metastability from second chapter. This is due to a specific nested structure of the extracted realizer, which is unprecedented by similar results in proof mining so far.
+It is a rare example, where a proof of strong convergence doesn't lead to a realizer having the
+form, which is typically guaranteed for effectively learnable statements. This chapter is based on~\cite{Safarik(11)} extended by an in depth analysis of an arithmetized version of Wittmann's proof.\\
+In the {\em fourth chapter} we go even further and investigate how a specific compactness principle, the theorem of Bolzano-Weierstrass, contributes to the complexity of realizers when used
+as the main principle in a proof of a logical statements in a particular, but rather general, logical form.
+To achieve this, we need to use advanced techniques like bar-recursion, but we demonstrate that even in systems formalizing large parts of full classical analysis, powerful principles like $\BW$
+contribute by the minimal amount possible, when they are used naturally and are treated correctly.
+The results in this chapter are based on joint work with U. Kohlenbach and were published in~\cite{KS10}.\\ 
+The {\em last chapter} is based on joint work with B. van den Berg and E. Briseid, see~\cite{BBS12}. While in the chapters three and four we use established techniques already fine-tuned for proof-mining, here we want to contribute to
+the field in general and provide extraction procedures for non-standard analysis. Such a challenging task certainly needs more than a single publication on a system formalizing the non-standard methods and a corresponding (negative) functional interpretation, but we believe we made a very solid first step. In this thesis we go actually further and discuss successful part of a larger unfinished attempt on interpreting the principle of countable saturation, which is the basic step needed for interpreting proofs based on Loeb measures. This part is of particular interest in the context of this thesis, since it was achieved
+using much of the ideas and techniques needed for our previous results.
+
+\mySubsection{Notation and common Expressions}
+%
+By "$\equiv$" we mean the syntactical identity.
+We will write \defkeyn{$\PiL$} and \defkeyn{$\SiL$} for the
+purely universal arithmetic formulas, i.e. $\forall n^0\ \phi_{_\QF}(n)$, and
+the purely existential arithmetic formulas, i.e. $\exists n^0\ \phi_{_\QF}(n)$, where
+in both cases $\phi_{_\QF}$ denotes a quantifier-free formula, 
+which may contain parameters of arbitrary type. 
+However, in general, we allow quantification over variables of any finite type.\\
+For the encoding of a given finite sequence $s$ of natural numbers we 
+write \defkey{$\lh(s)$} for the length of $s$ and
+denote by \defkey{$[s]$} the type one function:
+\[
+  [s](i^0)\ :=_0\ \begin{cases}s(i)&\text{if}\ \ i<_0\lh(s)\\0&\text{else}\end{cases}
+\text{.}\]
+For a type one function $f$ and a natural number $n$ we define the corresponding encoding of
+the finite sequence \defkey{$\overline{f}n$} of length $n$
+as follows:
+\[
+  \overline{f}n\ :=\ \big\langle f(0), f(1), \cdots, f(n-1) \big\rangle
+\text{.} \]
+Given two finite sequences $s$ and $t$ we write $s*t$ for the concatenation of $s$ and $t$. 
+We write shortly $s*\langle 0\rangle$ and $s*\langle 1\rangle$ as
+$s*0$ and $s*1$. Following the notation of Avigad and Feferman \cite{AF98} by
+$s\subseteq t$ we mean $t$ is an extension of $s$ (i.e. the sequence $t$ starts
+with the sequence $s$, or is $s$). We denote the empty sequence by \defkeyn{$\emptyset$}.\\
+For finite tuples of variables (not necessarily of the same type) $x_1,x_2,\ldots,x_k$ we
+write $\tup x$. By $\tup x^{\tup \rho}$ we 
+mean $x_1^{\rho_1},x_2^{\rho_2},\ldots,x_k^{\rho_k}$.\\
+Generally we will use the Greek letters $\phi$,$\psi$, $\chi$ to 
+denote formulas (as an exception
+a predicate in section~\ref{s:bw} is named $I$), the lower case Latin letters $f$,$g$,$h$
+for functions, the letters $a$,$b$,$i$,$j$,$k$,$\ldots$ for 
+natural numbers and encodings, and the capitals like $A$,$B$,$\ldots$ for functionals.\\
+We denote $\lambda n^0.1^0$, $\lambda f^1.1^0$ and so on by $\one\equiv\one^1$, 
+$\one^2$ and so on.
+We use bold numbers to indicate the type level of a term, e.g. we would write 
+$t\tp 1$ for $t^{1(0)}$. In general, we use this superscript as a shortcut for a specific type having
+the given type level. So, by $\forall X\tp2$ we mean for all $X$ of an appropriate type,
+e.g. $2(1(0))$, not for all $X$ which are of any type with level $2$.\\
+We will write ``holds classically/intuition\-istic\-ally'' or 
+"is equivalent classically/intuition\-istic\-ally"
+and so on meaning in fact "is provable" or "the equivalence is provable" and so on
+in the classical, i.e. in $\wepa + \QFm\AC$, or intuitionistic, i.e. in
+$\weha + \M + \AC$, system respectively.\\
+We will treat tuples and pairs somewhat special in the second chapter, but we will clarify this in its first section.\\
+Finally, in our last chapter on non-standard systems, we will need some more elaborate conventions, however we define those
+there at the beginning, since we don't need them anywhere else.
+
+%% Sysint (1)
+%The basic notions of Proof Mining, some of which we mentioned already in this introduction, are given in section~\ref{s:si}.
+%% Basics (2)
+%We present the functional interpretations of some principles we will need, mainly the schema 
+%of arithmetical comprehension, in section~\ref{s:basicInterpretations}.\\
+%% CompPM (3)
+%In section \ref{s:compPM}, we give a basic introduction to some computability theory related to proof mining.
+%% Schema/rule (4)
+%Section \ref{s:sr} is a brief discussion on the different effects on
+%the ND-interpretation of proofs based on full schemas and proofs based only 
+%on their concrete instances.\\
+%% WKL (5)
+%In section \ref{s:wkl}, we present and extend, by
+%giving a few more details, Howard's results on the
+%functional interpretation of Weak K\"onigs lemma.\\
+%% BW (6)
+%We use this lemma  together with the results from section \ref{s:basicInterpretations} 
+%in section \ref{s:bw} to give
+%a proof of $\BW$ and its bar-recursive
+%functional interpretation. Also, we tie up to sections \ref{s:compPM} and \ref{s:sr} by analyzing
+%the complexity of the realizers in both cases: the general schema and its
+%concrete instance.\\
+
+\mySubsection{Acknowledgments}
+First of all, I would like to thank my supervisor Prof. Dr. Ulrich
+Kohlenbach. Professor Kohlenbach not only proposed the topic for this thesis and supported
+my research in a very flexible way depending on the most recent
+results, but also went out of his way and accorded me his time whenever I
+encountered a problem providing hints, explanations and encouragement. 
+Moreover, he led me to a large field
+of applied logic far out of the bounds of the mere subject at hand.\\
+I am also grateful to his assistants Dr. Eyvind Briseid, Dr. Alexander Kreuzer and Dr. Laurentiu
+Leustean for their direct advice as well as for pointing me to some additional 
+literature. I thank Prof. Dr. Benno van den Berg and Prof. Dr. Thomas Streicher
+for several fruitful discussions and tips.\\
+I also appreciate the continuing support of my family and friends. %A lot.
+

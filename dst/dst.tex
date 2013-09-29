@@ -1,0 +1,41 @@
+\documentclass[a4paper,10pt,twoside]{article}
+
+\usepackage{proof}
+
+\input{dst.sty}
+
+\begin{document}
+
+\title{A functional interpretation for nonstandard arithmetic}
+\author{Benno van den Berg\footnote{Mathematisch Instituut, Universiteit Utrecht,
+PO. Box 80010, 3508 TA Utrecht. Email address: B.vandenBerg1@uu.nl. Supported by the Netherlands Organisation for Scientific Research (NWO).
+}, Eyvind Briseid\footnote{
+Department of Mathematics,
+The University of Oslo,
+Postboks 1053, Blindern,
+0316 Oslo. Email address: eyvindbriseid@gmail.com. Supported by the Research Council of Norway (Project 204762/V30).}, and Pavol Safarik\footnote{Fachbereich Mathematik, Technische Universit\"{a}t Darmstadt,
+Schlo{\ss}gartenstra{\ss}e 7, 64289 Darmstadt. Email address:  pavol.safarik@googlemail.com. Supported by the German Science Foundation (DFG project KO 1737/5-1).}}
+\date{July 12, 2012}
+\maketitle
+
+\begin{abstract}
+\noindent
+We introduce constructive and classical systems for nonstandard arithmetic and show how variants of the functional interpretations due to G\"odel and Shoenfield can be used to rewrite proofs performed in these systems into standard ones. These functional interpretations show in particular that our nonstandard systems are conservative extensions of $\eha$ and $\epa$, strengthening earlier results by Moer\-dijk and Palmgren, and Avigad and Helzner. We will also indicate how our rewriting algorithm can be used for term extraction purposes. To conclude the paper, we will point out some open problems and directions for future research, including some initial results on saturation principles.
+\end{abstract}
+
+\tableofcontents
+
+\input{introduction.tex}
+\input{systems.tex}
+%\input{coding.tex}
+\input{principles.tex}
+\input{herbrand.tex}
+\input{dialectica.tex}
+\input{negative.tex}
+\input{shoenfield.tex}
+%\input{weakerSystems.tex}
+\input{conclusion.tex}
+
+\bibliographystyle{plain} \bibliography{dst}
+
+\end{document}

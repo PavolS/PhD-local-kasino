@@ -1,0 +1,75 @@
+\documentclass[1p]{elsarticle}
+\usepackage{amssymb,latexsym}
+\usepackage{enumerate}
+
+
+%%%% Put my macros here:
+\input{myMacros.sty}
+
+%% A numbered theorem with a fancy name:
+
+\newtheorem{mainthm}[thm]{Main Theorem}
+
+%% Numbered objects of "non-theorem" style (text roman):
+
+\theoremstyle{definition}
+\newtheorem{defin}[thm]{Definition}
+\newtheorem{rem}[thm]{Remark}
+\newtheorem{exa}[thm]{Example}
+
+\begin{document}
+
+
+%%%%%%%%%%%
+
+
+\title{A quantitative nonlinear strong ergodic theorem for Hilbert spaces}
+\author{Pavol Safarik}
+\ead{pavol.safarik@gmail.com}
+\address{Department of Mathematics, Technische Universit\"at Darmstadt, Schlossgartenstra{\ss}e 7, 64289 Darmstadt, Germany}
+
+\date{}
+
+\begin{abstract}
+We give a quantitative version of a strong nonlinear ergodic theorem for (a class of possibly even discontinuous) 
+selfmappings of an arbitrary subset of a Hilbert space due to R.~Wittmann and 
+outline how the existence of uniform bounds in such quantitative formulations of ergodic theorems
+can be proved by means of a general logical metatheorem.
+In particular these bounds depend neither on the operator nor on the initial point.
+Furthermore, we extract such
+uniform bounds in our quantitative formulation of Wittmann's theorem, implicitly using the 
+proof-theoretic techniques on which the metatheorem is based. However, we present our result
+and its proof in analytic terms without any reference to logic as such. Our bounds turn out to involve
+nested iterations of relatively low computational complexity. While in theory these kind
+of iterations ought to be expected, so far this seems to be the first occurrence
+of such a nested use observed in practice. %unprecedented form.
+\end{abstract}
+
+\begin{keyword}
+Proof mining \sep uniform bounds \sep functionals of finite type \sep nonlinear ergodic theory \sep strong convergence \sep Ces{\`a}ro means \sep hard analysis.\\
+\MSC[2010]{03F10, 47H25, 37A30}.
+\end{keyword}
+
+
+\maketitle
+
+\input{intro.tex}
+
+\input{aLogicalMetatheorem.tex}
+
+
+\input{WittmannReallyArithmetical.tex}
+
+\input{terms.tex}
+
+\input{witnessProof.tex}
+
+\input{Lemmas.tex}
+
+\subsection*{Acknowledgements}
+I wish to thank Ulrich Kohlenbach for helpful discussions and for suggesting the topic.
+This research was supported by the German Science Foundation (DFG Project KO 1737/5-1). 
+
+\input{biblio.tex}
+
+\end{document}

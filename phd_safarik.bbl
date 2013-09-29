@@ -1,0 +1,920 @@
+\begin{thebibliography}{100}
+
+\bibitem{Akama}
+Y.~Akama, S.~Berardi, S.~Hayashi, and U.~Kohlenbach.
+\newblock An arithmetical hierarchy of the law of excluded middle and related
+  principles.
+\newblock In {\em Proc. of the 19th Annual IEEE Symposium on Logic in Computer
+  Science (LICS'04)}, pages 192--201. IEEE PressIEEE Press, 2004.
+
+\bibitem{aksoykhamsi90}
+A.G. Aksoy and M.A. Khamsi.
+\newblock {\em Nonstandard methods in fixed point theory}.
+\newblock Universitext. Springer-Verlag, New York, 1990.
+
+\bibitem{Artemov}
+S.~Artemov.
+\newblock Explicit provability and constructive semantics.
+\newblock {\em Bull. Symbolic Logic}, 7:1--36, 2001.
+
+\bibitem{Artemov11}
+S.~Artemov and First-order logic of~proofs Yavorskaya.
+\newblock Technical report tr-2011005.
+\newblock Technical report, Cuny PhD Program in Computer Science, 2011.
+
+\bibitem{Aschieri1}
+F.~Aschieri.
+\newblock A contructive analysis of learning in peano arithmetic.
+
+\bibitem{Aschieri2}
+F.~Aschieri.
+\newblock {\em Learning based on realizability for HA+EM1 and 1-Backtracking
+  games: Soundness and completeness}.
+\newblock To appear in Ann. Pure Appl. Logic.
+
+\bibitem{Aschieri/Berardi}
+F.~Aschieri and S.~Berardi.
+\newblock A new use of friedman's translation: interactive realizability.
+\newblock In Berger et~als, editor, {\em Logic, Construction, Computation}.
+  Ontos-Verlag Series in Mathematical Logic, 2012.
+
+\bibitem{avigad05}
+J.~Avigad.
+\newblock Weak theories of nonstandard arithmetic and analysis.
+\newblock In {\em Reverse mathematics 2001}, volume~21 of {\em Lect. Notes
+  Log.}, pages 19--46. Assoc. Symbol. Logic, La Jolla, CA, 2005.
+
+\bibitem{avigad09}
+J.~Avigad.
+\newblock The metamathematics of ergodic theory.
+\newblock {\em Ann. Pure Appl. Logic}, 157(2-3):64--76, 2009.
+
+\bibitem{AF98}
+J.~Avigad and S.~Feferman.
+\newblock {G}\"odels's functional ("{D}ialectica") interpretation {\em in} {S}.
+  {R}. {B}uss ({E}ditor): {H}andbook of proof theory.
+\newblock {\em Studies in Logic and the foundations of mathematics},
+  137:337--405, 1998.
+
+\bibitem{AGT10}
+J.~Avigad, P.~Gerhardy, and H.~Towsner.
+\newblock Local stability of ergodic averages.
+\newblock {\em Trans. Amer. Math. Soc.}, 362(1):261--288, 2010.
+
+\bibitem{avigadhelzner02}
+J.~Avigad and J.~Helzner.
+\newblock Transfer principles in nonstandard intuitionistic arithmetic.
+\newblock {\em Arch. Math. Logic}, 41(6):581--602, 2002.
+
+\bibitem{Avigad/Rute}
+J.~Avigad and J.~Rute.
+\newblock Oscillation and the mean ergodic theorem.
+\newblock Preprint, 2012.
+
+\bibitem{Baillon1975}
+J.~B. Baillon.
+\newblock {U}n th\'eor\`eme de type ergodique pour les contractions non
+  lin\'eaires dans un espace de {H}ilbert.
+\newblock {\em C. R. Acad. Sci. Paris S\'er. A-B}, 280(22):Aii, A1511--A1514,
+  1975.
+
+\bibitem{Baillon1976}
+J.~B. Baillon.
+\newblock {Q}uelques propri\'et\'es de convergence asymptotique pour les
+  contractions impaires.
+\newblock {\em C. R. Acad. Sci. Paris S\'er. A-B}, 283(8):Aii, A587--A590,
+  1976.
+
+\bibitem{Baillon1976a}
+J.~B. Baillon.
+\newblock {Q}uelques propri\'et\'es de convergence asymptotique pour les
+  semi-groupes de contractions impaires.
+\newblock {\em C. R. Acad. Sci. Paris S\'er. A-B}, 283(3):Ai, A75--A78, 1976.
+
+\bibitem{Baillon1976b}
+J.~B. Baillon and H.~Brezis.
+\newblock {U}ne remarque sur le comportement asymptotique des semigroupes non
+  lin\'eaires.
+\newblock {\em Houston J. Math.}, 2(1):5--7, 1976.
+
+\bibitem{Berardi/Coquand/Hayashi}
+S.~Berardi, T~Coquand, and S.~Hayashi.
+\newblock Games with 1-backtracking.
+\newblock {\em Ann. Pure Appl. Logic}, 161:1254--1264, 2010.
+
+\bibitem{berg12}
+B.~van~den Berg.
+\newblock The {H}erbrand topos.
+\newblock arXiv:1112.3837, 2011.
+
+\bibitem{berger05}
+U.~Berger.
+\newblock Uniform {H}eyting arithmetic.
+\newblock {\em Ann. Pure Appl. Logic}, 133(1-3):125--148, 2005.
+
+\bibitem{Bezem85}
+M.~Bezem.
+\newblock {S}trongly {M}ajorizable {F}unctionals of {F}inite {T}ype: {A}
+  {M}odel for {B}ar {R}ecursion {C}ontaining {D}isonctinuous {F}unctionals.
+\newblock {\em The Journal of Symbolic Logic}, 50:652--660, 1985.
+
+\bibitem{Bir39}
+G.~Birkhoff.
+\newblock The mean ergodic theorem.
+\newblock {\em Duke Math. J.}, 5:19--20, 1939.
+
+\bibitem{BG11}
+Vasco Brattka and Guido Gherardi.
+\newblock {Weihrauch degrees, omniscience principles and weak computability.}
+\newblock {\em J. Symb. Log.}, 76(1):143--176, 2011.
+
+\bibitem{BGM12}
+Vasco Brattka, Guido Gherardi, and Alberto Marcone.
+\newblock The {B}olzano-{W}eierstrass theorem is the jump of weak {K}{\H
+  o}nig's lemma.
+\newblock {\em Ann. Pure Appl. Logic}, 163(6):623--655, 2012.
+
+\bibitem{Brezis1976}
+H.~Br{\'e}zis and F.~E. Browder.
+\newblock {N}onlinear ergodic theorems.
+\newblock {\em Bull. Amer. Math. Soc.}, 82(6):959--961, 1976.
+
+\bibitem{Briseid05}
+E.~M. Briseid.
+\newblock {P}roof {M}ining {A}pplied to {F}ixed {P}oint {T}heorems for
+  {M}appings of {C}ontractive {T}ype.
+\newblock {\em Master Thesis at Department of Mathematics at the University of
+  Oslo}, 2005.
+
+\bibitem{Briseid07b}
+E.~M. Briseid.
+\newblock {A}ddendum to paper: {S}ome results on {K}irk's asymptotic
+  contractions.
+\newblock {\em Fixed Point Theory}, 8:321--322, 2007.
+
+\bibitem{Briseid07}
+E.~M. Briseid.
+\newblock {S}ome results on {K}irk's asymptotic contractions.
+\newblock {\em Fixed Point Theory}, 8:17--27, 2007.
+
+\bibitem{briseid09}
+E.~M. Briseid.
+\newblock Logical aspects of rates of convergence in metric spaces.
+\newblock {\em J. Symbolic Logic}, 74(4):1401--1428, 2009.
+
+\bibitem{Bruck1979}
+R.~E. Bruck.
+\newblock {A} simple proof of the mean ergodic theorem for nonlinear
+  contractions in {B}anach spaces.
+\newblock {\em Israel J. Math.}, 32(2-3):107--116, 1979.
+
+\bibitem{Coquand}
+T.~Coquand.
+\newblock A semantics of evidence for classical arithmetic.
+\newblock {\em J. Symbolic Logic}, 60:325--337, 1995.
+
+\bibitem{dillernahm74}
+J.~Diller and W.~Nahm.
+\newblock Eine {V}ariante zur {D}ialectica-{I}nterpretation der
+  {H}eyting-{A}rithmetik endlicher {T}ypen.
+\newblock {\em Arch. Math. Logik Grundlagenforsch.}, 16:49--66, 1974.
+
+\bibitem{Feferman77}
+S.~Feferman.
+\newblock {\em {T}heories of finite type related to mathematical practice {\em
+  in} {J}. {B}arwise ({E}ditor): {H}andbook of {M}athematical {L}ogic}.
+\newblock North Holland, Amsterdam, 1977.
+
+\bibitem{ferreira09}
+F.~Ferreira.
+\newblock Injecting uniformities into {P}eano arithmetic.
+\newblock {\em Ann. Pure Appl. Logic}, 157(2-3):122--129, 2009.
+
+\bibitem{ferreiranunes06}
+F.~Ferreira and A.~Nunes.
+\newblock Bounded modified realizability.
+\newblock {\em J. Symbolic Logic}, 71(1):329--346, 2006.
+
+\bibitem{ferreiraoliva05}
+F.~Ferreira and P.~Oliva.
+\newblock Bounded functional interpretation.
+\newblock {\em Ann. Pure Appl. Logic}, 135(1-3):73--112, 2005.
+
+\bibitem{Friedman(78)}
+H.~Friedman.
+\newblock Classical and intuitionistically provably recursive functions.
+\newblock In Scott~D.S. M\"uller, G.H., editor, {\em Higher Set Theory}, pages
+  21--27. Springer LNM 669, 1978.
+
+\bibitem{gaspar09}
+J.~Gaspar.
+\newblock Factorization of the {S}hoenfield-like bounded functional
+  interpretation.
+\newblock {\em Notre Dame J. Form. Log.}, 50(1):53--60, 2009.
+
+\bibitem{GasparKohlenbach}
+J.~Gaspar and U.~Kohlenbach.
+\newblock {O}n {T}ao's `finitary' infinite pigeonhole principle.
+\newblock {\em Submitted.}
+
+\bibitem{Genel1975}
+A.~Genel and J.~Lindenstrauss.
+\newblock {A}n example concerning fixed points.
+\newblock {\em Israel J. Math.}, 22(1):81--86, 1975.
+
+\bibitem{Gerhardy06}
+P.~Gerhardy.
+\newblock {A} quantitative version of {K}irk's fixed point theorem for
+  asymptotic contractions.
+\newblock {\em J. Math. Anal. Appl.}, 316:339--345, 2006.
+
+\bibitem{GerhardyX}
+P.~Gerhardy.
+\newblock {\em {F}unctional interpretation and modified realizability
+  interpretation of the double-negation shift}.
+\newblock {P}reprint. BRICS, Department of Computer Science, University of
+  Aarhus, Denmark, 2006.
+
+\bibitem{gerhardy08}
+P.~Gerhardy.
+\newblock Proof mining in topological dynamics.
+\newblock {\em Notre Dame J. Form. Log.}, 49(4):431--446, 2008.
+
+\bibitem{Gerhardy2010}
+P.~Gerhardy.
+\newblock {P}roof mining in practice.
+\newblock In {\em Logic {C}olloquium 2007}, volume~35 of {\em Lect. Notes
+  Log.}, pages 82--91. Assoc. Symbol. Logic, La Jolla, CA, 2010.
+
+\bibitem{GerKoh06}
+P.~Gerhardy and U.~Kohlenbach.
+\newblock Strongly uniform bounds from semi-constructive proofs.
+\newblock {\em Ann. Pure Appl. Logic}, 141:89--107, 2006.
+
+\bibitem{GK08}
+P.~Gerhardy and U.~Kohlenbach.
+\newblock {G}eneral logical metatheorems for functional analysis.
+\newblock {\em Trans. Amer. Math. Soc.}, 360:2615--2660, 2008.
+
+\bibitem{Goedel33}
+K.~G\"odel.
+\newblock {Z}ur intuitionistischen {A}rithmetik und {Z}ahlentheorie.
+\newblock {\em Ergebnisse eines Mathematischen Kolloquiums}, 4:34--38, 1933.
+
+\bibitem{Goedel58}
+K.~G\"odel.
+\newblock \"{U}ber eine bisher noch nicht ben\"utzte {E}rweiterung des finiten
+  {S}tandpunktes.
+\newblock {\em Dialectica}, 12:280--287, 1958.
+
+\bibitem{Gold(67)}
+E.~M. Gold.
+\newblock Language identification in the limit.
+\newblock {\em Information and Control}, 10:447--474, 1967.
+
+\bibitem{Halpern1967}
+B.~Halpern.
+\newblock {F}ixed points of nonexpanding maps.
+\newblock {\em Bull. Amer. Math. Soc.}, 73:957--961, 1967.
+
+\bibitem{Hayashi02}
+S.~Hayashi.
+\newblock Mathematics based on learning.
+\newblock In {\em Proc. 13th Internat. Conf. ALT 2002 Vol. 272}, pages 7--21.
+  Springer Lecture Notes in Artificial Intelligence, 2002.
+
+\bibitem{Hayashi06}
+S.~Hayashi.
+\newblock Mathematics based on incremental learning -- excluded middle and
+  inductive inference original research article.
+\newblock {\em Theoretical Computer Science -- Journal version of
+  \cite{Hayashi02}}, 350:125--139, 2006.
+
+\bibitem{Hayashi/Nakata}
+S.~Hayashi and M.~Nakata.
+\newblock Towards limit computable mathematics.
+\newblock In P.~Callaghan et~al., editor, {\em TYPES 2000}, pages 125--144.
+  Springer LNCS {\bf 2277}, 2002.
+
+\bibitem{hensonkeisler86}
+C.W. Henson and H.J. Keisler.
+\newblock On the strength of nonstandard analysis.
+\newblock {\em J. Symbolic Logic}, 51(2):377--386, 1986.
+
+\bibitem{hernest05}
+M.-D. Hernest.
+\newblock Light functional interpretation: an optimization of {G}\"odel's
+  technique towards the extraction of (more) efficient programs from
+  (classical) proofs.
+\newblock In {\em Computer science logic}, volume 3634 of {\em Lecture Notes in
+  Comput. Sci.}, pages 477--492. Springer, Berlin, 2005.
+
+\bibitem{Higuchi/Kihara}
+K.~Higuchi and T.~Kihara.
+\newblock Inside the muchnik degrees: discontinuity, learnability, and
+  constructivism.
+\newblock Preprint, 2012.
+
+\bibitem{HP11}
+Kojiro Higuchi and Arno Pauly.
+\newblock The degree structure of weihrauch-reducibility.
+\newblock {\em Logical Methods in Computer Science}, 9(2), 2011.
+
+\bibitem{Hirano1982}
+N.~Hirano.
+\newblock {N}onlinear ergodic theorems and weak convergence theorems.
+\newblock {\em J. Math. Soc. Japan}, 34(1):35--46, 1982.
+
+\bibitem{Hirano1979}
+N.~Hirano and W.~Takahashi.
+\newblock {N}onlinear ergodic theorems for nonexpansive mappings in {H}ilbert
+  spaces.
+\newblock {\em Kodai Math. J.}, 2(1):11--25, 1979.
+
+\bibitem{Howard68}
+W.~A. Howard.
+\newblock {F}unctional interpretation of bar induction by bar recursion.
+\newblock {\em Compositio Mathematica}, 20:107--124, 1968.
+
+\bibitem{Howard73}
+W.~A. Howard.
+\newblock {H}ereditarily majorizable functionals of finite type.
+\newblock In {\em A.S. Troelstra (Editor): Mathematical Investigation of
+  Intuitionistic Arithmetic and Analysis}, pages 454--461. Springer-Varlag,
+  Berlin $\cdot$ Heidelberg $\cdot$ New York, 1973.
+
+\bibitem{Howard80}
+W.~A. Howard.
+\newblock {O}rdinal analysis of terms of finite type.
+\newblock {\em The Journal of Symbolic Logic}, 45:493--504, 1980.
+
+\bibitem{Howard81}
+W.~A. Howard.
+\newblock {O}rdinal analysis of simple cases of bar recursion.
+\newblock {\em The Journal of Symbolic Logic}, 46:17--31, 1981.
+
+\bibitem{Jones}
+R.~L. Jones, I.~V. Ostrovskii, and J.~M. Rosenblatt.
+\newblock Square functions in ergodic theory.
+\newblock {\em Ergodic Theory and Dynamical Systems}, 16:267--305, 1996.
+
+\bibitem{kamae82}
+T.~Kamae.
+\newblock A simple proof of the ergodic theorem using nonstandard analysis.
+\newblock {\em Israel J. Math.}, 42(4):284--290, 1982.
+
+\bibitem{keisler07}
+H.J. Keisler.
+\newblock The strength of nonstandard analysis.
+\newblock In {\em The strength of nonstandard analysis}, pages 3--26.
+  SpringerWienNewYork, Vienna, 2007.
+
+\bibitem{kirk03}
+W.~A. Kirk.
+\newblock Fixed points of asymptotic contractions.
+\newblock {\em J. Math. Anal. Appl.}, 277(2):645--650, 2003.
+
+\bibitem{Kleene52}
+S.~C. Kleene.
+\newblock {\em {I}ntroduction to mathematics.}
+\newblock North-Holland Publ. Co. (Amsterdam), P. Noordhoff (Gronigen), D. van
+  Nostrand (New York, Toronto), 1952.
+
+\bibitem{Kleene59}
+S.~C. Kleene.
+\newblock {R}ecursive functionals and quantfiers of finite types.
+\newblock {\em I. Trans. Amer. Math. Soc.}, 91:1--52, 1959.
+
+\bibitem{Kohlenbach_ComContemporaryMath}
+U.~Kohlenbach.
+\newblock {A} uniform quantitative form of sequential weak compactness and
+  {B}aillon's nonlinear ergodic theorem.
+\newblock {\em (To appear in) Communications in Contemporary Mathematics.}
+
+\bibitem{KohlenbachMints}
+U.~Kohlenbach.
+\newblock {O}n the logical analysis of proofs based on nonseparable {H}ilbert
+  space theory.
+\newblock {\em Submitted.}
+
+\bibitem{Kohlenbach92}
+U.~Kohlenbach.
+\newblock {E}ffective bounds from ineffective proofs in analysis: an
+  application of functional interpretation and majorization.
+\newblock {\em The Journal of Symbolic Logic}, 57:1239--1273, 1992.
+
+\bibitem{KPH92}
+U.~Kohlenbach.
+\newblock {P}ointwise hereditary majorization and some applications.
+\newblock {\em Archive for Mathematical Logic}, 31:227--241, 1992.
+
+\bibitem{Kohlenbach93}
+U.~Kohlenbach.
+\newblock {N}ew effective moduli of uniqueness and uniform a-priori estimates
+  for constants of strong unicity by logical analysis of known proofs in best
+  approximation theory.
+\newblock {\em Numer. Funct. Anal. and Optimiz.}, 14:581--606, 1993.
+
+\bibitem{Kohlenbach96mfi}
+U.~Kohlenbach.
+\newblock {A}nalyzing proofs in analysis.
+\newblock In {\em W. Hodges, M. Hyland, C. Steinhorn, J. Truss, Editors, Logic:
+  from Foundations to Applications {\em at} European Logic Colloquium (Keele,
+  1993)}, pages 225--260. Oxford University Press, 1996.
+
+\bibitem{Kohlenbach(lowrate)}
+U.~Kohlenbach.
+\newblock Mathematically strong subsystems of analysis with low rate of growth
+  of provably recursive functionals.
+\newblock {\em Arch. Math. Logic}, 36:31--71, 1996.
+
+\bibitem{Kohlenbach98}
+U.~Kohlenbach.
+\newblock {A}rithmetizing proofs in analysis {\em in} {L}arrazabal, {J.M.},
+  {L}ascar, {D}., {M}ints, {G}. ({E}ditors): {L}ogic {C}olloquium '96.
+\newblock {\em Springer Lecture Notes in Logic}, 12:115--158, 1998.
+
+\bibitem{Kohlenbach1998}
+U.~Kohlenbach.
+\newblock {E}limination of {S}kolem functions for monotone formulas in
+  analysis.
+\newblock {\em Arch. Math. Logic}, 37(5-6):363--390, 1998.
+\newblock Logic Colloquium '95 (Haifa).
+
+\bibitem{Kohlenbach_gp}
+U.~Kohlenbach.
+\newblock {O}n the arithmetical content of restricted forms of comprehension,
+  choice and general uniform boundedness.
+\newblock {\em Ann. Pure and Applied Logic}, 95:257--285, 1998.
+
+\bibitem{Kohlenbach(relative)}
+U.~Kohlenbach.
+\newblock Relative constructivity.
+\newblock {\em J. Symbolic Logic}, 63:1218--1238, 1998.
+
+\bibitem{Kohlenbach99}
+U.~Kohlenbach.
+\newblock {O}n the {N}o-{C}ounterexample {I}nterpretation.
+\newblock {\em The Journal of Symbolic Logic}, 64:1491--1511, 1999.
+
+\bibitem{Kohlenbach00}
+U.~Kohlenbach.
+\newblock {T}hings that can and things that cannot be done in {PRA}.
+\newblock {\em Ann. Pure Applied Logic}, 102:223--245, 2000.
+
+\bibitem{Kohlenbach03}
+U.~Kohlenbach.
+\newblock {U}niform asymptotic regularity for {M}ann iterates.
+\newblock {\em J. Math. Anal. Appl.}, 279:531--544, 2003.
+
+\bibitem{Kohlenbach05fpt}
+U.~Kohlenbach.
+\newblock {S}ome computational aspects of metric fixed-point theory.
+\newblock {\em Nonlinear Analysis}, 61:823--837, 2005.
+
+\bibitem{kohlenbach05--del}
+U.~Kohlenbach.
+\newblock Some computational aspects of metric fixed-point theory.
+\newblock {\em Nonlinear Anal.}, 61(5):823--837, 2005.
+
+\bibitem{Kohlenbach05meta}
+U.~Kohlenbach.
+\newblock {S}ome logical metatheorems with application in functional.
+\newblock {\em Trans. Am. Math. Soc.}, 357:89--128, 2005.
+
+\bibitem{kohlenbach05b--del}
+U.~Kohlenbach.
+\newblock Some logical metatheorems with applications in functional analysis.
+\newblock {\em Trans. Amer. Math. Soc.}, 357(1):89--128 (electronic), 2005.
+
+\bibitem{Kohlenbach08}
+U.~Kohlenbach.
+\newblock {\em Applied proof theory: proof interpretations and their use in
+  mathematics}.
+\newblock Springer Monographs in Mathematics. Springer-Verlag, Berlin, 2008.
+
+\bibitem{kohlenbach08b}
+U.~Kohlenbach.
+\newblock G\"odel's functional interpretation and its use in current
+  mathematics.
+\newblock {\em Dialectica}, 62(2):223--267, 2008.
+
+\bibitem{Kohlenbach2011}
+U.~Kohlenbach.
+\newblock {O}n quantitative versions of theorems due to {F}.{E}. {B}rowder and
+  {R}. {W}ittmann.
+\newblock {\em Advances in Mathematics}, 226(3):2764--2795, 2011.
+
+\bibitem{Kohlenbach2011odd}
+U.~Kohlenbach.
+\newblock On the asymptotic behavior of odd operators.
+\newblock {\em Journal of Mathematical Analysis and Applications}, 382(2):615
+  -- 620, 2011.
+
+\bibitem{Kohlenbach/Leustean6}
+U.~Kohlenbach and L.~Leu\c{s}tean.
+\newblock Effective metastability of halpern iterates in cat(0) spaces.
+\newblock {\em Adv. Math.}, 231:2526--2556, 2012.
+
+\bibitem{Kohlenbach/Leustean7}
+U.~Kohlenbach and L.~Leu\c{s}tean.
+\newblock On the computational content of convergence proofs via banach limits.
+\newblock {\em Philosophical Transactions of the Royal Society},
+  370:3449--3463, 2012.
+
+\bibitem{kohlenbachleustean03}
+U.~Kohlenbach and L.~Leu{\c{s}}tean.
+\newblock Mann iterates of directionally nonexpansive mappings in hyperbolic
+  spaces.
+\newblock {\em Abstr. Appl. Anal.}, (8):449--477, 2003.
+
+\bibitem{KL07}
+U.~Kohlenbach and L.~Leustean.
+\newblock {T}he approximate fixed point property in product spaces.
+\newblock {\em Nonlinear Analysis}, 66:806--818, 2007.
+
+\bibitem{kohlenbachleustean09}
+U.~Kohlenbach and L.~Leu{\c{s}}tean.
+\newblock A quantitative mean ergodic theorem for uniformly convex {B}anach
+  spaces.
+\newblock {\em Ergodic Theory Dynam. Systems}, 29(6):1907--1915, 2009.
+
+\bibitem{kohlenbachleustean10}
+U.~Kohlenbach and L.~Leu{\c{s}}tean.
+\newblock Asymptotically nonexpansive mappings in uniformly convex hyperbolic
+  spaces.
+\newblock {\em J. Eur. Math. Soc. (JEMS)}, 12(1):71--92, 2010.
+
+\bibitem{KO02}
+U.~Kohlenbach and P.~Oliva.
+\newblock {P}roof {M}ining: {A} systematic way of analyzing proofs in
+  mathematics.
+\newblock In {\em Proceedings of the Steklov Institute of Mathematics, Vol.
+  242}, pages 136--164, 2003.
+
+\bibitem{KO03}
+U.~Kohlenbach and P.~Oliva.
+\newblock {P}roof mining in ${L}_1$\nbd appro\-xim\-ation.
+\newblock {\em Ann. Pure Appl. Logic}, 121:1--38, 2003.
+
+\bibitem{KS13}
+U.~Kohlenbach and P.~Safarik.
+\newblock Fluctuations, effective learnability and metastability in analysis.
+\newblock to appear in Ann. Pure and Applied Logic.
+
+\bibitem{Koernlein}
+D.~K\"ornlein.
+\newblock Analysis of a proof due to xu.
+\newblock Preprint, 2012.
+
+\bibitem{Kreisel51}
+G.~Kreisel.
+\newblock On the interpretation of non-finitist proofs, part {I}.
+\newblock {\em The Journal of Symbolic Logic}, 16:241--267, 1951.
+
+\bibitem{Kreisel52}
+G.~Kreisel.
+\newblock On the interpretation of non-finitist proofs, part {II}.
+\newblock {\em The Journal of Symbolic Logic}, 17:43--58, 1952.
+
+\bibitem{Kreisel1959}
+G.~Kreisel.
+\newblock {I}nterpretation of analysis by means of constructive functionals of
+  finite types.
+\newblock In {\em Constructivity in mathematics: {P}roceedings of the
+  colloquium held at {A}msterdam, 1957 (edited by {A}. {H}eyting)}, Studies in
+  Logic and the Foundations of Mathematics, pages 101--128. North-Holland
+  Publishing Co., Amsterdam, 1959.
+
+\bibitem{kreisel67}
+G.~Kreisel.
+\newblock Informal rigour and completeness proofs.
+\newblock In I.~Lakatos, editor, {\em Problems in the Philosophy of
+  Mathmematics}, pages 138--186. North-Holland, Amsterdam, 1967.
+
+\bibitem{kreisel69}
+G.~Kreisel.
+\newblock Axiomatizations of nonstandard analysis that are conservative
+  extensions of formal systems for classical standard analysis.
+\newblock In {\em Applications of {M}odel {T}heory to {A}lgebra, {A}nalysis,
+  and {P}robability ({I}nternat. {S}ympos., {P}asadena, {C}alif., 1967)}, pages
+  93--106. Holt, Rinehart and Winston, New York, 1969.
+
+\bibitem{Krengel1985}
+U.~Krengel.
+\newblock {\em {E}rgodic theorems}, volume~6 of {\em de Gruyter Studies in
+  Mathematics}.
+\newblock Walter de Gruyter \& Co., Berlin, 1985.
+\newblock With a supplement by Antoine Brunel.
+
+\bibitem{krivine90}
+J.-L. Krivine.
+\newblock Op\'erateurs de mise en m\'emoire et traduction de {G}\"odel.
+\newblock {\em Arch. Math. Logic}, 30(4):241--267, 1990.
+
+\bibitem{Kuratowski52}
+C.~Kuratowski.
+\newblock {\em {T}opologie {V}ol. {I}}.
+\newblock Warsawa, 1952.
+
+\bibitem{Kuroda51}
+S.~Kuroda.
+\newblock Intuitionistische {U}ntersuchungen der formalistischen {L}ogik.
+\newblock {\em Nagoya Math. J.}, 2:35--47, 1951.
+
+\bibitem{leustean07}
+L.~Leustean.
+\newblock A quadratic rate of asymptotic regularity for {CAT}(0)-spaces.
+\newblock {\em J. Math. Anal. Appl.}, 325(1):386--399, 2007.
+
+\bibitem{lifschitz85}
+V.~Lifschitz.
+\newblock Calculable natural numbers.
+\newblock In {\em Intensional mathematics}, volume 113 of {\em Stud. Logic
+  Found. Math.}, pages 173--190. North-Holland, Amsterdam, 1985.
+
+\bibitem{Luckhardt73}
+H.~Luckhardt.
+\newblock {E}xtensional {G}\"odel functional interpretation.
+\newblock {\em Springer Lecture Notes in Mathematics}, vol. 306, 1973.
+
+\bibitem{Luckhardt(89)}
+H.~Luckhardt.
+\newblock Herbrand-analysen zweier beweise des satzes von roth: Polynomiale
+  anzahlschranken.
+\newblock {\em J. Symbolic Logic}, 54:234--263, 1989.
+
+\bibitem{Miyadera1997}
+I.~Miyadera.
+\newblock {N}onlinear mean ergodic theorems.
+\newblock {\em Taiwanese J. Math.}, 1(4):433--449, 1997.
+
+\bibitem{Miyadera1999}
+I.~Miyadera.
+\newblock {N}onlinear mean ergodic theorems. {II}.
+\newblock {\em Taiwanese J. Math.}, 3(1):107--114, 1999.
+
+\bibitem{moerdijk95}
+I.~Moerdijk.
+\newblock A model for intuitionistic non-standard arithmetic.
+\newblock {\em Ann. Pure Appl. Logic}, 73(1):37--51, 1995.
+
+\bibitem{moerdijkpalmgren97}
+I.~Moerdijk and E.~Palmgren.
+\newblock Minimal models of {H}eyting arithmetic.
+\newblock {\em J. Symbolic Logic}, 62(4):1448--1460, 1997.
+
+\bibitem{nelson77}
+E.~Nelson.
+\newblock Internal set theory: a new approach to nonstandard analysis.
+\newblock {\em Bull. Amer. Math. Soc.}, 83(6):1165--1198, 1977.
+
+\bibitem{nelson88}
+E.~Nelson.
+\newblock The syntax of nonstandard analysis.
+\newblock {\em Ann. Pure Appl. Logic}, 38(2):123--134, 1988.
+
+\bibitem{Odifreddi89}
+P.~G. Odifreddi.
+\newblock {\em {C}lassical {R}ecursion {T}heory}.
+\newblock Studies in Logic and the Foundations of Mathematics. Elsevier Science
+  B.V., 1989.
+
+\bibitem{Oliva06}
+P.~Oliva.
+\newblock {U}nderstanding and using {S}pector's bar recursive interpretation of
+  classical analysis.
+\newblock In {\em Proceedings of CiE'2006}, Lecture Notes in Computer Science,
+  pages 423--434. Springer 3988, 2006.
+
+\bibitem{OP12}
+P.~{Oliva} and T.~{Powell}.
+\newblock {A Game-Theoretic Computational Interpretation of Proofs in Classical
+  Analysis}.
+\newblock {\em ArXiv e-prints}, April 2012.
+
+\bibitem{OP12br}
+Paulo Oliva and Thomas Powell.
+\newblock On spector's bar recursion.
+\newblock {\em Mathematical Logic Quarterly}, 58(4-5):356--265, 2012.
+
+\bibitem{palmgren98}
+E.~Palmgren.
+\newblock Developments in constructive nonstandard analysis.
+\newblock {\em Bull. Symbolic Logic}, 4(3):233--272, 1998.
+
+\bibitem{palmgren00}
+E.~Palmgren.
+\newblock An effective conservation result for nonstandard arithmetic.
+\newblock {\em MLQ Math. Log. Q.}, 46(1):17--23, 2000.
+
+\bibitem{PH77}
+J.~Paris and L.~Harrington.
+\newblock {\em {A} {M}athematical {I}ncompleteness in {P}eano {A}rithmetic.
+  {\em In} {J}.~{B}arwise ({E}ditor): {H}andbook of {M}athematical {L}ogic}.
+\newblock North Holland, Amsterdam, 1977.
+
+\bibitem{Parsons71}
+C.~Parsons.
+\newblock {P}roof-theoretic analysis of restricted induction schemata
+  (abstract).
+\newblock {\em The Journal of Symbolic Logic}, 36:361, 1971.
+
+\bibitem{Parsons72}
+C.~Parsons.
+\newblock {O}n n-quantifier induction.
+\newblock {\em The Journal of Symbolic Logic}, 37:466--482, 1972.
+
+\bibitem{robinson73}
+A.~Robinson.
+\newblock Metamathematical problems.
+\newblock {\em J. Symbolic Logic}, 38:500--516, 1973.
+
+\bibitem{robinson96}
+A.~Robinson.
+\newblock {\em Non-standard analysis}.
+\newblock Princeton Landmarks in Mathematics. Princeton University Press,
+  Princeton, NJ, 1996.
+\newblock Reprint of the second (1974) edition, With a foreword by Wilhelmus A.
+  J. Luxemburg.
+
+\bibitem{Rouhani2001}
+B.~D. Rouhani.
+\newblock {E}rgodic theorems for nonexpansive curves defined on general
+  semigroups in a {H}ilbert space.
+\newblock {\em Nonlinear Anal.}, 44(5, Ser. A: Theory Methods):627--643, 2001.
+
+\bibitem{Saejung}
+S.~Saejung.
+\newblock Halpern's iteration in cat(0) spaces.
+\newblock {\em Fixed Point Theory and Applications}, 2010, 2010.
+
+\bibitem{Safarik08}
+P.~Safarik.
+\newblock {\em {O}n the {I}nterpretation of the {B}olzano-{W}eierstra{\ss}
+  {P}rinciple {U}sing {B}ar {R}ecursion}.
+\newblock 2008.
+
+\bibitem{Safarik(11)}
+P.~Safarik.
+\newblock A quantitative nonlinear strong ergodic theorem for hilbert spaces.
+\newblock {\em J. Math. Anal. Appl.}, 391:26--37, 2012.
+
+\bibitem{KS10}
+Pavol Safarik and Ulrich Kohlenbach.
+\newblock On the computational content of the {B}olzano-{W}eierstra\ss\
+  principle.
+\newblock {\em MLQ Math. Log. Q.}, 56(5):508--532, 2010.
+
+\bibitem{Scarpellini71}
+B.~Scarpellini.
+\newblock {A} model of bar recursion of higher types.
+\newblock {\em Compositio Mathematica}, 23:123--153, 1971.
+
+\bibitem{Schuette60}
+K.~Sch{\"u}tte.
+\newblock {B}eweistheorie.
+\newblock {\em Die Grundlehren der Mathematischen Wissenschaften in
+  Einzeldarstellungen}, 103:1--355, 1960.
+
+\bibitem{Schwichtenberg07}
+H.~Schwichtenberg.
+\newblock {D}ialectica {I}nterpretation of {W}ell-{F}ounded {I}nduction.
+\newblock {\em To appear: Mathematical Logic Quarterly}.
+
+\bibitem{Schwichtenberg79}
+H.~Schwichtenberg.
+\newblock {O}n {B}ar {R}ecursion of {T}ypes $0$ and $1$.
+\newblock {\em The Journal of Symbolic Logic}, 44:325--329, 1979.
+
+\bibitem{Shoenfield67}
+Joseph~R. Shoenfield.
+\newblock {\em Mathematical logic}.
+\newblock Addison-Wesley Publishing Co., Reading, Mass.-London-Don Mills, Ont.,
+  1967.
+
+\bibitem{shoenfield01}
+J.R. Shoenfield.
+\newblock {\em Mathematical logic}.
+\newblock Association for Symbolic Logic, Urbana, IL, 2001.
+\newblock Reprint of the 1973 second printing.
+
+\bibitem{Sieg}
+W.~Sieg.
+\newblock Fragments of arithmetic.
+\newblock {\em Ann. Pure Appl. Logic}, 28:33--71, 1985.
+
+\bibitem{Simpson99}
+S.~G. Simpson, editor.
+\newblock {\em {S}ubsystems of {S}econd {O}rder {A}rithmetic}.
+\newblock Perspectives in Mathematical Logic. Springer-Varlag, Berlin $\cdot$
+  Heidelberg $\cdot$ New York, 1999.
+
+\bibitem{Simpson1999}
+Stephen~G. Simpson.
+\newblock {\em {S}ubsystems of second order arithmetic}.
+\newblock Perspectives in Mathematical Logic. Springer-Verlag, Berlin, 1999.
+
+\bibitem{Spector62}
+C.~Spector.
+\newblock {P}rovably recursive functionals of analysis: a consistency proof of
+  an analysis by extension of principles formulated in current intuitionistic
+  mathematics.
+\newblock In {\em Recursive function Theory, Proceedings of Symposia in Pure
+  Mathematics, vol. 5 (J.C.E. Dekker (ed.)), AMS, Providence, R.I.}, pages
+  1--27, 1962.
+
+\bibitem{streicherkohlenbach07}
+T.~Streicher and U.~Kohlenbach.
+\newblock {S}hoenfield is {G}\"odel after {K}rivine.
+\newblock {\em Mathematical Logic Quarterly}, 53(2):176--179, 2007.
+
+\bibitem{streicherreus98}
+T.~Streicher and B.~Reus.
+\newblock Classical logic, continuation semantics and abstract machines.
+\newblock {\em Journal of Functional Programming}, 8(06):543--572, 1998.
+
+\bibitem{Tait76}
+W.~W. Tait.
+\newblock {C}onstructive reasoning.
+\newblock In {\em Logic, methodology and the philosophy of science. {III}, (B.
+  van Rootselaar and J. F. Staal (ed.)), North-Holland, Amsterdam}, pages
+  185--199, 1976.
+
+\bibitem{tao-2007}
+T.~Tao.
+\newblock {\em {N}orm convergence of multiple ergodic averages for commuting
+  transformations}.
+\newblock 2007.
+
+\bibitem{Tao07}
+T.~Tao.
+\newblock {\em {S}oft analysis, hard analysis, and the finite convergence
+  principle}.
+\newblock Available at:
+  http://terrytao.wordpress.com/2007/05/23/soft-analysis-hard-analysis-and-the-finite-convergence-principle,
+  Essay posted May 23, 2007.
+
+\bibitem{Toftdal}
+M.~Toftdal.
+\newblock Calibration of ineffective theorems of analysis in a constructive
+  context.
+\newblock Master's thesis, Aarhus Universitet, 2004.
+
+\bibitem{Troelstra73}
+A.~S. Troelstra, editor.
+\newblock {\em Metamathematical investigation of intuitionistic arithmetic and
+  analysis}.
+\newblock Lecture Notes in Mathematics, Vol. 344. Springer-Verlag, Berlin,
+  1973.
+
+\bibitem{Troelstra74}
+A.~S. Troelstra.
+\newblock {N}ote on the {F}an {T}heorem.
+\newblock {\em The Journal of Symbolic Logic}, 39:584--596, 1974.
+
+\bibitem{Troelstra88}
+A.~S. Troelstra and D.~van Dalen.
+\newblock {\em {C}onstructivism in {M}athematics - an introduction
+  vol.~{I},~{II}}.
+\newblock Studies in Logic and the Foundations of Mathematics. Elsevier Science
+  B.V., 1988.
+
+\bibitem{troelstravandalen88b}
+A.~S. Troelstra and D.~van Dalen.
+\newblock {\em Constructivism in mathematics. {V}ol. {II}}, volume 123 of {\em
+  Studies in Logic and the Foundations of Mathematics}.
+\newblock North-Holland Publishing Co., Amsterdam, 1988.
+\newblock An introduction.
+
+\bibitem{BBS12}
+Benno van~den Berg, Eyvind~Martol Briseid, and Pavol Safarik.
+\newblock A functional interpretation for nonstandard arithmetic.
+\newblock {\em Ann. Pure Appl. Logic}, 163(12):1962--1994, 2012.
+
+\bibitem{Neumann1932}
+J.~von Neumann.
+\newblock {P}roof of the quasi-ergodic hypothesis.
+\newblock In {\em Proc. Nat. Acad. Sci. USA}, 1932.
+
+\bibitem{Wittmann90}
+R.~Wittmann.
+\newblock Mean ergodic theorems for nonlinear operators.
+\newblock {\em Proc. Amer. Math. Soc.}, 108:781--788, 1990.
+
+\bibitem{Wittmann92}
+R.~Wittmann.
+\newblock Approximation of fixed points of nonexpansive mappings.
+\newblock {\em Arch. Math.}, 58:486--491, 1992.
+
+\bibitem{Xu}
+H.-K. Xu.
+\newblock Iterative algorithms for nonlinear operators.
+\newblock {\em J. London Math. Soc.}, 66:240--256, 2002.
+
+\bibitem{Ziegler(07)}
+M.~Ziegler.
+\newblock Real hypercomputation and continuity.
+\newblock {\em Theory of Computing Systems}, 41:177--206, 2007.
+
+\end{thebibliography}

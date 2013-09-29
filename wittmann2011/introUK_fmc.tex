@@ -1,0 +1,231 @@
+\section{Introduction}
+
+\newtheorem{definition}{Definition}[section]
+\newtheorem{proposition}[definition]{Proposition}
+%\newtheorem{remark}[definition]{Remark}
+\newtheorem{theorem}[definition]{Theorem}
+\newtheorem{corollary}[definition]{Corollary}
+%\newtheorem{lemma}[definition]{Lemma}
+\newtheorem{exercise}[definition]{Exercise}
+\newtheorem{clm}[definition]{Claim}
+%\newtheorem{prop}[definition]{Proposition}
+\newtheorem{example}[definition]{Example}
+\newtheorem{notation}[definition]{Notation}
+\newtheorem{application}[definition]{Application} 
+
+
+In this paper we investigate different levels of effective quantitative 
+information on theorems stating the Cauchy property of some sequence 
+$(x_n)$ in a metric space $(X,d)$
+\[ (1) \ \forall k\in\NN\,\exists n\in\NN\,\forall m,\tilde{m}\ge n
+\ \big( d(x_m,
+x_{\tilde{m}})\le 2^{-k}\big) \] 
+and also more general $\Pi^0_3$-theorems  
+\[ (2) \ \varphi\equiv 
+\forall k\in\NN\,\exists n\in\NN\,
+\forall m\in\NN\,\varphi_0(k,n,m),\] where $\varphi_0$ is quantifier-free. 
+Since we refer to real numbers as fast 
+converging Cauchy sequences of rational numbers we have $\le_{\RR}\,\in\Pi^0_1$ 
+so that $(1)$ has the form $(2).$
+\\[2mm] 
+Cauchy statements $(1)$ are special forms of finiteness statements expressing 
+that there are only finitely many $2^{-k}$-fluctuations $(i_l,j_l)$ 
+with 
+\[ (3) \ j_l>i_l\wedge d(x_{i_l},x_{j_l})>2^{-k}. \] 
+As with general finiteness statements one can ask for a bound on the height 
+of $2^{-k}$-fluctuations, i.e. an $\rho(k)$ above which no such fluctuation 
+occurs (i.e. $\rho$ is a rate of convergence) 
+or for a weaker bound $F(k)$ on the number $l$ 
+of such fluctuations $(i_0,j_0),\ldots,(i_l,j_l)$ with $i_{n+1}\le j_{n}$ 
+for $n<l.$ 
+As to be expected from standard recursion theoretic facts about finiteness 
+statements, even primitive recursive Cauchy sequences $(x_n)$ in $\RR$ 
+in general will not admit a computable (in $k$) bound $F$ on the fluctuations 
+and even in cases where they do there will in general be no computable 
+rate of convergence $\rho.$\\[2mm] 
+A yet weaker information than a bound $F$ on the number of fluctuations is 
+a bound on the Kreisel no-counterexample 
+interpretation (called `metastability' by Tao) of $(x_n)$, namely a functional 
+$\varphi(k,g)$ such that 
+\[ (4) \ \forall k\in\NN\,\forall g:\NN\to\NN\, \exists n\le \Phi(k,g) 
+\,\forall i,j \in [n;n+g(n)]\ \big( d(x_i,x_j)\le 2^{-k}\big). \]
+Note that the underlying reformulation 
+\[ (5) \ \forall k\in \NN\,\forall g:\NN\to\NN\, \exists n
+\,\forall i,j \in [n;n+g(n)]\ \big( d(x_i,x_j)\le 2^{-k}\big) \]
+of the Cauchy property 
+still expresses the full Cauchy property of $(x_n).$ However, the proof 
+of the latter from the former is ineffective corresponding to the fact 
+there is no way to 
+pass (even pointwise let alone uniformly) 
+from an effective $\Phi$ in $(4)$ to an 
+effective bound on fluctuations $F$ or an effective rate of convergence $\rho.$
+\\[2mm] General logical metatheorems for strong systems of analysis based 
+on full classical logic guarantee that the extractability of a (sub-)recursive 
+(and highly uniform) rates of metastability $\Phi$ is always possible for 
+large classes of convergence proofs. This has been applied extensively in 
+the context of nonlinear analysis, fixed point theory and ergodic theory 
+during the last 10 years. One of these results is the extraction of a 
+uniform rate of metastability for the strong convergence in the mean 
+ergodic theorem for uniformly convex Banach spaces $X$ carried out in 
+\cite{Kohlenbach/Leustean4}. That a computable rate of convergence (even 
+for an effective Hilbert space and a computable operator) in general 
+is impossible has been shown in \cite{Avigad/Gerhardy/Towsner}. However, 
+as recently observed by Avigad and Rute \cite{Avigad/Rute}, the analysis 
+in \cite{Kohlenbach/Leustean4} can be used to obtain a simple effective (and 
+also highly uniform) 
+bound on the number of fluctuations (for the case of Hilbert spaces this 
+was already obtained with an even better bound in \cite{Jones}). This 
+raises the question whether there are general logical conditions on 
+convergence proofs to guarantee the extractability of effective bounds 
+on fluctuations. Obviously, any condition guaranteeing the extractability of 
+a computable rate of convergence is a sufficient condition for this. Though 
+not satisfied in the particular case just discussed, let us first consider 
+this in order to see in what sense we might try to liberalize such conditions 
+towards rates of fluctuations. To discuss things in somewhat more precise 
+terms we fix a formal framework such as intuitionistic arithmetic 
+HA$^{\omega}$ in all finite types (actually we use the so-called weakly 
+extensional variant called WE-HA$^{\omega}$ in \cite{Kohlenbach08}) 
+or its extension by an abstract (metric or) 
+normed space $(X,\|\cdot\|)$ resulting 
+in HA$^{\omega}[X,\|\cdot\|]$ possible with further axioms stating that 
+$X$ is uniformly convex or even a Hilbert space (see \cite{Kohlenbach08} 
+for details). 
+As follows from the bound extraction theorem for monotone modified 
+realizability from \cite{Kohlenbach08} (and for theories with 
+abstract spaces $X$ in \cite{GerKoh06}) from a proof of $(1)$ (for 
+some sequence $(x_n)$ definable by a term $t$ of the system having at most 
+number and function parameters $a,f$) in 
+\[ \mbox{HA$^{\omega} +$AC$+$LEM}_{\neg} \] 
+(and in fact even stronger theories augmented with certain ineffective 
+axioms $\Omega$), the extractability of a rate of convergence $\rho$ that 
+is definable (in the same parameters as $t$) 
+G\"odel's calculus of primitive recursive functionals of 
+finite type is guaranteed.  Here AC is the full schema of choice and 
+LEM$_{\neg}$ is the law-of-excluded-middle schema restricted to arbitrary 
+negated formulas $\neg\psi$ (which, in particular, includes the case 
+of existential-free formulas and so as a very special case $\Pi^0_1$-LEM, 
+i.e. LEM restricted to $\Pi^0_1$-formulas). In the case of 
+HA$^{\omega}[X,\| \cdot\|]$ even parameters of types such as $X, \NN\to X, 
+X\to X$ are allowed in the definition of the sequence $(x_n)$ in $X$ where 
+then $\rho$ depends additionally of majorants for these parameters (which are 
+numbers in $\NN,$ in the case of the type $X,$ and number-theoretic 
+functions, in the case of the types $\NN\to X$, $X\to X.$) \\[2mm] 
+An important weak principle of classical logic not covered by this is 
+the so-called Markov principle which, extended to all finite types, reads 
+as follows 
+\[ \mbox{M}^{\omega}\ :\ 
+\neg\neg\exists \underline{x}^{\underline{\rho}} \ \varphi_0(\underline{x})\to 
+\exists \underline{x}^{\underline{\rho}}\,\varphi_0(\underline{x}), \] 
+where $\varphi_0$ is a quantifier-free formula and $\underline{\rho}$ an 
+arbitrary tuple of types. However, M$^{\omega}$ becomes permissible once 
+LEM$_{\neg}$ is weakened to the so-called lesser-limited-omniscience-principle 
+LLPO (which is the precise amount of classical logic needed to prove the 
+binary (`weak') K\"onig's lemma WKL; see \cite{Kohlenbach08} for details).
+So instead of HA$^{\omega}([X,\|\cdot\|])+$AC$+$LEM$_{\neg}$ we may also have 
+\[ \mbox{HA$^{\omega}([X,\|\cdot \| ])+$AC$+$M$^{\omega}+$LLPO}, \] 
+where then the extraction of a rate of convergence uses the so-called 
+monotone functional interpretation (see \cite{Kohlenbach08}).
+\\[2mm] The in a sense weakest principle covered by neither of these systems 
+(but provable in their union!) is LEM restricted to $\Sigma^0_1$-formulas, 
+which we denote by $\Sigma^0_1$-LEM. 
+While $\Sigma^0_1$-LEM in the presence of 
+AC (even when restricted to numbers) 
+creates highly noncomputable functions (in particular when function 
+parameters are allowed to occur in $\Sigma^0_1$-LEM which then makes it 
+possible to climb up the entire arithmetical hierarchy) it remains fairly 
+weak over HA$^{\omega}.$ Nevertheless HA$^{\omega}+\Sigma^0_1$-LEM 
+already allows 
+to prove the Cauchyness of the Specker sequence, a primitive recursive 
+monotone decreasing sequence of rational numbers in $[0,1]$ which does not 
+have a computable rate of convergence. In fact, as shown in \cite{Toftdal}, 
+the principle that every bounded monotone sequence of reals is Cauchy can be 
+proven HA$^{\omega}+\Sigma^0_1$-LEM. This is not obvious and requires a novel 
+proof as the usual argument uses the (by \cite{Akama}) 
+strictly stronger principle 
+\[ \Sigma^0_2\mbox{-DNE}\ :\ \neg\neg\exists n\in\NN\,\forall m\in\NN\,
+\varphi_0(n,m)\to\exists n\in\NN\,\forall m\in\NN\,\varphi_0(n,m) \]
+(`double-negation-elimination principle' for 
+$\Sigma^0_2$-formulas) While $\Sigma^0_2$-DNE is limit computable in the 
+sense of Hayashi and 
+Nakana \cite{Hayashi/Nakata}, 
+any single instance of $\Sigma^0_1$-LEM is even learnable 
+with a single mind change. Note also that bounded monotone sequences of 
+real numbers (say in $[0,1]$) always have the simple fluctuation bound 
+$F(k):=2^k.$  
+This at a first look might suggest to consider 
+HA$^{\omega}+\Sigma^0_1$-LEM as a promising framework to guarantee 
+(while in general not computable rates of convergence) computable bounds 
+on the number of fluctuations for provable Cauchy sequence. However, this 
+turns out to be mistaken as $\Sigma^0_1$-LEM is already the general case: 
+let $(x_n)$ a sequence of real numbers definable by a term $t$ 
+in HA$^{\omega}$ 
+(which may have variables of arbitrary type as parameters. Suppose that 
+\[ \mbox{PA}^{\omega}\vdash \forall k\,\exists n\,\forall m,\tilde{m}\ge n\,
+(|x_m-x_{\tilde{m}}|\le_{\RR} 2^{-k}). \]
+Then by negative translation (see \cite{Kohlenbach08}) 
+\[ \mbox{HA}^{\omega}\vdash  \forall k\,\neg\neg 
+\exists n\,\forall m,\tilde{m}\ge n\,
+(|x_m-x_{\tilde{m}}|\le_{\RR} 2^{-k}). \]
+Adapting Friedman's proof for the closure of HA$^{\omega}$ under the Markov 
+rule one can show (this is stated for HA without proof in 
+\cite{Hayashi/Nakata} and we include a proof below) that HA$^{\omega}+
+\Sigma^0_1$-LEM  
+is closed under the rule version of $\Sigma^0_2$-DNE so that we get 
+\[ \mbox{HA$^{\omega}+\Sigma^0_1$-LEM} \ 
+\vdash \forall k\,\exists n\,\forall m,\tilde{m}\ge n\,
+(|x_m-x_{\tilde{m}}|\le_{\RR} 2^{-k}). \]
+Moreover, if $t$ contains at most number parameters it also suffices to 
+use the restriction $\Sigma^0_1$-LEM$^-$ of $\Sigma^0_1$-LEM to 
+$\Sigma^0_1$-formulas with number parameters only. All this also holds for 
+the systems HA$^{\omega}[X,\|\cdot\|]$ and PA$^{\omega}[X,\|\cdot\|]$ 
+and sequences $(x_n)$ in $X$ defined by terms of these systems.\\[2mm] 
+Looking more careful into the $\Sigma^0_1$-LEM based proof of the 
+Cauchyness of bounded monotone sequences as given in \cite{Toftdal} reveals 
+that one can define a sequence of instances $\Sigma^0_1$-LEM$(s(n))$) 
+of $\Sigma^0_1$LEM$^-$ 
+\[ \exists m\in\NN \,(s(n,m)=0)\vee \forall m\in\NN\,(s(n,m)\not= 0) \] 
+such that to prove the Cauchy property with error $2^{-k}$ one only needs 
+the first $n=0,\ldots,s(t(k))$-many instances of this sequence where $t$ is 
+a simple primitive recursive function. So a more promising approach would be
+to look at proofs of Cauchy statements which can be formalized as follows:
+\[ \mbox{HA}^{\omega}\ \vdash \forall k \  \big( \forall l\le t(k) \ 
+\Sigma^0_1\mbox{-LEM}(s(l))\to \exists n\,\forall m,\tilde{m}\ge n\,
+(|x_m-x_{\tilde{m}}|\le_{\RR} 2^{-k})\big) \] 
+or 
+\[ \mbox{HA}^{\omega}[X,\|\cdot\|] \ \vdash \forall k \  \big( \forall l\le 
+t(k) \ 
+\Sigma^0_1\mbox{-LEM}(s(l))\to \exists n\,\forall m,\tilde{m}\ge n\,
+(\|x_m-x_{\tilde{m}}\|\le_{\RR} 2^{-k})\big), \]
+where $t$ may contain parameters of type $\NN, \NN\to\NN$ (and $X,\NN\to X, 
+X\to X$ in the extended system). \\[2mm] 
+We show that from such proofs one can always extract effective (and in 
+fact primitive recursive in the sense of G\"odel's $T$) bounds on the 
+effective learnability of a rate of convergence of $(x_n).$ 
+This is, as we will show, a strictly stronger information than a 
+rate of metastability as 
+the latter can be obtained from the former (even by a uniform primitive 
+recursive procedure) but there are primitive recursive 
+Cauchy sequences with a primitive recursive rate of metastability which 
+do not admit any computable bound for the 
+learnability of a rate of convergence. \\[2mm]
+The condition needed to assure the extractability of a primitive recursive 
+(in the sense of G\"odel) bound on effective learnability is e.g. satisfied in 
+the proof of the strong convergence of so-called Halpern iterations 
+in CAT(0) (and so, in particular, in Hilbert) spaces as follows from the 
+analysis given in \cite{Kohlenbach/Leustean6} where a primitive recursive 
+(in the ordinary sense) rate of metastability is extracted. The strong 
+convergence of Halpern iterations constitutes 
+a far reaching nonlinear extension 
+of the linear case of the mean ergodic theorem.
+However, 
+studying the argument from \cite{Avigad/Rute} for the existence of 
+fluctuation bounds in the linear case reveals that this depends on 
+highly specific numerical facts of the situation at hand which - least 
+in the form used - does not seems to hold in the nonlinear case of 
+Halpern iterations. This issue will be discussed in the final section 
+of the paper. So the conclusion is that there is a robust and easy to check 
+logical condition on a convergence proofs that guarantees the extractability 
+of effective bounds on the learnability of the rate of convergence (which 
+is better than metastability). Whether this, moreover, gives rise to a 
+fluctuation bound, however, seems to rest on rather idiosyncratic features 
+of the particular sequence in question.

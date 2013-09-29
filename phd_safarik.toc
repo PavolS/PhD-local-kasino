@@ -1,0 +1,52 @@
+\contentsline {section}{Introduction}{i}
+\contentsline {subsection}{Foreword}{i}
+\contentsline {subsection}{Scientific Context}{i}
+\contentsline {subsection}{Goals and Organization of the Material}{iv}
+\contentsline {subsection}{Notation and common Expressions}{v}
+\contentsline {subsection}{Acknowledgments}{vi}
+\contentsline {section}{\numberline {1} Preliminaries }{1}
+\contentsline {subsection}{Proof Interpretation}{1}
+\contentsline {subsection}{\numberline {1.1}The System $\ensuremath {{\textsf {\upshape WE-HA}}^{\omega }}$}{3}
+\contentsline {subsection}{\numberline {1.2}Fragments and Extensions of $\ensuremath {{\textsf {\upshape WE-HA}}^{\omega }}$}{6}
+\contentsline {subsection}{\numberline {1.3}The ordered Field of rational Numbers within $\ensuremath {{\textsf {\upshape WE-HA}}^{\omega }}$}{7}
+\contentsline {subsection}{\numberline {1.4}The Archimedean ordered Field of real Numbers within $\ensuremath {{\textsf {\upshape WE-HA}}^{\omega }}$}{8}
+\contentsline {subsection}{\numberline {1.5}Kuroda's negative Translation}{9}
+\contentsline {subsection}{\numberline {1.6}G\"odel's Functional Interpretation}{10}
+\contentsline {subsection}{\numberline {1.7}Majorizability}{13}
+\contentsline {subsection}{\numberline {1.8}Monotone Functional Interpretation}{14}
+\contentsline {subsection}{\numberline {1.9}Models of $\ensuremath {{\textsf {\upshape E-PA}}^\omega }$}{15}
+\contentsline {subsection}{\numberline {1.10}{Bar Recursion}}{16}
+\contentsline {subsection}{\numberline {1.11}Law of excluded Middle}{18}
+\contentsline {subsection}{\numberline {1.12}Double Negation Shift}{19}
+\contentsline {subsection}{\numberline {1.13}Axiom of Choice}{19}
+\contentsline {subsection}{\numberline {1.14}Arithmetical Comprehension}{21}
+\contentsline {subsection}{\numberline {1.15}Weak K\"onig's Lemma}{28}
+\contentsline {paragraph}{(2)}{36}
+\contentsline {paragraph}{(1)}{37}
+\contentsline {subsection}{\numberline {1.16}Complexity classes and bar recursion}{38}
+\contentsline {section}{\numberline {2}Effective learnability}{42}
+\contentsline {subsection}{\numberline {2.1}Fluctuations versus effective learnability}{44}
+\contentsline {subsection}{\numberline {2.2}Cauchy statements and unrestricted use of $\Sigma ^0_1$-LEM}{56}
+\contentsline {subsection}{\numberline {2.3}Which Cauchy statements are effectively learnable and which are not}{58}
+\contentsline {paragraph}{Step 1}{63}
+\contentsline {paragraph}{Step 2}{65}
+\contentsline {paragraph}{Step 3}{65}
+\contentsline {subsection}{\numberline {2.4}When learnability implies fluctuation bounds}{69}
+\contentsline {section}{\numberline {3}Interpreting a strong non-linear ergodic theorem}{73}
+\contentsline {subsection}{\numberline {3.1}Arithmetizing Wittmann's proof}{77}
+\contentsline {subsection}{\numberline {3.2}Obtaining a bound}{79}
+\contentsline {subsection}{\numberline {3.3}A general bound existence theorem}{80}
+\contentsline {subsection}{\numberline {3.4}Uniform bounds for Wittmann's ergodic theorems}{84}
+\contentsline {subsection}{\numberline {3.5}Proof of Proposition\nobreakspace {}3.8\hbox {}}{87}
+\contentsline {section}{\numberline {4}Interpreting Bolzano-Weierstra{\ss }}{94}
+\contentsline {subsection}{\numberline {4.1}Interpreting Bolzano-Weierstra{\ss }}{96}
+\contentsline {subsection}{\numberline {4.2}Analysis of the Complexity of the Realizers}{109}
+\contentsline {section}{\numberline {5}Functional interpretation for IST}{113}
+\contentsline {subsection}{\numberline {5.1}Formalities}{114}
+\contentsline {subsection}{\numberline {5.2}Nonstandard principles}{118}
+\contentsline {subsection}{\numberline {5.3}A functional interpretation for $\ensuremath {\ensuremath {{\textsf {\upshape E-HA}}^{\omega *}}_{\stOperator {}}\tmspace -\thinmuskip {.1667em}}$}{122}
+\contentsline {subsection}{\numberline {5.4}The system $\ensuremath {\ensuremath {{\textsf {\upshape E-PA}}^{\omega *}}_{\stOperator {}}\tmspace -\thinmuskip {.1667em}}$ and negative translation}{125}
+\contentsline {subsection}{\numberline {5.5}A functional interpretation for $\ensuremath {\ensuremath {{\textsf {\upshape E-PA}}^{\omega *}}_{\stOperator {}}\tmspace -\thinmuskip {.1667em}}$}{126}
+\contentsline {subsection}{\numberline {5.6}Countable saturation}{131}
+\contentsline {section}{References}{134}
+\contentsfinish 

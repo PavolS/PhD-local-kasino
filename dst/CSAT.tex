@@ -1,0 +1,33 @@
+\section{Functional interpretation for IST}
+
+
+%\reviewQuote{dst/review}{KS13}{Nov 22, 2012}
+\reviewQuote{dst/review}{BBS12}{Apr 26, 2012}
+
+\input{dst/introduction}
+\input{dst/systems}
+
+\input{dst/principles}
+%\input{herbrand.tex}
+\input{dst/dialectica}
+\input{dst/negative}
+\input{dst/shoenfield}
+\input{dst/CSAT-step4} % <-- make this an example above
+
+%\input{dst/conclusion}
+
+\subsection{Countable saturation}
+
+The main idea behind providing a functional interpretation for nonstandard proofs, is that  we would like to see if the interpretation that we have developed in this chapter could be used to ``unwind'' or ``proof-mine'' nonstandard arguments. Nonstandard arguments have been used in areas where proof-mining techniques have also been successful, such as metric fixed point theory (for methods of nonstandard analysis applied to metric fixed point theory, see \cite{aksoykhamsi90, kirk03}; for application of proof-mining to metric fixed point theory, see \cite{briseid09, Gerhardy06, Kohlenbach05fpt, kohlenbachleustean03, kohlenbachleustean10, leustean07}) and ergodic theory (for a nonstandard proof of an ergodic theorem, see \cite{kamae82}; for applications of proof-mining to ergodic theory, see \cite{avigad09, AGT10, gerhardy08, Gerhardy2010, Kohlenbach2011, kohlenbachleustean09, Safarik(11)}), therefore this looks quite promising. For the former type of applications to work in full generality, one would have to extend our functional interpretation to include types for abstract metric spaces, as in \cite{GK08, Kohlenbach05meta}.
+
+Towards that purpose, one should extend our methods to allow one to prove conservativity results over $\weha$ and $\wepa$ as well: this will be important if one wishes to combine the results presented here with the proof-mining techniques from \cite{Kohlenbach08}. 
+
+Most importantly for now, we would like to understand the use of saturation principles in nonstandard arguments. These are of particular interest since they are used in the construction of Loeb measures, which belong to one of the most successful nonstandard techniques. 
+The general saturation principle is
+\[ \SAT: \quad \forallst x^\sigma \, \exists y^\tau \, \Phi(x, y) \to \exists f^{\sigma \to \tau} \, \forallst x^\sigma \, \Phi(x, f(x)). \]
+Whether this principle has a $\D$-interpretation within G\"odel's $\Tstar$, we do not know; but
+\[ \CSAT: \quad \forallst n^0 \, \exists y^\tau \, \Phi(n, y) \to \exists f^{0 \to \tau} \, \forallst n^0 \, \Phi(n, f(n)) \]
+has and that seems to be sufficient for the construction of Loeb measures. Interpreting $\CSAT$ and $\SAT$ in the classical context using the $\Sh$-interpretation is actually quite difficult and it is most probable that they require some form of bar recursion. \\
+Actually, as we can see already on the formalization of $\CSAT$ above, it turns out that  the situation is very similar as discussed in section~\ref{ss:AC} regarding $\AC$.
+
+\input{dst/CSAT-step5}

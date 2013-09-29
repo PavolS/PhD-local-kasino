@@ -1,0 +1,119 @@
+\subsection{The Axiom of Comprehension}\label{s:basicInterpretations}
+
+ G\"odel and Kreisel, and we should mention P. Bernays to complete the list,
+ were also involved in another result, obtained by C. Spector, 
+ which is essential for this thesis.
+Namely, in \cite{Spector62} Spector showed that the consistency of
+classical analysis with the schema of countable choice, 
+\[
+\AC^0\ :\quad \forall x^0\exists y\ \ \phi(x,y)\rightarrow\ \ \exists Y\forall x \phi(x,Yx)
+\text{,}
+\]
+which contains the schema of full comprehension over numbers,
+\[
+\CA^0\ :\quad \exists f^1\forall x^0\ \big(f(x)=_0 0 \leftrightarrow \phi(x)\big)\text{,}
+\]
+and, in particular, the schema of arithmetical comprehension over numbers $\CA^0_{ar}$, where
+$\phi$ has to be an arithmetic formula, can be reduced to a suitable intuitionistic system 
+plus the double negation shift schema: 
+\[
+\DNS\ :\quad \forall x^0\neg\neg\phi(x)\ \rightarrow \neg\neg\forall x^0 \phi(x)\text{.}
+\]
+It is very important for our work that Spector also gives the 
+realizing functionals for the functional interpretation of this axiom.
+These realizers are defined via the so called bar recursion (see section \ref{ss:BR}) 
+which is used to define functionals based on their behavior after
+reaching a given ``bar''. Simply because of this result we 
+% http://www.askoxford.com/concise_oed/apriori
+% http://www.merriam-webster.com/dictionary/apriorihttp://www.merriam-webster.com/dictionary/apriori
+% http://dict.leo.org/ende?lp=ende&p=/gQPU.&search=priori
+% always a _ priori, as adjective or adverb 
+know that the realizers of the bar-recursive functional interpretation of the
+Bolzano-Weierstra{\ss} theorem exist in advance.\\
+
+\todo{integrate this with the stuff below}
+%
+% definitions
+\newcommand{\typeOfXZ}{0(10)(1)}
+%
+To interpret principles based on sequential compactness, 
+we can use the ND-in\-ter\-pre\-ta\-tion 
+of the schema of 
+comprehension over numbers for $\PiL$-formulas:
+\[
+\PiLm\CA(f)\ :\ \exists g^1 \forall x^0\ (\ gx=_00 \leftrightarrow \forall y^0\ fxy=_00\ )
+\text{.}
+\]
+We will use the modified schema of 
+comprehension over numbers for $\PiL$-formulas, 
+\[
+\PiLm\CAhut(f)\ :\ \exists g^1 \forall x^0,z^0\ \big(fx(gx)=_00 \vee fxz\neq_00\big)
+\text{,}
+\]
+since its realizers obtained by ND-interpretation are significantly shorter.
+This principle and several of its variants are discussed
+in section \ref{ss:CA}.
+The negative translation of arithmetical comprehension (see
+definition \ref{d:CA} below) itself can 
+in turn be intuitionistically proved from 
+very weak principles: The negative translation of
+the law of excluded middle over numbers for $\SiL$ formulas, $(\LEM)'$, 
+and the negative translation of the Axiom of Choice for 
+$\PiL$-formulas $(\PiLm\AC)'$ (see sections \ref{ss:LEM} and \ref{ss:AC} below).
+The negative translation of $\PiLm\AC$, on the other hand, is not trivial at all.
+In fact, to prove $(\PiLm\AC)'$ we need a special form of the
+ Double Negation Shift schema, $\DNS$, where $\phi$ is a $\Sigma^0_2$-formula:
+\[
+\Sigma^0_2\m\DNS\ :\ \forall x^0\neg\neg\phi(x)\rightarrow\neg\neg\forall x^0\phi(x) \text{.}
+\]
+To find the ND-interpretation of the intuitionistically underivable $\DNS$
+was a major problem until a solution was obtained by Spector in \cite{Spector62}. 
+In fact, Spector's interpretation leads to the ND-interpretation
+of the so called schema of countable choice, which implies full
+comprehension over numbers - $\CA^0$. And, in particular, gives the functional interpretation 
+of full analysis (see \cite{Spector62}, \cite{Kohlenbach08} or the Introduction section).
+In summary we get the following picture:\\
+\[
+\begin{prooftree}
+(\LEM)'
+\[
+\neg\neg(\PiLm\AC)  \quad  \Sigma^0_2\usftext{-}\DNS
+\justifies
+(\PiLm\AC)'
+\]
+\justifies 
+(\PiLm\CAhut)'
+\end{prooftree}
+\text{.}
+\] {\samepage
+Whereas the first two principles, $(\LEM)'$ and $\neg\neg(\PiLm\AC)$, are interpreted 
+quite easily, the schema $\DNS$ requires the
+use of bar recursion.\\
+Below, we first introduce this recursion in \ref{ss:BR} and then
+give the D- and ND-interpretations of the principles 
+as they appear in the proof-tree. We 
+start with $\LEM$ in \ref{ss:LEM}, followed by $\DNS$ in \ref{ss:DNS} and $\AC$ in \ref{ss:AC}.
+Finally we combine the interpretations to obtain the ND-interpretation of $\PiLm\CAhut$ in~\ref{ss:CA}.}\\
+
+We distinguish between full schemas and principles and their restrictions
+to a concrete instance. For a given principle $\phi$ we write  $\phi(f)$ for the
+concrete instance of  $\phi $ applied to $f$. We will define the principles
+in this form in most cases. It is also the preferable form to be analyzed, since  most
+proofs in mathematics use only concrete instances of the common principles. Moreover,
+proofs of $\forall\exists$-theorems (i.e. sentences of the form 
+$\forall\tup x\exists\tup y\ \psi_0(x,y)$, where $\psi_0$ is a quantifier-free formula) based
+on a concrete instance of such a principle $\phi(t)$, $t$ being a well 
+defined closed term (or a term depending only on the parameters of
+the problem), tend to produce simpler realizers than proofs based
+on their full counterparts $\forall f \phi(f)$ (see section \ref{s:sr}).\\
+We will write shortly $\phi$ for the general version $\forall f \phi(f)$.\\
+\begin{rmk}
+In some cases, in particular for $\phi\equiv\PiLm\CA$, there is a 
+primitive recursive ${F\tp2}_\phi$ s.t.:
+\[
+ \weha\proves \phi(F_\phi t)\rightarrow\forall l^0\phi(tl)\text{.}
+\]
+Here, $t\tp1$ is a closed term of type $1(0)$.
+\end{rmk}
+%
+%

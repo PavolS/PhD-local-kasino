@@ -1,0 +1,129 @@
+\subsection{Arithmetizing Wittmann's proof}\label{s:ArProof}
+%\section{Wittmann's proof without Skolem functions}\label{s:ArProof}
+The first step of a proof mining process  is to investigate the proof of the 
+theorem we want to analyze. 
+For a discussion on proof mining techniques in connection with ergodic theory 
+see~\cite{Gerhardy2010} and the last section of~\cite{AGT10} and for
+an in-depth analysis of applied proof theory see~\cite{Kohlenbach08}.
+The nonconstructive, or ineffective, content of Wittmann's proof are the principle
+of convergence for bounded monotone sequences of real numbers and the existence of
+infimum for bounded sequences of real numbers. 
+Formulated in the usual way, both principles state the existence
+of a real number, which we represent as fast converging 
+Cauchy sequences of rationals\footnote{We represent rational numbers as pairs of natural numbers. For further details on representations in this context, see~\cite{Kohlenbach08}.} encoded as number theoretic functions (i.e. functions in $\NN^\NN$).
+However, for a given sequence, both principles can be replaced by 
+weaker statements about natural numbers only (as opposed to statements about objects in $\NN^\NN$).
+In the presence of arithmetical comprehension, these weaker (arithmetical) statements are
+equivalent to the original (analytical) principles.\footnote{
+While the analytical principles are actually known to be equivalent to
+arithmetic comprehension (see~\cite{Simpson1999} and -- for more
+detailed results --~\cite{Kohlenbach00}), the arithmetic versions are equivalent
+to $\SiL$-induction and hence have a functional interpretation
+by ordinarily primitive recursive functionals (see~\cite{Kohlenbach08}).
+}
+For the convergence we work with the arithmetic Cauchy property
+and for infimum we give for any precision an approximate infimum.
+\begin{enumerate}
+	\item Arithmetized convergence of a monotone bounded sequence $a_{(\cdot)}$:
+	\[\forall l\exists n\forall m\geq n\quad \big( |a_n-a_m|\leq 2^{-l}\big).\]
+	\item Arithmetized existence of the infimum of a bounded sequence $a_{(\cdot)}$:
+	\[\forall l\exists n\forall m\quad \big( a_n-a_m\leq 2^{-l}\big).\]
+\end{enumerate}
+Of course, in this way we don't get a single point which {\em is} the limit point or infimum. Therefore
+we have to analyze the proof and see whether such points are actually needed or whether
+these arithmetical versions suffice. Here, fortunately, it turns out that 
+the latter is the case (see~\cite{Kohlenbach1998} for a general discussion of this point).\\
+Following~\cite{Kohlenbach08}, we show that we can rewrite Wittmann's proof (see~\cite{Wittmann90}) 
+in the language of $\AHilb$, carefully using only weak (arithmetized) principles at the relevant places.
+\begin{thm}[Wittmann 1990,~\cite{Wittmann90}]\label{t:fin21ar}
+Let $X_{(\cdot)}$ be a sequence in a Hilbert space s.t. for all $m,n,k\in\NN$
+\[
+||X_{n+k} + X_{m+k}||^2 \leq ||X_{n} + X_{m}||^2+\delta_k\tag{i}
+\]
+with
+\[
+\lim_{k\to\infty} \delta_{k}=0.\tag{ii}
+\]
+Then the sequence $A_{(\cdot)}$ defined by
+\[
+A_n:=\frac{1}{n}\sum^n_{i=1}X_i,
+\]
+is norm convergent.
+\end{thm}
+We follow Wittmann's notation and use $X_{(\cdot)}$ to denote the sequence in the
+Hilbert space (not to be confused with the Hilbert space itself, which might be implied by the notation $\AHilb$). 
+Also, to keep the proof more readable, we refer the more technical steps to later sections. There we need to do 
+a thorough analysis of those steps to obtain the precise bounds of the realizers, while here we 
+can settle for their existence.\\
+We formulate conditions (i) and (ii) from the theorem as arithmetical statements as follows (except for
+the variable $K$, which we will treat as a given parameter):
+\begin{align}
+&\forall m,n,k\in\NN \quad \big( ||X_{n+k}+X_{m+k}||^2 \leq ||X_{n}+X_{m}||^2 + \delta_k\big),\label{l:one}\\
+&\exists K\in\NN^\NN\forall n\in\NN \forall i\geq K(n)\quad \big( |\delta_i|\leq 2^{-n}\big).\label{l:two}
+\end{align}
+From now on, let $K$ always denote a rate of convergence of the sequence $\delta_{(\cdot)}$ 
+(i.e. a function satisfying~\eqref{two}) and $B$ the upper bound of $X_{(\cdot)}$ (such a bound
+can be defined primitive recursively in $K(0)$ and some elements of $X_{(\cdot)}$, see Theorem~\ref{t:fin}).\\
+It is easy to show that the sequence $(||X_n||)_n$ is a Cauchy sequence 
+(see proof of Lemma~\ref{l:N0} below). Such an arithmetical formulation
+of the convergence of $(||X_n||)_n$ is sufficient
+to infer that in particular we have that
+\begin{align}\forall l^0\exists n^0 \forall m_2^0\geq m_1^0\geq n\quad 
+\big(\ ||X_{m_1}||^2 \leq ||X_{m_2}||^2 + 2^{-(l+1)}\ \big).\label{n_epsilon}\end{align}
+The Skolem function realizing $n^0$ would correspond to $n_\epsilon$ in Wittmann's proof
+(where he used the standard convergence), however we work only with 
+the fact that such an $n$ exists for any given precision $l$. %We denote such an $n$ by $n_l$.
+From~\ref{n_epsilon} we infer that
+\[\forall l\exists n_l \forall m,n\geq n_l\ \forall k\geq K(l)\quad
+ \big(\ \langle X_{n+k}, X_{m+k} \rangle \leq \langle X_{n}, X_{m} \rangle + 2^{-l}\ \big),\tag{W1}\label{w:1}\]
+the same way as Wittmann in~\cite{Wittmann90}, see also the end of the proof of Lemma~\ref{l:scpb} in Section~\ref{s:Lemmas}.
+From now on, by $n_l$ we always denote an $n_l$ which satisfies~\eqref{w:1}.\\
+Since the norm of any convex combination of the elements of the sequence is bounded from below by $0$, the
+set of all such convex combinations has an infimum. To give an arithmetic
+formulation of this fact, it is useful to have a primitive recursive functional 
+$C$ which gives us a $2^{-l}$ approximation of the smallest 
+convex combination of $X_n, X_{n+1}, \ldots, X_p$
+(more precisely, of the square of the infimum of the set of the norms of these convex combinations). 
+Clearly, there are many ways to define such a functional. We do so in a straightforward 
+way in Definition~\ref{d:C} below. Having such a $C$ in place,
+the following arithmetical formula
+\[
+\forall l\exists p_l\forall p\geq p_l \quad  
+\big(\ C(l,n_l,p_l) \leq C(l,n_l,p) + 2^{-l}\ \big),
+ \tag{W2}\label{w:2} \]
+states the existence of an approximate infimum of all convex combinations of $X_{(\cdot)}$
+(see also Lemma~\ref{l:newC}). Similarly as with $n_l$, from now on by $p_l$ we mean
+a number satisfying~\eqref{w:2}.\\
+Wittmann introduces a specific point $z_{\epsilon,m}$, which we denote by $Z(l,n,p,m)$
+and define using our notation in Definition~\ref{d:Z} below. However, here
+the precise definition is not as important as the properties of this point.
+%, that for
+%an $A_m$ with sufficiently large index $m$, the functional
+%$Z$ defines a point which is close to $A_m$. Moreover, all such
+%points (i.e. points given by $Z$ for some $m$) are close to each other.\\
+Firstly, we show that for any two natural numbers $i$ and $j$, the distance between $Z(l,n_l,p_l,i)$ and
+$Z(l,n_l,p_l,j)$ is arbitrary small for sufficiently large $l$. Together with the convexity of the 
+square function we have (again, see~\cite{Wittmann90} or the proof of Lemma~\ref{l:Zs}.\eqref{e:Zdown} below) that
+\[ \forall l^0,m^0\quad 
+\big(\ ||Z(l,n_l,p_l,m)||^2\leq C(l, n_l, p_l) + 2^{-l}\ \big).
+\tag{W3}\label{w:3}\]
+From~\eqref{w:2} we can infer (see the proof of Lemma~\ref{l:Zs}.\eqref{e:Zup} below) that
+\[
+\forall l,i,j\ \Big(\big\|\frac{1}{2}(Z(l,n_l,p_l,i)+Z(l,n_l,p_l,j))\big\|^2 + 2^{-l} \geq C(l, n_l, p_l)\Big),
+\]
+and together with~\eqref{w:3} and the parallelogram identity we can conclude that
+\[
+\forall l,i,j\ \Big(\big\|Z(l,n_l,p_l,i)-Z(l,n_l,p_l,j)\big\|^2 \leq  2^{-l+4}\Big).
+\]\\
+Secondly, it follows from the definition of $Z$ (yet again see~\cite{Wittmann90} or Section~\ref{s:Lemmas}, 
+proof of Lemma~\ref{l:ZA}) that 
+%\begin{align*} \forall &l,m\geq p_l\quad\\ &\Big( \|Z(l,n_l,p_l,m)-A_{m+1}\|\leq \frac{
+% 2p_l\sup_{n\in\NN}\|X_n\|+2(n_l+K(l))\sup_{n\in\NN}\|X_n\|}{m+1} \Big),\end{align*}
+ \begin{align*} \forall l\forall m\geq p_l\ \Big( \|Z(l,n_l,p_l,m)-A_{m+1}\|\leq \frac{
+ 2(p_l+n_l+K(l))\sup_{n\in\NN}\|X_n\|}{m+1} \Big),\end{align*}
+which means that we can make the distance between $A_{m+1}$ and $Z(l,n_l,p_l,m)$ arbitrarily small by
+choosing $m$ sufficiently large.\\
+In particular we have shown that the distance between any $A_i$ and any $A_j$ is arbitrarily small 
+once $i$ and $j$ are sufficiently large. Note that we can choose an arbitrarily large $l$ first and then we 
+are still free to choose sufficiently large $i$ and $j$ after $n_l$ and $p_l$ are fixed.
+This concludes the sketch of the proof that $A_{(\cdot)}$ is a Cauchy sequence.\\

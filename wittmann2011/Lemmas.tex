@@ -1,0 +1,279 @@
+\subsection{Lemmas}\label{s:Lemmas}
+
+Here, we assume that the assumptions of Theorem~\ref{t:fin} hold and use the terms as they are defined in that theorem.
+We use also the definitions~\ref{d:C} and \ref{d:Z} for $C$ and $Z$.
+Moreover, w.l.o.g we can assume $K^M=K$, since the original assumption implies
+\[ \forall l\in\NN\forall n\geq K^M(l) \ \big(\|\delta_n\|<2^{-l}\big). \]
+We prove Lemma~\ref{l:newC} first and then the two lemmas which show 
+that $N_0$ and $P_0$ are the right
+witnesses for the two main assumptions needed in Wittmann's proof. The fact
+that $M$ majorizes itself (and therefore so does $M'$) 
+follows simply from its definition in Theorem~\ref{t:fin}.\\
+
+\begin{lemma*}[$C$ approximates the smallest convex combination]{l:newC}
+\[
+\forall l,n,p,f \forall \tup s\ \big( C'(\tup s,l,n,p,f)+2^{-l}\geq C(l,n,p) \big).
+\]
+\end{lemma*}
+\begin{proof}
+Given $\tup s$ choose $\tup s'\in S_{p,l}$ s.t. $|s'_i-\tilde {\tup s}(i)|\leq \frac{2^{-(l+1)}}{pB^2}$ for all $i\in[0;p]$. 
+Then we have that
+\begin{align*}
+\left\|\sum_{i=0}^{p} \widetilde{\tup s}(i) X_{n+i} - \sum_{i=0}^{p} {s'}_i X_{n+i}\right\| = 
+\left\|\sum_{i=0}^{p} |\widetilde{\tup s}(i)-s'_i| X_{n+i} \right\| \leq
+\frac{2^{-(l+1)}}{pB^2}pB = \frac{2^{-(l+1)}}{B},
+\end{align*}
+and therefore also that
+$
+\left|\ \left\|\sum_{i=0}^{p} \widetilde{\tup s}(i) X_{n+i}\right\| - \left\|\sum_{i=0}^{p} {s'}_i X_{n+i}\right\| \ \right|\leq\frac{2^{-(l+1)}}{B},
+$
+so finally we get that
+\[
+\left|\ \left\|\sum_{i=0}^{p} \widetilde{\tup s}(i) X_{n+i}\right\|^2 - \left\|\sum_{i=0}^{p} {s'}_i X_{n+i}\right\|^2\  \right| \leq \frac{2^{-(l+1)}}{B} ( B + \frac{2^{-(l+1)}}{B} ) \leq 2^{-l}.
+\]
+\end{proof}
+
+%\begin{lemma*}[$M$ is a majorant]{l:M}
+%Each of the terms $M$,$P$,$N$,$M_0$,$P_0$,$N_0$,$R$ majorizes itself.
+%In particular we have:
+%\[ \forall l'\geq l\forall h',h ( \forall n (h(n)\geq h'(n)) \rightarrow N_0(l',h^M)\geq N_0(l,h') ) \]
+%and
+%\[ \forall l,g \forall n\leq N(l,g^M) \forall p\leq P(l,g^M)\ ( P(l,g^M)\geq P_0(l,F(l,g^M,n))\ \wedge\ M(l,g^M)\geq M_0(l,n,p) ) . \]
+%%and  
+%%\[ \forall l \forall g \forall n'\geq n (\ (H(l,g))(n') \geq (H(l,g))(n)\ ). \]
+%\end{lemma*}
+
+\begin{lemma*}[$N_0$ is correct]{l:N0}
+The sentence
+\[
+\forall l,h \exists n \forall i,j\in[n;n+h(n)]\ \big( i\leq j\rightarrow \|X_i\|^2-\|X_j\|^2\leq 2^{-l}\big)
+\]
+is witnessed by an $n\leq N_0(l,h)$.
+\end{lemma*}
+\begin{proof}
+The sequence $(\|X_n\|)$ is bounded from below therefore we have:
+\[ \forall l \exists r \forall k \ \big( \|X_k\|^2 + 2^{-l}\geq \|X_r\|^2\big).\]
+%and in particular
+%\[ \forall l \exists r \forall k\geq r \|X_k\| + 2^{-l}\geq \|X_r\|\]
+For any given $l$ we fix such an $r$. The following statements 
+imply that $(\|X_n\|)$ is a Cauchy sequence:
+\begin{enumerate}
+	\item\label{e1} $\exists k_0 \forall k\geq k_0 \quad \big(\|X_k\|^2\leq \|X_{r}\|^2 + 2^{-l}\big)$, and
+	\item\label{e2} $\forall k \quad \big(\|X_k\|^2 + 2^{-l}\geq \|X_{r}\|^2\big) $,\\
+\end{enumerate}
+since \eqref{e1}$\wedge$\eqref{e2} means that there is an index
+from which on the norm of any of the remaining elements of the sequence is $2^{-l}$ close to
+a fixed number, namely $\|X_{r}\|$, and therefore the norms
+of any two such elements can't differ form each other by more than $2^{-l+1}$.
+While the second condition follows immediately, to prove the first condition, assume towards contradiction
+\[\forall k_0 \exists k\geq k_0 \quad \big( \|X_k\|^2> \|X_{r}\|^2 + 2^{-l}\big).\]
+Applied to $k_0 = r + K(l)$ this implies
+\[ \exists k\geq r+K(l) \quad \big( \|X_k\|^2 > \|X_{r}\|^2 + 2^{-l}\big),\]
+which is a contradiction to \eqref{one} applied to $m=n$ and  \eqref{two}:
+\[ \forall n^0,k^0\quad \big( \|X_{n+k}\|^2 \leq \|X_{n}\|^2 + \frac{\delta_k}{4}\big) \quad\wedge\quad 
+\forall n^0 \forall i^0\geq K(n)\quad  \big( \delta_i\leq 2^{-n}\big). \]
+This concludes the proof that $(\|X_n\|)$ is a Cauchy sequence:
+\[\forall l \exists k_0 \forall k\geq k_0 \quad  \Big(\ \big|\ \|X_k\|^2 - \|X_{k_0}\|^2 \big| \leq 2^{-l}\ \Big). \]
+We rewrite this using the n.c.i. Let $R$ denote a bound for the n.c.i. of the existence
+of the approximate infimum of the sequence, i.e.:
+\[ \forall l,u \exists r\leq R(l,u) \forall i\leq u(r) 
+	\quad \big( \|X_{i}\|^2 + 2^{-l}\geq \|X_{r}\|^2\big)\tag{R}\label{e:R},\]
+as it is defined in~\cite{Kohlenbach08} (note that since $R$ does not depend on the sequence, it does not
+matter, whether we consider $(\|X_n\|)$ or $(\|X_n\|^2)$, except that we have to consider
+a bound for $(\|X_0\|^2)$ rather than $(\|X_0\|)$).
+We have ($N_0(l,h)=R(l+1,u)+K(l)$ with $ u:\equiv\lambda n . (n + K(l))+h(n + K(l))$)
+\begin{align*}
+\forall l,h \exists n\leq N_0(l,h) \quad  \Big(\ \big|\ \|X_{n+h(n)}\|^2 - \|X_{n}\|^2\big| \leq 2^{-l}\ \Big),  \tag{N0}\label{e:N_0} 
+\end{align*}
+since the following holds (here $N_0'(l,h,r) = r+K(l)$):
+\begin{align*}
+\forall l,h \exists r\leq R(l+1,u)\ \big(
+		  & \|X_{N_0'(l,h,r)+h(N_0'(l,h,r))}\|^2\leq \|X_{r}\|^2 + 2^{-l-1}\ \wedge\\
+		  & \|X_{N_0'(l,h,r)+h(N_0'(l,h,r))}\|^2 + 2^{-l-1}\geq \|X_{r}\|^2 \big).
+\end{align*}
+The second inequality follows from~\eqref{e:R} (for $u$ as above) since
+\begin{align*}
+u(r)&=(\lambda n . (n + K(l))+h(n + K(l))) (r) = r + K(l) + h(r + K(l)) \\
+&=N_0'(l,h,r)+h(N_0'(l,h,r)).
+\end{align*}
+The first condition follows from
+\begin{align*}
+\|X_{N_0'(l,h,r)+h(N_0'(l,h,r))}\|^2&=\|X_{r+K(l)+h(N_0'(l,h,r))}\|^2\\
+&\leq\|X_{r}\|^2+\frac{\delta_{K(l)+h(N_0'(l,h,r))}}{4}\leq\|X_{r}\|^2 + 2^{-l-1}.
+\end{align*}
+Note that for all $r\leq R(l,u)$ we have that $N_0'(l,h,r)\leq N_0'(l,h,R(l,u)) = N_0(l,h)$.
+Finally, given any $h$ in the claim, we can define 
+\begin{align*}
+h'(n):=&\min\Big\{ i\in [0;h(n)]\, \Big|\, 
+ \forall j\in[0;h(n)]\ \Big(\big|\, \|X_{n+i}\|^2 - \|X_n\|^2 \big| \geq \big|\, \|X_{n+j}\|^2- \|X_n\|^2 \big|\Big) \Big\}.
+\end{align*}
+Now the claim follows from~\eqref{e:N_0} applied to $h'$, the triangle inequality and the fact
+that we actually prove not only that  
+$\|X_{i}\|^2 - \|X_j\|^2\leq 2^{-l}$ 
+but also
+$|\ \|X_{i}\|^2 - \|X_j\|^2 |\leq 2^{-l}$, and 
+$
+N_0(l,h')\leq N_0(l,h^M),
+$
+which follows from lemma~\ref{l:M} (we discuss a similar argument in the proof of Corollary~\ref{c:finInt} in more detail). \\
+\end{proof}
+
+\begin{lemma*}[$P_0$ is correct]{l:P0}
+\[
+\forall l,f,n\exists p\leq P_0(l,f)\ ( C(l,n,p)\leq C(l,n,f(p)) + 2^{-l} ).
+\]
+\end{lemma*}
+\begin{proof}
+Given any $n$ and any $l$, the sequence $(a_i)$ defined by
+%\footnote{Note that
+%we can consider $a_i:=C(i,n,n)$ if $n>>l$ which is always true in our case.}
+$
+a_i:=C(l,n,i)
+$
+is monotone, since for $i<j$ we have 
+$\widetilde{S_{i,l}} \subseteq \widetilde{S_{j,l}}$ (in the sense that$\forall \tup s \in S_{i,l}\exists \tup s'\in S_{j,l}\ \widetilde{\tup s}=\widetilde{\tup s'}$) 
+and therefore also $C(l,n,i)\geq C(l,n,j)$. Hence the claim follows from Proposition 2.26 in~\cite{Kohlenbach08}.
+\end{proof}
+
+Next we prove the three lemmas, which give a quantitative analysis of the original proof in~\cite{Wittmann90}.\\
+
+\begin{lemma*}[The scalar product increase is bounded]{l:scpb}
+For any $l$ and any $g$, consider $h:= H(l,g^M)$. Let
+$n$ be a witness for Lemma~\ref{l:N0}, i.e. 
+\[
+n\leq N(l,h)\ \wedge\ \forall i,j\in[n;n+h(n)]\ 
+\big( i\leq j\rightarrow \|X_i\|^2-\|X_j\|^2\leq 2^{-l-1} \big) . \tag{N}\label{e:N1}
+\]
+Moreover let $f:=F(l,g^M,n)$,
+%$p$ be a witness for Lemma~\ref{l:P0}, i.e. 
+%\begin{align*}
+%p\leq P_0(l,f)\ \wedge\ ( C(l,n,p)\leq C(l,n,f(p)) + 2^{-l}  ),  \tag{P}\label{e:P1}\\
+%\end{align*} 
+$p$ be a number smaller than $P_0(l,f)$
+and  $m:=M_0(l,n,p)$. Then we have that
+\[ 
+\langle X_{a+k},X_{b+k} \rangle \leq \langle X_{a},X_{b} \rangle + 2^{-l}
+\]
+holds for all $k,a,b$ s.t. $K(l)\leq k \leq K(l)+m+g^M(m)$ and $ n\leq a,b \leq n+p$.
+\end{lemma*}
+\begin{proof}
+We have
+\[
+\|X_{a+k}+X_{b+k}\|^2 \leq \|X_{a}+X_{b}\|^2 + 2^{-l} \tag{1}\label{e:sc1}
+\] since $k\geq K(l)$. Moreover we can infer
+\[
+\|X_{a+k}\|^2 \geq \|X_{a}\|^2 - 2^{-l-1} \wedge \|X_{b+k}\|^2 \geq \|X_{b}\|^2 - 2^{-l-1} \tag{2}\label{e:sc2}
+\] from~\eqref{e:N1}, $a\geq n$, $b \geq n$, and 
+\begin{align*}
+ a+k,b+k &\leq n+p+m+g^M(m)+K(l) \\
+ &= n+p+M_0(l,n,p)+g^M(M_0(l,n,p))+K(l) \\
+% &\leq n + \max\{ p+M_0(l,n,p)+g(M_0(l,n,p))+K(l) | p\leq P_0(l,F(l,g,n)) \} \\
+% &=n+H(l,g)(n) = n+h(n).
+ &\leq n+H(l,g^M)(n) = n+h(n). 
+\end{align*}
+Therefore
+\begin{align*}
+\langle X_{a+k},X_{b+k} \rangle &= \frac{1}{2}( \|X_{a+k}+X_{b+k}\|^2 - \|X_{a+k}\|^2 - \|X_{b+k}\|^2 )\\
+&\leq \frac{1}{2}( \|X_{a}+X_{b}\|^2 + 2^{-l} - \|X_{a}\|^2 + 2^{-l-1} - \|X_{b}\|^2  + 2^{-l-1})\\
+&= \langle X_{a},X_{b} \rangle + 2^{-l}.
+\end{align*}
+\end{proof}
+
+\begin{lemma*}[$Z$s are close]{l:Zs}
+For any $l$ and any $g$, consider $h:= H(l,g^M)$. Let
+$n$ be a witness for Lemma~\ref{l:N0}, i.e. 
+\[
+n\leq N(l,g^M)\ \wedge\ \forall i,j\in[n;n+h(n)]\ 
+\big( i\leq j\rightarrow \|X_i\|^2-\|X_j\|^2\leq 2^{-l-1} \big) . \tag{N} \label{e:N2}
+\]
+Moreover let $m:=M_0(l,n,p)$, $f:=F(l,g^M,n)$ and 
+$p$ be a witness for Lemma~\ref{l:P0}, i.e. 
+\begin{align*}
+p\leq P_0(l,f)\ \wedge\ ( C(l,n,p)\leq C(l,n,f(p)) + 2^{-l}  ),  \tag{P}\label{e:P2}\\
+\end{align*} 
+Then we have that
+$
+\|Z(l,n,p,m) - Z( l,n,p,m+g(m) ) \|^2 \leq 2^{-l+4}.
+$
+%holds for $m=M_0(l,n,p)$.
+\end{lemma*}
+\begin{proof}
+Firstly, we will show that
+\[
+\|\frac{1}{2}( Z(l,n,p,m) + Z( l,n,p,m+g(m) )  )\|^2 + 2^{-l+1} \geq C(l,n,p). \tag{1}\label{e:Zup}
+\]
+Since $\frac{1}{2}( Z(l,n,p,m) + Z( l,n,p,m+g(m) )  )$ is a convex
+combination of \[ X_{n+K(l)},\ldots,X_{n+K(l)+p+m+g(m)},\] 
+we obtain by Lemma~\ref{l:newC} that
+\begin{align*}
+\Big\|\frac{1}{2}( Z(l,n,p,m) + Z( l,n,p,m&+g(m) )  )\Big\|^2 + 2^{-l} \geq\\ &C( l,n,n+K(l)+p+m+g^M(m) ). 
+\end{align*}
+Now, because of 
+\begin{align*}
+f(p)&=p+n+K(l)+M_0(l,n,p)+g^M(M_0(l,n,p))\\&=n+K(l)+p+m+g^M(m), 
+\end{align*}
+it follows from~\eqref{e:P2} that
+\[
+ C( l,n,n+K(l)+p+m+g^M(m) ) \geq  C(l,n,p) - 2^{-l}, % \tag{1.1}\label{e:ZupPrime}
+\]
+which concludes the proof of~\eqref{e:Zup}.
+Secondly, we will show that \[
+\forall o\leq m+g(m)\ \big( \big\| Z( l,n,p,o ) \big\|^2\leq C(l,n,p) + 2^{-l} \big). \tag{2}\label{e:Zdown}
+\] 
+Let $\tup s$ be the tuple corresponding to the tuple in the definition of $C(l,n,p)$ (note that $\tilde{\tup s}=\tup s$).
+By Lemma~\ref{l:scpb} we have
+\begin{align*}
+\bigg\|\sum^{p}_{i=0} s_i X_{n+k+i}\bigg\|^2&=\sum^{p}_{i,j=0}  s_i s_j \langle X_{n+k+i},X_{n+k+j} \rangle \\
+&\leq \sum^{p}_{i,j=0}  s_i s_j \langle X_{n+i},X_{n+j} \rangle + \sum^{p}_{i,j=0}  s_i s_j 2^{-l}=\bigg\|\sum^{p}_{i=0} s_i X_{n+i}\bigg\|^2+2^{-l},
+\end{align*}
+for all $K(l)\leq k \leq K(l)+m+g^M(m)$, since $n\leq n+i,n+j\leq n+p$. Together with the convexity of the square function (and the definition of $Z$) this implies~\eqref{e:Zdown}.\\
+Finally, the claim follows from \eqref{e:Zup}
+%, \eqref{e:ZupPrime} 
+and \eqref{e:Zdown} by the parallelogram identity:
+\begin{align*}
+\big\|Z&(l,n,p,m) - Z( l,n,p,\tilde g(m) ) \big\|^2 =\\ 
+&=2\big\|Z( l,n,p,m)\big\|^2 + 2\big\|Z( l,n,p,\tilde g(m) )\big\|^2  - \big\|Z(l,n,p,m) + Z( l,n,p,\tilde g(m) )\big\|^2 \\
+&\leq 4( C(l,n,p) + 2^{-l} ) - 4( C(l,n,p) - 2^{-l+1} ) = 2^{-l+2} + 2^{-l+3} \leq 2^{-l+4}.
+\end{align*}
+\end{proof}
+
+\begin{lemma*}[$Z$s and $A$s are close]{l:ZA}
+For any $l$ and any $g$ let $h:= H(l,g^M)$ and
+$n$ be a witness for Lemma~\ref{l:N0}, i.e. 
+\[
+n\leq N(l,g^M)\ \wedge\ \forall i,j\in[n;n+h(n)]\ \big( \ i\leq j\rightarrow \|X_i\|^2-\|X_j\|^2\leq 2^{-l-1}\big). \tag{N}\label{e:N3}
+\]
+Moreover let $f:=F(l,g^M,n)$,
+$p$ be a witness for Lemma~\ref{l:P0}, i.e. 
+\begin{align*}
+p\leq P_0(l,f)\ \wedge\ ( C(l,n,p)\leq C(l,n,f(p)) + 2^{-l}  ),  \tag{P}\label{e:P3}\\
+\end{align*} 
+and set $m:=M_0(l,n,p)$, $m':=m+g(m)$.
+Then we have that
+\[
+ \big\|A_{m+1} - Z( l,n,p,m )\big\|\leq \frac{1}{m+1}(2n + 2p + 2K(l))B +2^{-l}
+\]
+and
+\[
+ \big\|A_{m'+1} - Z( l,n,p,m' )\big\|\leq \frac{1}{m'+1}(2n + 2p + 2K(l))B +2^{-l}.
+\]
+\end{lemma*}
+
+\begin{proof}
+From the definition of $Z$ we see that (note that $m,m'\geq p$):
+\begin{align*}
+(m+1)Z(l,n,p,m) - \sum^{n+K(l)+m}_{i=n+p+K(l)} X_{i} = 
+\sum^{p-1}_{i=0} t_iX_{n+K(l)+i} + \sum^{p}_{i=l} r_iX_{n+K(l)+m+i},
+\end{align*}
+for suitable $\tup t$ and $\tup r$ with $0\leq t_i,r_i\leq 1$. Hence (note that $m,m'\geq K(l)+n+p$)
+\begin{align*}
+(m&+1)\big\|Z( l,n,p,m ) - A_{m+1}\big\| =
+	 \bigg\| \sum^{K(l)+m}_{k=K(l)}\sum^{p}_{i=0}  \widetilde{\tup s}_i X_{n+k+i} - \sum^{m+1}_{i=1}X_i \bigg\|	\\
+	 &=\bigg\| \sum^{p-1}_{i=0} t_iX_{n+K(l)+i} + \sum^{p}_{i=1} r_iX_{n+K(l)+m+i} + \sum^{n+K(l)+m}_{i=n+p+K(l)} X_{i} 
+	      - \sum^{m+1}_{i=1}X_i \bigg\| \\
+	 &= \bigg\| \sum^{p-1}_{i=0} t_iX_{n+K(l)+i} + \sum^{p}_{i=1} r_iX_{n+K(l)+m+i} + \sum^{n+K(l)+m}_{i=m+2} X_{i} - \sum^{n+p+K(l)-1}_{i=1} X_{i}  \bigg\| \\
+	 &\leq \bigg\| \sum^{p-1}_{i=0} t_iX_{n+K(l)+i} - \sum^{n+p+K(l)-1}_{i=1} X_{i} \bigg\| + \bigg\|\sum^{p}_{i=1} r_iX_{n+K(l)+m+i} \bigg\| +  \bigg\| \sum^{n+K(l)+m}_{i=m+2} X_{i} \bigg\|  \\
+	 &\leq (n+p+K(l)-1)B + pB + (n+K(l)-1)B \leq (2n + 2p + 2K(l))B.
+\end{align*}
+Obviously, same holds for $m'$.\\
+\end{proof}

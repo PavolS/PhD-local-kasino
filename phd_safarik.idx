@@ -1,0 +1,67 @@
+\indexentry{Proof Mining}{ii}
+\indexentry{$\ensuremath  {\textsf  {\upshape  G}_n\textsf  {\upshape  A}^\omega }$}{iii}
+\indexentry{$\ensuremath  {\Pi ^0_1}$}{v}
+\indexentry{$\ensuremath  {\Sigma ^0_1}$}{v}
+\indexentry{$\lh  (s)$}{v}
+\indexentry{$[s]$}{v}
+\indexentry{$\overline  {f}n$}{v}
+\indexentry{$\varnothing $}{v}
+\indexentry{monotone functional interpretation}{1}
+\indexentry{MD-interpretation}{1}
+\indexentry{majorize}{2}
+\indexentry{set of all finite types}{2}
+\indexentry{$\ensuremath  {\emph  {\textbf {T}}}$}{2}
+\indexentry{set of pure types}{2}
+\indexentry{$\ensuremath  {\emph  {\textbf {P}}}$}{2}
+\indexentry{degree}{2}
+\indexentry{type level}{2}
+\indexentry{$\ensuremath  {{\textsf  {\upshape  WE-HA}}^{\omega }}$}{3}
+\indexentry{Terms}{3}
+\indexentry{(Prime) Formulas}{3}
+\indexentry{atomic formulas}{3}
+\indexentry{$\ensuremath  {{\textsf  {\upshape  WE-PA}}^{\omega }}$}{7}
+\indexentry{axioms of higher type extensionality}{7}
+\indexentry{\textsf  {\upshape  E}}{7}
+\indexentry{$\ensuremath  {{\textsf  {\upshape  E-HA}}^\omega }$/$\ensuremath  {{\textsf  {\upshape  E-PA}}^\omega }$}{7}
+\indexentry{negative translation}{9}
+\indexentry{D-interpretation}{10}
+\indexentry{Independence-of-Premise}{11}
+\indexentry{$\ensuremath  {\textsf  {\upshape  IP}}^\omega _\forall $}{11}
+\indexentry{ND-interpretation}{12}
+\indexentry{majorizability}{13}
+\indexentry{$x^*\maj  _\rho x$}{13}
+\indexentry{majorizes}{13}
+\indexentry{MD-interpretation}{14}
+\indexentry{monotone functional interpretation}{14}
+\indexentry{MD-interpretation}{14}
+\indexentry{NMD-interpretation}{14}
+\indexentry{model of all set-theoretic functionals}{15}
+\indexentry{model of all sequentially continuous functionals}{15}
+\indexentry{model of strongly majorizable functionals}{15}
+\indexentry{Bar Recursion}{16}
+\indexentry{bar recursor}{16}
+\indexentry{restricted bar recursor}{17}
+\indexentry{Scheme 1}{17}
+\indexentry{Scheme 2}{17}
+\indexentry{\text  {$\ensuremath  {\Sigma ^0_1\textsf  {\upshape  -LEM}}(f)$}}{18}
+\indexentry{$(\ensuremath  {\Sigma ^0_1\textsf  {\upshape  -LEM}})'$}{18}
+\indexentry{\text  {$\Sigma ^0_2\textsf  {\upshape  -}\ensuremath  {\textsf  {\upshape  DNS}}(f)$}}{19}
+\indexentry{$\ensuremath  {\Pi ^0_1\textsf  {\upshape  -}}\ensuremath  {\textsf  {\upshape  AC}}(f)$}{20}
+\indexentry{$(\ensuremath  {\Pi ^0_1\textsf  {\upshape  -}}\ensuremath  {\textsf  {\upshape  AC}}(f))'$}{20}
+\indexentry{Schema of Comprehension}{21}
+\indexentry{Full Comprehension}{21}
+\indexentry{Arithmetical Comprehension}{21}
+\indexentry{Comprehension over numbers}{21}
+\indexentry{$\ensuremath  {\Pi ^0_1\textsf  {\upshape  -}}\ensuremath  {\textsf  {\upshape  CA}}$}{21}
+\indexentry{$\ensuremath  {\textsf  {\upshape  WKL}}(\varphi )$}{28}
+\indexentry{$\ensuremath  {\textsf  {\upshape  WKL}}\equiv \forall f\ensuremath  {\textsf  {\upshape  WKL}}(f)$}{29}
+\indexentry{$\ensuremath  {\textsf  {\upshape  WKL}}_s$}{32}
+\indexentry{$\ensuremath  {\textsf  {\upshape  FAN}}$}{32}
+\indexentry{secured}{33}
+\indexentry{primitive recursive}{38}
+\indexentry{G\"odel primitive recursive functionals of finite type}{38}
+\indexentry{$\alpha $-recursive}{38}
+\indexentry{ordinal recursion}{39}
+\indexentry{$\alpha $-recursive}{39}
+\indexentry{computation size}{40}
+\indexentry{$\{\alpha , c, t\}$}{40}

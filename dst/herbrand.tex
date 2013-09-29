@@ -1,0 +1,179 @@
+\section{Herbrand realizability}
+
+In this section we will introduce a new realizability interpretation, which will allow us to prove our first consistency and conservation results in the context of $\ehaststar$. Our treatment here will be entirely proof-theoretic; for a semantic approach towards Herbrand realizability, see \cite{berg12}.
+
+\subsection{The interpretation}
+
+The interpretation works by associating to every formula $\Phi(\tup x)$ a formula $\Psi(\tup t,\tup x)$, also denoted by $\tup t \hr \Phi(\tup x)$, where $\tup t$ is a tupe of new variables \emph{all of which are of sequence type}, determined solely by the logical form of $\Phi(\tup x)$. The soundness proof will then involve showing that for every formula $\Phi(\tup x)$ of $\ehaststar$ with $\ehaststar \vdash \Phi(\tup x)$ there is an appropriate tuple $\tup t$ of terms from $\Tstar$ such that $\ehaststar \vdash \tup t \hr \Phi(\tup x)$.
+
+The idea of the interpretation is that we interpret internal quantifers uniformly and that we do not attempt to give them any computational content. In a sense, the only predicate to which we will assign any computational content is the standardness predicate $\st$: to realize $\st^\sigma(x)$, however, it suffices to provide a nonempty finite list of terms of type $\sigma$, one of which will have to be equal to $x$. Therefore to realize a statement of the form $\existsst x^\sigma \, \Phi(x)$ one only needs to provide a finite list $\langle y_0, \ldots, y_n \rangle$ and to make sure that $\Phi(y_i)$ is realized for some $i \leq n$ (which is like giving a Herbrand disjunction; hence the name ``Herbrand realizability'').
+
+The precise definition is as follows:
+\begin{dfn}[Herbrand realizability for $\ehaststar$]\label{d:herRel}
+\begin{align*}
+[]&\hr \phi  & &:\equiv& &\phi\quad \text { for an internal atomic formula $\phi$}, \\
+%t&\hr \st(s) & &:\equiv& &t=\langle t_0, \ldots, t_n\rangle\text{ and $s=t_i$ for some $i\leq n$},\\
+s&\hr \st(x) & &:\equiv& & x \in s, \\
+\tup s, \tup t&\hr (\Phi\vee\Psi) & &:\equiv& &\tup s\hr\Phi\vee \tup t\hr\Psi,\\
+ \tup s, \tup t & \hr (\Phi \wedge \Psi) & &:\equiv& &\tup {s}\hr\Phi \, \land \, \tup {t}\hr\Psi,\\
+\tup s&\hr (\Phi \rightarrow \Psi) & &:\equiv& & \forallst \tup t\ (\ \tup t\hr\Phi
+ \rightarrow\tup s \, [\tup t \, ] \hr\Psi),\\
+\tup s&\hr \exists x \, \Phi(x) & &:\equiv& & \exists x\ (\tup s\hr\Phi(x)),\\
+\tup s&\hr \forall x \, \Phi(x) & &:\equiv& & \forall x\ (\tup s\hr\Phi(x)),\\
+s, \tup t &\hr \existsst x \, \Phi(x) & &:\equiv & & \exists s' \in s \, \big( \, \tup t \hr \Phi(s') \, \big),\\
+\tup s &\hr \forallst x \, \Phi(x) & &:\equiv& & \forallst x\ \big(\tup s \, [x] \hr \Phi(x)\big).
+\end{align*}
+\end{dfn}
+
+Before we show the soundness of the interpretation, we first prove some easy lemmas:
+
+\begin{dfn}[The $\exists^{\st{}}$-free formulas]
+We call a formula (in the language of $\ehaststar$) $\exists^{\st{}}$-free, if it is built up from atomic formulas (including $\bot$) using the connectives $\wedge$, $\lor$, $\to$ and the quantifiers $\exists x$, $\forall x$ and $\forallst x$. Alternatively, one could say that these are the formulas in which $\st$ and $\existsst$ do not occur. We denote such formulas by $\Phi_{\not\exists^{\st}}$.
+\end{dfn}
+
+\begin{lemma}[Interpretation of $\exists^{\st{}}$-free formulas]\label{l:IntOfEFFormulas} All the interpretations $\tup t \hr \Phi(\tup x)$ of formulas $\Phi(\tup x)$ of $\ehaststar$ are $\exists^{\st{}}$-free. In addition, every $\exists^{\st{}}$-free formula is interpreted by itself. Hence the interpretation is idempotent.
+\end{lemma}
+
+The following lemma will be crucial for what follows:
+
+\begin{lemma}[Realizers are provably upwards closed]\label{l:hrealizersext} The formula $\tup t \hr \Phi(\tup x)$ is provably upwards closed in $\tup t$, that is: 
+\[ \ehaststar \vdash \tup s\hr\Phi \land \tup s \preceq \tup t \to \tup t\hr\Phi. \]
+\end{lemma}
+\begin{proof}
+By induction on the structure of $\Phi$, using the monotonicity of the new application in the first component in the clauses for $\to$ and $\forallst$.
+\end{proof}
+
+\begin{thm}[Soundness of Herbrand realizability]
+Let $\Phi$ be an arbitrary formula of $\ehaststar$ and $\Delta_{\not\exists^{\st}}$ be an arbitrary set of $\existsst$-free sentences. Whenever
+\[\ehaststar + \Delta_{\not\exists^{\st}} \quad \vdash\quad\Phi(\tup x),\]
+then one can extract from the formal proof closed terms $\tup t$ in $\Tstar$, such that
+\[\ehaststar + \Delta_{\not\exists^{\st}} \quad\vdash\quad \tup t \hr \Phi(\tup x).\]
+\end{thm}
+\begin{proof}
+As for the logical axioms and rules, the differences with the usual soundness proof of modified realizability for $\eha$ (as in \cite{Troelstra73} or Theorem 5.8 in~\cite{Kohlenbach08}) are
+\begin{enumerate}
+\item[(a)] that we require the realizing terms to be closed,
+\item[(b)] that we have a nonconstructive interpretation of disjunction, and 
+\item[(c)] that we interpret the quantifiers in a uniform fashion.
+\end{enumerate}
+Therefore one has to make the following modifications:
+\begin{enumerate}
+\item The contraction axiom $A \lor A \to A$ is realized by $\Lambda \tup x, \tup y. \tup x * \tup y$, using that the collection of realizers is provably upwards closed.
+\item The weakening axiom $A \to A \lor B$ is realized by $\Lambda \tup x.\tup x, {\cal O}$.
+\item The permutation axiom $A \lor B \to B \lor A$ is realized by $\Lambda \tup x, \tup y.\tup y, \tup x$.
+\item The axioms of $\forall$-elimination $\forall x\Phi(x)\rightarrow\Phi(t)$ and $\exists$-introduction $\Phi(t)\rightarrow\exists x\Phi(x)$ are realized by the identity tuple $\Lambda \tup x\ .\ \tup x$.
+\item The expansion rule $\frac{A \to B}{A \lor C \to A \lor C}$: if $\tup t \hr A \to B$, then $\Lambda \tup x, \tup y. \tup t[\tup x], \tup y$ is a Herbrand realizer of $A \lor C \to A \lor C$.
+\item The $\forall$-introduction rule $\frac{\Phi\rightarrow\Psi(x)}{\Phi\rightarrow\forall x\Psi(x)}$ is interpreted, because $\tup s\hr (\Phi\rightarrow\Psi(x))$ implies $\tup s \hr  (\Phi\rightarrow\forall x\Psi(x))$: for if $\tup t \hr \Phi$ and $\st(\tup t)$, then $\tup s[\tup t]  \hr \Psi(x)$ and therefore $\tup s[ \tup t] \hr  \forall x\Psi(x)$.
+\item The $\exists$-introduction rule $ \frac{\Phi(x)\rightarrow\Psi}{\exists x\Phi(x)\rightarrow\Psi}$ is interpreted, because $\tup s \hr (\Phi(x)\rightarrow\Psi)$ implies $\tup s \hr (\exists x\Phi(x)\rightarrow\Psi)$: for if $\tup t \hr \exists x\Phi(x)$ and $\st(\tup t)$, then there is an $x$ such that $ \tup t\hr \Phi(x)$, from which it follows that $\tup s[\tup t] \hr \Psi$. 
+\end{enumerate}
+The sentences from $\Delta_{\not\exists^{\st}}$ and the axioms of $\ehastar$, including $\SA$ and the defining axioms for equality, successor, combinators and recursion, are $\exists^{\st{}}$-free and therefore realized by themselves. Therefore it remains to show the soundness of the following rules and axioms:
+\begin{enumerate}
+\item The external quantifier axioms $\EQ$: both directions in $\existsst x \Phi(x) \leftrightarrow  \exists x (\st(x)\wedge\Phi(x))$ are interpreted by the the identity. In $\forallst x \Phi(x) \leftrightarrow   \forall x (\st(x)\rightarrow\Phi(x))$ the right-to-left direction is realized by $\Lambda \tup s, x. \tup s \, [\langle x \rangle]$, while the left-to-right direction is realized by $\Lambda \tup s, x. \tup s[x_0] * \ldots * \tup s[x_{|x|-1}]$.
+\item The axiom schemes $\Tst$: the principle $\st(x) \land x = y \to \st(y)$ is realized by the identity, while $\st(t)$ is realized by $\langle t \rangle$. In addition, $\st(f) \land \st(x) \to \st(fx)$ is realized by $\Lambda f, x. \langle f_i(x_j) \rangle_{i < |f|, j < |x|}$. 
+\item The induction schema $\IA^{\st{}}$:
+suppose $\tup s \hr \Phi(0)$ and $\tup t \hr \forallst n (\Phi(n)\rightarrow\Phi(n+1))$, with $\st(\tup s)$ and $\st(\tup t)$. Then $\ehaststar$ proves by external induction that for standard natural numbers $n$, the term $\tup {\mathcal R} (n,\tup s,\atup t)$ is standard and $\tup {\mathcal R} (n,\tup s,\atup t) \hr \Phi(n)$. Therefore $\Lambda \tup x,\tup y, n\ .\ \tup {\mathcal R} (n,\tup x,\atup y) \hr \IA^{\st{}}$.
+\end{enumerate}
+\end{proof}
+
+\subsection{The characteristic principles of Herbrand realizability}
+
+In this section we will prove that $\HAC$ (the herbrandized axiom of choice), $\HIP_{\not\exists^{\st}}$ (the herbrandized independence of premise principle for $\exists^{\st}$-free formulas) and $\NCR$ axiomatize Herbrand realizability:
+\begin{enumerate}
+\item $\HAC$ : \[
+     \forallst x \existsst y \, \Phi(x,y) \to \existsst F \forallst x \exists y \in F(x) \,  \Phi (x,y),
+            \]
+            where $\Phi(x,y)$ can be any formula.
+           If $\Phi(x,y)$ is upwards closed in $y$, then this is equivalent to
+           \[
+               \forallst x \existsst y  \, \Phi(x,y) \to \existsst F \forallst x \, \Phi (x,F(x)).
+            \]
+\item $\HIP_{\not\exists^{\st}}$: \[
+    \big( \Phi \to\existsst y \, \Psi(y)\big)\rightarrow \existsst y \, \big( \Phi \to \exists y' \in y \, \Psi(y')\big),
+            \]
+            where $\Phi$ has to be an $\existsst$-free formula and $\Psi(y)$ can be any formula.
+           If $\Psi(y)$ is upwards closed in $y$, then this is equivalent to
+           \[
+        \big( \Phi \to\existsst y\Psi(y)\big)\rightarrow \existsst y \, \big(\Phi \to \Psi(y)\big).  
+            \]
+\item $\NCR$: \[
+                \forall x \existsst y \,  \Phi (x,y) \to \existsst y \, \forall x \, \exists y' \in y \, \Phi(x,y') ,
+            \]
+            where $\Phi(x, y)$ can be any formula.
+           If $\Phi(x,y)$ is upwards closed in $y$, then this is equivalent to
+           \[
+               \forall x \existsst y \, \Phi (x,y) \to \existsst y \forall x  \, \Phi(x,y) .
+            \]
+\end{enumerate}
+
+\begin{thm}[Characterization theorem for Herbrand realizability]
+\qquad 
+\begin{enumerate}
+\item For any instance $\Phi$ of $\HAC$, $\HIP_{\not\exists^{\st}}$ or $\NCR$, there are closed terms $\tup t$ in $\Tstar$ such that \[ \ehaststar \vdash \tup t \hr \Phi. \]
+\item For any formula $\Phi$ of $\ehaststar$, we have
+\[ \ehaststar + \HAC + \HIP_{\not\exists^{\st}} +\NCR \vdash \Phi \leftrightarrow \existsst \tup x \, ( \tup x \hr \Phi). \]
+\end{enumerate}
+\end{thm}
+\begin{proof}
+Soundness of $\HAC$: If $\tup r = s, \tup t$ and $\tup r \hr \forallst x\existsst y \Phi(x,y)$, then for every standard $x$ there is an $s' \in s[x]$ such that $\tup t[x] \hr \Phi(x, s')$. Hence $\langle \lambda x. s[x] \rangle, \tup t \hr \existsst F \forallst x \exists y \in F(x) \,  \Phi (x,y)$. So $\HAC$ is realized by $\Lambda x, \tup y.\langle \lambda z. x[z] \rangle, \tup y$.
+
+Soundness of $\HIP_{\not\exists^{\st}}$: Suppose $\Phi$ is $\existsst$-free, $\tup r = s, \tup t$ and $\tup r \hr \Phi \to \existsst y \Phi(y)$. This means that if $\Phi$ would hold, then there would be an $s' \in s$ such that $\tup t \hr \Psi(s')$. Hence $\langle s \rangle, \tup t \hr \existsst y (\Phi \to \exists y' \in y \Psi(y'))$. So  $\HIP_{\not\exists^{\st}}$ is realized by $\Lambda x, \tup y.\langle x \rangle, \tup y$.
+
+In a similar manner one checks that also $\NCR$ is realized by $\Lambda x, \tup y.\langle x \rangle, \tup y$. This completes the proof of item 1.
+
+Item 2 one proves by induction on the logical structure of $\Phi$. We discuss implication as an illustrative case, as it is by far the hardest, and leave the other cases to the reader. We reason in $\ehaststar + \HAC + \HIP_{\not\exists^{\st}} +\NCR$. By induction hypothesis, we have that $\Phi \leftrightarrow \existsst \tup t (\tup t \hr \Phi)$ and $\Psi \leftrightarrow \existsst \tup s (\tup s \hr \Psi)$ and therefore
+\[ \Phi \to \Psi \]
+is equivalent to
+\[ \existsst \tup t (\tup t \hr \Phi) \to \existsst \tup s (\tup s \hr \Psi), \]
+which in turn is equivalent to:
+\[ \forallst \tup t \, \big( \, \tup t \hr \Phi \to \existsst \tup s \, ( \, \tup s \hr \Psi \, ) \, \big). \]
+Because $\tup t \hr \Phi$ is $\existsst$-free and $\tup s \hr \Psi$ is upwards closed in $\tup s$, we can use $\HIP_{\not\exists^{\st}}$ to rewrite this as:
+\[ \forallst \tup t \, \existsst \tup s \, \big( \, \tup t \hr \Phi \to \tup s \hr \Psi \, \big). \]
+As $\tup t \hr \Phi \to \tup s \hr \Psi$ is upwards closed in $\tup s$ and finite sequence application and ordinary application are interdefinable, we can use $\HAC$ to see that this is equivalent to:
+\[ \existsst \tup s \, \forallst \tup t \, \big( \, \tup t \hr \Phi \to \tup s[\tup t] \hr \Psi \, \big), \]
+which is precisely the meaning of $\existsst \tup s \, ( \, \tup s \hr (\Phi \to \Psi) \, )$.
+\end{proof}
+
+\begin{thm}[Main theorem on program extraction by $\hr$] Let $\forallst x \existsst y \Phi(x, y)$ be a sentence of $\ehaststar$ and $\Delta_{\not\exists^{\st}}$ be an arbitrary set $\existsst$-free sentences. Then the following rule holds
+\begin{align*}
+\ehaststar + \HAC + \HIP_{\not\exists^{\st}} + \NCR + \Delta_{\not\exists^{\st}} & \vdash \forallst x \, \existsst y \, \Phi(x, y) \Rightarrow \\
+\ehaststar + \HAC + \HIP_{\not\exists^{\st}} + \NCR + \Delta_{\not\exists^{\st}} & \vdash \forallst x \, \exists y \in  t(x) \, \Phi(x, y),
+\end{align*}
+where $t$ is a closed term from $\Tstar$ which is extracted from the original proof using Herbrand realizability.
+
+In the particular case where both $\Phi(x, y)$ and $\Delta_{\not\exists^{\st}}$ are internal, the conclusion yields
+\[ \ehastar + \Delta_{\not\exists^{\st}} \vdash \forall x \,  \exists y \in t(x) \, \Phi(x, y). \]
+If we assume that the sentences from $\Delta_{\not\exists^{\st}}$ are not just internal, but also true (in the set-theoretic model), the conclusion implies that $\forall x \,  \exists y \in t(x) \, \Phi(x, y)$ must be true as well.
+\end{thm}
+\begin{proof}
+If
+\begin{align*}
+\ehaststar + \HAC + \HIP_{\not\exists^{\st}} + \NCR + \Delta_{\not\exists^{\st}} & \vdash \forallst x \, \existsst y \, \Phi(x, y),
+\end{align*}
+then the soundness proof yields terms $r, \tup s$ such that
+\[ \ehaststar + \Delta_{\not\exists^{\st}} \vdash r, \tup s \hr \forallst x \, \existsst y \, \Phi(x, y). \]
+Since $r, \tup s \hr \forallst x \, \existsst y \, \Phi(x, y)$ is by definition $\forallst x \, \exists y \in r[x] ( \, \tup s \hr \Phi(x, y) \,)$, the first statement follows by taking $t = \lambda x. r[x]$.
+
+If both $\Phi(x, y)$ and $\Delta_{\not\exists^{\st}}$ are internal, then $\tup s$ is empty and we get
+\[ \ehaststar + \Delta_{\not\exists^{\st}} \vdash \forallst x \,  \exists y \in t(x) \, \Phi(x, y). \]
+By internalizing the statement, we obtain
+\[ \ehastar + \Delta_{\not\exists^{\st}} \vdash \forall x \,  \exists y \in t(x) \, \Phi(x, y). \]
+Since all the axioms of $\ehastar$ are true, this implies that $\forall x \,  \exists y \in t(x) \, \Phi(x, y)$ will be true, whenever $\Delta_{\not\exists^{\st}}$ is.
+\end{proof}
+
+\subsection{Discussion}
+
+The main virtue of Herbrand realizability may be that it points one's attention to principles like $\HAC$ and $\NCR$ and that it gives one a simple proof of their consistency. However, as a method for eliminating nonstandard principles from proofs, Herbrand realizability has serious limitations. It does eliminate the realization principle $\R$ (it even eliminates the nonclassical principle $\NCR$), but overspill, the idealization principle $\I$ and the transfer rules are $\exists^{\st}$-free and therefore simply passed to the verifying system. Even worse, the underspill principle $\US_0$ does not have a computable Herbrand realizer:
+\begin{prop}
+$\MP_0$ and $\US_0$ do not have computable Herbrand realizers.
+\end{prop}
+\begin{proof}
+It is well-known that there can be no computable function witnessing the modified realizability interpretation of Markov's principle, because its existence would imply the decidability of the halting problem. A similar argument shows that $\MP_0$ does not have a computable Herbrand realizer: Kleene's $T$-predicate $T(e, x, n)$ is primitive recursive and hence 
+\[ \ehaststar \vdash \forallst e, x, n \big( \, T(e,x, n) \lor \lnot T(e, x, n) \, \big). \]
+So if $\MP_0$ would have a computable realizer, then so would 
+\[ \forallst e \, \big( \, \lnot\lnot \existsst n\,  T(e,e, n) \to \existsst n \, T(e, e, n) \, \big). \]
+But if $t$ would be such a realizer, we could decide the halting problem by checking $T(e, e, n)$ for all $n \in t[e]$.
+
+Since $\US_0$ implies $\MP_0$ (see Proposition \ref{US_0impliesMP_0}), it follows that $\US_0$ does not have a computable realizer either.
+\end{proof}
+
+In the next section, we will show that these problems can be overcome by moving from realizability to, more complicated, functional interpretations.
