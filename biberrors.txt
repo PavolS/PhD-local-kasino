@@ -1,0 +1,38 @@
+This is BibTeX, Version 0.99c (Web2C 7.5.4)
+The top-level auxiliary file: phd_safarik.aux
+A level-1 auxiliary file: title.aux
+A level-1 auxiliary file: intro.aux
+A level-1 auxiliary file: preliminaries.aux
+A level-1 auxiliary file: mind2013/mind_ps.aux
+A level-1 auxiliary file: wittmann2011/intro_wittmann.aux
+A level-1 auxiliary file: dipl/bw.aux
+A level-1 auxiliary file: dst/CSAT.aux
+A level-1 auxiliary file: refs.aux
+The style file: plain.bst
+Database file #1: phd_safarik.bib
+Warning--I didn't find a database entry for "Kohlenbach/Leustean4"
+Warning--I didn't find a database entry for "Kohlenbach(book)"
+Warning--I didn't find a database entry for "Avigad/Gerhardy/Towsner"
+Warning--I didn't find a database entry for "Kohlenbach/Leustean3"
+Warning--I didn't find a database entry for "Kohlenbach(Browder)"
+Warning--I didn't find a database entry for "Kohlenbach(Baillon)"
+Warning--I didn't find a database entry for "Kreisel1951"
+Warning--I didn't find a database entry for "Kohlenbach2010"
+Warning--I didn't find a database entry for "Kohlenbach96"
+Warning--I didn't find a database entry for "Kohlenbach(weakcompactness)"
+Warning--I didn't find a database entry for "Kohlenbach06"
+Warning--I didn't find a database entry for "Engracia"
+Warning--empty journal in Aschieri1
+Warning--empty year in Aschieri1
+Warning--empty year in Aschieri2
+Too many commas in name 1 of "M\"uller,G.H., Scott, D.S." for entry Friedman(78)
+while executing---line 1090 of file plain.bst
+Warning--empty year in GasparKohlenbach
+Warning--empty publisher in Hayashi/Nakata
+Warning--empty year in Kohlenbach_ComContemporaryMath
+Warning--empty year in KohlenbachMints
+Warning--there's a number but no volume in kohlenbachleustean03
+Warning--empty publisher in Safarik08
+Warning--empty year in Schwichtenberg07
+Warning--empty publisher in tao-2007
+(There was 1 error message)

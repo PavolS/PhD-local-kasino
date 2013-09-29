@@ -5,13 +5,13 @@
 In the context of proof minning, so far, 
 sequential compactness could be dealt with using an elimination 
 procedure due to U. Kohlenbach 
-(\cite{Kohlenbach96,Kohlenbach_gp,Kohlenbach98,Kohlenbach00}) 
+(\cite{Kohlenbach1998,Kohlenbach_gp,Kohlenbach98,Kohlenbach00}) 
 which replaces (if the underlying context is elementary enough) applications 
 of fixed instances of these principles by their arithmetical counterparts. 
 However, 
 more substantial applications (e.g. in the context of 
 weak compactness arguments) require solving their functional interpretation explicitly
-(see \cite{KohlenbachMints,Kohlenbach(weakcompactness)}. 
+(see \cite{KohlenbachMints,Kohlenbach(Baillon)}. 
 In this section, we provide an explicit solution of the (negative translation of the) 
 G\"odel functional 
 interpretation as 
@@ -100,12 +100,12 @@ The functional dramatically simplifies if we switch to a majorizing functional
 in the sense of W.A. Howard (and hence to a solution of the monotone 
 functional interpretation of $\BW$). In particular, the use of 
 Howard's `binary' bar recursion then disappears altogether. 
-\\[1mm] In \cite{Kohlenbach06}, U. Kohlenbach has argued 
+\\[1mm] In \cite{Kohlenbach08}, U. Kohlenbach has argued 
 that the solutions provided by monotone functional interpretation 
 of principles $P$ directly 
 correspond to the `finitary' versions of $P$ as discussed in Tao's 
 program of `finitary analysis' (see \cite{Tao07}). Following \cite{Tao07},  
-the discussion in \cite{Kohlenbach06} focuses on the monotone 
+the discussion in \cite{Kohlenbach08} focuses on the monotone 
 convergence principle PCM and the infinitary pigeonhole principle $\IPP$:
 \[ \IPP\quad:\quad\forall n\in\NN \,\forall f:\NN\mapsto\{0, \ldots, n\}
 \,\exists i\leq n \forall k\in\NN\,\exists m\geq k\ \ (f(m)=i). \] 
@@ -122,12 +122,12 @@ interpretation has the same complexity as the one for the case $[0,1].$
 This is of relevance for the logical analysis of proofs that use the weak 
 compactness of closed, bounded convex sets in Hilbert spaces which can 
 be reduced to the sequential compactness of $\Pi_{i\in\NN} 
-[-k_i,k_i]$ (see \cite{KohlenbachMints,Kohlenbach(weakcompactness)}). 
+[-k_i,k_i]$ (see \cite{KohlenbachMints,Kohlenbach(Baillon)}). 
 Though certain uses of weak compactness in strong convergence results 
 can be eliminated, in general it is unavoidable 
 to deal with quantitative forms of weak compactness as provided 
-by functional interpretation (see \cite{Kohlenbach(Browder)} as well as 
-\cite{Kohlenbach(weakcompactness)} for discussions).  
+by functional interpretation (see \cite{Kohlenbach2011} as well as 
+\cite{Kohlenbach(Baillon)} for discussions).  
 \\[1mm] For simplicity, let us come back to the case of $[0,1]$ and the 
 Bolzano-Weierstra\ss{} theorem in the form stating that every sequence 
 $(x_n)$ of rational numbers 
@@ -1056,7 +1056,7 @@ sequence $(k_d)$ is a sequence in $\RR_+$ rather than $\QQ_+$ provided that
 one adapts the definition of $f_s$ in such a way that also the boundaries 
 of the interval $[-k_d,k_d]$ are replaced by suitable rational 
 approximations etc. Since the application of our analysis of the 
-Bolzano-Weierstra\ss{} theorem given in \cite{Kohlenbach(Browder)} (referred 
+Bolzano-Weierstra\ss{} theorem given in \cite{Kohlenbach2011} (referred 
 to in the introduction) only uses the monotone functional interpretation 
 given below (Theorem \ref{c:NMD-bw}) as will be usually the case, 
 we restrict ourselves in this paper to treat the case with 
@@ -1158,13 +1158,13 @@ compact intervals $[-K_d,K_d]$ with
 $K_d\in\NN$ have a representations $x\le_1 N_{K_d},$ where $N_m(k)$ is a 
 fixed (non-decreasing) primitive recursive function in 
 $m,k$ which can be taken as 
-(see \cite{Kohlenbach06}, p.93) 
+(see \cite{Kohlenbach08}, p.93) 
 \[ N_m(k):=j(m2^{k+3}+1,2^{k+2}-1) \ \ \mbox{for the Cantor 
 pairing function $j.$} \] 
 From the proof of Theorem~\ref{c:ND-bw} it follows that instead of 
 $(A^{\BW}(b))(d)$ we can take any other representative of the same 
 real number, in particular the representative $\le N_{K_d}$ from 
-the construction in \cite{Kohlenbach06}(p.93) for $K_d \ge k_d.$ As a 
+the construction in \cite{Kohlenbach08}(p.93) for $K_d \ge k_d.$ As a 
 result, we can replace $t_A(s,M)(d)$ by another representative 
 that is -- for all $s,M$ --  
 majorized by $N_{K_d}.$ In fact, we may even allow $k_d$ to be a real number 
@@ -1173,7 +1173,7 @@ where then in the definition of $f_s$ the clause `$(\widetilde{sk})ik
 \in_\RR \PP^b_i$'. The resulting function $f_s$ then no longer is computable 
 but still trivially majorizable by the constant-1 function. \\ 
 \begin{remark} The shape of $N_m$ above is due to the particular Cauchy representation 
-used in \cite{Kohlenbach06}. If one uses the so-called signed-digit representation, it 
+used in \cite{Kohlenbach08}. If one uses the so-called signed-digit representation, it 
 can be improved to the constant-$(2m+3)$ function, see prop. 14 in \cite{Engracia}.
 \end{remark}
 Before we state the monotone functional interpretation of $\BW^\omega_{\RR}$ 
@@ -1191,7 +1191,7 @@ observe that for $d\leq n+1$ we have that
 To give the monotone version of Theorem \ref{t:ND-ssbw}, we need the 
 following definition:
 \begin{dfn} A majorant for $\bPhi_0$ is given by (see also 
-\cite{Kohlenbach06} or \cite{Bezem85}):
+\cite{Kohlenbach08} or \cite{Bezem85}):
 \[\bPhi^*_0{y}u^{\!0(1(0))(0)}nx:=_1\max\left( 
 (\bPhi_0{y^{\mon}}u_{x}^{\!0(1(0))(0)}){^\Mon} nx,x{^\Mon}\right),\]
 where 
@@ -1329,12 +1329,12 @@ $\hrrwepa$ once we restrict $\QFm\AC$ to the types $(\rho,\tau):=(1,0)$ and
 $(\rho,\tau):=(0,1).$
 \end{cor} 
 \begin{proof} Apply elimination of extensionality to theorem \ref{t:PEfBW} 
-(see \cite{Luckhardt73} or \cite{Kohlenbach06}). 
+(see \cite{Luckhardt73} or \cite{Kohlenbach08}). 
 \end{proof}
 
 
 \begin{proof}[ of Theorem \ref{t:PEfBW}]
-By soundness of $\hrrwepa$ (see e.g.~\cite{Kohlenbach06} and 
+By soundness of $\hrrwepa$ (see e.g.~\cite{Kohlenbach08} and 
 \cite{streicherkohlenbach07}) we know that one can construct 
 closed terms $t_M$ and $t_Y$ in $T_{n-1}$ realizing the Sh-interpretation 
 of the analyzed proof:
@@ -1418,7 +1418,7 @@ Furthermore, for suitable closed terms $t_i\in\T_0$
  each formula $\forall \tup a^{\tup0} \PiLm\CA(t_i'(\tup a))$ is
 equivalent to an instance $\PiLm\CA(t_i)$ of $\PiLm\CA$.
 Moreover, $\bigwedge^{m}_{i=0} \PiLm\CA(t_i)$ is 
-equivalent to $\PiLm\CA(t)$ for a suitable \tsn (see \cite{Kohlenbach96} for 
+equivalent to $\PiLm\CA(t)$ for a suitable \tsn (see \cite{Kohlenbach1998} for 
 this).\\
 Analogously, if $n$ is even we obtain the equivalence to $\SiLm\CA(t)$.\\
 Finally, $\PiLm\CA(t)$ and $\SiLm\CA(t)$ are
@@ -1453,7 +1453,7 @@ Over $\hrrwepa\ + \QFm\AC$ the schema of arithmetical comprehension
 $\CA^0_{ar}$ clearly implies both $\BW^\omega_{\RR}$ as well as 
 $\Sigma^0_{\infty}\usftext{-IA}.$ The system 
 $\hrrwepa\ + \QFm\AC +\CA^0_{ar}$, however, has a $Sh$-interpretation by terms 
-in  $\T_0\ +\ \B_{0,1}$ (see e.g. \cite{Kohlenbach06}, Theorem 11.14).
+in  $\T_0\ +\ \B_{0,1}$ (see e.g. \cite{Kohlenbach08}, Theorem 11.14).
 Hence we get a term $t\in \T_0\ +\ \B_{0,1}$ satisfying
  $\forall x^1\phi_{_\QF}(x,t(x))$. Finally, using Corollary 4.4.1 
 from \cite{Kohlenbach99}, 
