@@ -9,14 +9,10 @@ A level-1 auxiliary file: dst/CSAT.aux
 A level-1 auxiliary file: refs.aux
 The style file: plain.bst
 Database file #1: phd_safarik.bib
-Warning--empty journal in Aschieri1
-Warning--empty year in Aschieri1
 Warning--empty year in Aschieri2
 Too many commas in name 1 of "M\"uller,G.H., Scott, D.S." for entry Friedman(78)
 while executing---line 1090 of file plain.bst
-Warning--empty year in GasparKohlenbach
 Warning--empty publisher in Hayashi/Nakata
 Warning--there's a number but no volume in kohlenbachleustean03
 Warning--empty publisher in Safarik08
-Warning--empty publisher in tao-2007
 (There was 1 error message)

@@ -12,10 +12,6 @@ A.G. Aksoy and M.A. Khamsi.
 \newblock {\em Nonstandard methods in fixed point theory}.
 \newblock Universitext. Springer-Verlag, New York, 1990.
 
-\bibitem{Aschieri1}
-F.~Aschieri.
-\newblock A contructive analysis of learning in peano arithmetic.
-
 \bibitem{Aschieri2}
 F.~Aschieri.
 \newblock {\em Learning based on realizability for HA+EM1 and 1-Backtracking
@@ -27,6 +23,11 @@ F.~Aschieri and S.~Berardi.
 \newblock A new use of friedman's translation: interactive realizability.
 \newblock In Berger et~als, editor, {\em Logic, Construction, Computation}.
   Ontos-Verlag Series in Mathematical Logic, 2012.
+
+\bibitem{Aschieri1}
+Federico Aschieri.
+\newblock A constructive analysis of learning in peano arithmetic.
+\newblock {\em Ann. Pure Appl. Logic}, 163(11):1448--1470, 2012.
 
 \bibitem{avigad09}
 J.~Avigad.
@@ -51,9 +52,10 @@ J.~Avigad and J.~Helzner.
 \newblock {\em Arch. Math. Logic}, 41(6):581--602, 2002.
 
 \bibitem{Avigad/Rute}
-J.~Avigad and J.~Rute.
-\newblock Oscillation and the mean ergodic theorem.
-\newblock Preprint, 2012.
+J.~{Avigad} and J.~{Rute}.
+\newblock {Oscillation and the mean ergodic theorem for uniformly convex Banach
+  spaces}.
+\newblock {\em ArXiv e-prints}, March 2012.
 
 \bibitem{Baillon1975}
 J.~B. Baillon.
@@ -160,9 +162,9 @@ J.~Gaspar.
 \newblock {\em Notre Dame J. Form. Log.}, 50(1):53--60, 2009.
 
 \bibitem{GasparKohlenbach}
-J.~Gaspar and U.~Kohlenbach.
-\newblock {O}n {T}ao's `finitary' infinite pigeonhole principle.
-\newblock {\em Submitted.}
+Jaime Gaspar and Ulrich Kohlenbach.
+\newblock On {T}ao's ``finitary'' infinite pigeonhole principle.
+\newblock {\em J. Symbolic Logic}, 75(1):355--371, 2010.
 
 \bibitem{Genel1975}
 A.~Genel and J.~Lindenstrauss.
@@ -537,10 +539,10 @@ P.~G. Odifreddi.
   B.V., 1989.
 
 \bibitem{OP12}
-P.~{Oliva} and T.~{Powell}.
-\newblock {A Game-Theoretic Computational Interpretation of Proofs in Classical
-  Analysis}.
-\newblock {\em ArXiv e-prints}, April 2012.
+Paulo Oliva and Thomas Powell.
+\newblock A game-theoretic computational interpretation of proofs in classical
+  analysis.
+\newblock {\em CoRR}, abs/1204.5244, 2012.
 
 \bibitem{OP12br}
 Paulo Oliva and Thomas Powell.
@@ -656,12 +658,6 @@ W.~W. Tait.
   van Rootselaar and J. F. Staal (ed.)), North-Holland, Amsterdam}, pages
   185--199, 1976.
 
-\bibitem{tao-2007}
-T.~Tao.
-\newblock {\em {N}orm convergence of multiple ergodic averages for commuting
-  transformations}.
-\newblock 2007.
-
 \bibitem{Tao07}
 T.~Tao.
 \newblock {\em {S}oft analysis, hard analysis, and the finite convergence
@@ -669,6 +665,12 @@ T.~Tao.
 \newblock Available at:
   http://terrytao.wordpress.com/2007/05/23/soft-analysis-hard-analysis-and-the-finite-convergence-principle,
   Essay posted May 23, 2007.
+
+\bibitem{tao-2007}
+Terence Tao.
+\newblock Norm convergence of multiple ergodic averages for commuting
+  transformations.
+\newblock {\em Ergodic Theory and Dynamical Systems}, 28:657--688, 4 2008.
 
 \bibitem{Toftdal}
 M.~Toftdal.
