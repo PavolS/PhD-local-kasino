@@ -77,6 +77,11 @@ S.~Berardi, T.~Coquand, and S.~Hayashi.
 \newblock Games with 1-backtracking.
 \newblock {\em Ann. Pure Appl. Logic}, 161:1254--1264, 2010.
 
+\bibitem{BBS12}
+B.~v. Berg, E.~M. Briseid, and P.~Safarik.
+\newblock A functional interpretation for nonstandard arithmetic.
+\newblock {\em Ann. Pure Appl. Logic}, 163(12):1962--1994, 2012.
+
 \bibitem{Bezem85}
 M.~Bezem.
 \newblock {S}trongly {M}ajorizable {F}unctionals of {F}inite {T}ype: {A M}odel
@@ -606,16 +611,10 @@ H.~Schwichtenberg.
 \newblock {\em The Journal of Symbolic Logic}, 44:325--329, 1979.
 
 \bibitem{shoenfield01}
-J.~Shoenfield.
+J.~R. Shoenfield.
 \newblock {\em Mathematical logic}.
 \newblock Association for Symbolic Logic, Urbana, IL, 2001.
 \newblock Reprint of the 1973 second printing.
-
-\bibitem{Shoenfield67}
-J.~R. Shoenfield.
-\newblock {\em Mathematical logic}.
-\newblock Addison-Wesley Publishing Co., Reading, Mass.-London-Don Mills, Ont.,
-  1967.
 
 \bibitem{Sieg}
 W.~Sieg.
@@ -668,10 +667,8 @@ T.~Tao.
 \bibitem{Tao07}
 T.~Tao.
 \newblock {\em {S}oft analysis, hard analysis, and the finite convergence
-  principle}.
-\newblock Available at:
-  http://terrytao.wordpress.com/2007/05/23/soft-analysis-hard-analysis-and-the-finite-convergence-principle,
-  Essay posted May 23, 2007.
+  principle}, page 298pp.
+\newblock American Mathematical Soc., 2008.
 
 \bibitem{Toftdal}
 M.~Toftdal.
@@ -697,11 +694,6 @@ A.~S. Troelstra and D.~van Dalen.
   Studies in Logic and the Foundations of Mathematics}.
 \newblock North-Holland Publishing Co., Amsterdam, 1988.
 \newblock An introduction.
-
-\bibitem{BBS12}
-B.~van~den Berg, E.~M. Briseid, and P.~Safarik.
-\newblock A functional interpretation for nonstandard arithmetic.
-\newblock {\em Ann. Pure Appl. Logic}, 163(12):1962--1994, 2012.
 
 \bibitem{Neumann1932}
 J.~von Neumann.
