@@ -1,0 +1,2158 @@
+\section{Effective learnability}
+
+\reviewQuote{mind2013/review}{KS13}{Nov 22, 2012}
+%
+% use Ulrich
+%
+%For some time now, it is well known that from a proof of a convergence statement, i.e. a statement like:
+%\[ \ \forall k\in\NN\,\exists n\in\NN\,\forall m,\tilde{m}\ge n
+%\ \big( d(x_m,
+%x_{\tilde{m}})\le 2^{-k}\big),\]
+%one can extract a computable rate of convergence if it is provable
+%in
+%\[ \mbox{HA$^{\omega} +$AC$+$LEM}_{\neg} \]
+%and a computable rate of metastability if it is provable in
+%\[\].
+%Moreover, already the addition of $\LEM$...\\
+
+\subsection*{Motivation}
+
+As mentioned earlier, in this chapter we investigate 
+various levels of (effective) quantitative 
+information on convergence theorems or, more precisely,
+theorems about Cauchy property of a sequence 
+in a metric space $(X,d)$
+\[
+\forall k\in\NN\,\exists n\in\NN\,\forall m,\tilde{m}\ge n
+\ \big( d(x_m,
+x_{\tilde{m}})\le 2^{-k}\big) 
+\]
+and also more general $\Pi^0_3$-theorems.  
+The probably weakest information is 
+a rate of metastability, namely a functional 
+$\Phi$ such that 
+\[\forall k\in\NN\,\forall f:\NN\to\NN\, \exists n\le \Phi(k,f) 
+\,\forall i,j \in [n;n+f(n)]\ \big( d(x_i,x_j)\le 2^{-k}\big). \]
+In next chapter we will discuss some general logical metatheorems for 
+strong systems of analysis based 
+on full classical logic, which guarantee the extractability of (sub-)recursive 
+(and highly uniform) rates of metastability and give
+a case study on such an extraction.
+
+Another such result is the already discussed extraction of a 
+uniform rate of metastability for the strong convergence in the mean 
+ergodic theorem for uniformly convex Banach spaces $X$ carried out in 
+\cite{kohlenbachleustean09}. The also aforementioned recent
+observation by Avigad and Rute \cite{Avigad/Rute} that the analysis 
+in \cite{kohlenbachleustean09} can be used to obtain a simple effective (and 
+also highly uniform) 
+bound on the number of fluctuations, was one of the
+main inspirations for the article~\cite{KS13}. We base
+large parts of this chapter on~\cite{KS13}. With our effective learnability, we will try 
+to give answer to the question whether there are general logical conditions on 
+convergence proofs to guarantee the extractability of effective bounds 
+on fluctuations, which arises naturally.\\
+Of course, the extractability of 
+a computable rate of convergence is a sufficient condition for this, however this
+topic is well known (see e.g. \cite{Kohlenbach08} or \cite{GerKoh06}).
+Let us note though, that all such criteria are based on intuitionistic
+systems, with the use of the law-of-excluded-middle limited to $\mbox{LEM$_\neg$} $.
+Moreover, adding an important weak principle of classical logic,
+the so-called Markov principle (extended to all finite types)
+\[ \mbox{M}^{\omega}\ :\ 
+\neg\neg\exists \underline{x}^{\underline{\rho}} \ \varphi_0(\underline{x})\to 
+\exists \underline{x}^{\underline{\rho}}\,\varphi_0(\underline{x}), \] 
+is permissible only if LEM$_{\neg}$ is weakened to the so-called lesser-limited-omniscience-principle 
+LLPO. This is particularly interesting, since this is one of the standard
+examples for the fact, that in non-standard systems some amount of the law-of-excluded-middle comes so to say automatically. We discuss such a system in the last chapter.
+
+The smallest step towards classical logic not covered by either of the 
+above (but provable in their union) is $\LEM$.
+Note that already HA$+\Sigma^0_1$-LEM 
+allows to prove the Cauchyness of the Specker sequence, primitive recursive 
+monotone decreasing sequences of rational numbers in $[0,1]$ which do not 
+have a computable rate of convergence, while the scenarios above
+typically include $\AC$ (which would make $\LEM$ significantly stronger).
+Much related work to this was done in 
+\cite{Toftdal, Akama, Hayashi/Nakata, Coquand,Berardi/Coquand/Hayashi, Aschieri/Berardi,Aschieri1,Aschieri2}.
+An important observation is that $\Sigma^0_1$-LEM is already the general case. 
+%let $(x_n)$ be a sequence of real numbers definable by a term $t$ 
+%in HA$^{\omega}$ 
+%(which may have variables of arbitrary type as parameters). Suppose that 
+%\[ \mbox{PA}^{\omega}\vdash \forall k\,\exists n\,\forall m,\tilde{m}\ge n\,
+%(|x_m-x_{\tilde{m}}|\le_{\RR} 2^{-k}). \]
+%Then by negative translation (see \cite{Kohlenbach08}) 
+%\[ \mbox{HA}^{\omega}\vdash  \forall k\,\neg\neg 
+%\exists n\,\forall m,\tilde{m}\ge n\,
+%(|x_m-x_{\tilde{m}}|\le_{\RR} 2^{-k}). \]
+%Adapting Friedman's proof for the closure of HA$^{\omega}$ under the Markov 
+%rule one can show (this is stated for HA without proof in 
+%\cite{Hayashi/Nakata} and we include a proof -- also for 
+%HA$^{\omega}[X,\|\cdot\|]$ -- below) that HA$^{\omega}+
+%\Sigma^0_1$-LEM  
+%is closed under the rule version of $\Sigma^0_2$-DNE so that we get 
+%\[ \mbox{HA$^{\omega}+\Sigma^0_1$-LEM} \ 
+%\vdash \forall k\,\exists n\,\forall m,\tilde{m}\ge n\,
+%(|x_m-x_{\tilde{m}}|\le_{\RR} 2^{-k}). \] 
+%Moreover, if $t$ contains at most number parameters it also suffices to 
+%use the restriction $\Sigma^0_1$-LEM$^-$ of $\Sigma^0_1$-LEM to 
+%$\Sigma^0_1$-formulas with number parameters only. All this also holds for 
+%the systems HA$^{\omega}[X,\|\cdot\|]$ and PA$^{\omega}[X,\|\cdot\|]$ 
+%and sequences $(x_n)$ in $X$ defined by terms of these systems.
+%\\[2mm] 
+Namely, as far as $\Pi^0_3$-theorems go\footnote{even
+with parameters in $\NN,\NN^{\NN}$}, 
+there is no difference in proofs based 
+on full classical logic and proofs using only $\LEM$. 
+%\footnote{for proofs which can be formalized in systems to which 
+%negative translation and Friedman's $A$-translation apply}. 
+We discuss this in detail prior to Proposition~\ref{p:limComp}, where 
+we formalize and prove this claim.\\
+So in order to have a stronger computational content than simply metastability, but
+also cover more than the well studied case when we have a full and computable
+rate of convergence we have to restrict amount of use of
+the law-of-excluded-middle somewhere
+between $\LEM$ and $\mbox{LEM}_\neg$.  \\  
+It turns out, that the right amount is to allow $\LEM$ to be used
+only fixed many times as an instance. See Theorem~\ref{t:bdLem}, where
+we show that from such proofs one can always extract effective (and in 
+fact primitive recursive in the sense of G\"odel's $T$) bounds $B,L$ on the 
+effective learnability of a rate of convergence of the sequence in question.
+ Here 
+$B,L$ are effective functionals (in the parameters of the proved statement). We
+call $L$ the learner or learning procedure and $B$ the bound on the number of 
+steps along this procedure.  
+We will show that this is a strictly stronger information than a 
+rate of metastability as 
+the latter can be obtained from the lernability
+by a simple and uniform primitive 
+recursive procedure (in the ordinary sense of Kleene -- which we will use in this motivation as default).
+However, there are primitive recursive 
+Cauchy sequences with a primitive recursive rate of metastability which 
+do not admit any computable bound for the 
+learnability (of a rate of convergence).\\ 
+We will further show that the $B,L$ learnability of a Cauchy statement
+demonstrates itself in a particular
+simple structure of the rate of metastability of the underlyinf sequence:
+\[ (L^*(\underline{a}^*)\circ g)^{(B^*(\underline{a}^*))}(0), \] 
+where $f^{(x)}(0)$ denotes the $x$-times iteration of the function $f$ 
+starting from $0$ (note that the majornts $B^*,L^*$ do not 
+involve the counterfunction). It is precisely this form of a rate 
+of metastability that has been observed many times in concrete unwindings 
+in ergodic theory and fixed point theory (see e.g.~\cite{AGT10,kohlenbachleustean09,kohlenbachleustean10,Kohlenbach2011,Kohlenbach/Leustean6,Kohlenbach/Leustean7}). For the first time this, until the knowledge of this result rather dazzling, circumstance can be explained
+in natural terms. This is because we not only connect the underlying logical structure but also give a rather natural condition,
+which is to be expected to occur. \\
+On the other hand, this makes our results from the next chapter even more interesting.
+Namely, a notable exceptions to this restricted format of metastability are the rates 
+of metastability for 
+the ergodic theorem for odd (and even more general) operators in 
+\cite{Safarik(11)} where Wittmann's proof maps to a nested use of the iteration procedure and 
+for the (weak convergence in the) Baillon nonlinear ergodic theorem 
+in \cite{Kohlenbach(Baillon)} where the proof maps nested use of a bar recursive 
+functional. However, both underlying proofs violate our criterion of a bounded use of $\LEM$
+as defined in~\ref{t:bdLem}.\\
+
+Comming back to the original motivation, a bound on the number of fluctuations is a   
+strictly stronger quantitative information still (we give a separating example).
+Together with the already discussed Specker sequences 
+%(which have 
+%trivial fluctuation bounds but no effective rates of convergence) 
+we get the (w.r.t. effectivity) strict hierarchy of 
+quantitative data for the convergence of Cauchy sequences 
+(with -- as quoted at various places above -- a plenty of real examples from analysis/ergodic theory as
+they arise in praxis of proof mining for each level, in particular for the newly defined level 3):
+\begin{enumerate}
+\item 
+A rate of convergence.
+\item 
+A bound on the number of approximate fluctuations.
+\item 
+The $B,L$\nbd learnability of a rate of convergence by 
+$B$-many mind changes by a learning procedure $L$ (see below for a precise definition). 
+\item 
+A rate of metastability.
+\end{enumerate}   
+%While -- as discussed above -- the extractability of effective data 
+%for the levels 1, 3 and 4 of this hierarchy is guaranteed by 
+%relatively easy to check logical {\bf a-priori}  
+%conditions on the framework in which a Cauchy statement is proven, 
+%this seems to be different for level 2: we give a kind of gap condition 
+%to be satisfied by $L$ in `3.' which suffices to convert the 
+%information provided by $B,L$ into a bound $F$ on the fluctuations. 
+%Since to check this condition requires the inspection of the extracted 
+%data $B,L$ this is an {\bf a-postiori} condition.
+%\\[2mm] 
+%The above hierarchy apparently fits well to distinguish the 
+%computational content that recently has been obtained from proofs 
+%in the context of ergodic theory: \\[1mm] 
+%As discussed already, Avigad and Rute \cite{Avigad/Rute} observed 
+%that the extraction of a rate of metastability from Birkhoff's 
+%proof of the mean ergodic theorem in uniformly convex Banach 
+%spaces carried out in \cite{kohlenbachleustean09} can in fact been 
+%used to even obtain a uniform effective fluctuation bound 
+%This corresponds to second level of our hierarchy 
+%which by \cite{Avigad/Gerhardy/Towsner} 
+%cannot be further improved effectively to the first level.
+%\\[1mm] The logical condition needed to assure the extractability of a 
+%primitive recursive 
+%(in the ordinary sense of Kleene) data $B,L$ for the third 
+%level is e.g. satisfied in 
+%the proofs of the strong convergence of so-called Halpern iterations 
+%in Hilbert spaces (due to Wittmann \cite{Wittmann(92)}) and -- more 
+%generally --  in CAT(0) spaces (due to Saejung in 
+%\cite{Saejung}). This follows from the 
+%analysis of Saejung's proof 
+%given in \cite{Kohlenbach/Leustean6} where a primitive 
+%recursive (in the ordinary sense) rate of metastability is extracted
+%(the analysis of Wittmann's proof in \cite{Kohlenbach2011} also 
+%shows this in the Hilbert case).  
+%A special form of the Halpern iteration (covered by 
+%\cite{Wittmann(92),Saejung}) is given by  
+%\[ x_{n+1} :=\frac{1}{n+2}x_0+\left(1-\frac{1}{n+2}\right) Tx_n \]
+%can be viewed as a nonlinear generalization of 
+%the ergodic average 
+%\[ \frac{1}{n+1}\sum^n_{i=0}T^ix_0 \] 
+%in the mean ergodic theorem with which it coincides 
+%for {\bf linear} nonexpansive  maps $T.$ 
+%As a corollary we obtain the extractability even 
+%of primitive recursive learnability data $B,L$ in this case. 
+%However, the aforementioned gap condition does not seem to be 
+%satisfied and so, as it stands, a fluctuation bound does not seem 
+%to follow.
+%\\[1mm]  
+%While the strong convergence of the ergodic average in general is known 
+%to fail for nonlinear nonexpansive maps (whereas weak convergence 
+%holds by a deep theorem of Baillon \cite{Baillon(75)}), 
+%it does hold e.g. 
+%for odd operators as shown again by Baillon \cite{Baillon(76)} 
+%and -- for a much more 
+%general class of mappings -- by Wittmann \cite{Wittmann(90)}. 
+%Recently, the second author 
+%\cite{Safarik(11)} extracted 
+%a (primitive recursive in the sense of Kleene) rate of metastability 
+%(i.e. level 4) from Wittmann's proof. However, Wittmann's proof does 
+%not satisfy the condition sufficient to guarantee level-3 learnability 
+%data and, in fact, the extracted bound has the same structure as the 
+%one in our example of a primitive recursive sequence separating the 
+%levels 3 and 4 given section 4 below. 
+
+
+
+\subsection{Fluctuations versus effective learnability}
+To be specific, let us use in the following the language of (intuitionistic) 
+arithmetic in all finite types HA$^{\omega}$ (more precisely the system 
+WE-HA$^{\omega}$, see \cite{Kohlenbach08}) as well as its extension HA$^{\omega}[X,\|\cdot\|]$ 
+by an abstract normed space $X$ in the sense of \cite{Kohlenbach05meta,GerKoh06,Kohlenbach08} in order to be able to cover also the aforementioned 
+recent applications of proof mining to ergodic and fixed point theory which 
+need this enriched language. Everything we say extends mutatis mutandis also 
+to theories where more conditions on $X$ are prescribed (e.g. $X$ being 
+a uniformly convex or a Hilbert space) and convex subsets $C$ of $X$ being 
+added as well as to metric structures $X$ 
+such as metric, $W$-hyperbolic and CAT(0) spaces (see \cite{Kohlenbach08} 
+for all this). The type of natural numbers $\NN$ is usually denoted by $0$ 
+while $1$ denotes the type of functions $\NN\to\NN.$
+\\[1mm] ${\cal S}^{\omega,X}$ denotes the full set-theoretic model of these 
+theories over the base types $\NN$ and $X.$ Occasionally, we will need 
+the relation `$x^*$ majorizes $x$' (short: $x^* \ maj \ x$) due to W.A. Howard 
+(for the finite types over $\NN$)  
+which is defined in the usual hereditary 
+way by induction on the type of $x$ starting from 
+\[ x^* \ maj_0 \ x\ :\equiv x^*\ge x \] for $x^*,x$ of type $0$ and 
+\[ x^* \ maj_X \ x\ :\equiv x^* \ge \| x\|\] for $x$ of type $X$ and 
+$x^*$ of type $0.$ 
+
+
+\begin{rmk} \label{remark-coding}
+Throughout this chapter, we will use several encodings. We use $j$ for the Cantor pairing function and $j_1$ and $j_2$ for the corresponding
+projections. Moreover, we use $\langle \tup a \rangle$ for both
+
+\begin{itemize}
+\item a surjective primitive recursive 
+encoding of tuples of a given length $l$, with the corresponding projections $j_1,\ldots,j_l$ and
+\item 
+a surjective sequence encoding (which then includes the length of the encoded sequence) with primitive recursive functions for length $\lh$, concatenation $*$, 
+and projection $(\cdot)_{(\cdot)}$ (i.e. $(n)_k$ for the $k+1$-th element 
+of a finite sequence encoded by $n$ and $0$ for $k\ge lh(n)$,) 
+when there is not danger of confusion we use also the simpler notation $n_k$). 
+For details see~\cite{Kohlenbach08}.
+\item 
+for both the tuple and the sequence encoding we assume the coding to be 
+increasing in each component and that $\langle a_0,\ldots,a_{k-1}\rangle \ge a_i$ for $i<k.$
+\end{itemize}
+
+For a specific encoding satisfying these requirements 
+see~\cite{Kohlenbach08}, where the sequence
+encoding is denoted by $\langle a_0,\ldots,a_{k-1}\rangle$ while the
+$k$-tuple encoding is denoted by $\nu^k(a_0,\ldots,a_{k-1})$. \\[1mm] Whether we mean a tuple or a sequence 
+coding should be mostly clear from the context (roughly, we mean tuple encoding whenever the length is fixed and sequence encoding otherwise), but whenever this is relevant we say also explicitly which encoding is meant.
+\end{rmk}
+\begin{dfn}[the number of fluctuations]
+\label{d:nfluc}
+For a sequence $x_{(\cdot)}$ in some metric space $(X,d)$ and an $\epsilon>0$
+let $\Fluc(n,i,j)$ denote that there are $n$ fluctuations whose indexes are encoded into $i$ and $j$.
+\begin{align*}
+\Fluc(n,i,j):\equiv\Fluc_{x_{(\cdot)},\epsilon}(n,i,j):\equiv\quad &\lh(i)=\lh(j)=n\quad \wedge\\ 
+&\forall k<n\ (i_k<j_k) \quad \wedge\\
+&\forall k<n-1\ (j_k\leq i_{k+1}) \quad \wedge\\
+&\forall k<n\ (d(x_{i_k},x_{j_k})>\epsilon).
+\end{align*}
+We call $b$ a bound on the number of $\epsilon$-fluctuations of $x_{(\cdot)}$, iff 
+\[
+\forall n>b \forall i,j \neg\Fluc(n,i,j).
+\]
+We call $b$ effective if it is computable in $\epsilon\in\QQ^*_+$ and $x_{(\cdot)}$.
+\end{dfn}
+
+In the Language identification in the limit model for inductive inference, the 
+notion of learnable with an existence of a mind change bound was introduced in 
+the sixties (see e.g.~\cite{Gold(67)}). We define a similar concept in the context of 
+general formal theories like $\pa$. Since we require both the learning 
+procedure and the bound on mind changes to be recursive (effective) we call 
+this property {\em effective learnability}. 
+\begin{rmk}
+The proof-theoretic study of 
+learnability by finitely 
+many (though not necessarily effectively bounded) mind changes in analysis 
+has been initiated by Hayashi (see e.g. \cite{Hayashi02,Hayashi06}) 
+who (with Nakata) 
+established the close relation of this 
+concept to limit computability (see e.g. 
+\cite{Hayashi/Nakata}). The concept of mind change for Cauchy statements is 
+also implicit in section 5.1 of \cite{Ziegler(07)} (Proof of Lemma 31.c). 
+Effective learnability concepts for 
+functionals $F:D\to\NN^{\NN}$ (with $D\subseteq\NN^{\NN}$) have recently 
+been investigated in \cite{Higuchi/Kihara}.
+\end{rmk}
+
+
+On the one hand we would like the learning procedure to be as simple as possible and on the other hand we would like to formalize that
+it can access as much finite information as is available (at a given learning step). In the case of monotone formulas (which is a rather rich class of statements including, in 
+particular, all Cauchy statements), there is a straightforward answer (see Definition~\ref{d:fmcMon} and Proposition~\ref{p:allx}) 
+allowing us to simplify the theory of learnability, if we assume monotonicity.
+We give a more general definition (Definition~\ref{d:fmcNum}), which coincides with Definition~\ref{d:fmcMon} in the monotone case, a few pages later.
+\begin{dfn}[$(B,L)$-learnable monotone formulas]\label{d:fmcMon}
+Consider a $\Sigma^0_2$ formula $\phi$ with the only parameters $\tup a^{\tup \sigma}$, i.e.
+\[\phi\ \equiv\ \exists n^0 \forall x^0\ \phi_0(x,n,\tup a),\]
+which is monotone in $n$, i.e.
+\[ 
+\forall n^0\ \forall n'\ge n\ \forall x^0\ \big(  \phi_0\ (x,n,\tup a) \rightarrow  \phi_0(x,n',\tup a) \big).
+\]
+We call such a formula $\phi$ 
+{\em (B,L)-learnable},
+if there are function(al)s $B$ and $L$ such that the following holds 
+(in the full set-theoretic model ${\cal S}^{\omega,X}$):
+\[ 
+\exists i\leq B(\tup a)\ \forall x\ \phi_0(x,c_i,\tup a),\] where
+\begin{align*}
+c_0&:=0,\\
+c_{i+1}&:=
+\begin{cases}
+L(x, \tup a),&\text{for the $x$ with } \neg\phi_0(x,c_i,\tup a)\ \wedge\ \forall y<x\ \phi_0(y,c_i,\tup a) \text{ if it exists}\\
+c_i,&\Telse.
+\end{cases}
+\end{align*}
+We call such a $\phi$ 
+{\em effectively learnable (with effectively bounded many mind changes)} 
+if it is $(B,L)$-learnable with computable functionals $B$ and $L$.\footnote{Note that $c_i$ is the $i$-th attempt to produce a $c$andidate for a valid $n$, while $B$ is a $B$ound on the number of such attempts produced before a valid candidate is $L$earned by the procedure $L$ .}
+\end{dfn}
+
+In Proposition \ref{p:nonLearnablePhi} 
+we will construct a $\varphi$ which is true 
+for all parameters $\underline{a}\in\NN^{\NN}$ 
+but which is not $(B,L)$-learnable with 
+computable $B,L.$ \\[1mm] 
+This definition is very intuitive in the sense that it formalizes the concept of an (effective) learning process $L$ which learns the witness in an effectively bounded number of attempts in a very straightforward way.\\
+Moreover, this definition allows the learner, i.e. the function $L$ to use the least amount of non-computable information possible, namely only the smallest counterexample to the learners last candidate for the witness. 
+Nevertheless, we will show that this amount of information is, in a sense, 
+already exhaustive. More precisely, we have the following (we use in the 
+rest of this section a surjective sequence coding 
+denoted by $\langle\cdots\rangle$ with primitive recursive functions 
+$lh,*,(n)_k$ as discussed in Remark \ref{remark-coding}):
+\begin{prop}\label{p:allx}
+Consider a monotone formula $\phi$ as above. Suppose there are $B$ and $L'$ s.t.
+\[ \exists i\leq B(\tup a)\ \forall x\ \phi_0(x,c'_i,\tup a),\] where this 
+time $L'$ can access all reasonable information, i.e.
+\begin{align*}
+c'_0&:=0,\\
+c'_{i+1}&:=
+\begin{cases}
+L'(\langle x_0,\ldots,x_i\rangle, \langle c'_0,\ldots,c'_i\rangle,\tup a), &\text{for those $x_j,c'_j$, $j\leq i$ with }\\
+ &\neg\phi_0(x_j,c'_j,\tup a)\ \wedge\ \forall y<x_j\ \phi_0(y,c'_j,\tup a)\\
+  &\text{ if each exists},\\
+c'_i, &\Telse.
+\end{cases}
+\end{align*}
+Then $\phi$ is $(B,L)$-learnable in the original sense (as defined in Definition~\ref{d:fmcMon}), where $L$ is primitive recursively definable in $B,L'$ and 
+the characteristic function of $\varphi_0$ (and so, in particular as 
+$\xi(B,L')$ for a closed term $\xi$ of the system at hand).
+\end{prop}
+\begin{proof}
+W.l.o.g we can assume that there is a $j\leq B(\tup a)$ s.t. $\forall i<j\ (c'_{i+1}>c'_i)$ and $\forall i\geq j\ (c'_{i+1}=c'_i)$ (we can actually primitive recursively define a learner which satisfies this property whenever we have $B$ and $L'$ as above). We set
+\begin{align*}
+L(x, \tup a):=L(\langle\rangle,\langle\rangle,x, \tup a)&:=\begin{cases}
+0,&\Tif \phi_0(x,0,\tup a),\\
+L( \langle X(x,0,\tup a)\rangle,\langle0\rangle,x,\tup a),&\Telse,\end{cases}\\ L(\langle \underbrace{x_0,\ldots,x_i}_{\tup x}\rangle, \langle \underbrace{c_0,\ldots,c_i}_{\tup c}\rangle,x,\tup a)&:=\begin{cases}
+c_i,& \hspace*{-10mm}\Tif \bigvee_{j\leq i}\phi_0(x_j,c_j,\tup a)\vee i\ge B(\underline{a}),\\
+l':=L'(\langle {\tup x}\rangle, \langle {\tup c}\rangle,\tup a),&
+\hspace*{-10mm}\Tif x=x_i\vee \phi_0(x,l',\tup a),\\
+&\hspace*{-10mm}\phantom{\Tif} \bigwedge_{j\leq i}\neg\phi_0(x_j,c_j,\tup a)\wedge i<B(\underline{a}),\\
+L( \langle {\tup x},X(x,l',\tup a)\rangle,
+\langle \tup c,l'\rangle,x,\tup a) &\Telse,
+\end{cases}\\
+\end{align*}
+where $X(x,c,\tup a):=\min\{x'\leq x\ :\ \neg \phi_0(x',c,\tup a)\}$ (or $x$ if there is no such $x'$).\\
+{\em We show by induction on $i$ that $\forall i\ (c'_i = c_i)$.} This is obvious for $i=0$, moreover 
+if $\forall x\ \phi_0(x,c'_{i},\tup a)$ then also $\forall x\ \phi_0(x,c_{i},\tup a)$ and so $c'_{(\cdot)}=c_{(\cdot)}$ (both) by the induction hypothesis 
+$\forall j\le i (c'_j=c_j).$\\ Otherwise, we have the smallest counterexample $x'_i$ to $c'_i$, and since by our hypothesis $c'_i=c_i$ we have also $x_i=x'_i$ for the smallest counterexample to $c_i$ (note that, by the 
+$(B,L')$-learnability of $\varphi,$ we have $i<B(\underline{a})$). 
+So, by the monotonicity of $\phi,$ we obtain for all $j<i$ that $x'_j\leq x_i$, so $X(x_i,c'_j,\tup a)=x'_j$ and by definition of $L$ we get in total that 
+\begin{align*}
+c_{i+1}=L(x_i,\tup a)&=L(\langle X(x_i,0,\tup a)\rangle,\langle0\rangle,x_i,\tup a)\\
+&=L(\langle x'_0\rangle,\langle0\rangle,x_i,\tup a)\\
+&=L(\langle x'_0,  X(x_i,   L'(\langle x'_0\rangle,\langle0\rangle,\tup a)    ,\tup a)\rangle,\langle0, 
+     L'(\langle x'_0\rangle,\langle0\rangle,\tup a)  \rangle,x_i,\tup a)\\
+&=L(\langle x'_0,  X(x_i,   c'_1    ,\tup a)\rangle,\langle0, 
+     c'_1  \rangle,x_i,\tup a)\\
+&=L(\langle x'_0,  x'_1\rangle,\langle0, 
+     c'_1  \rangle,x_i,\tup a)\\
+&=\ldots\\
+&=L'(\langle\tup x'\rangle,\langle\tup c'\rangle, \tup a)=c'_{i+1}.
+\end{align*}
+
+\end{proof}
+
+So from now on we will simply use $L$ in the form which suits us best.
+\\[2mm] 
+Speaking of a Cauchy sequence $a_{(\cdot)}$, we would say that it has an effectively learnable rate of convergence, if there is a recursive 
+computation for a bound $b$ from the sequence $a_{(\cdot)}$ (resp. the 
+parameters used in defining $a_{(\cdot)}$) and an  
+$\epsilon >0$, such that there is a procedure to learn 
+an $\epsilon$-Cauchy point with at most $b$ computable corrections (computable in a counterexample $x$, which in turn may not be computable itself!).
+\begin{rmk}\label{r:smallestCE}
+In Definition~\ref{d:fmcMon}, even the condition that $x$ is the smallest counterexample, i.e. $\forall y<x\ \phi_0(y,c_i,\tup a)$, 
+is not really necessary. Of course, in such
+case, for a given learner, the sequence $c_{(\cdot)}$ is not unique and we need to specify what actually is bounded by $B$. Fortunately, there are only two natural options.
+ Either we say that $B$ is a bound on any sequence $c_{(\cdot)}$ (i.e. $B$ is independent on
+the choice of the counterexamples) or we say that $B$ is a bound for some sequence $c_{(\cdot)}$ (i.e. for at least one suitable choice of counterexamples). 
+It seems rather obvious that the second option makes little sense, since if there was any bound and learner at all, 
+then $B(\tup a)=1$ would be a correct bound for the same learner as well (simply by choosing the right counterexample as the first input).
+Moreover, a definition in the new sense that $B$ is a bound on any sequence $c_{(\cdot)}$ (any choice of $x_{(\cdot)}$) would be equivalent to Definition~\ref{d:fmcMon}.
+\begin{itemize} 
+\item Any given bound $B$ for all such sequences is obviously, in particular, a bound for the one we used in the original definition. 
+Therefore any formula $(B,L)$-learnable in the new sense is, in particular, $(B,L)$-learnable in the old sense.
+\item On the other hand, given $B$ and $L$ satisfying our original definition, we could modify $L$ to $L'$ in such a way, that it actually looks for the smallest counterexample and uses that for its computation, assuring that we in fact generate the same sequence $c_{(\cdot)}$ after all (e.g. set 
+$L'(x,c,\tup a):=L(\min \{x'\leq x\ :\  \neg\phi_0(x',c,\tup a)\ \wedge\ \forall y<x'\ \phi_0(y,c,\tup a)\},c,\tup a)$ if such an $x'$ exists and 
+$L'(x,c,\tup a):=L(x,c,\tup a)$ otherwise). In other words, any formula $(B,L)$-learnable in the old sense, is $(B,L')$-learnable in the new sense.
+\end{itemize}
+\end{rmk}
+
+As far as monotone formulas are concerned, we have yet another nice property.
+\begin{prop}\label{p:majBL}
+A monotone $\Sigma^0_2$-formula $\phi$ (see also Definition~\ref{d:fmcMon}) that is $(B,L)$-learnable (uniformly in the parameters $\underline{a})$ 
+is also $(B^*,L^*)$-learnable (uniformly in majorants $\tup a^*$ of 
+$\tup a$) for any majorants $B^*$,$L^*$ of $B,L,$ i.e. 
+(in ${\cal S}^{\omega,X}$)  
+\[ \forall 
+\underline{a}^*,\underline{a} \big( 
+\underline{a}^* \ \maj\ \underline{a}\to 
+\exists i\leq B^*(\tup a^*)\ \forall x^0\ \phi_0(x,c^*_i,\tup a)\big),\] where
+\begin{align*}
+c^*_0&:=0,\\
+c^*_{i+1}&:=
+\begin{cases}
+L^*(x, \tup a^*),&\text{for the $x$ with } \neg\phi_0(x,c^*_i,\tup a)\ \wedge\ \forall y<x\ \phi_0(y,c^*_i,\tup a) \text{ if it exists}\\
+c^*_i,&\Telse.
+\end{cases}
+\end{align*}
+\end{prop}
+{\bf Proof.} Note that $B^*,L^*,\tup a^* \ maj \ B,L,\tup a$ implies that 
+\[ B^*(\underline{a}^*) \ge B(\underline{a}) \,\wedge\,\forall x^0,y^0 
+(x\ge y\to L^*(x,\underline{a}^*)\ge L(y,\underline{a}))).\] 
+Now assume that $c^*_i\ge c_i.$ Then by the monotonicity of $\varphi$ 
+we have for all $x$ 
+\[ \neg \varphi_0(x,c^*_i,\underline{a})\rightarrow \neg \varphi_0
+(x,c_i,\underline{a}) \] 
+and so the smallest counterexample $x_i$ to $c_i$ is smaller (or equal) 
+than the smallest counterexample $x^*_i$ to $c^*_i$ and so 
+$c^*_{i+1}=L^*(x^*_i,\underline{a}^*) \ge L(x_i,\underline{a})=c_{i+1}.$ 
+Inductively, we get $c^*_i\ge c_i$ for all $i\le B(\underline{a}).$ 
+\hfill $\Box$  
+\begin{rmk} If the parameters $\underline{a}$ have all types of degree 
+$\le 1$, then $\varphi$ in the above proposition is learnable in $B^*,L^*$ 
+uniformly in $\underline{a}$ since $a^M \ maj \ a^1,$ where 
+$a^M(n):=\max\{ a(i):i\le n.\}.$
+\\ In this sense, we can extend the term effectively learnable as follows. A monotone $\Sigma^0_2$-formula $\phi(\tup a)$ is 
+{\em effectively learnable with finitely many mind changes uniformly in 
+majorants $\underline{a}^*$ of the parameters $\underline{a}$} if it is 
+$(B^*,L^*)$-learnable (uniformly in majorants $\underline{a}^*$ of the 
+parameters $\underline{a}$ by computable functionals $B^*,L^*$ and all elements of $\tup a^*$ are of type level at most one). 
+Note that this means that in the System $\ha[X,\|\cdot\|]$, $\tup a$ could include parameters of types like $X,\NN\to X,X\to X$.
+\end{rmk}
+
+
+
+There are several ways to generalize our learnability definition. 
+Of course one can drop the monotonicity condition, but we can also allow higher or abstract types for $n$ and $x$ 
+(for $x$ we would need to consider all sequences $c_{(\cdot)}$ since we can provide only a counterexample $x$, 
+not the smallest counterexample $x$ -- see also Remark~\ref{r:smallestCE}). 
+The question here is, what kind of information we do allow the learning function(al) $L$ to access. At the moment, it seems 
+that there is not such a nice and definitive answer as in the monotone case. However, we will stick with a (not necessarily unique) definition (see Definition~\ref{d:fmcNum}), which
+\begin{enumerate} 
+\item generalizes Definition~\ref{d:fmcMon}, i.e. if a monotone formula (assuming the bound variables to be of type $0$) is learnable according to our new definition, it is also learnable in the sense of 
+Definition~\ref{d:fmcMon} and vice-versa,
+\item while keeping the arguments of the learner $L$ simple, still is equivalent to the case where the learner has access to the full finitary information in the sense of Proposition~\ref{p:allx} (see Remark~\ref{r:allx})
+\item fits very nicely into the hierarchy of different concepts for computational information (see Proposition~\ref{p:bg2meta}),
+\item makes effective learnability guaranteed by very clear logical conditions on the provability of the learned formula (see Theorem~\ref{t:bdLem}).
+\end{enumerate} 
+The second point seems a very natural requirement and is the cause for 
+the main difference to the monotone case, which is that in Definition~\ref{d:fmcNum} the learning process may depend on a whole tuple of all counterexamples used so far, rather than only on the 
+last one (last in the sense of number of guesses/candidates, not the index of the counterexample). 
+\\[1mm] 
+Although we do not treat the case of learnability for higher type objects 
+in this thesis, the following definition easily applies to this case as well 
+and, therefore, is written in this generality:
+\begin{dfn}[(B,L)-learnability for general (not necessarily monotone) formulas]\label{d:fmcNum}
+Consider an $\exists\forall$ formula $\phi$ with the only parameters $\tup a^{\tup \sigma}$, i.e.
+\[\phi\ \equiv\ \exists n^\rho \forall x^0\ \phi_0(x,n,\tup a).\]
+We call such a formula $\phi$ 
+{\em $(B,L)$-learnable},
+if there are function(al)s $B$ and $L$ such that the following holds:
+\[ \exists i\leq B(\tup a)\ \forall x\ \phi_0(x,c_i,\tup a),\] where
+\begin{align*}
+c_0&:=0^{\rho},\\
+c_{i+1}&:=
+\begin{cases}
+L(\langle x_0,\ldots,x_i\rangle, \tup a), &\text{for those $x_j$, $j\leq i$ with }\\
+ &\neg\phi_0(x_j,c_j,\tup a)\ \wedge\ \forall y<x_j\ \phi_0(y,c_j,\tup a)\\
+  &\text{ if each exists},\\
+c_i, &\Telse.
+\end{cases}
+\end{align*}
+We call such a $\phi$ {\em effectively learnable}, if it is $(B,L)$-learnable,
+$\sigma_i$ and $\rho$ have type level at most one, and $B$ and $L$ are computable.
+\end{dfn}
+\newcommand{\seq}{_{(\cdot)}}
+\begin{rmk}\label{r:allx}
+Again, this definition already captures (so to say in a primitive recursive way) the case where the learner could access the previous values of $c\seq$ as well. Simply consider
+\begin{align*}
+&L(\overbrace{\langle x_0,\ldots,x_i}^{\tup x:=}\rangle, \tup a):=\\&\quad \quad
+L'\big(\langle \tup x\rangle, \big\langle
+ \underbrace{L'(\langle x_0\rangle, \langle 0\rangle,\tup a)}_{c'_1:=},
+ \underbrace{L'(\langle x_0,x_1\rangle, \langle 0,c'_1\rangle,\tup a)}_{c'_2:=}, 
+ \ldots,
+ L'(\langle \tup x\rangle, \langle 0,c'_1,\ldots,c'_i\rangle,\tup a)
+ \big\rangle, \tup a\big). 
+\end{align*}
+\end{rmk}
+
+Of course, one could consider weaker concepts, like a learner which can access only the last counterexample (as in the monotone case). We considered also a learner of the kind $L'(x,c,\tup a)$ (i.e. a learner who is allowed to use in addition only the lastly learned solution candidate), which doesn't seem to be equivalent to any of the other two concepts.\\[2mm]
+Let us make the properties of our learnability definition discussed above 
+more transparent by proving the following results which we first briefly 
+motivate: as mentioned already in the introduction (and proved further 
+below in section 3), any classical proof (in a suitable formal system) 
+of a Cauchy statement $\varphi(k):=\exists n\forall i,j\ge n \,(d(x_i,x_j)<2^{-k})$ can be reformulated to use classical logic 
+only up to $\forall l^0 (\Sigma^0_1$-LEM$(s(l,k)))$ (for some closed term 
+$s$), i.e. 
+\[ (a) \ 
+\forall k^0 \ \big( \forall l^0\,(\Sigma^0_1\mbox{-LEM}(s(l,k)))\rightarrow 
+\varphi(k)) \] 
+follows intuitionistically. This, in particular, applies to the example 
+from section \ref{section4.2} of a computable Cauchy sequence in $\RR$ which 
+does not possess any computable learnability bounds $B,L.$ So in order to be 
+able to extract such computable data $B,L,$ the Cauchy proof has to be further 
+restricted, namely, to the situation where the proof implicitly contains a 
+bound $t(k)$ on $\forall l^0,$ i.e. on the instances of 
+$\Sigma^0_1$-LEM$(s(l,k))$ used. This is guaranteed (as we will see) when 
+$(a)$ is strengthened to the (only noneffectively equivalent) form 
+\[ (b) \ \forall k^0 \,\exists l^0\, 
+\big( \forall m\le_0 l \,(\Sigma^0_1\mbox{-LEM}(s(m,k)))
+\rightarrow 
+\varphi(k)). \]  Then from a (semi-intuitionistic) proof of $(b)$ 
+one can extract a term $B(k)$ computing $l$ and two further terms which 
+allow one to build a learning procedure $L$ so that $\varphi$ is 
+$(B,L)$-learnable. 
+In the following IP$^{\omega}_{\forall}$ denotes 
+the independence-of-premise principle for universal 
+premises in all finite types:
+\[\mbox{IP}^{\omega}_{\forall}: \ \ (\forall \underline{x}\,A_0(\underline{x})
+\to\exists y \,
+B(y))\rightarrow \exists y\,( \forall \underline{x}\,
+A_0(\underline{x})\to B(y)), \]
+where $A_0$ is a quantifier-free formula and $\underline{x},y$ are 
+variables of 
+arbitrary types.
+\begin{thm}[Bounded $\LEM$ guarantees learnability]\label{t:bdLem}
+Given that
+\[ \ba{l} 
+\ha[X,\|\cdot\|]+\, \mbox{\rm AC$+$M$^{\omega}+$IP}^{\omega}_{\forall} 
+\vdash\\[1mm] \hspace*{2cm} \forall \underline{a}\,\exists l^0\ \big( 
+\forall m\leq_0 l \exists u^0 \forall v^0\ 
+\big(\psi_0(u,m,\tup a) \vee \neg\psi_0(v,m,\tup a)\big)\rightarrow \exists 
+n^0 \forall x^0 \phi_0(x,n,\tup a)\big),\ea 
+\]
+where $\phi_0,\psi_0$ are quantifier-free formulas (containing at most the 
+parameters $\underline{a}$ free), 
+then $\exists n\forall x \phi_0(x,n,\tup a)$ 
+is (valid in ${\cal S}^{\omega,X}$) $(B,L)$-learnable (in the sense 
+of Definition \ref{d:fmcNum} and, for monotone formulas, in the 
+sense of Definition \ref{d:fmcMon}) by functionals given by 
+closed terms of $\ha[X,\|\cdot\|].$ \\
+To $B,L$ one can construct majorants 
+$B^*,L^*$ given by closed terms of $\ha$ such that 
+if $\exists n\forall x \phi_0(x,n,\tup a)$ is monotone (as in 
+Definition~\ref{d:fmcMon}), then it is even learnable in $B^*,L^*$ uniformly in majorants $\underline{a}^*$ of the parameters $\underline{a}.$
+\end{thm}
+
+\begin{proof}
+Suppose that 
+\[ \ba{l} 
+\ha[X,\|\cdot\|]+\mbox{AC$+$M$^{\omega}+$IP}^{\omega}_{\forall} 
+\vdash \\[1mm] \hspace*{2cm} 
+\forall \underline{a}\exists l^0\ \big( 
+\forall m\leq l \exists u \forall v\ \big(\psi_0(u,m,\tup a) \vee \neg\psi_0(v,m,\tup a)\big)\rightarrow \exists n \forall x \phi_0(x,n,\tup a)\big).
+\ea \]
+Then by the soundness of the G\"odel functional (`Dialectica') 
+interpretation for $\ha[X,\|\cdot\|]+\mbox{AC$+$M$^{\omega}+$IP}^{\omega}_{\forall}$ (see \cite{Kohlenbach08}) we obtain that (note that since we do not need 
+bar recursion to interpret $\ha[X,\|\cdot\|]$ we do not have to go through 
+the model of strongly majorizable functionals and so do not need to assume 
+any smallness condition on the types of $\underline{a}$ to pass to 
+${\cal S}^{\omega,X}$)   
+\[ {\cal S}^{\omega,X} \models \exists l,V,N \forall U,x\ \Big(\forall m\leq l 
+\big (\psi_0(Um,m,\tup a) \vee \neg\psi_0(VxU,m,\tup a)\big)
+\rightarrow \phi_0(x,N(U),\tup a)\Big).
+\]
+where `$\exists l,V,N$' is witnessed (uniformly in $\underline{a}$) 
+by closed terms $t,s_V,s_N$ of 
+$\ha[X,\|\cdot\|]$. 
+The result when the terms $s_V,s_N$ are applied to 
+$\tup a$, we conveniently name $V$ and $N$.\\
+To show the learnability, let $U_{\tup v}$ (where $\tup v$ is a $t(\tup a)$-tuple) denote the function \[
+U_{\tup v}(i):=\begin{cases}
+v_i&\Tif\ i<t(\tup a),\\
+0&\Telse,
+\end{cases}\] set $B(\tup a):=t(\tup a)$ and define $L$ in $N$ and $V$ via a sequence of $t(\tup a)$-tuples $\tup v^{(\cdot)}$.
+More precisely to compute $L(\langle \underbrace {x_0,x_1,\ldots,x_i}_{\tup x:=}\rangle,\tup a)$ for some $i$ we need to
+define the tuples $\tup v^{(0)},\ldots,\tup v^{(i)}$ as follows.
+\begin{enumerate}
+\item[$\tup v^0$] 
+Set $\tup v^0:=0,\ldots,0$ and $c_1:=L(\langle x_0\rangle,\tup a):=
+N(U_{\tup v^0})$.
+\item[$\tup v^1$] If $\forall x \phi_0(x,c_1,\tup a)$ holds, then there is nothing to be 
+done\footnote{
+Of course this is undecidable, however the conclusion discussed next is. In this sense if the conclusion is wrong for the $x_1$ given as input to $L$, 
+we can simply set $\tup v^1=\tup v^0$ and $L(\langle x_0,x_1\rangle,\tup a):=c_1$ (or even $0$ for all that it matters).
+}. 
+Otherwise, we have in particular (provided that $x_1$ is the minimal 
+counterexample) 
+\[
+\exists m\leq t(\tup a) \big (\neg\psi_0(U_{\tup v^0}m,m,\tup a) \wedge \psi_0(Vx_1(U_{\tup v^0}),m,\tup a)\big)
+\]
+and 
+so we can denote the least such an $m$ by $m_0$ (put $m_0:=0$ in case such an 
+$m$ does not exist) and define $\tup v^1$ as $\tup v^0$ except that we set $v^1_{m_0}:=Vx_1(U_{\tup v^0})$.
+Furthermore, we set 
+$c_2=L(\langle x_0,x_1\rangle,\tup a):=N(U_{\tup v^1})$. 
+Note that we have \[ \neg\psi_0(U_{\tup v^0}m_0,m_0,\tup a) \wedge \psi_0(v^1_{m_0},m_0,\tup a). \tag{v0}\label{e:v0}\]
+\item[$\tup v^2$] Now, if $\forall x \phi_0(x,c_2,\tup a)$ then we are finished. Otherwise, similarly as before we have 
+\[
+\exists m\leq t(\tup a) \big (\neg\psi_0(U_{\tup v^1}m,m,\tup a) \wedge \psi_0(Vx_2(U_{\tup v^1}),m,\tup a)\big)
+\]
+and we can denote the least such an $m$ by $m_1$ and define $\tup v^2$ as $\tup v^1$ except that we set $v^2_{m_1}:=Vx_2(U_{\tup v^1})$. As before this means that
+\[ \neg\psi_0(U_{\tup v^1}m_1,m_1,\tup a) \wedge \psi_0(v^2_{m_1},m_1,\tup a), \tag{v1}\label{e:v1}\]
+so in particular we obtain that $m_1\neq m_0$ by~\eqref{e:v0} as $U_{\tup v^1}m_1=v^1_{m_1}$. We set $c_3=L(\langle x_0,x_1,x_2\rangle,\tup a):=
+N(U_{\tup v^2})$ and continue.
+\item[$\tup v^3$] Again, if $\forall x \phi_0(x,c_3,\tup a)$ then we are finished. Otherwise, as before, we have that
+\[
+\exists m\leq t(\tup a) \big (\neg\psi_0(U_{\tup v^2}m,m,\tup a) \wedge \psi_0(Vx_3(U_{\tup v^2}),m,\tup a)\big)
+\]
+and we can denote the least such an $m$ by $m_2$ and define $\tup v^3$ as $\tup v^2$ except that we set $v^3_{m_2}:=Vx_3(U_{\tup v^2})$. As before this means that
+\[ \neg\psi_0(U_{\tup v^2}m_2,m_2,\tup a) \wedge \psi_0(v^3_{m_2},m_2,\tup a), \tag{v2}\label{e:v2}\]
+so in particular we obtain that $m_2\neq m_1$ by~\eqref{e:v1}. Moreover, by~\eqref{e:v0} and~\eqref{e:v2} we have $m_2\neq m_0$, since from $m_1\neq m_0$ follows that $v^2_{m_0}=v^1_{m_0}$.
+ We set $c_4=L(\langle x_0,x_1,x_2,x_3\rangle,\tup a):=N(U_{\tup v^3})$ and continue.\\
+\item[$\tup v^{n+1}$] Finally, in general assume that for some $n$ we have that $\forall i< n\forall j<i\ m_i\neq m_j$
+ and $\forall i\leq n+1 \neg \forall x \phi_0(x,c_i,\tup a)$.
+Then we have also that
+\[ 
+\forall i<n \big (\neg\psi_0(U_{\tup v^i}m_i,m_i,\tup a) \wedge \psi_0(Vx_{i+2}(U_{\tup v^{i+1}}),m_i,\tup a)\big). \tag{vi}\label{e:vi}
+\]
+As usual we have in particular that
+\[ 
+\exists m\leq t(\tup a) \big (\neg\psi_0(U_{\tup v^n}m,m,\tup a) \wedge \psi_0(Vx_{n+1}(U_{\tup v^n}),m,\tup a)\big)
+\]
+and we can denote the least such an $m$ by $m_n$ and define $\tup v^{n+1}$ as $\tup v^n$ except that we set $v^{n+1}_{m_n}:=Vx_{n+1}(U_{\tup v^n})$. As before this means that
+\[ \neg\psi_0(U_{\tup v^n}m_n,m_n,\tup a) \wedge \psi_0(v^{n+1}_{m_n},m_n,\tup a). \tag{vn}\label{e:vn}\]
+From $\forall 0<i<n\ ( m_0\neq m_i )$ it follows that $\forall0<i<n\ ( v^n_{m_0}=v^i_{m_0})$. Assume that $m_n = m_0$, then
+\[U_{\tup v^n}m_n=v^n_{m_n}=v^n_{m_0}=v^1_{m_0}\]
+and we obtain a contradiction as $\neg\psi_0(v^1_{m_0},m_0,\tup a)$ follows from~\eqref{e:vi} and $\psi_0(v^1_{m_0},m_0,\tup a)$ follows from~\eqref{e:vn}. This shows that 
+$m_n \neq m_0$, similarly one shows that \[ \forall i<n\ (m_n \neq m_i).\]
+As usual, we set $c_{n+2}=L(\langle x_0,\ldots,x_{n+1}\rangle,\tup a):=
+N(U_{\tup v^{n+1}})$.
+\end{enumerate}
+This leads to the following definition of $L$:
+\begin{align*}
+ L(x,\tup a):= 
+ L(\langle \underbrace {x_0,x_1,\ldots,x_i}_{\tup x:=}\rangle,\tup a):=
+N(U_{\tup v^{i}}). 
+\end{align*}
+Note that since $N$ and $U$ are total, so is $L$. 
+Moreover, if the values of $i$, $\tup x$, and $c_i$ satisfy the conditions from Proposition~\ref{p:allx}, then $L$ 
+behaves as described above.\\
+Finally, since there can be only $t(\tup a)$ many different $m_i$'s, it can happen at most $t(\tup a)$ many 
+times that $\forall x \phi_0(x,c_i,\tup a)$ does not hold, where
+$c_i$ is defined as in Definition \ref{d:fmcNum} with $L$ as above. Hence 
+$\varphi$ is $(B,L)$-learnable in the sense of  Definition \ref{d:fmcNum} 
+and hence - for monotone formulas - also $(B,\tilde{L})$-learnable 
+for some $\tilde{L}$ primitive recursive in $B,L$ (and $\varphi_0$) 
+by Proposition~\ref{p:allx}. 
+\\ The 
+second claim follows from the fact that $t,s_V,s_v$ have majorants $t^*,
+s^*_V,s^*_N$ 
+given by closed terms of $\ha$ (see \cite{Kohlenbach08}) which then 
+yield majorants $B^*,L^*$ of $B,L.$ Now apply  
+Proposition \ref{p:majBL}.
+\end{proof} 
+\begin{rmk} \label{simple-L}
+Assume that $\varphi_0$  in the theorem comes from a Cauchy statement 
+\[ j_1(x),j_2(x)\ge n\to \widehat{\| 
+a_{j_1(x)}-a_{j_2(x)}\|}(k+1)\le_{\QQ} 
+2^{-k}, \] where -- referring to the representation of real numbers 
+by number theoretic functions $f$ representing fast Cauchy sequences of 
+rationals -- $\widehat{f}(k+1)$ is a $2^{-k-1}$-rational approximation to $f$ 
+(see \cite{Kohlenbach08} for details).  Then 
+$\varphi$ is monotone and a counterexample $x$ to $n$ satisfies 
+$x\ge n$ (using that for the Cantor pairing function $x\ge j_i(x)$). 
+Assume also that $\psi_0$ is 
+monotone in $u$ (which always can be arranged by taking 
+$\psi'_0(u,m,\underline{a}):\equiv \exists \tilde{u}\le u\,\psi_0
+(u,m,\underline{a})$). \\ 
+Then the complicated iteration used in defining 
+$L$ can be avoided by taking simply 
+\[ L^*(\langle x_0,\ldots,x_i\rangle,\underline{a}^*):= 
+N^*_{\underline{a}^*}(\lambda k.V^*_{\underline{a}^*}(x_i,
+\lambda n.x_i)), \] 
+where $\lambda \underline{a}^*.N^*_{\underline{a}^*},\lambda \underline{a}^*.
+V^*_{\underline{a}^*}$ are majorants of 
+\[ \tilde{N}_{\underline{a}}(f):=\max\left\{ \max\left\{ 
+N(v^0*0):lh(v)=t\underline{a}\wedge \forall l\le t\underline{a}(v_l\le f(l))
+\right\},f(l):l\le t\underline{a}\right\}\] and 
+\[ \tilde{V}_{\underline{a}}(x,f):=\max\left\{ \max\left\{ 
+V(x,v^0*0):lh(v)=t\underline{a}\wedge \forall l\le t\underline{a}(v_l\le f(l))
+\right\},f(l):l\le t\underline{a}\right\}\] 
+with $N,V,t$ as in Theorem \ref{t:bdLem}. Note that with $N,V$ also 
+$\tilde{N},\tilde{V}$ satisfy the claim in the proof and that $L^*$ 
+(for counterexamples $x_0,\ldots,x_i$) is 
+an upper bound for the $L$ defined in terms of $\tilde{N},\tilde{V}$ as 
+an elementary calculation shows (using that -- by the form of 
+$\varphi_0$ -- a counterexample $x$ to $n$ has to satisfy $x\ge n$). 
+By monotonicity, $\varphi$ is then also $(L^*,B^*)$-learnable (uniformly 
+in majorants $\underline{a}^*$ of $\underline{a}$) where $B^*$ is some 
+majorant of $B.$ 
+\end{rmk}  
+\begin{rmk} The theorem remains valid if arbitrary ${\cal S}^{\omega,X }$-true 
+purely universal sentences are added as axioms to 
+{\rm HA$^{\omega}[X,\|\cdot\|]$}. The part about the majorizing terms $B^*,L^*$ 
+even remains valid -- using monotone functional interpretation -- 
+if one adds sentences of the form $\Delta:\equiv 
+\forall a^{\delta}\exists b\le_{\rho} sa\forall c^{\tau} 
+F_0(a,b,c)$ with quantifier-free 
+$F_0$ and closed $s$ as axioms which covers the case of the binary (`weak') K\"onig's lemma 
+WKL (which together with AC even implies K\"onig's lemma KL); see 
+\cite{Kohlenbach08} for extensive details on all this.
+\end{rmk}
+Using the representation of real numbers from 
+\cite{Kohlenbach08}, each sequence of type $0\to 1$ can be viewed 
+as a name of a sequence $(a_n)$ of reals. Now define 
+$\tilde{a}_n:=\max_{\RR}\big(0,\min\nolimits_{i\le n}a_i\big).$ 
+Let PCM$_{ar}(a_n)$ denote the statement that the monotone decreasing 
+sequence $(\tilde{a}_n)$ in $[0,1]$ is Cauchy (see \cite{Kohlenbach08} 
+for details) 
+\[\mbox{PCM}_{ar}(a_n): \ \forall k\in\NN\,\underbrace{\exists n\in\NN\, 
+\forall m\ge n\ (|\tilde{a}_m- \tilde{a}_n|\le 
+2^{-k})}_{\mbox{PCM}_{ar}((a_n),k)
+:\equiv} \]
+(if $(a_n)$ is already 
+a decreasing sequence in $[0,1]$, then $(\tilde{a}_n)=(a_n)).$ 
+The usual classical proof of PCM$(a_n)$ uses $\Sigma^0_2$-DNE, but it can be 
+converted into a proof that only needs the weaker $\Sigma^0_1$-LEM (see 
+Proposition \ref{p:limComp} below). 
+In \cite{Toftdal}, an explicit such proof is constructed 
+exhibiting a concrete sequence of instances of $\Sigma^0_1$-LEM sufficient 
+for this. From this proof one can read off the following even more detailed 
+fact:
+\begin{prop} There is a primitive recursive functional (in the 
+ordinary sense) $\Phi$ such that (using the Cantor pairing function)
+\[ \mbox{\rm HA}^{\omega}\vdash \forall a^{0\to 1}_{(\cdot)}, k^0\ 
+\big( \forall m \le j(2^k-1,2^k) \,\Sigma^0_1\mbox{\rm -LEM}(\Phi(a_{(\cdot)},m)
+\rightarrow 
+\ \mbox{\rm PCM}_{ar}(a_{(\cdot)},k)\big). \] 
+\end{prop} 
+{\bf Proof.} The crucial step in Toftdal's proof in \cite{Toftdal} is 
+to show by induction on $k$ that 
+\[ \forall k\exists i\in \{ 1,\ldots,2^k\} \exists n \forall m \, 
+\left( \frac{i-1}{2^k}\le \tilde{a}_{n+m}\le \frac{i}{2^k}\right), \]
+where in the induction step $\Sigma^0_1$-LEM is used in the form 
+(note that, based on our representation of real numbers, $<_{\RR}\in\Sigma^0_1$) 
+\[\exists n\ \left( \tilde{a}_n <\frac{2i-1}{2^{k+1}}\right) \vee 
+\neg \exists n\ \left( \tilde{a}_n <\frac{2i-1}{2^{k+1}}\right). \]
+So to establish PCM$_{ar}(a_{(\cdot)},k)$ one needs only the instances 
+\[\exists n\ \left( \tilde{a}_n <\frac{i}{2^{l}}\right) \vee 
+\neg \exists n\ \left( \tilde{a}_n <\frac{i}{2^{l}}\right) \] 
+for $i\le l-1$ and $l\le 2^k,$ i.e. the codes $j(i,l)$ of the instances 
+used can be bounded by $t(k):=j(2^k-1,2^k).$  The construction of $\Phi$ is 
+clear. 
+ \hfill $\Box$ 
+While the usual classical proof of PCM$_{ar}$ only needs $\Sigma^0_1$-induction 
+(but $\Sigma^0_2$-DNE), the above proof due to Toftdal needs an instance of 
+the $\Sigma^0_2$-induction rule ($\Sigma^0_2$-IR) which, apparently, is the 
+price to be paid for using only $\Sigma^0_1$-LEM (instead of 
+$\Sigma^0_2$-DNE). Classically, $\Sigma^0_2$-IR is quite strong and proves 
+(relative to PRA) the same $\Pi^0_3$-sentences as $\Pi^0_2$-IA 
+(see e.g. \cite{Sieg}[Theorem 3.11]) and so, 
+in particular, the totality of the Ackermann function. In our intuitionistic 
+context, however, it is weak and the functional interpretation used 
+(without negative translation!) in the 
+proof of Theorem~\ref{t:bdLem} (and the corollary below) to extract $B,L$ solves 
+$\Sigma^0_2$-IR using only ordinary primitive recursion in the form of 
+$R_0.$ \\ One can also modify Toftdal's proof so that only the $\Pi^0_1$-FAC 
+principle (`$\Pi^0_1$-finite-axiom-of-choice') is used (which classical 
+is equivalent to $\Pi^0_1$-CP which is relative to PRA $\Pi^0_3$-conservative 
+of $\Sigma^0_1$-IA): w.l.o.g. we may assume that $(a_n)$ is a sequence 
+of rational numbers (for, otherwise, replace it by $r_n:=\min_{i\le n} 
+(\widehat{a}_i+2^{-i})$ using the representation of reals from 
+\cite{Kohlenbach08}): 
+by $\Sigma^0_1$-LEM we have 
+\[ \forall i\le 2^{k}\exists n\forall m \,\big( a_n<\frac{i}{2^k} \vee 
+a_m\ge \frac{i}{2^k}\big). \] 
+Hence by $\Pi^0_1$-FAC 
+\[ \exists n\forall i\le 2^k \,\big(a_{(n)_i} <\frac{i}{2^k}\vee 
+\forall m (a_m\ge \frac{i}{2^k})\big). \] 
+Now let $i_0\le 2^k$ be least s.t. $ a_{(n)_{i_0}} <\frac{i_0}{2^k}$ 
+(if existent; otherwise $\forall m (a_m=1)$ and we are done). Then for 
+$l:=(n)_{i_0}$ 
+\[ \forall m\ge l \, (|a_m-a_l|<2^{-k}). \]   
+\\[2mm]
+As a corollary we obtain that Theorem~\ref{t:bdLem} also holds with 
+the original assumption being replaced by 
+PCM$_{ar}(s(\underline{a},l),t(\underline{a})),$ where 
+$s(\underline{a},l)^{0\to 1}$ represents for each $l\in\NN$ 
+some sequence of reals defined by 
+a closed term $s$ in $\underline{a}:$
+\begin{cor} \label{cor.2.11}
+Given that 
+\[\ba{l} \mbox{\rm HA$^{\omega}[X,\|\cdot\|]+$AC$+$M$^{\omega}+
+$IP}^{\omega}_{\forall}\vdash \\[1mm] \hspace*{2cm}  
+\forall \underline{a}\,\exists k^0 ,l^0\ \big( 
+\ \forall m \le l\ \mbox{\rm PCM}_{ar}(s(\underline{a},m),k)
+ \rightarrow \exists n^0\forall x^0\,\varphi_0(x,n,\underline{a})\big), 
+\ea \] 
+where $s$ is a closed term and $\varphi_0$ as in Theorem \ref{t:bdLem}, then 
+$\exists n^0\forall x\,\varphi_0(x,n,\underline{a})$ 
+is (valid in ${\cal S}^{\omega,X}$) 
+$(B,L)$-learnable (uniformly in $\underline{a}$) by functionals given by 
+closed terms of the system $\ha[X,\|\cdot\|]$.\\
+To $B,L$ one can construct majorants 
+$B^*,L^*$ given by closed terms of $\ha$ such that 
+if $\exists n\forall x \phi_0(x,n,\tup a)$ is monotone (see Definition~\ref{d:fmcMon}) then it is even learnable in $B^*,L^*$ uniformly in
+majorants $\underline{a}^*$ of the parameters $\underline{a}$.
+\end{cor}   
+\begin{remark}
+Of course, instead of sequences in $[0,1]$ one can also consider sequences 
+in any compact interval $[-C,C],$ where then the functionals $B,L$ will 
+additionally depend on $C.$ \\[1mm] Likewise, instead of decreasing 
+sequences we may also have increasing ones or, if the Cauchy property 
+is changed into the existence of an approximate infimum 
+\[ \exists n\,\forall m (a_n\le a_m+2^{-k}), \] 
+also arbitrary sequences in $[-C,C].$
+\end{remark}
+The next proposition shows how to convert any majorants $(B^*,L^*)$ for 
+a $(B,L)$-learnable formula into a rate of metastability. This not only 
+guarantees a highly uniform (and for computable $(B^*,L^*)$) computable 
+rate of metastability but, moreover, such a rate which has a particularly 
+simple form (see the remark and discussion after the proposition):
+\footnote{Note that in our examples, $\underline{a}$ will be data related to 
+an abstract normed of Hilbert space for which (in contrast to 
+$\underline{a}^*$) computability is not even defined.} 
+\begin{prop}\label{p:bg2meta}
+Let $\exists m^0\forall k^0\,\varphi_0(n,m,k,\underline{a})$ be a formula 
+in the language of $\ha$ (or $\ha[X,\|\cdot\|]$) with $\varphi_0$ being 
+quantifier-free that 
+is $(B,L)$-learnable in the sense of Definition \ref{d:fmcNum}  
+(uniformly in $n$ and  $\underline{a}$) and let $B^*,L^*$ be majorants of  
+$B,L$. \\ 
+Then a rate of metastability $\Omega$ 
+(valid in ${\cal S}^{\omega,X}$) 
+\[ \forall n^0\,\forall g^1\, \exists m\le_0\Omega(g,n) \ 
+\phi_0(n,m,g(m),\underline{a})\tag{metastable} \label{(metastable)}\]
+for\footnote{Note that in order to talk about metastability, we need  one of the parameters to have type 0 and we treat it separately.}  
+\[
+\forall n^0 \exists m^0 \forall k^0\ \phi_0(n,m,k,\underline{a})\tag{$\phi$}\label{e:phi}
+\]
+is given by $\Omega(B^*,L^*,\underline{a}^*)$ 
+(uniformly in majorants $\underline{a}^*$ of 
+the parameters $\underline{a}$), where 
+$\tilde g(c):=\max\big(c,\max_{c'\leq c}(g(c'))\big)$ and
+\begin{align*} 
+  \Omega&:=\lambda B^*,L^*,\underline{a}^*,g,n\ .\ C(L^*,g,n,
+B^*(n,\underline{a}^*),\underline{a}^*),\\
+C(i):=C(L^*,g,n,i,\underline{a}^*)&:=
+\begin{cases}0,&\Tif\ i=0,\\ L^+(\langle\overbrace{ \tilde g(C(i-1)+1),\ldots,\tilde g(C(i-1)+1) }^{i\times}\rangle,n,\underline{a}^*),&\Telse,\end{cases}
+\end{align*}
+with $L^+(x):=\max\{ L^*(x),x\}.$ \\ 
+Note that $\Omega$ is defined using only recursion $R_0$ of type $0$ and 
+hence is primitive recursive in the usual sense of Kleene.
+\end{prop}
+\begin{proof} We reason in ${\cal S}^{\omega,X}.$
+Since $\phi_0$ is quantifier-free, there is a closed term $f$ with 
+$f(n,m,k,\underline{a})=0\leftrightarrow \phi_0(n,m,k,\underline{a})$. 
+Hence, we have that (for $\underline{a}^*$ majorizing $\underline{a}$) and 
+for the succession $c_i$ from Definition \ref{d:fmcNum} 
+\[ \forall n\ \exists i\leq B^*(n,\underline{a}^*)\ \forall k\ \ \big( 
+f(n,c_i,k,\underline{a})=0 \big), \]
+by the assumptions of the proposition, and we need to show that
+\[ \forall g,n\ \exists m\leq \Omega(B^*,L^*,\underline{a}^*,g,n) 
+\ \ \big( f(n,m,g(m),\underline{a})=0 \big). \]
+Now, fix any $g$, $n$ and assume towards contradiction that 
+$\Omega(B^*,L^*,\underline{a}^*,g,n)$ is not a rate of metastability, i.e. that
+\be[e:NE] 
+\forall m\leq \Omega(B^*,L^*,\underline{a}^*,g,n)  \ \ \big( f(n,m,g(m),\underline{a})\neq0 \big).
+\ee
+By induction on $i$ we obtain that
+\be[e:IC] 
+\forall i\leq B^*(n,\underline{a}^*) \,\big(c_i\leq 
+C(L^*,g,n,i,\underline{a}^*)
+\big).
+\ee
+The case $i=0$ is trivial as $c_0=C(L^*,g,n,0,\underline{a}^*)=0$. 
+Next, suppose that for some 
+$1\leq i\leq B^*(n,\underline{a}^*)$ the following holds
+\be[e:IH] 
+\forall j<i\ \big(c_j\leq C(L^*,g,n,j,\underline{a}^*)\big). 
+\ee
+Denoting the smallest $k$ s.t. $f(n,m,k,\underline{a})\neq0$ by $x_m$ 
+(if this does not exist, we have $c_i=c_{i-1}$ and are done), 
+we obtain by~\eqref{e:IH} that\footnote{Here
+we simply assume that our encoding is monotone in its components. If for some reason it was not, we could use a $L'$ which returns
+the maximal value among all codes coordinatewise bounded by the elements of the encoded input of $L^*$.}
+\[
+   c_i\leq L^*(\langle x_{c_0},\ldots,x_{c_{i-1}}\rangle, n,\underline{a}^*)
+   \leq L^*(\langle \tilde g({c_0}),\ldots,\tilde g({c_{i-1}})\rangle, n,\underline{a}^*)\le C(L^*,g,n,i,\underline{a}^*),
+\]
+since by~\eqref{e:NE} we have (using that $C(i)$ is nondecreasing in $i$) 
+that \[ \forall i\leq B^*(n,\underline{a}^*)\ 
+\big(m\leq C(L^*,g,n,i,\underline{a}^*)\rightarrow f(n,m,g(m),\underline{a})\neq0 \big)\] and 
+so, in particular, that
+\[ \forall i\leq B^*(n,\underline{a}^*)\ \big(m\leq C(L^*,g,n,i,\underline{a}^*)
+\rightarrow x_m\leq g(m)\leq \tilde g(m) \big). \]
+Finally, we can infer from~\eqref{e:IC} that
+\[ \forall i\leq B^*(n,\underline{a}^*)\ 
+\big(c_i\leq \Omega(B^*,L^*,\underline{a}^*,g,n)\big),\]
+and therefore and by~\eqref{e:NE} also
+\[ \forall i\leq B^*(n,\underline{a}^*)\ \neg\forall k^0\big( 
+f(n,c_i,k,\underline{a})=0\big) \]
+for all majorizable $\underline{a}$ contradicting the $(B,L)$-learnability 
+(uniformly in $n$ and $\underline{a}$) of \\ 
+$\exists m\forall k\,\varphi_0(n,m,k,\underline{a})$ and the fact that $B^*$ 
+majorizes $B$ (so that $B^*(n,\underline{a}^*)\ge B(n,\underline{a})).$
+\end{proof}
+
+\begin{rmk}\label{r:metastr}
+Note that $\Omega$ has essentially the following form\footnote{Note that 
+the additional dependency on the number $i$ of iterates in 
+Proposition \ref{p:bg2meta} via the length of the sequence 
+$\langle \ldots\rangle$ can also 
+be covered by 
+this normal form, since -- by $\tilde{g}(C(i-1)+1)\ge\tilde{g}(i)\ge i$ -- 
+the length of the sequence $\langle\ldots\rangle$  can be majorized by 
+$\tilde{g}(C(i-1)+1)$ itself.}
+\begin{align*}
+&(L_{n,\tup a^*}\circ \tilde{g})^{B^*(n,\tup a^*)}(0),\\
+&L_{n,\tup a^*}:=\lambda x\ .\ L^*(x,n,\tup a^*).
+\end{align*}
+Moreover, if we have such a rate of metastability for some Cauchy statement 
+$\varphi$ as considered in Remark \ref{simple-L} so that 
+$\varphi$ is monotone and a counterexample $x$ is always greater than the 
+witness candidate, and given any $n,\tup a^*$ we have an 
+$f^1$ and a $b^0$ such that for all $\underline{a}$ 
+that are majorized by $\underline{a}^*$ 
+\be[e:nfbA]
+\forall g \exists m \leq (f\circ \tilde{g})^b(0) \phi_0(n,m,g(m),\tup a),
+\ee
+then $\phi$ is $B,L$-learnable (uniformly in $n$ and majorants 
+$\underline{a}^*$ for $\underline{a}$) with
+\[
+B(n,\tup a^*):=b,\quad L(x,n,\tup a^*):=f(x).
+\]
+To prove this fact, we argue as follows. Fix arbitrary $n,\tup a^*$ and
+consider corresponding $f$ and $b$. Let
+\[
+g(m)=\min\{x\ : \neg\phi_0(n,m,x,\tup a) \},
+\]
+if such an $x$ exists and $0$ otherwise. Note that due to the monotonicity
+of $\phi$ we have $g(m)\neq0\rightarrow \tilde g(m)=g(m)$. This implies that
+as long as there is a (the smallest) counterexample $x_i$ to $c_i$, it holds that
+\be[e:nfb0]
+c_{i+1}=L(x_i,n,\tup a^*)=f(x_i)
+=(f\circ \tilde g)c_i=(f\circ \tilde g)^{i+1}(0).
+\ee
+Given all this, assume towards contradiction that
+\be[e:nfb1]
+\forall i\leq B(n,\tup a^*) \exists x \neg\phi_0(n,c_i,x,\tup a),
+\ee
+and consider any $m\leq (f\circ \tilde{g})^b(0)$. Due to~\eqref{e:nfb0} and~\eqref{e:nfb1},
+we get that $m\leq c_b$ and due to the monotonicity of $\phi$ this means that
+there is a counterexample to $m$ (since there is one for $c_b$ by~\eqref{e:nfb1}, as $B(n,\tup a^*)=b$), which 
+means that $\neg\phi_0(n,m,g(m),\tup a)$ by definition of $g$. This is a contradiction
+to~\eqref{e:nfbA}.
+\end{rmk}
+
+{\bf Discussion:} What the main results in this section (Theorem 
+\ref{t:bdLem} and Proposition \ref{p:bg2meta}), taken together, show 
+is that if the proof of a (monotone) $\Pi^0_3$-statement (e.g. a 
+Cauchy statement) uses only a bounded (in the 
+parameters) number of unnested 
+$\Sigma^0_1$-LEM$^-$-instances but may use induction 
+of unrestricted complexity, then we get a rate of metastability which 
+-- as a functional in the counterfunction $g$ -- has a very simple structure 
+(namely only a single use of iteration of g). This is remarkable as e.g. 
+HA$^{\omega}$ does, of course, 
+prove $\forall g \exists x\,\psi_0(g,x)$-sentences 
+which need 
+much more complicated functionals in $g$ (namely every type-2 functional
+definable in G\"odel's calculus $T$ arrives in this way). What we have shown, 
+however, is that this cannot happen if $\forall g \exists x\,\psi_0(g,x)$
+results as the Herbrand normal form of a $\Pi^0_3$-statement 
+$\varphi\equiv \forall n^0\exists m^0\forall k^0\,\varphi_0(n,m,k)$ 
+(with $g$ being the function variable playing the role of the Herbrand 
+index function) that is provable 
+in HA$^{\omega}$ from the aforementioned restricted uses of 
+$\Sigma^0_1$-LEM$^-.$ To see the difference, 
+let us consider the simple but already illuminating 
+case where the proof of $\varphi$ does not use classical logic 
+at all. Then one can use modified realizability or functional interpretation 
+to extract a (definable in $T$) witnessing term $t$ for $\varphi$ 
+(and hence a bound $t^*$ which is uniform in majorants of the parameters) 
+which then a fortiori is also a rate of metastability for $\varphi$ 
+which does not use the argument $g$ at all.
+The `$g$-involvement' displayed by a rate of metastability reflects the 
+amount of $\Sigma^0_1$-LEM$^-$ used in the proof and the former 
+is simple if the latter is low. Moreover, the extraction of the rate of 
+metastability via the extraction of the learning procedure $L^*$ proceeds 
+without any use of negative translation but with direct functional 
+interpretation (while modified realizability would not be sufficient as 
+we need the functional witnessing $V$ in the proof of Theorem 
+\ref{t:bdLem}).
+\\[2mm] 
+A sort of complementary scenario would be to allow full classical logic 
+in a proof but to restrict the use of induction to a bounded number of 
+unnested instances of $\Sigma^0_1$-IA, the latter being used e.g. in 
+the form of PCM$_{ar}.$ Let {\rm G$_3$A$^{\omega}$} be 
+the finite type extension of Kalmar-elementary 
+arithmetic (based on quantifier-free induction only but with classical logic) 
+from \cite{Kohlenbach(lowrate)} (see also \cite{Kohlenbach08}).
+Now consider a proof 
+\[\mbox{\rm G$_3$A}^{\omega}[X,\|\cdot\|]\,
+\vdash   
+\forall \underline{a}\, \big( 
+\ \mbox{\rm PCM}_{ar}(t_1(\underline{a}),
+t_2(\underline{a}))
+ \rightarrow \exists n^0\forall x^0\,\varphi_0(x,n,\underline{a})\big).  \] 
+Then by negative translation and functional interpretation one can 
+extract a rate of metastability for the conclusion 
+making a single use of the rate of 
+metastability of PCM$_{ar}$ given by a single application of the iteration 
+$\tilde{g}^{k}(0)$ (see \cite{Kohlenbach08} prop.2.26) 
+and terms $t[g]$ of G$_3$A$^{\omega}$ which can be 
+majorized by terms using only a fixed number of $g$-nestings (reasoning 
+as in the proof of Proposition \ref{p:nonLearnablePhi} below). 
+This again leads to a rate of 
+metastability which can be put into the form in Remark \ref{r:metastr}.\\[1mm] 
+So to get a more complicated rate of metastability (e.g. of the form 
+$\tilde{g}^{(\tilde{g}^x(0))}(0)$) requires a nested use of a {\bf combination} of 
+$\Sigma^0_1$-LEM$^-$ and (at least) 
+$\Sigma^0_1$-IA$^-$ as provided in our example 
+of a sentence $\varphi$ in Proposition 
+\ref{p:nonLearnablePhi} that is not effectively learnable (where 
+$\Sigma^0_1$-LEM$^-$ together with $\Pi^0_1$-CP$^-$ is used).
+
+\subsection{Cauchy statements and unrestricted use of $\Sigma^0_1$-LEM}
+In the following, we refer to Friedman's so-called $A$-translation from 
+\cite{Friedman(78)} (see e.g. \cite{Kohlenbach08}). Since we 
+work in the context of weakly extensional systems and the quantifier-free 
+rule of extensionality QF-ER is not sound under the $A$-translation we simply 
+add for the reminder of this section 
+all ${\cal S}^{\omega}$-true (resp. ${\cal S}^{\omega,X}$-true) purely 
+universal sentences ${\cal P}$ in the language of the respective system 
+as axioms (making the use of QF-ER in proofs superfluous as it only proves 
+universal consequences). This, anyhow, is a common device in proof mining 
+as universal axioms do not contribute to the computational content of a 
+proof (this has been stressed by G. Kreisel since the 50's). We denote 
+the extension of the theory ${\cal T}$ by the axioms ${\cal P}$ by 
+${\cal T}_*.$ 
+
+\begin{lemma}\label{l:Atrans+}
+Friedman's $A$-translation is sound also for $\ha_* + \LEM$.\\ Similarly for 
+{\rm HA$_*^{\omega}[X,\|\cdot\|]$} (and related extensions) instead of 
+$\ha_*.$
+\end{lemma}
+\begin{proof}
+Consider the following instance of $\LEM$
+\[\forall y \phi_0(\tup a,y)  \vee \exists y \neg\phi_0(\tup a,y).\] 
+W.l.o.g assume $\phi_0$ is atomic. 
+It suffices to extend Friedman's proof by showing that
+\[\ha_* + \LEM\vdash (\LEM)^A.\]
+This means we need to prove
+\[ \forall y \big( \phi_0(\tup a,y) \vee A\big) \vee \exists y \big(  (\phi_0(\tup a,y) \vee A) \rightarrow A\big),\tag{1}\]
+in $\ha_* + \LEM$.
+Suppose that
+\begin{enumerate}
+\item $\forall y \phi_0(\tup a,y)$ holds. Then also $\forall y \big( \phi_0(\tup a,y) \vee A\big)$ holds and therefore also (1).
+\item $\exists y \neg\phi_0(\tup a,y)$ holds. Then fix such a $y$. For this $y$ we get 
+\[(\phi_0(\tup a,y) \vee A) \rightarrow A\]
+and so $ \exists y \big(  (\phi_0(\tup a,y) \vee A) \rightarrow A\big)$ holds and therefore also (1). 
+\end{enumerate}
+For HA$_*^{\omega}[X,\|\cdot\|]$ one just has to observe that still every 
+quantifier-free formula can be written as an atomic formula of the form 
+$t\underline{a}=_00$ and that the additional axioms are all purely universal 
+and so easily imply their own $A$-translation.  
+\end{proof}
+
+For HA instead of 
+$\ha_*$ and HA$_*^{\omega}[X,\|\cdot\|]$ 
+(also for $\Sigma^0_{n+1}$-LEM and $\Sigma^0_{n+2}$-DNE), 
+the next proposition is stated (without proof) in \cite{Hayashi/Nakata}. 
+\begin{prop}\label{p:Atrans}
+The theory $\ha_* + \LEM$ is closed under the $\Sigma^0_2\m\DNE$ rule. \\ 
+Similarly for {\rm HA$_*^{\omega}[X,\|\cdot\|].$}
+\end{prop}
+\begin{proof} 
+Suppose \[\ha_* + \LEM \vdash \neg\neg \exists x\forall y\ \phi_0(\tup a,x,y),\]
+where $\phi_0$ is quantifier free and contains only $\tup a$ as free variables 
+(in addition to $x,y$). 
+Moreover, w.l.o.g we assume that $\phi_0$ is atomic.  \\
+Rewriting the negations in terms of ``$\rightarrow$'' and ``$\perp$'' we obtain that
+\[\ha_* + \LEM \vdash \big(\ \exists x\forall y\ \phi_0(\tup a,x,y)\rightarrow\perp\big)\rightarrow \perp,\]
+and using Friedman's A-translation (with Lemma~\ref{l:Atrans+}) that
+\[\ha_* + \LEM \vdash \Big(\ \exists x\forall y\ \big(\phi_0(\tup a,x,y) \vee A\big)\rightarrow A\Big)\rightarrow A,\]
+for any formula $A$ (not containing $x,y$ free). By setting \[A:\equiv\ \exists x'\forall y' \phi_0(\tup a,x',y'),\]
+(we consider only this $A$ throughout the remainder of the proof) we obtain that $\ha_* + \LEM$ proves
+\[\big(\ \exists x\forall y\ (\phi_0(\tup a,x,y) \vee \exists x'\forall y' \phi_0(\tup a,x',y'))\rightarrow \exists x'\forall y' \phi_0(\tup a,x',y')\big)\rightarrow \exists x'\forall y' \phi_0(\tup a,x',y').\tag{1}\]
+Now the claim follows from
+\[
+\LEM\vdash \forall y\big(\phi_0(\tup a,x,y) \vee \exists x'\forall y' \phi_0(\tup a,x',y') \big) \rightarrow \big(\forall y\ \phi_0(\tup a,x,y) \vee \exists x'\forall y' \phi_0(\tup a,x',y')\big),
+\tag{2}
+\]
+since using (2) the statement (1) is equivalent to
+\[  \big((\exists x \forall y \phi_0(\tup a,x,y) \vee \exists x'\forall y' \phi_0(\tup a,x',y'))\rightarrow \exists x'\forall y' \phi_0(\tup a,x',y')\big)\rightarrow \exists x'\forall y' \phi_0(\tup a,x',y'),\]
+which is equivalent to $\exists x\forall y \phi_0(\tup a,x,y)$.\\
+To show (2) consider the following instance of $\LEM$
+\[
+\forall y\ \phi_0(\tup a,x,y) \vee \exists y\ \neg\phi_0(\tup a,x,y).
+\]
+Now suppose that
+\begin{enumerate}
+\item $\forall y\ \phi_0(\tup a,x,y)$ holds, then (2) is trivially true.
+\item $\exists y\ \neg \phi_0(\tup a,x,y)$ holds, then for such a $y$ we have
+\[
+\big(\phi_0(\tup a,x,y) \vee \exists x'\forall y' \phi_0(\tup a,x',y') \big) \rightarrow \exists x'\forall y' \phi_0(\tup a,x',y')
+\]
+and so certainly we have also that
+\[
+\forall y\big(\phi_0(\tup a,x,y) \vee \exists x'\forall y' \phi_0(\tup a,x',y') \big) \rightarrow \exists x'\forall y' \phi_0(\tup a,x',y').
+\]
+Finally $\big(\forall y\ \phi_0(\tup a,x,y) \vee \exists x'\forall y' \phi_0(\tup a,x',y')\big)$ follows from $\exists x'\forall y' \phi_0(\tup a,x',y')$ so (2) holds as well.
+\end{enumerate}
+\end{proof}
+
+It is known, that a Cauchy rate is limit computable (which corresponds 
+to $\Sigma^0_2$-DNE which -- as mentioned in the introduction -- is 
+strictly stronger than $\Sigma^0_1$-LEM). However, for every provable   
+Cauchy sequence we have that $\Sigma^0_1$-LEM is sufficient:
+\begin{prop}\label{p:limComp}
+If a sequence of real numbers $(a_n)$ (or in some $\pa_*$-definable Polish 
+space) defined by a term of 
+$\pa_*$, can be proved to be Cauchy in $\pa$, then the proof can be carried 
+out already in $\ha_*+\LEM$. Similarly for $\pa_*[X,\|\cdot\|]$ and 
+sequences in 
+$X.$
+\end{prop}
+\begin{proof}
+Consider a sequence $x_{(\cdot)}$ and suppose
+\[ \pa_*\vdash \forall k\exists n\forall i,j>n\ 
+\big(| x_i - x_j| \leq 2^{-k}\big). \]
+Then by the Kuroda negative translation (see e.g. \cite{Kohlenbach08}) 
+we obtain that
+\[ \ha_*\vdash \forall k\neg\neg\exists n\forall i,j>n\ \big(| 
+x_i - x_j| \leq 2^{-k}\big). \]
+By Proposition~\ref{p:Atrans} this implies that
+\[ \ha_*+\LEM\vdash \forall k\exists n\forall i,j>n\ \big(| x_i - x_j| 
+\leq 2^{-k}\big) \] (recall that $\le_{\RR}\in\Pi^0_1$).
+\end{proof}
+
+\subsection{Which Cauchy statements are effectively learnable and which are not}
+\begin{prop}[Implications between different bounding information 
+for Cauchy statements] \label{prop.hierarchy}
+Let $(x_n)$ be a Cauchy sequence in a metric space $(X,d).$ 
+\begin{enumerate}
+\item A rate of convergence is a bound on the number of fluctuations.
+\item A bound for the number of fluctuations is a bound $B$ 
+on the number of mind changes to learn a rate of convergence (with a  
+simple projection function as learning procedure $L$).
+\item 
+Primitive recursively (in the ordinary sense of Kleene) in majorants 
+$B^*,L^*$ of functionals $B,L$ such that the Cauchy rate is $(B,L)$-learnable 
+one can obtain a rate of metastability. 
+\end{enumerate}
+\end{prop}
+\begin{proof}
+Consider a Cauchy sequence $x_{(\cdot)}$.
+\begin{enumerate}
+\item Let $b$ be a rate of convergence, i.e.
+\[ \forall k \forall n,m\geq b(k)\ \big( d(x_n,x_m)\leq 2^{-k}\big). \]
+Then $b(k)$ is also a bound on the number of $2^{-k}$ fluctuations, since any fluctuation has to occur before $b(k)$ (i.e. that one of the indexes of the 
+fluctuation has to be smaller than $b(k)$) and there can be at most $b(k)$ many fluctuations indexed within $[0;b(k)]$.
+\item Let $b$ be a bound on the number of $2^{-k}$ fluctuations, i.e.
+\[ \forall k \forall n>b(k) \forall i,j \neg\Fluc_{2^{-k}}(n,i,j). \]
+Then $b(k)$ is also a bound on the number of mind changes to learn a rate of convergence, since for 
+$L(n):=n+1$ we have that
+\[ \forall k\ \exists l\leq b(k)\ \forall n,m>c_l\ \ \big(  d(x_n,x_m)\leq 2^{-k}\big). \tag{BE}\label{e:be}\]
+%
+Formally, $L(i,x_{(\cdot)},k):=i$, and (where -- again -- to have 
+$\varphi_0$ quantifier-free we officially have to use the $2^{-k-1}$-rational 
+approximation $\widehat{d(x_n,x_m)}(k+1)$ of $d(x_n,x_m)$) 
+\[
+\phi_0(j(n,m),c_i,x_{(\cdot)},k):\equiv\ \big((n>c_i \wedge m>c_i) \rightarrow d(x_n,x_m)\leq 2^{-k}\big),
+\]
+where $j(n,m)$ is the Cantor pairing function.
+%
+The statement~\eqref{e:be} can be inferred from the fact that each mind change ($c_i$) corresponds to a (different) fluctuation (as it is based on a counterexample for $d(x_n,x_m)\leq 2^{-k}$, whose both indexes are greater than the last $c_i$).
+\item Follows directly from Proposition~\ref{p:bg2meta}.
+\end{enumerate}
+\end{proof}
+
+In the rest of this section we show that the hierarchy in Proposition \ref{prop.hierarchy} 
+between the four different 
+quantitative notations for Cauchy sequences discussed in the introduction 
+is strict. That an effective bound on the number of fluctuations does not imply an 
+effective rate of convergence, follows already from the existence of Specker sequences. We can also use the following
+very simple example with a $2^{-k}$-fluctuation bound $k$ and no effective rate of convergence, since such a rate would decide the halting problem:\\ 
+\begin{prop}[$\alpha_{(\cdot)}$] 
+We take the Cantor pairing function $j$ and set
+\[
+\alpha_{j(k,n)}:=
+\begin{cases}
+2^{-k}, &\Tif T(k,0,n),\\
+0, &\Telse,
+\end{cases}
+\]
+where $T$ is the primitive recursive Kleene $T$-predicate. Then $(\alpha_n)$ 
+is a convergent (towards $0$)
+primitive recursive sequence of rationals in $[0,1]$ with $2^{-k}$-fluctuation 
+bound $k$ which has no computable 
+rate of convergence.
+\end{prop}
+We next construct primitive recursive sequence $\beta_{(\cdot)}$ of rational 
+numbers in $[0,1]$ with an effectively (even primitive recursively) learnable Cauchy rate (so in particular with a primitive recursive rate of metastability), which has no computable bound on fluctuations (this example is not captured by the rough sketch of Avigad and Rute as here the number of the oscillations is determined by the length of the computation, not by the index of the machine as suggested in \cite{Avigad/Rute}). 
+Furthermore, we also give an example of a primitive recursive (in the ordinary 
+sense) sequence $\gamma_{(\cdot)}$ of rational numbers in $[0,1]$ 
+which (provably in the fragment 
+of PA based on $\Sigma^0_1$-IA only) converges to $0$ (and so 
+has a primitive recursive in the sense of Kleene rate of metastability 
+for the convergence towards $0$) 
+which does not have an effectively learnable Cauchy rate. 
+
+\subsubsection*{An effectively learnable sequence with no computable bound on fluctuations}
+
+\begin{dfn}[$\beta_{(\cdot)}$]\label{d:beta}
+We fix a primitive recursive 
+surjective encoding of triples which is monotone in the third component 
+satisfying $\langle k,n,m\rangle\ge k,n,m$ and set
+\[
+\beta_{\langle k,n,l\rangle}:=
+\begin{cases}
+2^{-k}, &\Tif T(k,0,n) \wedge l\leq n \wedge l\text{ is even},\\
+0, &\Telse.
+\end{cases}
+\]
+\end{dfn}
+
+In the next propositions we will show that the sequence $\beta_{(\cdot)}$
+\begin{itemize}
+\item is Cauchy (in fact, it converges to zero) -- 
+Proposition~\ref{p:alphaIsCauchy},
+\item its Cauchy rate is effectively learnable -- Proposition~\ref{p:alphaIsLearnable},
+\item there is no computable (in $\epsilon$ and $\beta$) bound on the number of $\epsilon$-fluctuations -- Proposition~\ref{p:alphaHasNoFlucBd}.
+\end{itemize}
+
+\begin{prop}\label{p:alphaIsCauchy}
+The sequence $\beta_{(\cdot)}$ is convergent towards $0,$ provably in 
+{\rm $\ha+\Sigma^0_1$-LEM$^-$}. More precisely we show that
+\[ 
+\ha
+\vdash 
+\forall k \Big( 
+\forall m\leq k \,\big(\exists u\,T(m,0,u) \vee \forall v\,\neg T(m,0,v)\big)\rightarrow \exists n \forall x\geq n\big(\beta_x\leq2^{-k}\big)\Big).
+ \]
+\end{prop}
+\begin{proof}
+Consider the terminating computations on input $0$ of the Turing machines encoded by $0,\ldots,k$. Then for every $k$ there is an $n$ corresponding to the
+code of the longest such computation. W.l.o.g. we can assume that $n\geq k$ (otherwise set $n:=k$). This means we have that
+\begin{align}
+n\geq k\ \wedge\ \forall n'\forall k'\leq k\ \big( T(k',0,n')\rightarrow n'\leq n\big).\label{e:ac-n}
+\end{align}
+Now, set \[ c(k):=\max\{ \langle k',n',l' \rangle\ :\ n'\leq n,\ k'\leq k,\ l'\leq n'\}.\]
+Then $c$ is even a rate of convergence, since
+\[\ba{l} 
+\langle k',n',l'\rangle\ >\ c(k)\ \rightarrow\ k'>k \vee (k'\le k \wedge n'>n)
+\vee (k'\le k\wedge n'\le n\wedge l'>n')\\  
+\rightarrow\ k'>k \vee \beta_{\langle k',n',l'\rangle}=0 \ \rightarrow\ \beta_{\langle k',n',l'\rangle} < 2^{-k}. \ea 
+\]
+These arguments are constructive, except for the existence of the longest computation $n$.
+This existence is a consequence of $\LEM^-$ and $\Pi^0_1\m\CP^-,$ where 
+$\Pi^0_1$-CP is the bounded collection principle for $\Pi^0_1$-formulas 
+(also called $B\Sigma^0_2$ in the literature) which is easily provable by 
+induction in HA$^{\omega}$.
+Consider the following $k+1$ instances of $\LEM^-$:
+\[ \forall j\leq k\ \big( \exists n T(j,0,n) \vee \forall m \neg T(j,0,m)\big) \] which over HA$^{\omega}$ implies 
+\[ \forall j\leq k \exists n_j \,\forall m\,\big( T(j,0,n_j) \vee \neg T(j,0,m)\big). \] 
+By an application of $\Pi^0_1$-CP$^-$, this in turn
+implies
+\begin{align*}
+\exists n\forall j\leq k ( \exists n'\leq n T(j,0,n') \vee \forall m \neg T(j,0,m) ),
+\end{align*}
+ (consider $n=\max \{n_j : j\leq k\}$).\\
+This shows that the convergence is provable in $\ha$+$\LEM^-$ and the convergence up to an error $2^{-k}$ in $\ha$ uses
+only $k+1$ instances of $\LEM^-$.
+\end{proof}
+
+\begin{lemma}\label{l:G3ACP} 
+For a quantifier-free formula $\phi_0$ with parameters only of type $0$, we have that
+\[
+\mbox{\rm G$_3$A}^\omega + 
+\SiLm\IA^- \vdash 
+\forall x^0\ \exists u^0 
+\forall\tilde x\leq x \big(  
+\forall y^0 \phi_0(\tilde x,y)
+\vee\exists\tilde u\leq u\neg\phi_0(\tilde x,\tilde u) \big).
+\]
+where {\rm G$_3$A$^{\omega}$} is the finite type extension of Kalmar-elementary 
+arithmetic (based on quantifier-free induction only but with classical logic) 
+from 
+{\rm \cite{Kohlenbach(lowrate)}} (see also {\rm \cite{Kohlenbach08}}).
+\end{lemma}
+\begin{proof}
+See \cite{Kohlenbach08} Lemma 3.18.
+\end{proof}
+
+\begin{rmk}
+$\Sigma^0_1$-IA$^-$ is (over G$_3$A$^{\omega}$) strictly weaker than 
+$\Pi^0_1$-CP$^-$ but the proof in Lemma \ref{l:G3ACP} needs $\Sigma^0_2$-DNE 
+and so more of classical logic than necessary in the proof based on 
+$\Pi^0_1$-CP$^-$.
+In general, it seems that considering the extraction of computational content 
+from proofs, often some amount of classical logic can be reduced on the cost of more recursion.\\
+If one is interested (only) in a classical proof, we obtain due to Lemma~\ref{l:G3ACP}
+(simply consider $\varphi_0(x,y):\equiv \neg T(x,0,y)$) a proof of the 
+convergence of $\beta_{(\cdot)}$ 
+without the use of $\PiLm\CP$, which can be formalized in G$_3$A$^{\omega}+\SiLm\IA^-$.
+\end{rmk}
+
+\begin{prop}\label{p:alphaIsLearnable}
+The rate of convergence is effectively learnable in $k$, i.e.
+there are total (elementary) 
+recursive functions $B$ and $L$, s.t. for any $k$ we have that
+\[ \forall k\ \exists n\leq B(k)\ \forall m > c_n\quad \big(\beta_m\leq 2^{-k}\big),\]
+where $c_{(\cdot)}$ is defined as in Definition~\ref{d:fmcMon} with
+\[
+\phi_0(x,n,k):\equiv\ x> n\rightarrow \beta_x\le 2^{-k}.
+\]
+\end{prop}
+\begin{proof}
+Obviously, this follows already from Proposition~\ref{p:alphaIsCauchy}. Also, it is easy to see that the 
+rate is $(B,L)$-learnable with the following $B$ and $L$:
+\begin{align*}
+B(k)&:=k+1  \\
+L(n,k)&:= \langle k,n,n \rangle+1.
+\end{align*}
+Let $x\ge L(n,k)>\langle k,n,n\rangle$ be a counterexample. Then (using 
+the definition of $\beta_{(\cdot)}$)  
+\[ j_1(x)\le k\,\wedge\,(j_2(x)>n\vee j_3(x)>n)\,\wedge \,j_3(x)\le j_2(x) \] 
+and so 
+\[ j_1(x)\le k\,\wedge\,j_2(x)>n\,\wedge\,j_3(x)\le j_2(x). \]
+The 2nd conjunct implies $j_2(x)>j_2(n)$ and hence $j_1(x)\not= j_1(n)$ 
+if $n$ is a preceding counterexample. However, for numbers $\le k$ this can 
+happen at most $k$-many times. Hence $B(k):=k+1$ and $L$ do the job.
+\end{proof}
+
+\begin{cor} \label{metastability-alpha}
+$\beta_{(\cdot)}$ has a primitive recursive (in the ordinary sense 
+of Kleene) rate of metastability for the convergence towards $0.$
+\end{cor}
+\begin{proof} One can apply Proposition \ref{p:bg2meta} to convert 
+the bounds $(B,L)$ from Proposition \ref{p:alphaIsLearnable} (which are 
+trivially self-majorizing using standard monotonicity properties of the 
+triple coding) into a primitive 
+recursive rate of metastability. Alternatively, one can use that by 
+Lemma \ref{l:G3ACP} the convergence of $\beta_{(\cdot)}$ towards $0$ 
+is provably in 
+G$_3$A$^{\omega}+\Sigma^0_1$-IA$^-$ and so a fortiori  in 
+$\widehat{\rm PA}^{\omega}\res+$QF-AC (see \cite{Kohlenbach08}, Prop.3.31).
+Then proposition 10.54 in \cite{Kohlenbach08} implies the extractability 
+of a primitive recursive rate of metastability (the latter being essentially 
+the rate of metastability for the statement in Lemma \ref{l:G3ACP} 
+which is computed in \cite{Kohlenbach08}[Prop.3.19]).
+\end{proof} 
+
+\begin{rmk}\label{r:metaB}
+One can obtain such a rate of metastability for $\beta_{(\cdot)}$ directly, using previous results
+of U. Kohlenbach.\\
+By~\cite{Kohlenbach08} (Prop.13.19) we have that
+\be[e:maU1]
+\forall x,f \forall \tilde x\leq x\big(\exists y\leq\Phi xf\ T(\tilde x,0,y)\vee \forall z\leq f(\Phi xf)\neg T(\tilde x,0,z)\big),
+\ee
+where $\Phi xf\leq \max\{f^{i}(0)\ 
+:\ i\leq x+1\}=:\Phi^*xf$. \eqref{e:maU1} (here $f^i(0)$ again denotes the 
+$i$-times iteration of $f$) implies
+\be[e:maU2]
+\forall z \big(\Phi xf< z\leq f(\Phi xf)\rightarrow \forall \tilde x \leq x \neg T(\tilde x,0,z)\big).
+\ee
+Define $\tilde f(n):=\max\{f(n),n\}$ and $f_k(n):=\tilde f(\langle k,n,n\rangle+1)$ and let
+\[
+\Psi(k,f):=\langle k,\Phi^*kf_k,\Phi^*kf_k\rangle + 1.
+\]
+Then $\Psi$ is a rate of metastability for the convergence of 
+$\beta_{(\cdot)}$ towards $0,$ i.e.:
+\be[e:rmB]
+\forall k,f\ \exists n\leq \Psi(k,f)\ \forall z\in[n,\tilde f(n)]\ \ 
+(|\beta_z|< 2^{-k}).
+\ee
+To prove~\eqref{e:rmB}, define $n:=\langle k, \Phi kf_k, \Phi kf_k\rangle+1\leq\Psi(k,f)$ and let $z\in[n,\tilde f(n)]$. Then 
+$z\geq n > \langle k, \Phi kf_k, \Phi kf_k\rangle$ and so one of the following cases holds:
+\hspace{35mm}\begin{enumerate}
+\item $j_1(z)>k$. Then $|\beta_z|\leq2^{-j_1(z)}<2^{-k}$.
+\item $j_2(z)>\Phi kf_k\wedge j_1(z)\leq k$. Then 
+$
+\Phi kf_k < j_2(z)\leq z \leq \tilde f(n)=f_k(\Phi kf_k).
+$
+Hence, by~\eqref{e:maU2} (applied to $k,j_1(z),f_k,j_2(z)$ 
+for $x, \tilde{x}, f, z$), we get 
+$\neg T(j_1(z),0,j_2(z))$ and so $\beta_z=0$.
+\item $j_3(z)>\Phi kf_k\wedge j_2(z)\leq\Phi kf_k\wedge j_1(z)\leq k$. Then $j_3(z)>j_2(z)$ and so $\beta_z=0$.
+\end{enumerate}
+\end{rmk}
+
+\begin{lemma}[Termination causes at least $n$ fluctuations]\label{l:2n}
+Suppose the $k^\text{th}$-machine terminates on $0$ with computation encoded by $n$ (i.e. $T(k,0,n)$ holds). Then the sequence $\beta_{(\cdot)}$ contains at 
+least $n$ many $2^{-k}$\nbd fluctuations.
+\end{lemma}
+\begin{proof}
+Consider the tuples of indexes $\tup i$, $\tup j$, 
+s.t. $i_l:=\langle k,n,l\rangle$, $j_l:=\langle k,n,l+1\rangle$ and $l+1\leq n$. Then we have by definition of $\beta_{(\cdot)}$ (using the monotonicity of the encoding in $l$) that
+$
+\Fluc_{\beta_{(\cdot)},2^{-k}}(n,\langle \tup i \rangle, \langle \tup j\rangle).
+$
+\end{proof}
+
+\begin{prop}\label{p:alphaHasNoFlucBd}
+There is no computable bound on the fluctuations of $\beta_{(\cdot)}$.
+\end{prop}
+\begin{proof}
+Suppose $b_k$ is a bound on the number of fluctuations by $2^{-k}$, 
+then $b_k$ can be used to effectively compute whether the $k^{\text{th}}$ Turing machine terminates on input $0$ as follows.\\
+Let the machine run until the code of the computation reaches $b_k$ (or until it stops). If it terminated, we are done.\\
+Now suppose it terminates with a computation encoded by some $n>b_k$. Then $\beta_{(\cdot)}$ would have at least $n$ many $2^{-k}$\nbd fluctuations by Lemma~\ref{l:2n}, which is a contradiction.\\
+Therefore if the machine does not terminate with a code of computation at most $b_k$ it does not terminate at all.
+\end{proof}
+
+
+\subsubsection*{Metastability does not imply effective learnability} \label{section4.2}
+
+In the next propositions we define a primitive recursive sequence 
+$\gamma_{(\cdot)}$ of rational numbers in $[0,1]$ 
+(defined in Corollary~\ref{c:gammaee} using Definition~\ref{d:gammaf}) that
+\begin{itemize}
+\item is Cauchy (in fact, it converges to zero) -- by 
+Proposition~\ref{p:gammaf},
+\item has a primitive recursive rate of metastability of its 
+convergence towards $0$ -- by Proposition~\ref{p:gammaf},
+\item has no effectively learnable Cauchy rate -- by Corollary~\ref{c:gammaee}.
+\end{itemize}
+
+We use the upper index as a name extension (like $\tup k^K$, meaning a tuple $\tup k$ corresponding to a particular $K$) and as iteration of functions (like $f^n(x)$, meaning we iterate the function $f$ $n$-many times with the starting point $x$). When unclear, we use the notation $(f)^n$ to make explicit, that we mean the iteration.
+
+\begin{dfn}%\
+
+\begin{enumerate}
+
+\item
+
+For any function $f:\NN^2\to \NN$ we define \[ 
+\mbox{$\widehat{f}(k,n):=0$, 
+if $f(k,n)=0\wedge\forall m<n\ (f(k,m)\neq 0)$ and $\widehat{f}(k,n):=1,$ 
+otherwise.}\] Note that $\widehat{f}(k,\cdot)$ has a root iff $f(k,\cdot)$ has 
+one but also that it has at most one root.
+\item 
+For any $f$ as above and $x,y\in\NN$ define
+\[ \hspace*{-5mm}
+y_{f,x}:=\hspace*{-1mm}\begin{cases}
+\max\big\{y'\leq y\, :\, \exists x'\le x\,
+(y'=\min\{y''\leq y\ :\ f(x',y'')=0
+\ \})\big\},& \hspace*{-2mm} \text{if such $y'$ exists}\\
+x,&\Telse.
+\end{cases}
+\]
+Then for $p=j(y,u)$ define 
+\[ \varphi_1(f,x,p,z): \equiv
+\forall \tilde x \leq x \exists \tilde y\leq y \forall \tilde z\leq z 
+\big(f(\tilde x,\tilde y)=0\vee f(\tilde x,\tilde z)\neq0\big) \] 
+and 
+\[ \varphi_2(f,x,p,z):\equiv 
+\forall \tilde y \leq y_{f,x} \exists \tilde u\leq u \forall \tilde z\leq z 
+\big(f(\tilde y,\tilde u)=0\vee f(\tilde y,\tilde z)\neq0\big) \] 
+and, finally,\footnote{In connection with $f$ we write the type $1$ even 
+though it officially is the type $0\to (0\to 0).$} 
+\[ \varphi_0:\equiv \varphi_1\wedge\varphi_2, \ \ \varphi:\equiv
+\forall f\leq_1  \forall x^0 \exists p  \forall z \phi_0 
+(\widehat{f},x,p,z)
+\]
+\end{enumerate}
+\end{dfn}
+
+Note that the $\varphi_1$-part of $\varphi$ combines a sequence of instances 
+of $\Sigma^0_1$-LEM with induction (in the form of $\Pi^0_1$-CP) and that the 
+$\varphi_2$-part repeats this construction but taking (essentially) the result 
+`$y$' from $\varphi_1$ as input thereby making it no longer possible to give 
+a computable bound on the number of instances of $\Sigma^0_1$-LEM used in 
+total. We 
+will show in the next proposition that $\varphi$ is not $(B,L)$-learnable 
+by showing that it implies over a system as weak as 
+G$_3$A$^{\omega}$ (which does not allow for the iteration of a function 
+variable $g$) 
+\[ \forall g^1\exists y^0 \,(y=g^{g^x(0)}(0)) \] 
+which grows too fast as a functional in $g$ to be derivable from a rate 
+of metastability for $\varphi$ having the simple form from Remark 
+\ref{r:metastr} whose existence would follow from the $(B,L)$-learnability 
+of $\varphi.$  
+Here it is crucially used that computable functionals $B,L$ in the function 
+parameter $f$ which can be taken to be bounded by $1$ can be effectively 
+majorized by bounds which no longer depend on $f.$
+
+\begin{prop}\label{p:nonLearnablePhi} $\varphi$  
+is provable using {\rm $\Sigma^0_1$-LEM$^-$} combined with 
+{\rm $\Pi^0_1$-CP$^-$} (uniformly in $f$ treated as parameter) but  
+is not effectively learnable.
+\end{prop}
+\begin{proof}
+We first show that $\varphi$ is provable: by a suitable instance 
+$\Sigma^0_1$-LEM$(t(f))$ of $\Sigma^0_1$-LEM$^-$ one obtains 
+\[ \forall x\forall \tilde{x}\le x\exists y\forall z \big( 
+\exists \tilde{y}\le y\,\widehat{f}(\tilde{x},\tilde{y})=0 \vee \forall 
+\tilde{z}\le z 
+\,\widehat{f}(\tilde{x},\tilde{z})\not=0\big) \] 
+and so by a suitable instance $\Pi^0_1$-CP$(s(f))$ 
+\[ \forall x\exists y \forall \tilde{x}\le x \forall z 
+\big( 
+\exists \tilde{y}\le y\,\widehat{f}(\tilde{x},\tilde{y})=0 \vee \forall 
+\tilde{z}\le z 
+\,\widehat{f}(\tilde{x},\tilde{z})\not=0\big) \] which implies  
+\[ \forall x\exists y \forall z\forall \tilde{x}\le x \exists \tilde{y}\le y
+\forall \tilde{z}\le z\, 
+\big( \widehat{f}(\tilde{x},\tilde{y})=0 \vee 
+\widehat{f}(\tilde{x},\tilde{z})\not=0\big). \]
+
+Now we repeat the same argument with $y_{f,x}$ instead of $x.$
+\\[1mm] 
+To show that $\varphi$ is not learnable we proceed in three steps.
+\paragraph{Step 1} We will show that (informally speaking, since 
+formally we cannot express function iteration and the conclusion would have to use $\psi_0$ and $\psi^y_0$ defined below)
+\[
+\mbox{G$_3$A}^\omega\vdash \forall g \forall x\ \big(\exists p\forall z\phi_0(f_g,x,p,z)\rightarrow \exists y'(y'=g^{g^{x}(0)}(0))\big),
+\tag{GA}\label{e:GA}
+\]
+for \[
+f_g(b,d):=\begin{cases}
+0,&\Tif \ \lh(d) = b+1 \wedge d_0=0\wedge \forall i< b\ (d_{i+1}=g(d_i),\\
+1,&\Telse.
+\end{cases}
+\]
+Formally, $\exists y' (y'=g^{g^x(0)}(0))$ is to be read as 
+\[ \exists y,u \, (f_g(x,y)=0\wedge f_g(y_x,u)=0),
+\tag{GA$^*$}\label{e:GA$^*$} \] 
+where then $y':=u_{y_x}.$  
+Note that we have $f_g=_1\widehat{f_g}$. To show~\eqref{e:GA} fix arbitrary $g^1$ and $x^0$.
+Now assume $\exists p\forall z\phi_0(f_g,x,p,z)$ and let us fix such 
+a $p=j(y,u)$ to obtain:
+\begin{align}
+&\forall z\forall\tilde x \leq x \exists \tilde y\leq y \forall \tilde z\leq z 
+\big(f_g(\tilde x,\tilde y)=0\vee f_g(\tilde x,\tilde z)\neq0\big) \label{e:A}
+\wedge \\
+&\forall z\forall\tilde y \leq y_{f_g,x} \exists \tilde u\leq u \forall \tilde z\leq z 
+\big(f_g(\tilde y,\tilde u)=0\vee f_g(\tilde y,\tilde z)\neq0\big). \label {e:B}
+\end{align}
+We now show by quantifier-free induction that 
+\be[e:IC1]
+\forall x'\leq x \exists y'\leq y\ f_g(x',y')=0.
+\ee
+Note that $\exists y'\,f_g(x',y')=0$ implies that $y'_{x'}=g^{x'}(0).$ 
+The case $x'=0$ is trivially satisfied by $y'=\langle 0 \rangle$. Then 
+$y'\le y$ by ~\eqref{e:A}. So suppose for some $x'<x$ we have
+$\exists y'\leq y\,f_g(x',y')=0.$ Then we can set 
+\[
+z:=y'*\langle g(y'_{x'}) \rangle =\langle y'_0,y'_1,\ldots,g(y'_{x'})\rangle
+\] to get $f_g(x'+1,z)=0$
+which concludes the proof of~\eqref{e:IC1} since -- again by 
+~\eqref{e:A} -- $z\le y.$ Note, furthermore,
+that for $y'\leq y$ (and $x'\leq x$),
+\[ f_g(x',y')=0\ \rightarrow\ y'\leq y_{f,x}.\] 
+So we have even that \\
+\be[e:IC1+]
+\forall x'\leq x \exists y'\leq y_{f_g,x}\, f_g(x',y')=0.
+\ee
+Now, let $y^*$ denote the $y'$ which satisfies~\eqref{e:IC1+} for $x'=x$ and 
+note that $y^*_x\le y^*\le y_{f_g,x}.$ 
+By quantifier-free induction we show that 
+\be[e:IC2]\forall x'\leq y_{f_g,x} \exists u'\leq u \, f_g(x',u')=0.\ee
+The case $x'=0$ is again trivially satisfied by $u'=\langle 0 \rangle \le u$ 
+(using ~\eqref{e:B}). 
+So suppose for some $x'< y_{f_g,x}$ that
+$\exists u'\leq u \,f_g(x',u')=0$. Then we can set
+\[z:=u'*\langle g(u'_{x'})\rangle= \langle u'_0,u'_1,\ldots,g(u'_{x'})\] to get $f_g(x'+1,z)=0$,
+which by~\eqref{e:B} implies 
+\[\exists \tilde u\leq u \,f_g(x'+1, \tilde u)=0\]
+and so concludes the proof of ~\eqref{e:IC2}. Applying ~\eqref{e:IC2} 
+we obtain (for $x'=y^*_x$)
+\[
+\exists u'\leq u\, (f_g(x,y^*)=0\wedge f_g(y^*_x,u')=0),
+\]
+which concludes the proof of~\eqref{e:GA$^*$} and, therefore, 
+also the proof of~\eqref{e:GA}.\\
+\paragraph{Step 2} We investigate the terms witnessing the implication~\eqref{e:GA}. By prenexation we obtain
+\[
+\mbox{G$_3$A}^\omega\vdash \forall g,x,p\exists y',z\ \big(\phi_0(f_g,x,p,z)\rightarrow y'=g^{g^{x}(0)}(0)\big),
+\]
+and, therefore, by program extraction theorems (see Corollary 3.1.3 in~\cite{Kohlenbach(lowrate)}), we get closed terms $s$ and $t$ in G$_3$A$^\omega$, s.t.
+\be[e:st]
+\forall g,x,p\ \big(\phi_0(f_g,x,p,sgxp)\rightarrow tgxp=g^{g^{x}(0)}(0)\big).
+\ee
+\paragraph{Step 3} Finally, we show that with sufficiently large (in the sense of growth) $g$, this contradicts the effective learnability of $\phi$. Suppose namely that $\phi$ were learnable by computable functionals $B(f,x),L(y,f,x).$ 
+Then also 
+\[ \ba{l} B^*(x):=\sup \{ B(f,\tilde{x}): f\le_1 1, \tilde{x}\le x\} \ 
+\mbox{and} \\ 
+L^*_x(y):=\max\{ y,\sup \{ L(\tilde{y},f,\tilde{x}): f\le_1 1,\tilde{y}\le y,
+\tilde{x}\le x\}\}\ea \] 
+are computable (in $x$ resp. in $x,y$) and majorize $B,L.$ 
+Now by Proposition~\ref{p:bg2meta} and the fact that $f_g$ is trivially 
+majorized by $1$ we get, in particular, that 
+\[
+\exists p\leq \Omega(B^*,L^*_x,h_x,x)\ \phi_0(f_g,x,p, sgxp),
+\]
+for any $g$ and $x$, by setting \[h^1_x:=\lambda p\ .\ sgxp.\]
+So, we obtain together with~\eqref{e:st} that
+\[
+\forall g,x \exists p_x\leq \Omega(B^*,L^*_x,h_x,x)\ 
+\big( tgxp_x =g^{g^{x}(0)}(0)\big).
+\]
+Since $s$ and $t$ are closed terms of G$_3$A$^\omega$ and the variables 
+$g,x,p_x$ have types $\le 1$ by normalization arguments
+(see Corollary 2.2.24 and Remark 2.2.25 in~\cite{Kohlenbach(lowrate)}) we know that there is 
+a constant $D$, s.t. (for any $g$ that majorizes $\lambda n.2^n$) 
+\[ \forall x,v\, \big( \tilde{g}^D(x+v)\ge sgxv,tgxv\big).\] 
+Since we may assume that $\tilde{g}(n)>n$ and, therefore, 
+$\tilde{g}^x(v)\ge x+v,$ this yields 
+\[ \forall x,v\,\big( \tilde{g}^{D+x}(v)\ge sgxv,tgxv\big). \]
+As a consequence, we get (using the $\Omega$-definition 
+and that that $B^*,L^*_x$ are selfmajorizing and that we may 
+assume $L^*_x(y)\ge y$) 
+that for all $x$  
+\[ \tilde{g}^{D+x}\left(\Omega(B^*,L^*_x,\tilde{g}^{D+x},x)\right) \ge 
+\tilde{g}^{D+x}\left(\Omega(B^*,L^*_x,h_x,x)\right) \ge 
+tgxp_x=g^{g^x(0)}(0). \]
+By the definition of $\Omega$ (see also Remark~\ref{r:metastr}) 
+\[   \ba{l} \tilde{g}^{D+x}\big(\Omega(B^*,L^*_x,\tilde{g}^{D+x},x\big)\le 
+\tilde{g}^{D+x}
+\left((L^*_x\circ\tilde{g}^{D+x})^{B^*(x)}(0)\right) \le \\ 
+\tilde{g}^{D+x}\left((L^*_x\circ\tilde{g})^{(D+x)B^*(x)}(0)\right)\le 
+(L^*_x\circ \tilde{g})^{\widehat{B}^*(x)}(0)\ea \] 
+and so (for all $x$)
+\[  g^{g^x(0)}(0)\le (L^*_x\circ \tilde{g})^{\widehat{B^*}(x)}(0) \]
+where $\lambda x,y.L^*_x(y)$ and $\widehat{B^*}(x):=(D+x)(B^*(x)+1)$ 
+are fixed total recursive functions that do not depend 
+on $g$ which is not possible for sufficiently fast growing $g$.
+\end{proof}
+
+\begin{cor}\label{c:anyStrongerPhi}
+Let $\phi_0$ be as in the previous Proposition. If for a quantifier free formula $\psi_0$ (with no hidden parameters)
+\[
+\mbox{\rm G$_3$A}^\omega+\QF\m\AC 
+\vdash \forall f\leq 1 \forall x^0\big( \exists y^0\forall z^0 \psi_0(\xi(f),\chi(x),y,z)
+ \rightarrow \exists p^0\forall z^0 \phi_0(\widehat{f},x,p,z) \big),
+\]
+where $\xi$ and $\chi$ are closed terms of {\rm G$_3$A$^\omega$,}
+then $\forall f\leq 1\forall x^0\exists y^0\forall z^0 \psi_0(f,x,y,z)$ is also not effectively learnable. Here 
+\[ \mbox{\rm QF-AC}: \ \forall x\,\exists y\,F_0(x,y)\rightarrow 
+\exists f\,\forall x\,F_0(x,f(x)), \] 
+with quantifier-free $F_0$ and $x,y$ of arbitrary types.
+\end{cor}
+\begin{proof}
+This follows analogously from~\cite{Kohlenbach(lowrate)} (Corollary 3.1.3.) 
+and our Proposition~\ref{p:bg2meta} as in the proof
+of Proposition~\ref{p:nonLearnablePhi}.
+\end{proof}
+
+\begin{rmk}
+We can prove in {\rm G$_3$A$^\omega+\SiLm\CP$} (which is included in 
+{\rm G$_3$A$^\omega+\QF\m\AC^{0,0}$}) that $\phi$ in Proposition
+~\ref{p:nonLearnablePhi} is actually equivalent to its monotone version, 
+\[
+\tilde\phi\equiv \forall f^1\leq 1\forall x^0\exists q\forall z \exists 
+p\leq q\forall \tilde z\leq z \phi_0(\widehat{f},x,p,z).
+\]
+Since this equivalence holds also pointwise (in $f,x$), 
+we can use Corollary \ref{c:anyStrongerPhi} to 
+infer that there is actually a monotone formula, which is not effectively 
+learnable.
+\end{rmk}
+
+\begin{dfn}\label{d:gammaf} Define (using a surjective quadruple coding) a 
+primitive recursive sequence of rational numbers in $[0,1]$ by
+\[
+\gamma(f)_{\langle k,n,i,m\rangle}:=\begin{cases}
+2^{-k},&\Tif\ \widehat{f}(k,n)=0\wedge i\leq n\wedge \widehat{f}(i,m)=0,\\
+0,&\Telse.\end{cases}
+\]
+\end{dfn}
+
+\begin{prop}\label{p:gammaf} The sequence $(\gamma(f)_z)_{z\in\NN}$ converges 
+
+to $0$ but
+
+the formula stating the existence of a Cauchy point for any $f$ 
+\[
+\psi:=\forall f^1\leq_1 1,x^0\exists z \forall k\geq z\ \big( \gamma(f)_k<2^{-x} \big).
+\]
+is not effectively learnable. However, there is
+a primitive recursive (in the ordinary sense of Kleene) rate 
+of metastability for the convergence of $\gamma(f)\seq$ towards $0,$ 
+which does not 
+depend on $f$.
+\end{prop}
+\begin{proof}
+The existence of a metastability rate follows from the fact
+that $\gamma(f)\seq$ converges to $0$ for any $f\leq_1 1$. Moreover, since the
+proof can be formalized in G$_3$A$^\omega+\SiLm\IA$ there is a primitive recursive rate and since $f$ is trivially majorizable it is also
+clear that there is even a primitive recursive rate which does not 
+depend on $f$. (In Remark \ref{metastable} below, we actually give such a 
+rate explicitly.)\\
+To show the unlearnability, due to Corollary~\ref{c:anyStrongerPhi} it 
+suffices to show that
+\[ \mbox{G$_3$A}^\omega+\QF\m\AC^{0,0}\vdash 
+\forall f\leq 1 \forall x^0\big( \exists z \forall k\geq z\ \big( \gamma(f)_k<2^{-x} \big)
+ \rightarrow \exists p\forall z' \phi_0(\widehat{f},x,p,z') \big).
+ \]
+To prove $\phi,$ fix arbitrary $f^1$ and $x^0$ and suppose that
+\[\exists z\forall k\geq z \big( \gamma(f)_k<2^{-x} \big).\]
+Moreover, assume towards contradiction
+\be[e:CD]
+\exists \tilde x\leq x \exists a\geq\max(z,x) \widehat{f}(\tilde x,a)=0. 
+\ee
+Since $a\ge \tilde{x},z,$  
+this implies that $k:=\langle \tilde x, a, \tilde x, a\rangle \ge z$ 
+and $\gamma(f)_k=2^{-\tilde x}$, which is a contradiction.\\
+Hence we can conclude that
+\[
+\forall \tilde x\leq x\big( \exists\tilde y<\max(x,z) \widehat{f}(\tilde x,\tilde y)=0\ \vee\ \forall a \widehat{f}(\tilde x,a)\neq 0\big),
+\] 
+which is equivalent to
+\be[e:A1]
+\forall \tilde x\leq x \forall a\exists\tilde y<\max(x,z) \ \big(  
+\widehat{f}(\tilde x,\tilde y)=0\ \vee\   \forall \tilde{a}\le a 
+\,\widehat{f}(\tilde x,\tilde{a})\neq 0\big).
+\ee 
+Next, set $y:=\max(x,z)$ and assume towards contradiction that
+\be[e:CD2]
+ \exists \tilde y\leq y_{\widehat{f}, x} \exists a\geq z \widehat{f}(\tilde y,a)=0. 
+\ee
+Recall that
+\be
+y_{\widehat{f}, x}:=\begin{cases}
+\max\big\{y'\leq y\ :\ \exists x'\le x\,(
+y'=\min\{y''\leq y\ :\ 
+\widehat{f}(x',y'')=0\, \})\big\},&\text{if such $y'$ exists}\\
+x,&\Telse.
+\end{cases}
+\ee
+Note that if $y_{\widehat{f},x}=x$, then $\phi$ follows already from \eqref{e:A1}. Otherwise, denote the smallest $x'\leq x$ for which
+$\widehat{f} (x',y_{\widehat{f},x})=0$ by $\tilde x$. Then $k:=\langle 
+\tilde x, y_{\widehat{f}, x}, \tilde y, a\rangle \ge z$ and $\gamma(f)_k=2^{-\tilde x}$, which is a 
+contradiction.\\
+Finally, $\exists p\forall z' \phi_0(\widehat{f},x,p,z')$ follows from not-\eqref{e:CD2} and~\eqref{e:A1} (with $y:=\max(x,z)$, $p:=\langle y, z\rangle$).
+\\
+\end{proof}
+
+\begin{rmk}\label{metastable} 
+Similarly as before, we can give an explicit such rate of metastability for 
+the convergence of $(\gamma(f)_z)$ toward $0.$ 
+As in Remark~\ref{r:metaB}, there is a $\Phi_fxg\le\Phi^*xg:=
+\max\{ g^i(0):i\le x+1\}$ such that 
+\[ \forall x,f,g\forall\tilde{x}\le x\,\big(\exists y\le\Phi_fxg \,(
+\widehat{f}(\tilde{x},y)=0)\vee \forall z\le g(\Phi_fxg)\,
+(\widehat{f}(\tilde{x},z)\not= 0)\big). \]
+Define 
+\begin{align*}
+\Phi_1 xg&:= \Phi_f\Big(x,\lambda y.g_y\big(\Phi_f(y,g_x)\big)\Big),\\
+\Phi_2 xg&:= \Phi_f\big(\Phi_1 xg,g_{\Phi_1 xg}\big),
+\end{align*}
+where $g_y(n):=g(y,n)$. Then
+\[ \ba{l}
+\forall x,f,g\ \forall\tilde x\leq x\,\forall \tilde{y}\le \Phi_1xg \\[1mm] 
+\hspace*{1cm} \left\{ \ba{l} \Big( 
+(\exists y\leq \Phi_1 xg \big(\widehat{f}(\tilde x, y)=0\big) \vee 
+\forall z\leq g(\Phi_1 xg,\Phi_2xg)\ \big(\widehat{f}(\tilde x,z)\neq0)) \ 
+\wedge \\ \hspace*{2mm}
+ (\exists u\le\Phi_2xg\,(\widehat{f}(\tilde{y},u)=0)\vee \forall z\le 
+g(\Phi_1xg,\Phi_2xg)\,(\widehat{f}(\tilde{y},z)\not= 0)\big) \Big).
+\ea \right. \ea \]
+This implies
+\be[e:rmGU2]
+\forall z \big(\Phi_1 xg< z\leq g(\Phi_1 xg,\Phi_2 xg)\rightarrow \forall \tilde x \leq x\ (\widehat{f}(\tilde x,z)\neq0)\big)
+\ee
+and
+\be[e:rmGU3]
+\forall z \big(\Phi_2 xg< z\leq g(\Phi_1 xg,\Phi_2 xg)\rightarrow \forall \tilde x \leq \Phi_1 xg\ (\widehat{f}(\tilde x,z)\neq0)\big).
+\ee
+Define $\tilde g(n):=\max\{g(n),n\}$ and $g_k(n,m):=\tilde g(\langle k,n,n,m\rangle+1)$ and 
+\[
+\Psi(k,g):=\langle k,\Phi^*_1 kg_k,\Phi^*_1 kg_k,\Phi^*_2 kg_k\rangle+1,
+\]
+where $\Phi^*_i$ is defined as $\Phi_i$ but with $\Phi^*$ and $(g_k)^{M}$ instead of $\Phi_f$ and $g_k$.
+To show
+\[
+\forall k,g,f\ \exists n\leq \Psi(k,g)\ \forall z\in[n,\tilde g(n)]\ \ (|\gamma(f)_z| < 2^{-k}), \] 
+define $n:=\langle k,\Phi_1 kg_k,\Phi_1 kg_k,\Phi_2 kg_k\rangle+1\leq \Psi(k,g)$ and let $z\in[n,\tilde g(n)]$. Then 
+$z\geq n>\langle k,\Phi_1 kg_k,\Phi_1 kg_k,\Phi_2 kg_k\rangle$. Hence one of the following holds:
+\begin{enumerate}
+\item $j_1(z)>k$. Then $|\gamma(f)_z|\leq2^{-j_1(z)}<2^{-k}$.
+\item $j_2(z)>\Phi_1 kg_k\wedge j_1(z)\leq k$. Then 
+$
+\Phi_1 kg_k < j_2(z)\leq z \leq \tilde g(n)=g_k(\Phi_1 kg_k,\Phi_2 kg_k).
+$
+Hence, by~\eqref{e:rmGU2} (applied to $j_1(z),k,g_k,j_2(z)$ for 
+$\tilde{x},x,g,z$), $\gamma(f)_z=0$.
+\item $j_3(z)>\Phi_1 kg_k\wedge j_2(z)\leq\Phi_1 kg_k\wedge j_1(z)\leq k$. Then $j_3(z)>j_2(z)$ and so $\gamma(f)_z=0$.
+\item $j_4(z)>\Phi_2 kg_k\wedge j_3(z)\leq\Phi_1 kg_k\wedge j_2(z)\leq\Phi_1 kg_k\wedge j_1(z)\leq k$. 
+Then 
+$
+\Phi_2 kg_k < j_4(z)\leq z \leq \tilde g(n)=g_k(\Phi_1 kg_k,\Phi_2 kg_k).
+$
+Hence, by~\eqref{e:rmGU3} (applied to $j_3(z),k,g_k,j_4(z)$ for 
+$\tilde{y},x,g,z$), $\gamma(f)_z=0$.
+\end{enumerate}
+Note that the 2-nested use of primitive recursive iteration hidden in the 
+2-nested application of 
+$\Phi_f$ in the definition of $\Phi_i$ very much resembles the basic 
+structure of the rate of metastability extracted from a concrete proof 
+in ergodic theory in \cite{Safarik(11)} (see the discussion in the 
+introduction).
+\end{rmk}
+
+\begin{cor}\label{c:gammae}
+Let $\gamma(e)_{(\cdot)}$ be defined as $\gamma(f)_{(\cdot)}$ but 
+with $\widehat{f}(x,y)=0$ being replaced by 
+\[ P(e,x,y):\equiv \mbox{\rm lh} (y)=x+1\wedge y_0=0\wedge\forall i<x(T(e,y_i,y_{i+1})).\]  
+Then $(\gamma(e)_n)$ is a sequence of rational numbers in $[0,1]$ that 
+converges to $0$ but 
+the formula stating the existence of a Cauchy point of 
+$\gamma(e)\seq$ for any number $e$  
+\[
+\psi:=\forall e^0,x^0\exists z \forall k\geq z\ \big( \gamma(e)_k<2^{-x} \big).
+\]
+is not effectively learnable.
+\end{cor}
+
+\begin{proof}
+First note that the convergence (towards $0$) 
+of $\gamma(e)_n$ follows from this property of $\gamma(f)_n$ 
+since taking $f(x,y):=0,$ if $P(e,x,y)$, 
+and $f(x,y):=1,$ otherwise, both sequences coincide (note that 
+$f=\widehat{f}$).\\ 
+Let $e$ by a code of a total recursive function and define $g(x):=\mu 
+y\,.\,T(e,x,y).$
+The arguments of both Proposition~\ref{p:nonLearnablePhi} and Proposition~\ref{p:gammaf} then remain valid,
+except the fact that the set of 
+G\"odel numbers $e$ -- in contrast to $f_g$  -- is not majorizable. 
+We also need the additional assumption $\forall x\,(T(e,x,g(x)))$ in 
+(\ref{e:GA}), which 
+expresses that $g(x):=\mu y\,.\,T(e,x,y)]$ defines a total function. This 
+assumption, however, does not contribute in the course of the functional 
+interpretation argument applied to (\ref{e:GA}) (`Step 2' in the proof of 
+Proposition~\ref{p:nonLearnablePhi}) as it is purely universal. 
+So as before, the learnability would lead to a constant $D$ and 
+total recursive functions $\lambda e,x,y.
+L^*_{e,x}(y)$, $B^*$ such that
+\[ \forall e\,\forall g\,\left(\forall x^0 \,T(e,x,g(x))\rightarrow 
+\forall x^0\ (L^*_{e,x}\circ \tilde{g})^{\widehat{B^*}(e,x)}(0)
+\geq g^{g^{x}(0)}(0))\right)\] where 
+$\widehat{B^*}(e,x):=(D+x+e)(B^*(x)+1).$  \\ 
+We can argue similarly as in the proof of Proposition~\ref{p:nonLearnablePhi}, 
+since for any fixed $g$ given by some $e$ as above, eventually we have $x>e$, 
+so we can simply choose
+a total recursive $g$ which grows much faster than $L^*_{x,x}(x)$ 
+and $B^*(x,x)$.
+\end{proof}
+
+\begin{cor}\label{c:gammaee}
+Define the primitive recursive sequence of rational numbers in $[0,1]$  
+(using the Cantor pairing function)
+\[
+\gamma_{j(e,n)}:= \gamma(e)_n\cdot 2^{-e}.
+\]
+This sequence converges to $0$ (provably in {\rm 
+G$_3$A$^{\omega}+\Sigma^0_1$-IA$^-$} and hence with a primitive recursive -- 
+in the sense of Kleene -- rate of metastability) but 
+the formula stating the existence of a Cauchy point of $\gamma\seq$
+\[
+\psi:=\forall x^0\exists z \forall k\geq z\ \big( \gamma_k<2^{-x} \big).
+\]
+is not effectively learnable.
+\end{cor}
+\begin{proof} 
+Let $\rho_e(x)$ be a rate of convergence for $(\gamma(e)_n)_n$ and define 
+$\rho(x):=\max\{ \rho_{\tilde{x}}(x):\tilde{x}\le x\}.$ Then 
+\[ \widehat{\rho}(x):=j(x,\rho(x)) \] is a rate of convergence for 
+$(\gamma_n)$ towards $0.$
+\\
+Conversely, for any rate $\rho$ of convergence for $(\gamma_n)$ we have that 
+$\rho_e(x):=\rho(e+x)$ is a rate of convergence of $(\gamma(e)_n)_n$. In 
+particular, the $2^{-e-x}$-Cauchy property for $(\gamma_n)$ implies the 
+$2^{-x}$-Cauchy property of $(\gamma(e)_n)_n.$ Hence by Corollary 
+\ref{c:gammae}, 
+$(\gamma_n)$ does not have an effectively learnable Cauchy rate.
+\end{proof}
+
+
+\subsection{When learnability implies fluctuation bounds}
+
+In some cases, the effective $(B,L$)-learnability of a convergence rate 
+(meaning that the convergence rate can be learned by $L$ with 
+$B(\underline{a})$-many mind 
+changes) gives a bound on the number of fluctuations. This, for instance, 
+is the case for bounded monotone sequences. In general, we can say that
+effective learnability implies the existence of an
+effective bound of fluctuations, if the learner and the sequence satisfy
+certain gap conditions. Informally, if
+\begin{itemize}
+\item any two exceptions $i,\tilde{\imath}$ to the Cauchy property for $2^{-k}$ have distance at least $\Delta_*(\max(i,\tilde{\imath}),k)$, and
+\item the learning map jumps at most by $J^*(i,k)$ from $i$, and
+\item (for any $k$) $J^*(\cdot, k)$ is asymptotically at most equivalent to $\Delta_*(\cdot, k)$, 
+\end{itemize}
+then the number of fluctuations is asymptotically bounded by $B^*$. Below, we discuss an example from ergodic theory, where these conditions are met.
+\begin{prop}[{Gap conditions on the learner}]\label{p:gap}
+Let $a\seq$ be some sequence in a metric space $(X,d)$ and let 
+\[
+\phi:\equiv \forall k\exists n\forall i\ \overbrace{\forall \tilde{\imath}<i \big( n\leq \tilde{\imath}\rightarrow d(a_{\tilde{\imath}},a_{i})\leq 2^{-k}\big)}^{\phi_0(i,n,k):\equiv}.
+\] 
+be a $(B,L)$-learnable formula (which states simply the Cauchy property 
+of the sequence, we use $\tilde{\imath}$ simply because the natural choice $j$ already denotes the pairing function) and let $B^*,L^*$ be
+majorants of $B,L.$ \\
+Moreover, suppose that there are functions $\Delta_*>0$, $J^*$, s.t.
+\[\forall n,i,i'\ \Big( \big( \neg\phi_0(i,n,k)\wedge\neg\phi_0(i',n,k))\rightarrow
+|i'-i|\geq\Delta_*(i,k)\Big),\]
+\[\forall n,i \big( \neg\phi_0(i,n,k) \rightarrow L^*(i,k)-i\leq J^*(i,k)\big),\]
+and
+\be[e:O]
+\big( J^*\in\mathcal{O}\big(\Delta_*\big)\big)\equiv \forall k\exists N_k,K_k\ 
+\forall x\geq N_k\ \big( 
+K_k\Delta_*(x,k)\geq J^*(x,k)\big).
+\ee
+Then there is a bound on the number of $2^{-k}$-fluctuations,
+which is primitive recursive 
+in $B^*,\Delta_*,J^*$ and $N_k,K_k$ (which witness~\eqref{e:O}) given by
+\[b(k):=B^*(k)\bigg(2+K_k+\max_{n<N_k}\Big(\frac{J^*(n,k)}{\Delta_*(n,k)}\Big)\bigg).\]
+Note that in the case where $N_k=0,$ we get
+\[b(k)=(2+K_k)B^*(k).\]
+\end{prop}
+\begin{proof}
+For simplicity, assume $N_k=0$ (otherwise we could just replace every occurrence 
+of $K_k$ by $(K_k+\max_{n<N_k}(\frac{J^*(n,k)}{\Delta_*(n,k)}))$).\\
+Firstly, note that any $2^{-k}$-fluctuation between two indexes $\tilde{\imath}$ and $i$ corresponds to a counterexample $i$. So, by definition there 
+is at most one fluctuation in the interval $[c_l,i_l]$, where 
+$i_l$ is the smallest counterexample to the solution 
+candidate $c_l$. Moreover, if there is such a fluctuation, its greater index is $i_l$.\\
+Secondly, from our assumption on $\Delta_*$ we get that there are at most
+\[
+\left\lceil \frac{c_{l+1}-i_l}{\Delta_*(i_l,k)} \right\rceil \leq \left\lceil \frac{J^*(i_l,k)}{\Delta_*(i_l,k)} \right\rceil \leq K_k
+\]
+many fluctuations within an interval $[i_l,c_{l+1}]$.\\
+There are at most $B^*(k)$ such pairs of intervals, before a $2^{-k}$-Cauchy point is reached, but there might be fluctuations, which arise only when we
+unite two such intervals.\\
+By incrementing $K_k$ by $1$, we already account for any additional fluctuation due to
+combining the intervals $[c_l,i_l]$ and $[i_l,c_{l+1}]$. This is because if there was a fluctuation within $[c_l,i_l]$, then there cannot be an additional one which results from combining such a pair of intervals, as its greater index would be $i_l$. There can, however, be an additional fluctuation, when we combine the intervals $[i_l,c_{l+1}]$ and $[c_{l+1},i_{l+1}]$.\\
+\end{proof}
+
+We now consider the general form of the structure of Birkhoff's proof 
+of the mean ergodic theorem as analyzed in \cite{kohlenbachleustean09} and 
+the argument used in \cite{Avigad/Rute} to convert the rate of metastability 
+obtained in \cite{kohlenbachleustean09} into a bound on the number of 
+fluctuations: \\[1mm]
+Let $x_{(\cdot)}$ be a sequence in some normed space $X$ (in the case at hand 
+$X$ is a uniformly convex Banach space) and $y_{(\cdot)}$ be a sequence in $\RR_+$ definable by terms in $\ha[X,\|\cdot\|,\ldots].$ 
+Suppose the Cauchyness of $x_{(\cdot)}$ 
+is proved using that $y_{(\cdot)}$ has arbitrarily good approximate 
+infima, i.e.
+\begin{align}
+\forall \delta>0\exists n &\forall k \forall \tilde k\le k\ (y_{\tilde k}\geq y_n-\delta)\\
+&\rightarrow \forall \epsilon>0\exists m \forall u \forall i,j\in[m,u]\ (\|x_i-x_j\|\leq \epsilon).
+\end{align} 
+This implication is classically equivalent to 
+\begin{align*}
+\forall \epsilon>0 \exists \delta>0\ \Big( \exists n &\forall k \forall \tilde 
+k\le k\ (y_{\tilde k}\geq y_n-\delta)\rightarrow \\ \tag{+}\label{e:U2}
+&\exists m \forall u \forall i,j\in[m,u]\ (\|x_i-x_j\|\leq \epsilon) \Big).
+\end{align*}
+Suppose now that we are in the situation of Corollary \ref{cor.2.11}, i.e.  
+\[
+\ha[X,\|\cdot\|,\ldots]+\mbox{AC$+$M$^{\omega}+$IP}^{\omega}_{\forall} 
+\vdash\text{\eqref{e:U2}}
+\]
+then
+\begin{align*}
+\ha&[X,\|\cdot\|,\ldots]+{\rm AC}+{\rm M}^{\omega} +{\rm IP}^\omega_\forall \vdash\\
+&\forall\epsilon>0\exists\delta>0\forall n\exists m\geq n\forall u\exists k(\forall \tilde k\le k(y_{\tilde k}\geq_\RR y_n-\delta)
+\rightarrow \forall i,j\in[m,u](\|x_i-x_j\|<_\RR\epsilon).
+\end{align*}
+Hence by monotone functional interpretation one extracts terms 
+ $\delta_\epsilon>0$, 
+$m_\epsilon$ and $k_\epsilon$ (depending additionally only 
+on majorants of the parameters $\underline{a}$ used in the definition of 
+our sequences) s.t. (valid in 
+${\cal S}^{\omega,X}$) for all majorants $\underline{a}^*$ of $\underline{a}$ 
+\[ \hspace*{-5mm} \ba{l} 
+\forall \epsilon>0\ \forall n,u\\[1mm] 
+\bigg( m_\epsilon(n)\ge n \wedge \Big(\forall \tilde k\le k_\epsilon(n,u)\ (y_{\tilde k}\geq y_n-\delta_\epsilon)\rightarrow 
+ \forall i,j\in[m_\epsilon(n),u]\ (\|x_i-x_j\|\leq \epsilon) \Big)
+\hspace*{-1mm} \bigg).
+\ea  \hspace*{-1mm}\tag{$*$}\label{e:U4-me}\]
+Now define $k^*_\epsilon(u):=\max\{k_\epsilon(i,u)\ :\ i\leq u\}$ and consider
+\[
+\forall \epsilon>0\ \forall n,u\ \Big( \forall \tilde k\le k^*_\epsilon(u)\ (y_{\tilde k}\geq y_n-\delta_\epsilon)\rightarrow 
+ \forall i,j\in[m_\epsilon(n),u]\ (\|x_i-x_j\|\leq \epsilon) \Big).
+\tag{$**$}\label{e:U4}\]
+We can infer \eqref{e:U4} from \eqref{e:U4-me} by the following case 
+distinction:\footnote{We are grateful to P. Oliva for pointing this out to us.}
+Fix $\varepsilon >0$ and $n.$ 
+\begin{itemize}
+\item[Case]  1: $u<m_\epsilon(n)$. Then the conclusion and hence the whole implication is trivially true.
+\item[Case]  2: $u\geq m_\epsilon(n) \geq n$.Then $k^*_\epsilon(u)\geq 
+k_\epsilon(n,u)$ and so $\forall \tilde k\le k^*_\epsilon(u)\ 
+(y_{\tilde k}\geq y_n-\delta_\epsilon)$ implies $\forall \tilde k\le 
+k_\epsilon(n,u)\ (y_{\tilde k}\geq y_n-\delta_\epsilon)$ and so the claim 
+follows as well.
+\end{itemize}
+
+Now suppose w.l.o.g. that $k^*_\epsilon:\NN\to\NN$ is injective and for any given $u$ define
+\[
+l_u\ :=\ (k^*_\epsilon)^{-1}(u).
+\]
+Then \eqref{e:U4} applied to $u:=l_u$ yields
+\[
+\forall \epsilon>0\ \forall n,u\ \Big( \forall \tilde k\le u\ 
+(y_{\tilde k}\geq y_n-\delta_\epsilon)\rightarrow 
+ \forall i,j\in[m_\epsilon(n),(k^*_\epsilon)^{-1}(u)]\ 
+(\|x_i-x_j\|\leq \epsilon) \Big).
+\tag{-}\label{e:U5}\]
+Now let $N_0$, $N_1$, ..., $N_{S_\epsilon}$ be integers s.t. $N_0=0$ and $N_{i+1}$ is the least $m>N_i$ s.t. $y_m<y_{N_i}-\delta_\epsilon$ as long as such an $m$ exists.
+Assume that $b\geq y_0$ (for some $b$) and so $S_\epsilon\leq\frac{b}{\delta_\epsilon}$.\\
+By \eqref{e:U5} there are no $\epsilon$-fluctuations of $x_{(\cdot)}$ on the 
+$S_\epsilon$ many intervals $[m_\epsilon(N_i),(k^*_\epsilon)^{-1}
+(N_{i+1})]$ for $i=0,\ldots,S_{\varepsilon}-1$.\\
+In the intervals $[(k^*_\epsilon)^{-1}(N_{i}),m_\epsilon(N_i)]$ 
+for $i=1,\ldots,
+S_\epsilon$ and $[0,m_\epsilon(N_0)]$ we have to show that if we have for 
+any $N\in\NN$ $s$ many
+fluctuations indexed within $[(k^*_\epsilon)^{-1}(N),m_\epsilon(N)]$ 
+(or in $[0,m_\epsilon(N_0)]$) each indexed by a pair of indexes $(i,j)$ 
+then the highest index of such fluctuation ($j_s$) has to be greater than 
+(or equal to) some $\phi_\epsilon(s,N)$, where $\phi_\epsilon$ is such that
+\[
+\exists \tilde s\forall n\ \big(\phi_\epsilon(\tilde s,n)>m_\epsilon(n)\big).
+\]
+Then, given such an $\tilde s$, we have at most
+\[
+\frac{b}{\delta_\epsilon}+\tilde s\left(\frac{b}{\delta_\epsilon}+1\right)
+\]
+many fluctuations.
+\\[2mm]
+In the case of Birkhoff's proof, the analysis in \cite{kohlenbachleustean09} 
+and the discussion in \cite{Avigad/Rute} 
+gives the following data used in \cite{Avigad/Rute}: 
+\begin{align*}
+\delta_\epsilon &:= \frac{\epsilon^2}{512b},& m_\epsilon(n)&:=\left\lceil 
+\frac{16b}{\epsilon}\right\rceil n,\\
+(k^*_\epsilon)^{-1}(n)&:=\left\lfloor\frac{n}{2}\right\rfloor,& 
+\phi_\epsilon(s,n)&:=\big(1+ \frac{\epsilon}{2b}\big)^s n,
+\end{align*}
+and so (for $\varepsilon <2b$) \[ \tilde s \leq \frac{ 4 b\log \big\lceil 
+\frac{16b}{\epsilon}\big\rceil }{\epsilon}.\]
+The function $\varphi_{\varepsilon}$ results (see \cite{Avigad/Rute} for 
+the calculation) from the fact that 
+\[ \| x_ {n+k}-x_k\|\le 2n\| x\|/(n+k) \]
+which is established already in Birkhoff's proof and which -- for $n=1$ -- 
+shows that $(x_k)$ has a linear rate of asymptotic regularity.
+\begin{rmk}
+Naturally, we could use the data, which led to the bound 
+of $\tilde s$ above, also simply with Proposition~\ref{p:gap} to
+obtain a similar fluctuation bound (which has the same structure in $\epsilon$).
+\end{rmk}
+
+For the case of Halpern iterations (with scalar $1/(n+1)$) mentioned in 
+the introduction, the analysis given in \cite{Kohlenbach/Leustean6}   
+yields (roughly) the following data for Hilbert spaces $X$ 
+(see \cite{Kohlenbach/Leustean6} for the 
+detailed definition of $\Theta_n$):
+\begin{align*}
+\delta_\epsilon &:= \frac{\epsilon^4}{576(b+1)^4},& m_\epsilon(n)&\approx \Theta_n(\frac{\epsilon^2}{4})\approx n^2,\\
+(k^*_\epsilon)^{-1}(n)&:=\left\lfloor\frac{n\cdot\epsilon}{3b^2}
+\right\rfloor.& 
+\end{align*}
+Similar data are also obtained  
+in the recent \cite{Koernlein} which is based on the analysis of a different 
+proof for the strong convergence of the Halpern iteration from 
+\cite{Xu}.\\
+However, now the rate of asymptotic regularity roughly is of order (see 
+corollary 6.3 in \cite{Kohlenbach/Leustean6}) 
+\[ \| x_{k+1}-x_k\| \le \frac{b}{\sqrt{k}}, \] 
+which does not lead to a linear (in $n$) $\varphi_{\varepsilon}(s,n)$ and 
+even if it would, this would not suffice to dominate $m_{\varepsilon}(n).$ 
+So as it stands, the analysis does not seem to yield any fluctuation 
+bound for the Halpern iteration $(x_k).$
+
+\begin{prop}
+Given a bound $B_{\varepsilon}$ on the number of fluctuations, there is an in $B_{\varepsilon}$ (and the given data 
+$(k^*_{\varepsilon})^{-1}$ and $m_{\varepsilon}$ and the majorants $\underline{a}^*$ of their parameters including $\varepsilon)$) 
+primitive recursive $\phi_\epsilon$
+satisfying the conditions in the proof:
+\begin{align}
+\forall \varepsilon >0 \forall s,N,i,j \big( i,j\in[(k^*_\epsilon)^{-1}(N),
+m_\epsilon(N)]\ \wedge\ \Fluc_{\varepsilon}(s,i,j)\ 
+\rightarrow j_s\geq \phi_\epsilon(s,N) \big),\label{e:FU1}\\
+\exists \tilde s\forall n\ \big(\phi_\epsilon(\tilde s,n)>m_\epsilon(n)\big).\label{e:FU2}
+\end{align}
+\end{prop}
+\begin{proof}
+Set
+\[
+\phi_\epsilon(s,n):=\begin{cases}
+(k^*_\epsilon)^{-1}(n)&\Tif\ s\leq B_{\varepsilon},\\
+m_\epsilon(n)+1&\Telse.
+\end{cases}
+\]
+\end{proof}
+\vspace*{-3mm}
+\begin{rmk}
+In particular, this means that if we know there is for computable 
+(in the majorants $\underline{a}^*$ of the parameters including $\varepsilon$) 
+$(k^*_{\varepsilon})^{-1}$ and $m_{\varepsilon}$ 
+no computable $\phi_{\varepsilon}$ (in $\tup a^*$) satisfying these conditions,
+then there cannot be a bound on the number of fluctuations, which is computable (in $\tup a^*$).
+\end{rmk}
+
+

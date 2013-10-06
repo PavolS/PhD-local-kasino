@@ -35,33 +35,33 @@
 \indexentry{monotone functional interpretation}{14}
 \indexentry{MD-interpretation}{14}
 \indexentry{NMD-interpretation}{14}
-\indexentry{model of all set-theoretic functionals}{15}
-\indexentry{model of all sequentially continuous functionals}{15}
-\indexentry{model of strongly majorizable functionals}{15}
-\indexentry{Bar Recursion}{16}
-\indexentry{bar recursor}{16}
-\indexentry{restricted bar recursor}{17}
-\indexentry{Scheme 1}{17}
-\indexentry{Scheme 2}{17}
-\indexentry{\text  {$\ensuremath  {\Sigma ^0_1\textsf  {\upshape  -LEM}}(f)$}}{18}
-\indexentry{$(\ensuremath  {\Sigma ^0_1\textsf  {\upshape  -LEM}})'$}{18}
-\indexentry{\text  {$\Sigma ^0_2\textsf  {\upshape  -}\ensuremath  {\textsf  {\upshape  DNS}}(f)$}}{19}
-\indexentry{$\ensuremath  {\Pi ^0_1\textsf  {\upshape  -}}\ensuremath  {\textsf  {\upshape  AC}}(f)$}{20}
-\indexentry{$(\ensuremath  {\Pi ^0_1\textsf  {\upshape  -}}\ensuremath  {\textsf  {\upshape  AC}}(f))'$}{20}
-\indexentry{Schema of Comprehension}{21}
-\indexentry{Full Comprehension}{21}
-\indexentry{Arithmetical Comprehension}{21}
-\indexentry{Comprehension over numbers}{21}
-\indexentry{$\ensuremath  {\Pi ^0_1\textsf  {\upshape  -}}\ensuremath  {\textsf  {\upshape  CA}}$}{21}
-\indexentry{$\ensuremath  {\textsf  {\upshape  WKL}}(\varphi )$}{28}
-\indexentry{$\ensuremath  {\textsf  {\upshape  WKL}}\equiv \forall f\ensuremath  {\textsf  {\upshape  WKL}}(f)$}{29}
-\indexentry{$\ensuremath  {\textsf  {\upshape  WKL}}_s$}{32}
-\indexentry{$\ensuremath  {\textsf  {\upshape  FAN}}$}{32}
-\indexentry{secured}{33}
-\indexentry{primitive recursive}{38}
-\indexentry{G\"odel primitive recursive functionals of finite type}{38}
-\indexentry{$\alpha $-recursive}{38}
-\indexentry{ordinal recursion}{39}
-\indexentry{$\alpha $-recursive}{39}
-\indexentry{computation size}{40}
-\indexentry{$\{\alpha , c, t\}$}{40}
+\indexentry{model of all set-theoretic functionals}{16}
+\indexentry{model of all sequentially continuous functionals}{16}
+\indexentry{model of strongly majorizable functionals}{17}
+\indexentry{Bar Recursion}{17}
+\indexentry{bar recursor}{17}
+\indexentry{restricted bar recursor}{18}
+\indexentry{Scheme 1}{18}
+\indexentry{Scheme 2}{18}
+\indexentry{\text  {$\ensuremath  {\Sigma ^0_1\textsf  {\upshape  -LEM}}(f)$}}{19}
+\indexentry{$(\ensuremath  {\Sigma ^0_1\textsf  {\upshape  -LEM}})'$}{19}
+\indexentry{\text  {$\Sigma ^0_2\textsf  {\upshape  -}\ensuremath  {\textsf  {\upshape  DNS}}(f)$}}{20}
+\indexentry{$\ensuremath  {\Pi ^0_1\textsf  {\upshape  -}}\ensuremath  {\textsf  {\upshape  AC}}(f)$}{21}
+\indexentry{$(\ensuremath  {\Pi ^0_1\textsf  {\upshape  -}}\ensuremath  {\textsf  {\upshape  AC}}(f))'$}{21}
+\indexentry{Schema of Comprehension}{22}
+\indexentry{Full Comprehension}{23}
+\indexentry{Arithmetical Comprehension}{23}
+\indexentry{Comprehension over numbers}{23}
+\indexentry{$\ensuremath  {\Pi ^0_1\textsf  {\upshape  -}}\ensuremath  {\textsf  {\upshape  CA}}$}{23}
+\indexentry{$\ensuremath  {\textsf  {\upshape  WKL}}(\varphi )$}{30}
+\indexentry{$\ensuremath  {\textsf  {\upshape  WKL}}\equiv \forall f\ensuremath  {\textsf  {\upshape  WKL}}(f)$}{30}
+\indexentry{$\ensuremath  {\textsf  {\upshape  WKL}}_s$}{34}
+\indexentry{$\ensuremath  {\textsf  {\upshape  FAN}}$}{34}
+\indexentry{secured}{34}
+\indexentry{primitive recursive}{40}
+\indexentry{G\"odel primitive recursive functionals of finite type}{40}
+\indexentry{$\alpha $-recursive}{40}
+\indexentry{ordinal recursion}{40}
+\indexentry{$\alpha $-recursive}{40}
+\indexentry{computation size}{42}
+\indexentry{$\{\alpha , c, t\}$}{42}

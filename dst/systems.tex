@@ -17,7 +17,7 @@ In dealing with tuples, we will follow the notation and conventions of the first
 for this context see also Details in~\cite{BBS12}. This includes the enrichment of the term language (G\"odel's $\T$); it now also includes a constant $\et_\sigma$ of type $\sigma^*$ and an operation $c$ of type $\sigma \to (\sigma^* \to \sigma^*)$ (for the empty sequence and the operation of prepending an element to a sequence, respectively), as well as a list recursor $\tup L_{\sigma, \tup \rho}$ satisfying the usual axioms (again see~\cite{BBS12} and also
 \cite[p. 456]{troelstravandalen88b} or \cite[p. 48]{Kohlenbach08}). In addition, we have the recursors and combinators for all the new types in G\"odel's $\T$, satisfying the usual equations.  The resulting extension we will denote by $\Tstar$.
 
-Differently to previous chapters, we will have a primitive notion of equality at every type and equality axioms expressing that equality is a congruence (as in \cite[p. 448-9]{troelstravandalen88b}). Since decidability of quantifier-free formulas is not essential for this paper, this choice will not create any difficulties. In addition, we assume the axiom of extensionality for functions:
+Differently to previous chapters, we will have a primitive notion of equality at every type and equality axioms expressing that equality is a congruence (as in \cite[p. 448-9]{troelstravandalen88b}). Since decidability of quantifier-free formulas is not essential for this chapter, this choice will not create any difficulties. In addition, we assume the axiom of extensionality for functions:
 \begin{displaymath}
 \begin{array}{l}
 f =_{\sigma \to \tau} g \leftrightarrow \forall x^\sigma \, fx =_{\tau} gx.
