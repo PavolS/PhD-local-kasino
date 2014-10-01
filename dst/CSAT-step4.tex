@@ -1,14 +1,16 @@
 \subsubsection*{Interpreting DNS for standard arguments}
 
-We discussed already that solving the negative interpretation of $\DNS$ and thereby that
-of choice and comprehension was of major interest of proof mining in the introduction and implicitly at several occasions in the first chapter.\\
-Therefore it seems to have closer look at the $\Sh$-interpretation of the $\DNS{\st}$ principle. Recall:
+We already discussed that solving the negative interpretation of $\DNS$ and thereby that
+of choice and comprehension was of major interest to proof mining in the introduction and 
+implicitly at several occasions in the first chapter.\\
+Therefore it seems natural to have a closer look at the corresponding scenario in
+our non-standard setting, namely the $\Sh$-interpretation of the $\DNS{\st}$ principle. Recall:
 \[
 \DNS{\st}\quad :\quad \forallst n^0 \, \exists y^\tau \, \Phi(n, y) \to \exists f^{0 \to \tau} \, \forallst n^0 \, \Phi(n, f(n)).
 \]
 
-With the help of an automated interpreter it is straight forward to obtain 
-its $\Sh$-interpretation, which reads as follows:
+It turns out that the interpretation (obtained with the help of an automated 
+interpreter due to myself) remains very similar to the standard scenario and reads as follows:
 
 \begin{small}
 \begin{align*}
@@ -21,6 +23,8 @@ its $\Sh$-interpretation, which reads as follows:
     \phi({\tilde N[\hat X,\hat V,N]}_{\hat p},{\hat X[{\tilde N[\hat X,\hat V,N]}_{\hat p}][{\hat Y[\hat X,\hat V,N]}_{\hat n}]}_{\hat b},{{\hat Y[\hat X,\hat V,N]}_{\hat n}[{\hat X[{\tilde N[\hat X,\hat V,N]}_{\hat p}][{\hat Y[\hat X,\hat V,N]}_{\hat n}]}_{\hat b}]}_{\hat a})\ \rightarrow\\
  &\quad \neg\forall \hat m\leq |\hat U[\hat X][\hat V,N]|\\
  &\quad \neg\forall \hat k\leq |\hat V[{\hat U[\hat X][\hat V,N]}_{\hat m}]|,\hat l\leq |N[{\hat U[\hat X][\hat V,N]}_{\hat m}]| \\ 
- &\quad\quad \phi({N[{\hat U[\hat X][\hat V,N]}_{\hat m}]}_{\hat l},{\hat U[\hat X][\hat V,N]}_{\hat m}[{N[{\hat U[\hat X][\hat V,N]}_{\hat m}]}_{\hat l}],{\hat V[{\hat U[\hat X][\hat V,N]}_{\hat m}]}_{\hat k}))
+ &\quad\quad \phi({N[{\hat U[\hat X][\hat V,N]}_{\hat m}]}_{\hat l},{\hat U[\hat X][\hat V,N]}_{\hat m}[{N[{\hat U[\hat X][\hat V,N]}_{\hat m}]}_{\hat l}],{\hat V[{\hat U[\hat X][\hat V,N]}_{\hat m}]}_{\hat k})).
 \end{align*}
 \end{small}
+
+In particular, note that the equations which need to be solved correspond one to one to the standard case (see~\ref{ss:DNS} or~\cite{Kohlenbach08}), except that here, of course, we have to use our sequence application $\Lambda$. In fact, to obtain a solution we might need to define a modified version of the bar recursor, similarly as we did for normal recursion $\tup{\mathcal{R}}_{\tup{\rho}}$.

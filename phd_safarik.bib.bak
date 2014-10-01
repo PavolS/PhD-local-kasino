@@ -1835,12 +1835,12 @@
   title = {A Game-Theoretic Computational Interpretation of Proofs in Classical
 	Analysis},
   year = {2012},
-  volume = {(since 2012 available as arXiv:1204.5244)},
+  volume = {to appear in: Gentzen Centenary volume},
   url = {http://arxiv.org/abs/1204.5244v1},
   ee = {http://arxiv.org/abs/1204.5244},
   interhash = {0702257719ec46e8d4dd4a8ec72ee18e},
   intrahash = {f909149fb23332e05c272c50f6ff5120},
-  journal = {Gentzen Centenary volume (to appear)},
+  journal = {arXiv e-prints (1204.5244)},
   keywords = {dblp},
   timestamp = {2013-01-02T00:00:00.000+0100}
 }

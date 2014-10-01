@@ -218,7 +218,8 @@ article. These quotes are intended to offer a short abstract on the topic at han
 In the following
 we give an overview of the contents of the chapters, their relation and which
 publications are they based on.\\
-The {\em Preliminaries} chapter is somewhat different from the others. It is based on parts from
+%
+The {\em Preliminaries chapter} is somewhat different from the others. It is based on parts from
 both a joint paper with U. Kohlenbach~\cite{KS10} and~\cite{Safarik08}.
 It gives a quick introduction to the basic 
 methods and results in the area of proof mining, which might be considered folklore or common knowledge. We do give some new results (and fill tiny gaps in known proofs), but mostly it is a collection of
@@ -226,25 +227,34 @@ known or not surprising material and can be found in
 standard literature (mainly~\cite{Troelstra73,Howard81,Kohlenbach08}). In fact, it is meant more
 as a quick reference for results we need in later chapters. We capture the most relevant results in short summaries at the end of the corresponding sections. For an interested reader, 
 it is probably best to refer to \cite{Kohlenbach08} directly instead.\\
+%
 The {\em second chapter} is about effective learnability and discusses in great detail what kind of computational content can be extracted, and under which circumstances, from convergence proofs. 
-It is based on the most recent joint work with U. Kohlenbach~\cite{KS13}. We start with this topic, because the analysis
+It is based on the most recent joint work with U. Kohlenbach~\cite{KS13}, where both authors contributed
+equally~\footnote{though the proof of Proposition~\ref{p:nonLearnablePhi} is solely due to Kohlenbach} and I wrote the parts presented in this thesis. We start with this topic, because the analysis
 deals with the lowest level of computational complexity (compared to the remainder of this thesis).
 The goal is to precisely characterize when can we obtain more than a (computable) rate of metastability 
 from a proof of a convergence statement in analysis. Of course, it is known when 
 (computable) full rate of convergence is extractable. Here, we are concerned
 with computational content strictly in between. Namely a (computable) bound on fluctuations or at least an (effective) learning procedure for the limit point.\\
+%
 We take this, so to say, a step further in the {\em third chapter}, where we dive into a
 case study on a proof of a strong non-linear ergodic theorem due to R. Wittmann. 
 The situation here, closely resembles our abstract separating example for a convergence statement which is non-learnable but has an effective rate of metastability from second chapter. This is due to a specific nested structure of the extracted realizer, which is unprecedented by similar results in proof mining so far.
 It is a rare example, where a proof of strong convergence doesn't lead to a realizer of the specific
 form which is typically guaranteed for effectively learnable statements. This chapter is based on~\cite{Safarik(11)} extended by an in depth analysis of an arithmetized version of Wittmann's proof.\\
+%
 In the {\em fourth chapter} we go even further and investigate how a specific compactness principle, the theorem of Bolzano-Weierstrass, contributes to the complexity of realizers when used
-as the main principle in a proof of a logical statements in a particular, but rather general, logical form.
+as the main principle in proofs of logical statements in a particular, but rather general, logical form.
 To achieve this, we need to use advanced techniques like bar-recursion, but we demonstrate that even in systems formalizing large parts of full classical analysis, powerful principles like $\BW$
 contribute by the minimal amount possible, when they are used naturally and are treated correctly.
-The results in this chapter are based on joint work with U. Kohlenbach and were published in~\cite{KS10}.\\ 
-The {\em last chapter} is based on joint work with B. van den Berg and E. Briseid, see~\cite{BBS12}. While in the chapters three and four we use established techniques already fine-tuned for proof-mining, here we want to contribute to
-the field in general and provide extraction procedures for non-standard analysis. Such a challenging task certainly needs more than a single publication on a system formalizing the non-standard methods and a corresponding (negative) functional interpretation, but we believe we made a very solid first step. In this thesis we go actually further and discuss successful part of a larger unfinished attempt on interpreting the principle of countable saturation, which is the basic step needed for interpreting proofs based on Loeb measures. This part is of particular interest in the context of this thesis, since it was achieved
+The results in this chapter improve, generalize and extend preliminary results going back to my Diplom-Thesis \cite{Safarik08} and
+have been published in~\cite{KS10}. In particular, we now treat the Bolzano-Weierstrass principle for general
+Polish spaces of the form $\PP^b$ (see Definition~\ref{d:PPs}) which subsequently has been crucially used
+by U. Kohlenbach in his proof-theoretic analysis of weak compactness in~\cite{Kohlenbach2012(weak)}.\\ 
+%
+The {\em last chapter} surveys my joint work with B. van den Berg and E. Briseid in~\cite{BBS12} presenting in 
+detail my contributions (sections~\ref{ss:dst:negative} and~\ref{s:Shoenfield}), here actually extended by an example (interpretation of $\DNS{\st}$). While in the chapters three and four we use established techniques already fine-tuned for proof-mining, here we want to contribute to
+the field in general and provide extraction procedures for non-standard analysis. Such a challenging task certainly needs more than a single publication on a system formalizing the non-standard methods and a corresponding (negative) functional interpretation, but we believe we made a very solid first step. In this thesis we go actually further and discuss a yet unpublished successful part of a larger unfinished attempt on interpreting the principle of countable saturation, which is the basic step needed for interpreting proofs based on Loeb measures (see section~\ref{ss:dst:csat}). This part is of particular interest in the context of this thesis, since it was achieved
 using much of the ideas and techniques needed for our previous results.
 
 \mySubsection{Notation and common Expressions}

@@ -813,24 +813,26 @@ context, however, it is weak and the functional interpretation used
 (without negative translation!) in the 
 proof of Theorem~\ref{t:bdLem} (and the corollary below) to extract $B,L$ solves 
 $\Sigma^0_2$-IR using only ordinary primitive recursion in the form of 
-$R_0.$ \\ One can also modify Toftdal's proof so that only the $\Pi^0_1$-FAC 
-principle (`$\Pi^0_1$-finite-axiom-of-choice') is used (which classical 
-is equivalent to $\Pi^0_1$-CP which is relative to PRA $\Pi^0_3$-conservative 
-of $\Sigma^0_1$-IA): w.l.o.g. we may assume that $(a_n)$ is a sequence 
-of rational numbers (for, otherwise, replace it by $r_n:=\min_{i\le n} 
-(\widehat{a}_i+2^{-i})$ using the representation of reals from 
-\cite{Kohlenbach08}): 
-by $\Sigma^0_1$-LEM we have 
-\[ \forall i\le 2^{k}\exists n\forall m \,\big( a_n<\frac{i}{2^k} \vee 
-a_m\ge \frac{i}{2^k}\big). \] 
-Hence by $\Pi^0_1$-FAC 
-\[ \exists n\forall i\le 2^k \,\big(a_{(n)_i} <\frac{i}{2^k}\vee 
-\forall m (a_m\ge \frac{i}{2^k})\big). \] 
-Now let $i_0\le 2^k$ be least s.t. $ a_{(n)_{i_0}} <\frac{i_0}{2^k}$ 
-(if existent; otherwise $\forall m (a_m=1)$ and we are done). Then for 
-$l:=(n)_{i_0}$ 
-\[ \forall m\ge l \, (|a_m-a_l|<2^{-k}). \]   
-\\[2mm]
+$R_0.$ In fact, one can also show that $\Pi^0_1$-CP is sufficient 
+(see~\cite{KS13}). \\ [2mm]
+%One can also modify Toftdal's proof so that only the $\Pi^0_1$-FAC 
+%principle (`$\Pi^0_1$-finite-axiom-of-choice') is used (which classical 
+%is equivalent to $\Pi^0_1$-CP which is relative to PRA $\Pi^0_3$-conservative 
+%of $\Sigma^0_1$-IA): w.l.o.g. we may assume that $(a_n)$ is a sequence 
+%of rational numbers (for, otherwise, replace it by $r_n:=\min_{i\le n} 
+%(\widehat{a}_i+2^{-i})$ using the representation of reals from 
+%\cite{Kohlenbach08}): 
+%by $\Sigma^0_1$-LEM we have 
+%\[ \forall i\le 2^{k}\exists n\forall m \,\big( a_n<\frac{i}{2^k} \vee 
+%a_m\ge \frac{i}{2^k}\big). \] 
+%Hence by $\Pi^0_1$-FAC 
+%\[ \exists n\forall i\le 2^k \,\big(a_{(n)_i} <\frac{i}{2^k}\vee 
+%\forall m (a_m\ge \frac{i}{2^k})\big). \] 
+%Now let $i_0\le 2^k$ be least s.t. $ a_{(n)_{i_0}} <\frac{i_0}{2^k}$ 
+%(if existent; otherwise $\forall m (a_m=1)$ and we are done). Then for 
+%$l:=(n)_{i_0}$ 
+%\[ \forall m\ge l \, (|a_m-a_l|<2^{-k}). \]   
+%\\[2mm]
 As a corollary we obtain that Theorem~\ref{t:bdLem} also holds with 
 the original assumption being replaced by 
 PCM$_{ar}(s(\underline{a},l),t(\underline{a})),$ where 
@@ -1404,40 +1406,18 @@ which is computed in \cite{Kohlenbach08}[Prop.3.19]).
 
 \begin{rmk}\label{r:metaB}
 One can obtain such a rate of metastability for $\beta_{(\cdot)}$ directly, using previous results
-of U. Kohlenbach.\\
-By~\cite{Kohlenbach08} (Prop.13.19) we have that
-\be[e:maU1]
-\forall x,f \forall \tilde x\leq x\big(\exists y\leq\Phi xf\ T(\tilde x,0,y)\vee \forall z\leq f(\Phi xf)\neg T(\tilde x,0,z)\big),
-\ee
-where $\Phi xf\leq \max\{f^{i}(0)\ 
-:\ i\leq x+1\}=:\Phi^*xf$. \eqref{e:maU1} (here $f^i(0)$ again denotes the 
-$i$-times iteration of $f$) implies
-\be[e:maU2]
-\forall z \big(\Phi xf< z\leq f(\Phi xf)\rightarrow \forall \tilde x \leq x \neg T(\tilde x,0,z)\big).
-\ee
+of U. Kohlenbach. 
 Define $\tilde f(n):=\max\{f(n),n\}$ and $f_k(n):=\tilde f(\langle k,n,n\rangle+1)$ and let
 \[
 \Psi(k,f):=\langle k,\Phi^*kf_k,\Phi^*kf_k\rangle + 1.
 \]
 Then $\Psi$ is a rate of metastability for the convergence of 
-$\beta_{(\cdot)}$ towards $0,$ i.e.:
-\be[e:rmB]
+$\beta_{(\cdot)}$ towards $0$, i.e.:
+\[
 \forall k,f\ \exists n\leq \Psi(k,f)\ \forall z\in[n,\tilde f(n)]\ \ 
 (|\beta_z|< 2^{-k}).
-\ee
-To prove~\eqref{e:rmB}, define $n:=\langle k, \Phi kf_k, \Phi kf_k\rangle+1\leq\Psi(k,f)$ and let $z\in[n,\tilde f(n)]$. Then 
-$z\geq n > \langle k, \Phi kf_k, \Phi kf_k\rangle$ and so one of the following cases holds:
-\hspace{35mm}\begin{enumerate}
-\item $j_1(z)>k$. Then $|\beta_z|\leq2^{-j_1(z)}<2^{-k}$.
-\item $j_2(z)>\Phi kf_k\wedge j_1(z)\leq k$. Then 
-$
-\Phi kf_k < j_2(z)\leq z \leq \tilde f(n)=f_k(\Phi kf_k).
-$
-Hence, by~\eqref{e:maU2} (applied to $k,j_1(z),f_k,j_2(z)$ 
-for $x, \tilde{x}, f, z$), we get 
-$\neg T(j_1(z),0,j_2(z))$ and so $\beta_z=0$.
-\item $j_3(z)>\Phi kf_k\wedge j_2(z)\leq\Phi kf_k\wedge j_1(z)\leq k$. Then $j_3(z)>j_2(z)$ and so $\beta_z=0$.
-\end{enumerate}
+\]
+For details see~\cite{KS13}.
 \end{rmk}
 
 \begin{lemma}[Termination causes at least $n$ fluctuations]\label{l:2n}
@@ -1812,46 +1792,46 @@ where $g_y(n):=g(y,n)$. Then
 g(\Phi_1xg,\Phi_2xg)\,(\widehat{f}(\tilde{y},z)\not= 0)\big) \Big).
 \ea \right. \ea \]
 This implies
-\be[e:rmGU2]
+\[
 \forall z \big(\Phi_1 xg< z\leq g(\Phi_1 xg,\Phi_2 xg)\rightarrow \forall \tilde x \leq x\ (\widehat{f}(\tilde x,z)\neq0)\big)
-\ee
+\]
 and
-\be[e:rmGU3]
+\[
 \forall z \big(\Phi_2 xg< z\leq g(\Phi_1 xg,\Phi_2 xg)\rightarrow \forall \tilde x \leq \Phi_1 xg\ (\widehat{f}(\tilde x,z)\neq0)\big).
-\ee
+\]
 Define $\tilde g(n):=\max\{g(n),n\}$ and $g_k(n,m):=\tilde g(\langle k,n,n,m\rangle+1)$ and 
 \[
 \Psi(k,g):=\langle k,\Phi^*_1 kg_k,\Phi^*_1 kg_k,\Phi^*_2 kg_k\rangle+1,
 \]
 where $\Phi^*_i$ is defined as $\Phi_i$ but with $\Phi^*$ and $(g_k)^{M}$ instead of $\Phi_f$ and $g_k$.
-To show
+Then
 \[
 \forall k,g,f\ \exists n\leq \Psi(k,g)\ \forall z\in[n,\tilde g(n)]\ \ (|\gamma(f)_z| < 2^{-k}), \] 
-define $n:=\langle k,\Phi_1 kg_k,\Phi_1 kg_k,\Phi_2 kg_k\rangle+1\leq \Psi(k,g)$ and let $z\in[n,\tilde g(n)]$. Then 
-$z\geq n>\langle k,\Phi_1 kg_k,\Phi_1 kg_k,\Phi_2 kg_k\rangle$. Hence one of the following holds:
-\begin{enumerate}
-\item $j_1(z)>k$. Then $|\gamma(f)_z|\leq2^{-j_1(z)}<2^{-k}$.
-\item $j_2(z)>\Phi_1 kg_k\wedge j_1(z)\leq k$. Then 
-$
-\Phi_1 kg_k < j_2(z)\leq z \leq \tilde g(n)=g_k(\Phi_1 kg_k,\Phi_2 kg_k).
-$
-Hence, by~\eqref{e:rmGU2} (applied to $j_1(z),k,g_k,j_2(z)$ for 
-$\tilde{x},x,g,z$), $\gamma(f)_z=0$.
-\item $j_3(z)>\Phi_1 kg_k\wedge j_2(z)\leq\Phi_1 kg_k\wedge j_1(z)\leq k$. Then $j_3(z)>j_2(z)$ and so $\gamma(f)_z=0$.
-\item $j_4(z)>\Phi_2 kg_k\wedge j_3(z)\leq\Phi_1 kg_k\wedge j_2(z)\leq\Phi_1 kg_k\wedge j_1(z)\leq k$. 
-Then 
-$
-\Phi_2 kg_k < j_4(z)\leq z \leq \tilde g(n)=g_k(\Phi_1 kg_k,\Phi_2 kg_k).
-$
-Hence, by~\eqref{e:rmGU3} (applied to $j_3(z),k,g_k,j_4(z)$ for 
-$\tilde{y},x,g,z$), $\gamma(f)_z=0$.
-\end{enumerate}
+as shown in~\cite{KS13}.\\
+%define $n:=\langle k,\Phi_1 kg_k,\Phi_1 kg_k,\Phi_2 kg_k\rangle+1\leq \Psi(k,g)$ and let $z\in[n,\tilde g(n)]$. Then 
+%$z\geq n>\langle k,\Phi_1 kg_k,\Phi_1 kg_k,\Phi_2 kg_k\rangle$. Hence one of the following holds:
+%\begin{enumerate}
+%\item $j_1(z)>k$. Then $|\gamma(f)_z|\leq2^{-j_1(z)}<2^{-k}$.
+%\item $j_2(z)>\Phi_1 kg_k\wedge j_1(z)\leq k$. Then 
+%$
+%\Phi_1 kg_k < j_2(z)\leq z \leq \tilde g(n)=g_k(\Phi_1 kg_k,\Phi_2 kg_k).
+%$
+%Hence, by~\eqref{e:rmGU2} (applied to $j_1(z),k,g_k,j_2(z)$ for 
+%$\tilde{x},x,g,z$), $\gamma(f)_z=0$.
+%\item $j_3(z)>\Phi_1 kg_k\wedge j_2(z)\leq\Phi_1 kg_k\wedge j_1(z)\leq k$. Then $j_3(z)>j_2(z)$ and so $\gamma(f)_z=0$.
+%\item $j_4(z)>\Phi_2 kg_k\wedge j_3(z)\leq\Phi_1 kg_k\wedge j_2(z)\leq\Phi_1 kg_k\wedge j_1(z)\leq k$. 
+%Then 
+%$
+%\Phi_2 kg_k < j_4(z)\leq z \leq \tilde g(n)=g_k(\Phi_1 kg_k,\Phi_2 kg_k).
+%$
+%Hence, by~\eqref{e:rmGU3} (applied to $j_3(z),k,g_k,j_4(z)$ for 
+%$\tilde{y},x,g,z$), $\gamma(f)_z=0$.
+%\end{enumerate}
 Note that the 2-nested use of primitive recursive iteration hidden in the 
 2-nested application of 
 $\Phi_f$ in the definition of $\Phi_i$ very much resembles the basic 
 structure of the rate of metastability extracted from a concrete proof 
-in ergodic theory in \cite{Safarik(11)} (see the discussion in the 
-introduction).
+in ergodic theory in next chapter (see also the discussion in the introduction in~\cite{Safarik(11)}).
 \end{rmk}
 
 \begin{cor}\label{c:gammae}

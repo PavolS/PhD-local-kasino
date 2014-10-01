@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9 64-bit) (preloaded format=latex 2011.4.12)  7 OCT 2013 00:37
+This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2011.4.12)  11 OCT 2013 02:04
 entering extended mode
-**phd_safarik.tex
-(C:\Users\safo\Documents\PhD-local-kasino\phd_safarik.tex
+**C:/Users/safo/Documents/PhD-local-kasino/phd_safarik.tex
+(C:/Users/safo/Documents/PhD-local-kasino/phd_safarik.tex
 LaTeX2e <2009/09/24>
 Babel <v3.8l> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -60,10 +60,11 @@ Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 ("C:\Program Files\MiKTeX\tex\latex\00miktex\graphics.cfg"
 File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
 )
-Package graphics Info: Driver file: dvips.def on input line 91.
+Package graphics Info: Driver file: pdftex.def on input line 91.
 
-("C:\Program Files\MiKTeX\tex\latex\graphics\dvips.def"
-File: dvips.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
+("C:\Program Files\MiKTeX\tex\latex\pdftex-def\pdftex.def"
+File: pdftex.def 2011/01/28 v0.05d Graphics/color for pdfTeX
+\Gread@gobject=\count87
 ))
 \Gin@req@height=\dimen103
 \Gin@req@width=\dimen104
@@ -74,11 +75,8 @@ Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
 ("C:\Program Files\MiKTeX\tex\latex\00miktex\color.cfg"
 File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
-Package color Info: Driver file: dvips.def on input line 130.
-
-("C:\Program Files\MiKTeX\tex\latex\graphics\dvipsnam.def"
-File: dvipsnam.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
-))
+Package color Info: Driver file: pdftex.def on input line 130.
+)
 ("C:\Program Files\MiKTeX\tex\latex\ams\math\amsmath.sty"
 Package: amsmath 2000/07/18 v2.13 AMS math features
 \@mathmargin=\skip43
@@ -99,13 +97,13 @@ Package: amsbsy 1999/11/29 v1.2d
 ("C:\Program Files\MiKTeX\tex\latex\ams\math\amsopn.sty"
 Package: amsopn 1999/12/14 v2.01 operator names
 )
-\inf@bad=\count87
+\inf@bad=\count88
 LaTeX Info: Redefining \frac on input line 211.
-\uproot@=\count88
-\leftroot@=\count89
+\uproot@=\count89
+\leftroot@=\count90
 LaTeX Info: Redefining \overline on input line 307.
-\classnum@=\count90
-\DOTSCASE@=\count91
+\classnum@=\count91
+\DOTSCASE@=\count92
 LaTeX Info: Redefining \ldots on input line 379.
 LaTeX Info: Redefining \dots on input line 382.
 LaTeX Info: Redefining \cdots on input line 467.
@@ -114,15 +112,15 @@ LaTeX Info: Redefining \cdots on input line 467.
 \big@size=\dimen107
 LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
-\macc@depth=\count92
-\c@MaxMatrixCols=\count93
+\macc@depth=\count93
+\c@MaxMatrixCols=\count94
 \dotsspace@=\muskip10
-\c@parentequation=\count94
-\dspbrk@lvl=\count95
+\c@parentequation=\count95
+\dspbrk@lvl=\count96
 \tag@help=\toks18
-\row@=\count96
-\column@=\count97
-\maxfields@=\count98
+\row@=\count97
+\column@=\count98
+\maxfields@=\count99
 \andhelp@=\toks19
 \eqnshift@=\dimen108
 \alignsep@=\dimen109
@@ -230,8 +228,8 @@ Including style file `parsetree.sty'.
 \ptvgap=\dimen127
 \ptnodestrutbox=\box29
 \ptleafstrutbox=\box30
-\ptdepth=\count99
-\ptn=\count100
+\ptdepth=\count100
+\ptn=\count101
 \ptm=\box31
 \ptmx=\dimen128
 \pta=\box32
@@ -242,16 +240,16 @@ Including style file `parsetree.sty'.
 \ptcx=\dimen131
 \ptx=\box35
 \ptxx=\dimen132
-\pted=\count101
-\ptedm=\count102
-\pteda=\count103
-\ptedb=\count104
-\ptedc=\count105
-\ptedl=\count106
-\ptedh=\count107
-\ptedhs=\count108
-\ptedvs=\count109
-\ptedtemp=\count110
+\pted=\count102
+\ptedm=\count103
+\pteda=\count104
+\ptedb=\count105
+\ptedc=\count106
+\ptedl=\count107
+\ptedh=\count108
+\ptedhs=\count109
+\ptedvs=\count110
+\ptedtemp=\count111
 ) ("C:\Program Files\MiKTeX\tex\latex\base\makeidx.sty"
 Package: makeidx 2000/03/29 v1.0m Standard LaTeX package
 )
@@ -268,29 +266,29 @@ Package: makeidx 2000/03/29 v1.0m Standard LaTeX package
 )
 ("C:\Program Files\MiKTeX\tex\latex\changepage\chngpage.sty"
 Package: chngpage 2009/10/20 v1.2b change page layout
-\c@cp@cnt=\count111
-\c@cp@tempcnt=\count112
+\c@cp@cnt=\count112
+\c@cp@tempcnt=\count113
 )
 ("C:\Program Files\MiKTeX\tex\latex\tools\calc.sty"
 Package: calc 2007/08/22 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count113
-\calc@Bcount=\count114
+\calc@Acount=\count114
+\calc@Bcount=\count115
 \calc@Adimen=\dimen133
 \calc@Bdimen=\dimen134
 \calc@Askip=\skip61
 \calc@Bskip=\skip62
 LaTeX Info: Redefining \setlength on input line 76.
 LaTeX Info: Redefining \addtolength on input line 77.
-\calc@Ccount=\count115
+\calc@Ccount=\count116
 \calc@Cskip=\skip63
 )
 (C:\Users\safo\Documents\PhD-local-kasino\phd.sty
-\c@appendix=\count116
+\c@appendix=\count117
 
 ("C:\Program Files\MiKTeX\tex\latex\titlesec\ttlkeys.def"
 File: ttlkeys.def 2007/08/12
-\c@ttlp@side=\count117
-\ttlp@side=\count118
+\c@ttlp@side=\count118
+\ttlp@side=\count119
 )
 \backupindent=\skip64
 \rhdlength=\skip65
@@ -344,7 +342,7 @@ File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 \proofrulebreadth=\dimen135
 \proofdotseparation=\dimen136
 \proofrulebaseline=\dimen137
-\proofdotnumber=\count119
+\proofdotnumber=\count120
 \shortenproofleft=\dimen138
 \shortenproofright=\dimen139
 \proofbelowshift=\dimen140
@@ -352,7 +350,7 @@ File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 \proofbelow=\box37
 \proofrulename=\box38
 )
-\c@thm=\count120
+\c@thm=\count121
 )
 (C:\Users\safo\Documents\PhD-local-kasino\mind2013/fmc.sty)
 (C:\Users\safo\Documents\PhD-local-kasino\wittmann2011/wittmann.sty
@@ -396,14 +394,14 @@ Loading kernel: messages; fonts; allocations: state,
  direction,
 \d@X=\dimen164
 \d@Y=\dimen165
-\K@=\count121
-\KK@=\count122
-\Direction=\count123
+\K@=\count122
+\KK@=\count123
+\Direction=\count124
 \K@dXdY=\dimen166
 \K@dYdX=\dimen167
 \xyread@=\read1
 \xywrite@=\write3
-\csp@=\count124
+\csp@=\count125
 \quotPTK@=\dimen168
 
 utility macros; pictures: \xy, positions,
@@ -416,7 +414,7 @@ kernel objects: directionals, circles, text; options; algorithms: directions,
 edges, connections;  Xy-pic loaded)
 ("C:\Program Files\MiKTeX\tex\generic\oberdiek\ifpdf.sty"
 Package: ifpdf 2010/01/28 v2.1 Provides the ifpdf switch (HO)
-Package ifpdf Info: pdfTeX in pdf mode not detected.
+Package ifpdf Info: pdfTeX in pdf mode detected.
 )
 Package: xy 2011/02/11 Xy-pic version 3.8.5
 
@@ -424,7 +422,7 @@ Package: xy 2011/02/11 Xy-pic version 3.8.5
  Xy-pic option: All features v.3.7
 ("C:\Program Files\MiKTeX\tex\generic\xypic\xycurve.tex"
  Xy-pic option: Curve and Spline extension v.3.11 curve,
-\crv@cnt@=\count125
+\crv@cnt@=\count126
 \crvpts@=\toks39
 \splinebox@=\box42
 \splineval@=\dimen169
@@ -450,18 +448,29 @@ Package: xy 2011/02/11 Xy-pic version 3.8.5
  Xy-pic option: Colour extension v.3.10 loaded)
 ("C:\Program Files\MiKTeX\tex\generic\xypic\xymatrix.tex"
  Xy-pic option: Matrix feature v.3.9
-\Row=\count126
-\Col=\count127
+\Row=\count127
+\Col=\count128
 \queue@=\toks40
 \queue@@=\toks41
-\qcount@=\count128
-\qcount@@=\count129
-\matrixsize@=\count130
+\qcount@=\count129
+\qcount@@=\count130
+\matrixsize@=\count131
  loaded)
 ("C:\Program Files\MiKTeX\tex\generic\xypic\xyarrow.tex"
  Xy-pic option: Arrow and Path feature v.3.8 path, \ar, loaded)
 ("C:\Program Files\MiKTeX\tex\generic\xypic\xygraph.tex"
- Xy-pic option: Graph feature v.3.10 loaded) loaded)))
+ Xy-pic option: Graph feature v.3.10 loaded) loaded)
+("C:\Program Files\MiKTeX\tex\generic\xypic\xypdf.tex"
+ Xy-pic option: PDF driver v.1.6 Xy-pic pdf driver: `color' extension support
+("C:\Program Files\MiKTeX\tex\generic\xypic\xypdf-co.tex" loaded)
+Xy-pic pdf driver: `curve' extension support
+("C:\Program Files\MiKTeX\tex\generic\xypic\xypdf-cu.tex" loaded)
+Xy-pic pdf driver: `frame' extension support
+("C:\Program Files\MiKTeX\tex\generic\xypic\xypdf-fr.tex" loaded)
+Xy-pic pdf driver: `line' extension support
+("C:\Program Files\MiKTeX\tex\generic\xypic\xypdf-li.tex" loaded)
+Xy-pic pdf driver: `rotate' extension support
+("C:\Program Files\MiKTeX\tex\generic\xypic\xypdf-ro.tex" loaded) loaded)))
 (C:\Users\safo\Documents\PhD-local-kasino\dst/dst.sty)
 (C:\Users\safo\Documents\PhD-local-kasino\dst/proof.sty
 \inferLineSkip=\dimen175
@@ -517,7 +526,21 @@ LaTeX Font Info:    Try loading font information for T1+ppl on input line 49.
 ("C:\Program Files\MiKTeX\tex\latex\psnfss\t1ppl.fd"
 File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
 )
-(C:\Users\safo\Documents\PhD-local-kasino\title.tex
+("C:\Program Files\MiKTeX\tex\context\base\supp-pdf.mkii"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count132
+\scratchdimen=\dimen194
+\scratchbox=\box47
+\nofMPsegments=\count133
+\nofMParguments=\count134
+\everyMPshowfont=\toks42
+\MPscratchCnt=\count135
+\MPscratchDim=\dimen195
+\MPnumerator=\count136
+\everyMPtoPDFconversion=\toks43
+)
+Package xypdf Info: Line width: 0.4pt on input line 49.
+ (C:\Users\safo\Documents\PhD-local-kasino\title.tex
 LaTeX Font Info:    Try loading font information for T1+phv on input line 17.
 
 ("C:\Program Files\MiKTeX\tex\latex\psnfss\t1phv.fd"
@@ -525,7 +548,7 @@ File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
 ) [1
 
 
-])
+{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}])
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
 (Font)              scaled to size 21.61124pt on input line 55.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
@@ -548,52 +571,52 @@ LaTeX Font Warning: Font shape `T1/phv/c/n' undefined
 
 ]
 Overfull \hbox (1.18358pt too wide) detected at line 43
- \T1/phv/c/n/10 101
+ \T1/phv/c/n/10 100
  []
 
 
 Overfull \hbox (1.18358pt too wide) detected at line 44
- \T1/phv/c/n/10 114
+ \T1/phv/c/n/10 113
  []
 
 
 Overfull \hbox (0.91954pt too wide) detected at line 45
- \T1/phv/bc/n/12 118
+ \T1/phv/bc/n/12 117
  []
 
 
 Overfull \hbox (1.18358pt too wide) detected at line 46
- \T1/phv/c/n/10 119
+ \T1/phv/c/n/10 118
  []
 
 
 Overfull \hbox (1.18358pt too wide) detected at line 47
- \T1/phv/c/n/10 123
+ \T1/phv/c/n/10 122
  []
 
 
 Overfull \hbox (1.18358pt too wide) detected at line 48
- \T1/phv/c/n/10 127
+ \T1/phv/c/n/10 126
  []
 
 
 Overfull \hbox (1.18358pt too wide) detected at line 49
- \T1/phv/c/n/10 130
+ \T1/phv/c/n/10 129
  []
 
 
 Overfull \hbox (1.18358pt too wide) detected at line 50
- \T1/phv/c/n/10 131
+ \T1/phv/c/n/10 130
  []
 
 
 Overfull \hbox (1.18358pt too wide) detected at line 51
- \T1/phv/c/n/10 136
+ \T1/phv/c/n/10 135
  []
 
 
 Overfull \hbox (0.91954pt too wide) detected at line 52
- \T1/phv/bc/n/12 139
+ \T1/phv/bc/n/12 138
  []
 
 )
@@ -621,13 +644,13 @@ LaTeX Font Info:    Font shape `U/msb/m/n' will be
 (Font)              scaled to size 8.33606pt on input line 162.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
 (Font)              scaled to size 5.21004pt on input line 162.
- [3] [4]
-Overfull \hbox (5.15762pt too wide) in paragraph at lines 270--298
+ [3] [4] [5]
+Overfull \hbox (5.15762pt too wide) in paragraph at lines 280--308
 \T1/ppl/m/n/10 We will write ``holds classically/intuition-istic-ally'' or "is 
 equiv-a-lent classically/intuition-
  []
 
-[5]) [6] (C:\Users\safo\Documents\PhD-local-kasino\preliminaries.tex
+) [6] (C:\Users\safo\Documents\PhD-local-kasino\preliminaries.tex
 (C:\Users\safo\Documents\PhD-local-kasino\bwint2010/review_bw_prelim.tex)
 Underfull \hbox (badness 10000) in paragraph at lines 1--4
 
@@ -673,9 +696,9 @@ LaTeX Font Info:    Font shape `OMS/ppl/m/n' in size <10> not available
  [3] [4] [5]
 [6]
 Overfull \hbox (24.79945pt too wide) in paragraph at lines 485--487
-[]\T1/ppl/m/n/10 in the sys-tems $[][]$/$[][]$, where $\OML/zplm/m/it/10  \OT1
-/zplm/m/n/10 = \OT1/ppl/m/n/10 0\OML/zplm/m/it/10 [] [] []$\T1/ppl/m/n/10 , w
-e ob-tain the sys-tems $[][]$\T1/ppl/m/it/10 /$[][]$[]\T1/ppl/m/n/10 . 
+\T1/ppl/m/n/10 in the sys-tems $[][]$/$[][]$, where $\OML/zplm/m/it/10  \OT1/z
+plm/m/n/10 = \OT1/ppl/m/n/10 0\OML/zplm/m/it/10 [] [] []$\T1/ppl/m/n/10 , we 
+ob-tain the sys-tems $[][]$\T1/ppl/m/it/10 /$[][]$[]\T1/ppl/m/n/10 . 
  []
 
 [7] [8] [9] [10]
@@ -685,8 +708,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 857--858
 
 [11] [12]
 Overfull \hbox (1.98813pt too wide) in paragraph at lines 1051--1057
-[]\T1/ppl/m/n/10 The mono-tone func-tional in-ter-pre-ta-tion, also called \T1/
-ppl/m/it/10 MD-interpretation[]\T1/ppl/m/n/10 , ex-tracts the terms
+\T1/ppl/m/n/10 The mono-tone func-tional in-ter-pre-ta-tion, also called \T1/pp
+l/m/it/10 MD-interpretation[]\T1/ppl/m/n/10 , ex-tracts the terms
  []
 
 [13] [14]
@@ -782,7 +805,7 @@ on-als for the Sh-interpretation
 
 [39]) (C:\Users\safo\Documents\PhD-local-kasino\dipl/compPM.tex [40]
 Overfull \hbox (1.61436pt too wide) in paragraph at lines 129--130
-[][]$\OML/zplm/m/it/10 ![]$ 
+[]$\OML/zplm/m/it/10 ![]$ 
  []
 
 [41] [42])) [43]
@@ -817,8 +840,8 @@ Overfull \hbox (14.51938pt too wide) in paragraph at lines 402--402
 [49] [50]
 Overfull \hbox (3.81929pt too wide) in paragraph at lines 515--516
 []\T1/ppl/b/n/10 Definition 2.9 \T1/ppl/m/n/10 ((B,L)-learnability for gen-eral
- (not nec-es-sar-ily mono-tone) for-mu-las)\T1/ppl/b/n/10 . [][]\T1/ppl/m/n/10 
-Con-
+ (not nec-es-sar-ily mono-tone) for-mu-las)\T1/ppl/b/n/10 . []\T1/ppl/m/n/10 Co
+n-
  []
 
 [51]
@@ -828,11 +851,11 @@ Overfull \hbox (8.70349pt too wide) detected at line 592
 
 [52]
 Overfull \hbox (38.57803pt too wide) in paragraph at lines 592--604
-[]\T1/ppl/m/it/10 where $\OML/zplm/m/it/10 '[]\OT1/ppl/m/n/10 , \OML/zplm/m/it/
-10  []$ \T1/ppl/m/it/10 are quantifier-free for-mu-las (con-tain-ing at most th
-e pa-ram-e-ters $[]$ free), then $\OMS/zplm/m/n/10 9\OML/zplm/m/it/10 n\OMS/zpl
-m/m/n/10 8\OML/zplm/m/it/10 x'[]\OT1/zplm/m/n/10 (\OML/zplm/m/it/10 x\OT1/ppl/m
-/n/10 , \OML/zplm/m/it/10 n\OT1/ppl/m/n/10 , []\OT1/zplm/m/n/10 )$
+\T1/ppl/m/it/10 where $\OML/zplm/m/it/10 '[]\OT1/ppl/m/n/10 , \OML/zplm/m/it/10
+  []$ \T1/ppl/m/it/10 are quantifier-free for-mu-las (con-tain-ing at most the 
+pa-ram-e-ters $[]$ free), then $\OMS/zplm/m/n/10 9\OML/zplm/m/it/10 n\OMS/zplm/
+m/n/10 8\OML/zplm/m/it/10 x'[]\OT1/zplm/m/n/10 (\OML/zplm/m/it/10 x\OT1/ppl/m/n
+/10 , \OML/zplm/m/it/10 n\OT1/ppl/m/n/10 , []\OT1/zplm/m/n/10 )$
  []
 
 
@@ -847,9 +870,9 @@ t/10 n\OT1/ppl/m/n/10 , []\OT1/zplm/m/n/10 )$
 
 
 Overfull \hbox (3.33034pt too wide) in paragraph at lines 613--620
-[]\T1/ppl/m/n/10 Then by the sound-ness of the Gödel func-tional (`Di-alec-tica
-') in-ter-pre-ta-tion for $[][]\OT1/zplm/m/n/10 [\OML/zplm/m/it/10 X\OT1/ppl/m/
-n/10 , \OMS/zplm/m/n/10 k 
+\T1/ppl/m/n/10 Then by the sound-ness of the Gödel func-tional (`Di-alec-tica')
+ in-ter-pre-ta-tion for $[][]\OT1/zplm/m/n/10 [\OML/zplm/m/it/10 X\OT1/ppl/m/n/
+10 , \OMS/zplm/m/n/10 k 
  []
 
 
@@ -867,15 +890,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 669--672
 
 
 Overfull \hbox (9.60313pt too wide) in paragraph at lines 685--687
-[]\T1/ppl/m/n/10 and we ob-tain a con-tra-dic-tion as $\OMS/zplm/m/n/10 :\OML/z
-plm/m/it/10  []\OT1/zplm/m/n/10 (\OML/zplm/m/it/10 v[]\OT1/ppl/m/n/10 , \OML/zp
-lm/m/it/10 m[]\OT1/ppl/m/n/10 , []\OT1/zplm/m/n/10 )$ \T1/ppl/m/n/10 fol-lows f
-rom [] and $\OML/zplm/m/it/10  []\OT1/zplm/m/n/10 (\OML/zplm/m/it/10 v[]\OT1/pp
-l/m/n/10 , \OML/zplm/m/it/10 m[]\OT1/ppl/m/n/10 , []\OT1/zplm/m/n/10 )$
+\T1/ppl/m/n/10 and we ob-tain a con-tra-dic-tion as $\OMS/zplm/m/n/10 :\OML/zpl
+m/m/it/10  []\OT1/zplm/m/n/10 (\OML/zplm/m/it/10 v[]\OT1/ppl/m/n/10 , \OML/zplm
+/m/it/10 m[]\OT1/ppl/m/n/10 , []\OT1/zplm/m/n/10 )$ \T1/ppl/m/n/10 fol-lows fro
+m [] and $\OML/zplm/m/it/10  []\OT1/zplm/m/n/10 (\OML/zplm/m/it/10 v[]\OT1/ppl/
+m/n/10 , \OML/zplm/m/it/10 m[]\OT1/ppl/m/n/10 , []\OT1/zplm/m/n/10 )$
  []
 
-[54] [55] [56]
-Overfull \hbox (22.10115pt too wide) in paragraph at lines 847--857
+[54] [55]
+Overfull \hbox (22.10115pt too wide) in paragraph at lines 849--859
 \T1/ppl/m/it/10 To $\OML/zplm/m/it/10 B\OT1/ppl/m/n/10 , \OML/zplm/m/it/10 L$ \
 T1/ppl/m/it/10 one can con-struct ma-jo-rants $\OML/zplm/m/it/10 B[]\OT1/ppl/m/
 n/10 , \OML/zplm/m/it/10 L[]$ \T1/ppl/m/it/10 given by closed terms of $[][]$ s
@@ -884,55 +907,55 @@ uch that if $\OMS/zplm/m/n/10 9\OML/zplm/m/it/10 n\OMS/zplm/m/n/10 8\OML/zplm/m
 t/10 n\OT1/ppl/m/n/10 , []\OT1/zplm/m/n/10 )$
  []
 
-
-Overfull \hbox (8.8249pt too wide) in paragraph at lines 876--884
-[]\T1/ppl/b/n/10 Proposition 2.16. [][]\T1/ppl/m/it/10 Let $\OMS/zplm/m/n/10 9\
-OML/zplm/m/it/10 m[]\OMS/zplm/m/n/10 8\OML/zplm/m/it/10 k[] '[]\OT1/zplm/m/n/10
- (\OML/zplm/m/it/10 n\OT1/ppl/m/n/10 , \OML/zplm/m/it/10 m\OT1/ppl/m/n/10 , \OM
-L/zplm/m/it/10 k\OT1/ppl/m/n/10 , []\OT1/zplm/m/n/10 )$ \T1/ppl/m/it/10 be a fo
-r-mula in the lan-guage of $[][]$ (or $[][]\OT1/zplm/m/n/10 [\OML/zplm/m/it/10 
-X\OT1/ppl/m/n/10 , \OMS/zplm/m/n/10 k 
+[56]
+Overfull \hbox (8.8249pt too wide) in paragraph at lines 878--886
+[]\T1/ppl/b/n/10 Proposition 2.16. []\T1/ppl/m/it/10 Let $\OMS/zplm/m/n/10 9\OM
+L/zplm/m/it/10 m[]\OMS/zplm/m/n/10 8\OML/zplm/m/it/10 k[] '[]\OT1/zplm/m/n/10 (
+\OML/zplm/m/it/10 n\OT1/ppl/m/n/10 , \OML/zplm/m/it/10 m\OT1/ppl/m/n/10 , \OML/
+zplm/m/it/10 k\OT1/ppl/m/n/10 , []\OT1/zplm/m/n/10 )$ \T1/ppl/m/it/10 be a for-
+mula in the lan-guage of $[][]$ (or $[][]\OT1/zplm/m/n/10 [\OML/zplm/m/it/10 X\
+OT1/ppl/m/n/10 , \OMS/zplm/m/n/10 k 
  []
 
 
-Overfull \hbox (2.30983pt too wide) in paragraph at lines 899--899
+Overfull \hbox (2.30983pt too wide) in paragraph at lines 901--901
 [] 
  []
 
 [57] [58] [59] [60] [61] [62]
-Underfull \hbox (badness 10000) in paragraph at lines 1232--1238
+Underfull \hbox (badness 10000) in paragraph at lines 1234--1240
 
  []
 
 [63] [64] [65] [66]
-Overfull \hbox (10.77734pt too wide) detected at line 1502
+Overfull \hbox (10.77734pt too wide) detected at line 1482
 | \OML/zplm/m/it/10 y[] \OT1/zplm/m/n/10 :=|  []
  []
 
-[67] [68]
-Underfull \hbox (badness 10000) in paragraph at lines 1605--1607
+[67]
+Underfull \hbox (badness 10000) in paragraph at lines 1585--1587
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 1625--1628
+[68]
+Underfull \hbox (badness 10000) in paragraph at lines 1605--1608
 
  []
 
-[69] [70] [71]
-Overfull \hbox (9.37285pt too wide) detected at line 1782
+[69] [70]
+Overfull \hbox (9.37285pt too wide) detected at line 1762
 \OML/zplm/m/it/10 y[] \OT1/zplm/m/n/10 := []
  []
 
-[72] [73] [74] [75]
-Overfull \hbox (12.67297pt too wide) in paragraph at lines 2021--2021
+[71] [72] [73] [74]
+Overfull \hbox (12.67297pt too wide) in paragraph at lines 2001--2001
 [] 
  []
 
-[76] [77]) [78]
+[75] [76]) [77]
 (C:\Users\safo\Documents\PhD-local-kasino\wittmann2011/intro_wittmann.tex
 Overfull \hbox (9.42526pt too wide) in paragraph at lines 1--1
- |[]
+|[] 
  []
 
 (C:\Users\safo\Documents\PhD-local-kasino\wittmann2011/review_wittmann.tex)
@@ -946,7 +969,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1--2
 
  []
 
-[79
+[78
 
 
 ] <xymatrix 4x3 294>
@@ -960,14 +983,14 @@ Overfull \hbox (1.4985pt too wide) in paragraph at lines 81--109
  of Wittmann's non-lin-ear strong
  []
 
-[80]
+[79]
 Overfull \hbox (2.47102pt too wide) in paragraph at lines 132--132
 [] 
  []
 
-[81]) [82]
+[80]) [81]
 (C:\Users\safo\Documents\PhD-local-kasino\wittmann2011/WittmannReallyArithmetic
-al.tex [83
+al.tex [82
 
 ]
 Overfull \hbox (14.8013pt too wide) in paragraph at lines 63--71
@@ -976,28 +999,28 @@ lm/m/n/10 jj\OML/zplm/m/it/10 X[]\OMS/zplm/m/n/10 jj\OT1/zplm/m/n/10 )[]$ \T1/p
 pl/m/n/10 is a Cauchy se-quence (see proof of Lemma 3.19[]
  []
 
-[84]) (C:\Users\safo\Documents\PhD-local-kasino\wittmann2011/terms.tex
+[83]) (C:\Users\safo\Documents\PhD-local-kasino\wittmann2011/terms.tex
 Underfull \hbox (badness 10000) in paragraph at lines 123--1
 
  []
 
-[85])
+[84])
 (C:\Users\safo\Documents\PhD-local-kasino\wittmann2011/aLogicalMetatheorem.tex
 Underfull \hbox (badness 10000) in paragraph at lines 3--13
 
  []
 
-[86]
+[85]
 Overfull \hbox (11.3479pt too wide) in paragraph at lines 54--76
-[]\T1/ppl/m/n/10 Obviously the con-clu-sion, i.e. $\OMS/zplm/m/n/10 9\OML/zplm/
-m/it/10 m []\OMS/zplm/m/n/10 k\OML/zplm/m/it/10 A[]x \OMS/zplm/m/n/10   \OML/zp
-lm/m/it/10 A[]x\OMS/zplm/m/n/10 k \OML/zplm/m/it/10 < \OT1/ppl/m/n/10 2[][],$ \
-T1/ppl/m/n/10 has the form $\OMS/zplm/m/n/10 9\OML/zplm/m/it/10 m  []\OT1/zplm/
-m/n/10 (\OML/zplm/m/it/10 m\OT1/ppl/m/n/10 , \OML/zplm/m/it/10 l\OT1/ppl/m/n/10
- , \OML/zplm/m/it/10 g\OT1/zplm/m/n/10 )$
+\T1/ppl/m/n/10 Obviously the con-clu-sion, i.e. $\OMS/zplm/m/n/10 9\OML/zplm/m/
+it/10 m []\OMS/zplm/m/n/10 k\OML/zplm/m/it/10 A[]x \OMS/zplm/m/n/10   \OML/zplm
+/m/it/10 A[]x\OMS/zplm/m/n/10 k \OML/zplm/m/it/10 < \OT1/ppl/m/n/10 2[][],$ \T1
+/ppl/m/n/10 has the form $\OMS/zplm/m/n/10 9\OML/zplm/m/it/10 m  []\OT1/zplm/m/
+n/10 (\OML/zplm/m/it/10 m\OT1/ppl/m/n/10 , \OML/zplm/m/it/10 l\OT1/ppl/m/n/10 ,
+ \OML/zplm/m/it/10 g\OT1/zplm/m/n/10 )$
  []
 
-[87] [88])
+[86] [87])
 (C:\Users\safo\Documents\PhD-local-kasino\wittmann2011/revised_lemmasDirect/mai
 nResults.tex
 Overfull \hbox (0.45801pt too wide) in paragraph at lines 189--1
@@ -1008,22 +1031,21 @@ OML/zplm/m/it/10 b[]\OT1/ppl/m/n/10 , [] , \OML/zplm/m/it/10 b[]\OT1/ppl/m/n/10
  , \OML/zplm/m/it/10 K\OT1/zplm/m/n/10 )$
  []
 
-[89] [90] [91]
+[88] [89] [90]
 Overfull \hbox (37.40883pt too wide) in paragraph at lines 197--197
 [] 
  []
 
 
 Overfull \hbox (9.15225pt too wide) in paragraph at lines 197--199
-[]\T1/ppl/m/it/10 where $\OML/zplm/m/it/10 P[]\OT1/zplm/m/n/10 (\OML/zplm/m/it/
-10 l\OT1/ppl/m/n/10 , \OML/zplm/m/it/10 f\OT1/ppl/m/n/10 , \OML/zplm/m/it/10 b\
-OT1/zplm/m/n/10 ) := [](\OT1/ppl/m/n/10 0\OT1/zplm/m/n/10 )$\T1/ppl/m/it/10 , $
-[]\OT1/zplm/m/n/10 (\OML/zplm/m/it/10 n\OT1/zplm/m/n/10 ) := \OML/zplm/m/it/10 
-n \OT1/zplm/m/n/10 + \OML/zplm/m/it/10 f\OT1/zplm/m/n/10 (\OML/zplm/m/it/10 n\O
-T1/zplm/m/n/10 )$ \T1/ppl/m/it/10 and, in this corol-lary, $\OML/zplm/m/it/10 f
-[]\OT1/zplm/m/n/10 (\OML/zplm/m/it/10 n\OT1/zplm/m/n/10 ) := [][] \OML/zplm/m/i
-t/10 f\OT1/zplm/m/n/10 (\OML/zplm/m/it/10 i\OT1/zplm/m/n/10 )$\T1/ppl/m/it/10 .
- 
+\T1/ppl/m/it/10 where $\OML/zplm/m/it/10 P[]\OT1/zplm/m/n/10 (\OML/zplm/m/it/10
+ l\OT1/ppl/m/n/10 , \OML/zplm/m/it/10 f\OT1/ppl/m/n/10 , \OML/zplm/m/it/10 b\OT
+1/zplm/m/n/10 ) := [](\OT1/ppl/m/n/10 0\OT1/zplm/m/n/10 )$\T1/ppl/m/it/10 , $[]
+\OT1/zplm/m/n/10 (\OML/zplm/m/it/10 n\OT1/zplm/m/n/10 ) := \OML/zplm/m/it/10 n 
+\OT1/zplm/m/n/10 + \OML/zplm/m/it/10 f\OT1/zplm/m/n/10 (\OML/zplm/m/it/10 n\OT1
+/zplm/m/n/10 )$ \T1/ppl/m/it/10 and, in this corol-lary, $\OML/zplm/m/it/10 f[]
+\OT1/zplm/m/n/10 (\OML/zplm/m/it/10 n\OT1/zplm/m/n/10 ) := [][] \OML/zplm/m/it/
+10 f\OT1/zplm/m/n/10 (\OML/zplm/m/it/10 i\OT1/zplm/m/n/10 )$\T1/ppl/m/it/10 . 
  []
 
 
@@ -1040,7 +1062,7 @@ i-na-tion of $\OML/zplm/m/it/10 X[]\OT1/ppl/m/n/10 , \OML/zplm/m/it/10 X[]\OT1/
 ppl/m/n/10 , [] , \OML/zplm/m/it/10 X[]$\T1/ppl/m/n/10 . 
  []
 
-[92] [93]
+[91] [92]
 Overfull \hbox (14.69481pt too wide) in paragraph at lines 67--67
 [] 
  []
@@ -1050,11 +1072,11 @@ Overfull \hbox (6.66223pt too wide) in paragraph at lines 107--107
 [] 
  []
 
-[94] [95] [96] [97]) [98] (C:\Users\safo\Documents\PhD-local-kasino\dipl/bw.tex
+[93] [94] [95] [96]) [97] (C:\Users\safo\Documents\PhD-local-kasino\dipl/bw.tex
 (C:\Users\safo\Documents\PhD-local-kasino\bwint2010/review_bw.tex)
 Underfull \hbox (badness 1043) in paragraph at lines 1--2
-[][]\T1/ppl/m/it/9 The pa-per ... presents a di-rect com-pu-ta-tional in-ter-pr
-e-ta-tion of the Bolzano-
+[]\T1/ppl/m/it/9 The pa-per ... presents a di-rect com-pu-ta-tional in-ter-pre-
+ta-tion of the Bolzano-
  []
 
 
@@ -1062,14 +1084,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 1--2
 
  []
 
-[99
+[98
 
-] [100] [101] [102]
+] [99] [100] [101]
 Underfull \hbox (badness 10000) in paragraph at lines 336--340
 
  []
 
-[103] [104] [105]
+[102] [103] [104]
 
 Package relsize Warning: Size requested is too small.
 (relsize)                Using 5.0pt instead on input line 567.
@@ -1118,21 +1140,21 @@ Package relsize Warning: Size requested is too small.
 Package relsize Warning: Size requested is too small.
 (relsize)                Using 5.0pt instead on input line 567.
 
-[106] [107]
+[105] [106]
 Overfull \hbox (38.94249pt too wide) in paragraph at lines 728--728
 [] 
  []
 
 
 Overfull \hbox (2.72377pt too wide) in paragraph at lines 732--736
-[]\T1/ppl/m/it/10 where as be-fore (with $\OML/zplm/m/it/10 f \OT1/zplm/m/n/10 
-:= \OML/zplm/m/it/10 f[]$\T1/ppl/m/it/10 , $\OML/zplm/m/it/10 z[] \OT1/zplm/m/n
-/10 :\OMS/zplm/m/n/10 [] \OML/zplm/m/it/10 n\OT1/ppl/m/n/10 .\OML/zplm/m/it/1
-0 z[]n\OT1/ppl/m/n/10 0$\T1/ppl/m/it/10 , $\OML/zplm/m/it/10 g[] \OT1/zplm/m/n/
-10 :\OMS/zplm/m/n/10 [] \OML/zplm/m/it/10 a\OT1/ppl/m/n/10 , \OML/zplm/m/it/1
-0 b \OT1/ppl/m/n/10 .\OML/zplm/m/it/10 g[]a$ \T1/ppl/m/it/10 and $\OML/zplm/m/i
-t/10 g  \U/msa/m/n/10   [] \OT1/zplm/m/n/10 :\OMS/zplm/m/n/10  \OML/zplm/m/it
-/10 n\OT1/ppl/m/n/10 .[]$\T1/ppl/m/it/10 ): 
+\T1/ppl/m/it/10 where as be-fore (with $\OML/zplm/m/it/10 f \OT1/zplm/m/n/10 :=
+ \OML/zplm/m/it/10 f[]$\T1/ppl/m/it/10 , $\OML/zplm/m/it/10 z[] \OT1/zplm/m/n/1
+0 :\OMS/zplm/m/n/10 [] \OML/zplm/m/it/10 n\OT1/ppl/m/n/10 .\OML/zplm/m/it/10 
+z[]n\OT1/ppl/m/n/10 0$\T1/ppl/m/it/10 , $\OML/zplm/m/it/10 g[] \OT1/zplm/m/n/10
+ :\OMS/zplm/m/n/10 [] \OML/zplm/m/it/10 a\OT1/ppl/m/n/10 , \OML/zplm/m/it/10 
+b \OT1/ppl/m/n/10 .\OML/zplm/m/it/10 g[]a$ \T1/ppl/m/it/10 and $\OML/zplm/m/it/
+10 g  \U/msa/m/n/10   [] \OT1/zplm/m/n/10 :\OMS/zplm/m/n/10  \OML/zplm/m/it/1
+0 n\OT1/ppl/m/n/10 .[]$\T1/ppl/m/it/10 ): 
  []
 
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <8> not available
@@ -1142,14 +1164,14 @@ Overfull \hbox (1.2642pt too wide) in paragraph at lines 748--748
 [] 
  []
 
-[108]
+[107]
 Overfull \hbox (14.4534pt too wide) in paragraph at lines 874--880
-[]\T1/ppl/m/n/10 Note that by [] the equal-ity $\OML/zplm/m/it/10 \OT1/zplm/m/
-n/10 (\OML/zplm/m/it/10 x[]\OT1/zplm/m/n/10 ) =[] \OT1/ppl/m/n/10 0$ \T1/ppl/m/
-n/10 im-plies $\OML/zplm/m/it/10 f[]\OT1/zplm/m/n/10 (\OML/zplm/m/it/10 x[]\OT1
-/ppl/m/n/10 , \OML/zplm/m/it/10 zx[]\OT1/zplm/m/n/10 ) =[] \OT1/ppl/m/n/10 0$ \
-T1/ppl/m/n/10 and thereby $[]\OT1/zplm/m/n/10 ([\OML/zplm/m/it/10 x[]\OT1/zplm/
-m/n/10 ])$\T1/ppl/m/n/10 . 
+\T1/ppl/m/n/10 Note that by [] the equal-ity $\OML/zplm/m/it/10 \OT1/zplm/m/n/
+10 (\OML/zplm/m/it/10 x[]\OT1/zplm/m/n/10 ) =[] \OT1/ppl/m/n/10 0$ \T1/ppl/m/n/
+10 im-plies $\OML/zplm/m/it/10 f[]\OT1/zplm/m/n/10 (\OML/zplm/m/it/10 x[]\OT1/p
+pl/m/n/10 , \OML/zplm/m/it/10 zx[]\OT1/zplm/m/n/10 ) =[] \OT1/ppl/m/n/10 0$ \T1
+/ppl/m/n/10 and thereby $[]\OT1/zplm/m/n/10 ([\OML/zplm/m/it/10 x[]\OT1/zplm/m/
+n/10 ])$\T1/ppl/m/n/10 . 
  []
 
 
@@ -1157,17 +1179,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 900--905
 
  []
 
-[109]
+[108]
 Underfull \hbox (badness 10000) in paragraph at lines 942--944
 
  []
 
-[110] [111]
+[109] [110]
 Underfull \hbox (badness 10000) in paragraph at lines 1163--1175
 
  []
 
-[112]
+[111]
 Overfull \hbox (10.35411pt too wide) detected at line 1189
 [][]\OT1/zplm/m/n/10 (\OML/zplm/m/it/10 n\OT1/zplm/m/n/10 ) \OMS/zplm/m/n/10  
 \OML/zplm/m/it/10 n \OT1/zplm/m/n/10 + \OT1/ppl/m/n/10 2 \OT1/zplm/m/n/10 + (\O
@@ -1183,12 +1205,12 @@ ML/zplm/m/it/10 n \OT1/zplm/m/n/10 + \OT1/ppl/m/n/10 2\OT1/zplm/m/n/10 )[](\OMS
 lm/m/n/10 e\OT1/zplm/m/n/10 )[]\OT1/ppl/m/n/10 .
  []
 
-[113]
+[112]
 Underfull \hbox (badness 10000) in paragraph at lines 1281--1290
 
  []
 
-[114] [115]
+[113] [114]
 Overfull \hbox (1.70555pt too wide) in paragraph at lines 1394--1428
 \T1/ppl/m/n/10 Finally, $\OT1/zplm/m/n/10 [][][](\OML/zplm/m/it/10 t\OT1/zplm/
 m/n/10 )$ \T1/ppl/m/n/10 and $\OT1/zplm/m/n/10 [][][](\OML/zplm/m/it/10 t\OT1/
@@ -1197,11 +1219,11 @@ zplm/m/n/10 )$ \T1/ppl/m/n/10 are deriv-able from the in-stances $[]\OT1/zplm/m
 plm/m/n/10 (\OML/zplm/m/it/10 F[]t\OT1/zplm/m/n/10 )$
  []
 
-[116]) [117] (C:\Users\safo\Documents\PhD-local-kasino\dst/CSAT.tex
+[115]) [116] (C:\Users\safo\Documents\PhD-local-kasino\dst/CSAT.tex
 (C:\Users\safo\Documents\PhD-local-kasino\dst/review.tex)
 Underfull \hbox (badness 1024) in paragraph at lines 1--5
-[][]\T1/ppl/m/it/9 This pa-per in-tro-duces a new re-al-iz-abil-ity and func-ti
-onal in-ter-pre-ta-tion where
+[]\T1/ppl/m/it/9 This pa-per in-tro-duces a new re-al-iz-abil-ity and func-tion
+al in-ter-pre-ta-tion where
  []
 
 
@@ -1214,49 +1236,49 @@ Underfull \hbox (badness 10000) in paragraph at lines 3--5
 
  []
 
-[118
+[117
 
 
-]) (C:\Users\safo\Documents\PhD-local-kasino\dst/systems.tex [119] [120]
-[121] [122]) (C:\Users\safo\Documents\PhD-local-kasino\dst/principles.tex
-[123] [124] [125] [126])
+]) (C:\Users\safo\Documents\PhD-local-kasino\dst/systems.tex [118] [119]
+[120] [121]) (C:\Users\safo\Documents\PhD-local-kasino\dst/principles.tex
+[122] [123] [124] [125])
 (C:\Users\safo\Documents\PhD-local-kasino\dst/dialectica.tex
 Overfull \hbox (0.25504pt too wide) in paragraph at lines 33--34
-[][]$\OT1/zplm/m/n/10 (([]) \OMS/zplm/m/n/10 ! \OT1/zplm/m/n/10 	([]))[] :\OMS
-/zplm/m/n/10  9[] []\OT1/ppl/m/n/10 , []\OMS/zplm/m/n/10 8[] []\OT1/ppl/m/n/10
- , [] []\OMS/zplm/m/n/10 8[] 2 []\OT1/zplm/m/n/10 [[]\OT1/ppl/m/n/10 , []\OT1/z
-plm/m/n/10 ] \OML/zplm/m/it/10 '[]\OT1/zplm/m/n/10 ([]\OT1/ppl/m/n/10 , [], []\
-OT1/zplm/m/n/10 ) \OMS/zplm/m/n/10 ! \OML/zplm/m/it/10  []\OT1/zplm/m/n/10 ([][
-[]]\OT1/ppl/m/n/10 , [], []\OT1/zplm/m/n/10 )[]\OT1/ppl/m/n/10 .$ 
+[]$\OT1/zplm/m/n/10 (([]) \OMS/zplm/m/n/10 ! \OT1/zplm/m/n/10 	([]))[] :\OMS/z
+plm/m/n/10  9[] []\OT1/ppl/m/n/10 , []\OMS/zplm/m/n/10 8[] []\OT1/ppl/m/n/10 ,
+ [] []\OMS/zplm/m/n/10 8[] 2 []\OT1/zplm/m/n/10 [[]\OT1/ppl/m/n/10 , []\OT1/zpl
+m/m/n/10 ] \OML/zplm/m/it/10 '[]\OT1/zplm/m/n/10 ([]\OT1/ppl/m/n/10 , [], []\OT
+1/zplm/m/n/10 ) \OMS/zplm/m/n/10 ! \OML/zplm/m/it/10  []\OT1/zplm/m/n/10 ([][[]
+]\OT1/ppl/m/n/10 , [], []\OT1/zplm/m/n/10 )[]\OT1/ppl/m/n/10 .$ 
  []
 
-[127]
+[126]
 Overfull \hbox (1.80519pt too wide) in paragraph at lines 82--84
 []\T1/ppl/b/n/10 Theorem 5.30 \T1/ppl/m/n/10 (Sound-ness of the $[]$-interpreta
-tion, [[]])\T1/ppl/b/n/10 . [][]\T1/ppl/m/it/10 Let $\OT1/zplm/m/n/10 ([])$ \T
-1/ppl/m/it/10 be a for-mula of $[][] $
+tion, [[]])\T1/ppl/b/n/10 . []\T1/ppl/m/it/10 Let $\OT1/zplm/m/n/10 ([])$ \T1/
+ppl/m/it/10 be a for-mula of $[][] $
  []
 
-[128]) (C:\Users\safo\Documents\PhD-local-kasino\dst/negative.tex [129]
-[130]) (C:\Users\safo\Documents\PhD-local-kasino\dst/shoenfield.tex [131]
-[132] [133] [134] <xymatrix 2x3 149>)
+[127]) (C:\Users\safo\Documents\PhD-local-kasino\dst/negative.tex [128]
+[129]) (C:\Users\safo\Documents\PhD-local-kasino\dst/shoenfield.tex [130]
+[131] [132] [133] <xymatrix 2x3 149>)
 (C:\Users\safo\Documents\PhD-local-kasino\dst/CSAT-step4.tex
-Overfull \hbox (6.08916pt too wide) in paragraph at lines 25--25
+Overfull \hbox (6.08916pt too wide) in paragraph at lines 27--27
 [] 
  []
 
-[135]) (C:\Users\safo\Documents\PhD-local-kasino\dst/CSAT-step5.tex [136]
-[137])) [138] (C:\Users\safo\Documents\PhD-local-kasino\refs.tex
-(C:\Users\safo\Documents\PhD-local-kasino\phd_safarik.bbl [139
+[134]) [135] (C:\Users\safo\Documents\PhD-local-kasino\dst/CSAT-step5.tex
+[136])) [137] (C:\Users\safo\Documents\PhD-local-kasino\refs.tex
+(C:\Users\safo\Documents\PhD-local-kasino\phd_safarik.bbl [138
 
 
-] [140]
+] [139]
 Underfull \hbox (badness 2065) in paragraph at lines 206--209
-[][]\T1/ppl/m/n/10 P. Ger-hardy and U. Kohlen-bach.  Strongly uni-form bounds f
-rom semi-
+[]\T1/ppl/m/n/10 P. Ger-hardy and U. Kohlen-bach.  Strongly uni-form bounds fro
+m semi-
  []
 
-[141] [142] [143] [144] [145])) [146]
+[140] [141] [142] [143] [144])) [145]
 (C:\Users\safo\Documents\PhD-local-kasino\phd_safarik.aux
 (C:\Users\safo\Documents\PhD-local-kasino\title.aux)
 (C:\Users\safo\Documents\PhD-local-kasino\intro.aux)
@@ -1275,12 +1297,34 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 6877 strings out of 494054
- 87888 string characters out of 3150241
- 185399 words of memory out of 3000000
- 9853 multiletter control sequences out of 15000+200000
- 201335 words of font info for 396 fonts, out of 3000000 for 9000
+ 7734 strings out of 494053
+ 97797 string characters out of 3150218
+ 210672 words of memory out of 3000000
+ 10564 multiletter control sequences out of 15000+200000
+ 258800 words of font info for 520 fonts, out of 3000000 for 9000
  717 hyphenation exceptions out of 8191
- 50i,32n,56p,1201b,563s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 50i,32n,56p,3297b,563s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files/MiKTeX/fonts/enc/dvips/fontname/8r.enc}<C:/Program Files/Mi
+KTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX/fonts/t
+ype1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/
+amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/c
+msy10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/mathpazo/fplmbb.pfb><C:/P
+rogram Files/MiKTeX/fonts/type1/public/mathpazo/fplmr.pfb><C:/Program Files/MiK
+TeX/fonts/type1/public/mathpazo/fplmri.pfb><C:/Program Files/MiKTeX/fonts/type1
+/public/amsfonts/latxfont/lasy10.pfb><C:/Program Files/MiKTeX/fonts/type1/publi
+c/amsfonts/symbols/msam10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfo
+nts/symbols/msam7.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/symb
+ols/msbm10.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/helvetic/uhvb8a.pfb><C:
+/Program Files/MiKTeX/fonts/type1/urw/helvetic/uhvb8ac.pfb><C:/Program Files/Mi
+KTeX/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Program Files/MiKTeX/fonts/type1/u
+rw/palatino/uplb8a.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/palatino/uplbi8
+a.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/palatino/uplr8a.pfb><C:/Program 
+Files/MiKTeX/fonts/type1/urw/palatino/uplri8a.pfb><C:/Program Files/MiKTeX/font
+s/type1/public/xypic/xyatip10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/x
+ypic/xybtip10.pfb>
+Output written on phd_safarik.pdf (154 pages, 859275 bytes).
+PDF statistics:
+ 577 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
-Output written on phd_safarik.dvi (155 pages, 961512 bytes).

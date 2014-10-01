@@ -28,26 +28,26 @@
 \contentsline {section}{\numberline {2}Effective learnability}{44}
 \contentsline {subsection}{\numberline {2.1}Fluctuations versus effective learnability}{46}
 \contentsline {subsection}{\numberline {2.2}Cauchy statements and unrestricted use of $\Sigma ^0_1$-LEM}{60}
-\contentsline {subsection}{\numberline {2.3}Which Cauchy statements are effectively learnable and which are not}{63}
+\contentsline {subsection}{\numberline {2.3}Which Cauchy statements are effectively learnable and which are not}{62}
 \contentsline {paragraph}{Step 1}{68}
-\contentsline {paragraph}{Step 2}{70}
-\contentsline {paragraph}{Step 3}{70}
-\contentsline {subsection}{\numberline {2.4}When learnability implies fluctuation bounds}{74}
-\contentsline {section}{\numberline {3}Interpreting a strong non-linear ergodic theorem}{79}
-\contentsline {subsection}{\numberline {3.1}Arithmetizing Wittmann's proof}{83}
-\contentsline {subsection}{\numberline {3.2}Obtaining a bound}{85}
-\contentsline {subsection}{\numberline {3.3}A general bound existence theorem}{86}
-\contentsline {subsection}{\numberline {3.4}Uniform bounds for Wittmann's ergodic theorems}{89}
-\contentsline {subsection}{\numberline {3.5}Proof of Proposition\nobreakspace {}3.9\hbox {}}{93}
-\contentsline {section}{\numberline {4}Interpreting Bolzano-Weierstra{\ss }}{99}
-\contentsline {subsection}{\numberline {4.1}Interpreting Bolzano-Weierstra{\ss }}{101}
-\contentsline {subsection}{\numberline {4.2}Analysis of the Complexity of the Realizers}{114}
-\contentsline {section}{\numberline {5}Functional interpretation for IST}{118}
-\contentsline {subsection}{\numberline {5.1}Formalities}{119}
-\contentsline {subsection}{\numberline {5.2}Nonstandard principles}{123}
-\contentsline {subsection}{\numberline {5.3}A functional interpretation for $\ensuremath {\ensuremath {{\textsf {\upshape E-HA}}^{\omega *}}_{\stOperator {}}\tmspace -\thinmuskip {.1667em}}$}{127}
-\contentsline {subsection}{\numberline {5.4}The system $\ensuremath {\ensuremath {{\textsf {\upshape E-PA}}^{\omega *}}_{\stOperator {}}\tmspace -\thinmuskip {.1667em}}$ and negative translation}{130}
-\contentsline {subsection}{\numberline {5.5}A functional interpretation for $\ensuremath {\ensuremath {{\textsf {\upshape E-PA}}^{\omega *}}_{\stOperator {}}\tmspace -\thinmuskip {.1667em}}$}{131}
-\contentsline {subsection}{\numberline {5.6}Countable saturation}{136}
-\contentsline {section}{References}{139}
+\contentsline {paragraph}{Step 2}{69}
+\contentsline {paragraph}{Step 3}{69}
+\contentsline {subsection}{\numberline {2.4}When learnability implies fluctuation bounds}{73}
+\contentsline {section}{\numberline {3}Interpreting a strong non-linear ergodic theorem}{78}
+\contentsline {subsection}{\numberline {3.1}Arithmetizing Wittmann's proof}{82}
+\contentsline {subsection}{\numberline {3.2}Obtaining a bound}{84}
+\contentsline {subsection}{\numberline {3.3}A general bound existence theorem}{85}
+\contentsline {subsection}{\numberline {3.4}Uniform bounds for Wittmann's ergodic theorems}{88}
+\contentsline {subsection}{\numberline {3.5}Proof of Proposition\nobreakspace {}3.9\hbox {}}{92}
+\contentsline {section}{\numberline {4}Interpreting Bolzano-Weierstra{\ss }}{98}
+\contentsline {subsection}{\numberline {4.1}Interpreting Bolzano-Weierstra{\ss }}{100}
+\contentsline {subsection}{\numberline {4.2}Analysis of the Complexity of the Realizers}{113}
+\contentsline {section}{\numberline {5}Functional interpretation for IST}{117}
+\contentsline {subsection}{\numberline {5.1}Formalities}{118}
+\contentsline {subsection}{\numberline {5.2}Nonstandard principles}{122}
+\contentsline {subsection}{\numberline {5.3}A functional interpretation for $\ensuremath {\ensuremath {{\textsf {\upshape E-HA}}^{\omega *}}_{\stOperator {}}\tmspace -\thinmuskip {.1667em}}$}{126}
+\contentsline {subsection}{\numberline {5.4}The system $\ensuremath {\ensuremath {{\textsf {\upshape E-PA}}^{\omega *}}_{\stOperator {}}\tmspace -\thinmuskip {.1667em}}$ and negative translation}{129}
+\contentsline {subsection}{\numberline {5.5}A functional interpretation for $\ensuremath {\ensuremath {{\textsf {\upshape E-PA}}^{\omega *}}_{\stOperator {}}\tmspace -\thinmuskip {.1667em}}$}{130}
+\contentsline {subsection}{\numberline {5.6}Countable saturation}{135}
+\contentsline {section}{References}{138}
 \contentsfinish 
